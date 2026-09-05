@@ -1,0 +1,140 @@
+{{ 'od-showcase.js' | asset_url | script_tag }}
+
+{%- liquid
+  assign picked = section.blocks | where: 'type', 'slide'
+  assign fallback = section.settings.collection.products | default: collections.all.products
+  assign fallback_index = 0
+-%}
+
+<section class="od-showcase" data-od-showcase>
+  <div class="od-wrap od-showcase__intro">
+    <div class="od-head">
+      <h2 class="od-display od-display--lg">{{ section.settings.heading }}</h2>
+      {%- if section.settings.link_label != blank -%}
+        <p><a class="od-link" href="{{ section.settings.link_url | default: '/collections/all' }}">{{ section.settings.link_label }}</a></p>
+      {%- endif -%}
+    </div>
+  </div>
+
+  <div class="od-showcase__track">
+    <div class="od-showcase__stage">
+      <div class="od-wrap" style="width:100%">
+        <div class="od-showcase__slides">
+          {%- for block in picked limit: 3 -%}
+            {%- liquid
+              assign product = block.settings.product
+              if product == blank
+                for p in fallback offset: fallback_index limit: 1
+                  assign product = p
+                endfor
+                assign fallback_index = fallback_index | plus: 1
+              endif
+              assign variant = product.selected_or_first_available_variant
+              assign media_image = block.settings.image | default: product.featured_image
+              assign title = block.settings.title | default: product.title
+              assign desc = block.settings.description
+              if desc == blank
+                assign desc = product.description | strip_html | truncatewords: 32
+              endif
+            -%}
+            {%- assign slide_color = block.settings.accent_color | default: '#D5E9E4' -%}
+            <article class="od-slide" {{ block.shopify_attributes }} aria-label="{{ title | escape }}" style="--slide-accent: {{ slide_color }};">
+              <div class="od-slide__media">
+                <div class="od-slide__plate" aria-hidden="true"></div>
+                {%- if block.settings.video != blank -%}
+                  {{ block.settings.video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, controls: false, image_size: '1000x' }}
+                {%- elsif media_image != blank -%}
+                  {{ media_image | image_url: width: 1200 | image_tag: loading: 'lazy', widths: '600, 900, 1200', sizes: '(max-width: 880px) 80vw, 40vw' }}
+                {%- else -%}
+                  <svg class="od-placeholder-jar" viewBox="0 0 120 160" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <rect x="38" y="6" width="44" height="16" rx="6" fill="var(--od-teal-soft)" stroke="var(--od-teal)" stroke-width="2"/>
+                    <rect x="44" y="4" width="32" height="8" rx="4" fill="var(--od-teal)"/>
+                    <path d="M24 34C22 40 20 48 20 58V128C20 138 28 146 38 146H82C92 146 100 138 100 128V58C100 48 98 40 96 34H24Z" fill="var(--od-teal-soft)" stroke="var(--od-teal)" stroke-width="2"/>
+                    <path d="M20 34C20 28 26 22 38 22H82C94 22 100 28 100 34H20Z" fill="var(--od-teal)" opacity="0.6"/>
+                    <ellipse cx="60" cy="90" rx="22" ry="24" fill="var(--od-teal)" opacity="0.25"/>
+                    <text x="60" y="96" text-anchor="middle" font-family="var(--od-font-display)" font-size="11" fill="var(--od-teal)" font-style="italic">sea moss</text>
+                  </svg>
+                {%- endif -%}
+              </div>
+
+              <div class="od-slide__copy">
+                {%- if block.settings.flavor_note != blank -%}
+                  <p class="od-slide__badge">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2C8 2 4 5 4 9c0 5 8 13 8 13s8-8 8-13c0-4-4-7-8-7zm0 9a2 2 0 110-4 2 2 0 010 4z" fill="currentColor"/></svg>
+                    {{ block.settings.flavor_note }}
+                  </p>
+                {%- endif -%}
+                <p class="od-slide__index">{{ forloop.index }} of {{ picked.size | at_most: 3 }}</p>
+                <h3 class="od-display od-display--md od-slide__title">{{ title }}</h3>
+                {%- if desc != blank -%}
+                  <p class="od-body od-slide__desc">{{ desc }}</p>
+                {%- endif -%}
+
+                {%- if product != blank -%}
+                  <p class="od-slide__price">
+                    {{ variant.price | money }}
+                    {%- if variant.compare_at_price > variant.price -%}
+                      <s>{{ variant.compare_at_price | money }}</s>
+                    {%- endif -%}
+                  </p>
+                  <form class="od-slide__form" method="post" action="{{ routes.cart_add_url }}" accept-charset="UTF-8" enctype="multipart/form-data">
+                    <input type="hidden" name="form_type" value="product">
+                    <input type="hidden" name="utf8" value="✓">
+                    <input type="hidden" name="id" value="{{ variant.id }}">
+                    <input type="hidden" name="quantity" value="1">
+                    <button type="submit" class="od-btn od-btn--primary" {% unless variant.available %}disabled{% endunless %}>
+                      {%- if variant.available -%}Add to cart{%- else -%}Sold out{%- endif -%}
+                    </button>
+                    <a class="od-link" href="{{ product.url }}">See the details</a>
+                  </form>
+                {%- endif -%}
+              </div>
+            </article>
+          {%- endfor -%}
+        </div>
+      </div>
+
+      <div class="od-showcase__progress" aria-hidden="true">
+        {%- for block in picked limit: 3 -%}
+          <span class="od-showcase__dot{% if forloop.first %} is-active{% endif %}"></span>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "OD — Flavor showcase",
+  "tag": "section",
+  "class": "od-section-showcase",
+  "max_blocks": 3,
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Three jars to start with." },
+    { "type": "text", "id": "link_label", "label": "Link label", "default": "See all 30+ flavors" },
+    { "type": "url", "id": "link_url", "label": "Link URL", "default": "/collections/all" },
+    { "type": "collection", "id": "collection", "label": "Fallback collection", "info": "Used for any slide without a product picked." }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Product slide",
+      "settings": [
+        { "type": "product", "id": "product", "label": "Product" },
+        { "type": "text", "id": "title", "label": "Title override" },
+        { "type": "textarea", "id": "description", "label": "Short description", "info": "One or two sentences. Falls back to the product description." },
+        { "type": "image_picker", "id": "image", "label": "Image override" },
+        { "type": "video", "id": "video", "label": "Rotation video (phase 2)", "info": "A 4–6 s muted loop of the jar rotating. Replaces the image when set." },
+        { "type": "color", "id": "accent_color", "label": "Plate color", "default": "#D5E9E4", "info": "Circle behind the jar. Each flavor gets its own color." },
+        { "type": "text", "id": "flavor_note", "label": "Flavor note", "info": "Short descriptor shown as a badge, e.g. 'Tropical & creamy' or 'Earthy + grounding'." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "OD — Flavor showcase",
+      "blocks": [{ "type": "slide" }, { "type": "slide" }, { "type": "slide" }]
+    }
+  ]
+}
+{% endschema %}

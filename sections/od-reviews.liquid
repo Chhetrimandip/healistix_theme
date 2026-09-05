@@ -1,0 +1,100 @@
+<section class="od-section od-reviews">
+  <div class="od-wrap">
+    <div class="od-head">
+      <h2 class="od-display od-display--lg">{{ section.settings.heading }}</h2>
+      {%- if section.settings.link_label != blank and section.settings.link_url != blank -%}
+        <p><a class="od-link" href="{{ section.settings.link_url }}">{{ section.settings.link_label }}</a></p>
+      {%- endif -%}
+    </div>
+
+    <div class="od-reviews__grid">
+      {%- for block in section.blocks -%}
+        <figure class="od-review" {{ block.shopify_attributes }}>
+          {%- if block.settings.stars > 0 -%}
+            <span class="od-stars" aria-label="{{ block.settings.stars }} out of 5 stars">
+              {%- for i in (1..block.settings.stars) -%}
+                <svg viewBox="0 0 20 20"><path d="M10 1.6l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L10 15l-5.3 2.8 1.1-5.9L1.5 7.8l5.9-.8z"/></svg>
+              {%- endfor -%}
+            </span>
+          {%- endif -%}
+
+          <blockquote class="od-review__text">{{ block.settings.quote }}</blockquote>
+
+          <figcaption class="od-review__meta">
+            <strong>{{ block.settings.name }}</strong>
+            {%- if block.settings.location != blank -%}
+              &thinsp;—&thinsp;{{ block.settings.location }}
+            {%- endif -%}
+            {%- if block.settings.verified -%}
+              &ensp;<span aria-label="Verified purchase">&#10003; Verified</span>
+            {%- endif -%}
+          </figcaption>
+        </figure>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "OD — Reviews",
+  "tag": "section",
+  "class": "od-section-reviews",
+  "max_blocks": 6,
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "What people are saying." },
+    { "type": "text", "id": "link_label", "label": "Link label", "default": "Read all reviews" },
+    { "type": "url", "id": "link_url", "label": "Link URL" }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        { "type": "range", "id": "stars", "label": "Stars", "min": 0, "max": 5, "step": 1, "default": 5 },
+        { "type": "textarea", "id": "quote", "label": "Quote", "default": "I've tried a lot of sea moss brands. This is the only one that doesn't taste like you're drinking the ocean." },
+        { "type": "text", "id": "name", "label": "Reviewer name", "default": "Tanya R." },
+        { "type": "text", "id": "location", "label": "Location (optional)", "default": "Atlanta, GA" },
+        { "type": "checkbox", "id": "verified", "label": "Show verified badge", "default": true }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "OD — Reviews",
+      "blocks": [
+        {
+          "type": "review",
+          "settings": {
+            "quote": "I've tried a lot of sea moss brands. This is the only one that doesn't taste like you're drinking the ocean.",
+            "name": "Tanya R.",
+            "location": "Atlanta, GA",
+            "stars": 5,
+            "verified": true
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "quote": "The mango flavor is genuinely delicious. My kids ask for it in their smoothies now, which is a win I did not expect.",
+            "name": "Marcus D.",
+            "location": "Brooklyn, NY",
+            "stars": 5,
+            "verified": true
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "quote": "Ordering from St. Lucia and having it arrive fresh in four days is wild. You can tell this isn't sitting in a warehouse somewhere.",
+            "name": "Priya S.",
+            "location": "Los Angeles, CA",
+            "stars": 5,
+            "verified": true
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

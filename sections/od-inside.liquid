@@ -1,0 +1,70 @@
+<section class="od-section od-inside">
+  <div class="od-wrap od-inside__grid">
+    <div class="od-inside__media">
+      {%- if section.settings.image != blank -%}
+        {{ section.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy', widths: '600, 900, 1200', sizes: '(max-width: 880px) 100vw, 45vw' }}
+      {%- else -%}
+        <p class="od-inside__media-fallback">{{ section.settings.image_fallback_text }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="od-inside__copy">
+      <h2 class="od-display od-display--lg">{{ section.settings.heading }}</h2>
+      {%- if section.settings.text != blank -%}
+        <p class="od-lede">{{ section.settings.text }}</p>
+      {%- endif -%}
+
+      <ul class="od-ingredients">
+        {%- for block in section.blocks -%}
+          <li {{ block.shopify_attributes }}>
+            <h3 class="od-ingredients__name">
+              {{ block.settings.name }}
+              {%- if block.settings.origin != blank -%}
+                <span class="od-ingredients__origin">{{ block.settings.origin }}</span>
+              {%- endif -%}
+            </h3>
+            <p class="od-ingredients__desc">{{ block.settings.text }}</p>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "OD — What's inside",
+  "tag": "section",
+  "class": "od-section-inside",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Six ingredients. Nothing else." },
+    { "type": "textarea", "id": "text", "label": "Text", "default": "Every jar starts with the same honest base. The flavored blends add whole fruit, never concentrate, sugar or flavoring." },
+    { "type": "image_picker", "id": "image", "label": "Image", "info": "Overhead shot of the raw ingredients works well here." },
+    { "type": "text", "id": "image_fallback_text", "label": "Text shown until an image is added", "default": "Sea moss, bladderwrack and burdock root, soaked in alkaline spring water." }
+  ],
+  "blocks": [
+    {
+      "type": "ingredient",
+      "name": "Ingredient",
+      "settings": [
+        { "type": "text", "id": "name", "label": "Name", "default": "Wildcrafted sea moss" },
+        { "type": "text", "id": "origin", "label": "Origin", "default": "St. Lucia, Atlantic Ocean" },
+        { "type": "textarea", "id": "text", "label": "Description", "default": "Hand-harvested from the rocks. Carries 92 of the 102 minerals your body uses, including iodine, iron, zinc and magnesium." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "OD — What's inside",
+      "blocks": [
+        { "type": "ingredient", "settings": { "name": "Wildcrafted sea moss", "origin": "St. Lucia, Atlantic Ocean", "text": "Hand-harvested from the rocks. Carries 92 of the 102 minerals your body uses, including iodine, iron, zinc and magnesium." } },
+        { "type": "ingredient", "settings": { "name": "Irish bladderwrack", "origin": "North Atlantic coast", "text": "The oceanic companion to sea moss. Naturally rich in iodine and fucoidans, which support thyroid, metabolism and joints." } },
+        { "type": "ingredient", "settings": { "name": "Burdock root", "origin": "Organic, grown in the USA", "text": "The third pillar of the Trinity blend. A traditional blood purifier tied to clearer skin and liver support." } },
+        { "type": "ingredient", "settings": { "name": "Alkaline spring water", "origin": "Soaking and blending base", "text": "We soak and blend with pH-balanced spring water, never tap or distilled, so the minerals and enzymes stay intact." } },
+        { "type": "ingredient", "settings": { "name": "Fresh key lime", "origin": "Cold-pressed, Florida", "text": "The Caribbean way to keep a jar fresh. Balances pH and brightens the flavor without a single synthetic preservative." } },
+        { "type": "ingredient", "settings": { "name": "Whole fruit purée", "origin": "Flavored blends only", "text": "Mango, strawberry, pineapple, blueberry, soursop and more, blended in small batches from ripe fruit." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

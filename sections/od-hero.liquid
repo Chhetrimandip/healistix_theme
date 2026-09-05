@@ -1,0 +1,73 @@
+{%- liquid
+  assign product = section.settings.product
+  assign bg_image = section.settings.image
+  assign cta_link = section.settings.cta_link
+  if cta_link == blank and product != blank
+    assign cta_link = product.url
+  endif
+-%}
+
+<section class="od-hero od-hero--bg">
+  <div class="od-hero__bg" aria-hidden="true">
+    {%- if bg_image != blank -%}
+      {{ bg_image | image_url: width: 2400 | image_tag: loading: 'eager', fetchpriority: 'high', widths: '800, 1200, 1600, 2400', sizes: '100vw' }}
+    {%- else -%}
+      <img src="{{ 'healstix_hero.jpeg' | asset_url }}" alt="" loading="eager" fetchpriority="high" width="2400" height="1600">
+    {%- endif -%}
+  </div>
+
+  <div class="od-wrap od-hero__content" style="--hero-text: {{ section.settings.text_color | default: '#ffffff' }}; --hero-text-soft: {{ section.settings.text_color | default: '#ffffff' }}88;">
+    {%- if section.settings.review_count != blank -%}
+      <p class="od-hero__rating">
+        <span class="od-stars" aria-hidden="true">
+          {%- for i in (1..5) -%}
+            <svg viewBox="0 0 20 20"><path d="M10 1.6l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L10 15l-5.3 2.8 1.1-5.9L1.5 7.8l5.9-.8z"/></svg>
+          {%- endfor -%}
+        </span>
+        <span>{{ section.settings.review_count }}</span>
+      </p>
+    {%- endif -%}
+
+    <h1 class="od-display od-display--xl">{{ section.settings.heading }}</h1>
+
+    {%- if section.settings.text != blank -%}
+      <p class="od-lede">{{ section.settings.text }}</p>
+    {%- endif -%}
+
+    <div class="od-hero__actions">
+      {%- if section.settings.cta_label != blank and cta_link != blank -%}
+        <a class="od-btn od-btn--primary" href="{{ cta_link }}">{{ section.settings.cta_label }}</a>
+      {%- endif -%}
+      {%- if section.settings.link_label != blank and section.settings.link_url != blank -%}
+        <a class="od-link od-link--light" href="{{ section.settings.link_url }}">{{ section.settings.link_label }}</a>
+      {%- endif -%}
+    </div>
+
+    {%- if section.settings.note != blank -%}
+      <p class="od-hero__note">{{ section.settings.note }}</p>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "OD — Hero",
+  "tag": "section",
+  "class": "od-section-hero",
+  "settings": [
+    { "type": "text", "id": "review_count", "label": "Rating line", "default": "4.9 from 460+ reviews" },
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "Sea moss you'll actually look forward to." },
+    { "type": "textarea", "id": "text", "label": "Text", "default": "Wildcrafted off the rocks of St. Lucia and blended by hand in our family kitchen, in over 30 flavors. No sugar, no preservatives, nothing we wouldn't give our own kids." },
+    { "type": "product", "id": "product", "label": "Hero product", "info": "Used for the image and button link unless overridden below." },
+    { "type": "image_picker", "id": "image", "label": "Background image", "info": "Full-bleed hero background. Falls back to the built-in brand photo until you set one here." },
+    { "type": "text", "id": "caption", "label": "Image caption", "default": "The Trinity jar, 16 oz" },
+    { "type": "text", "id": "cta_label", "label": "Button label", "default": "Shop the Trinity jar" },
+    { "type": "url", "id": "cta_link", "label": "Button link override" },
+    { "type": "text", "id": "link_label", "label": "Text link label", "default": "Find your flavor in 60 seconds" },
+    { "type": "url", "id": "link_url", "label": "Text link URL" },
+    { "type": "text", "id": "note", "label": "Small note", "default": "Free shipping over $30, and a 30-day money-back guarantee." },
+    { "type": "color", "id": "text_color", "label": "Text color", "default": "#ffffff" }
+  ],
+  "presets": [{ "name": "OD — Hero" }]
+}
+{% endschema %}
