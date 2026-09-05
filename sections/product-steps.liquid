@@ -1,0 +1,92 @@
+{{ 'section-product-seamoss.css' | asset_url | stylesheet_tag }}
+
+<div id="ProductSteps-{{ section.id }}" class="product-steps-cards color-{{ section.settings.color_scheme }}">
+  <div class="product-steps-cards__container page-width">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="product-steps-cards__heading">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+    
+    <div class="product-steps-cards__grid-wrapper">
+      <div class="product-steps-cards__grid">
+        {%- for block in section.blocks -%}
+          {%- assign card_index = forloop.index | prepend: '0' | slice: -2, 2 -%}
+          <div class="product-steps-cards__card" {{ block.shopify_attributes }}>
+            <h3 class="product-steps-cards__card-title">{{ block.settings.title }}</h3>
+            <p class="product-steps-cards__card-text">{{ block.settings.text }}</p>
+            <span class="product-steps-cards__card-number">{{ card_index }}</span>
+          </div>
+        {%- endfor -%}
+      </div>
+      
+      {%- if section.settings.image != blank -%}
+        <div class="product-steps-cards__image">
+          <img src="{{ section.settings.image | image_url: width: 800 }}" 
+               alt="{{ section.settings.heading }}" 
+               loading="lazy">
+        </div>
+      {%- endif -%}
+    </div>
+    
+    {%- if section.settings.button_label != blank -%}
+      <div class="product-steps-cards__button-wrapper">
+        <a href="{{ section.settings.button_link | default: '#' }}" class="product-steps-cards__button">
+          {{ section.settings.button_label }}
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Force horizontal scroll on mobile for benefits cards
+  if (window.innerWidth <= 749) {
+    const grid = document.querySelector('.product-steps-cards__grid');
+    if (grid) {
+      grid.style.display = 'flex';
+      grid.style.flexDirection = 'row';
+      grid.style.gridTemplateColumns = 'none';
+      grid.style.overflowX = 'auto';
+      grid.style.webkitOverflowScrolling = 'touch';
+      grid.style.scrollSnapType = 'x mandatory';
+    }
+  }
+});
+</script>
+
+{% schema %}
+{
+  "name": "Product Steps Cards",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {"type": "text", "id": "heading", "label": "Heading", "default": "With Sea Moss You may notice and feel significant differences:"},
+    {"type": "image_picker", "id": "image", "label": "Image (optional)"},
+    {"type": "text", "id": "button_label", "label": "Button label", "default": "BUY IT NOW"},
+    {"type": "url", "id": "button_link", "label": "Button link"},
+    {"type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1"}
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Benefit Card",
+      "settings": [
+        {"type": "text", "id": "title", "label": "Title", "default": "More Everyday Energy:"},
+        {"type": "textarea", "id": "text", "label": "Description", "default": "Minerals in sea moss including natural iodine and iron help support normal energy production and oxygen transport."}
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Steps Cards",
+      "blocks": [
+        {"type": "step", "settings": {"title": "More Everyday Energy:", "text": "Minerals in sea moss including natural iodine and iron help support normal energy production and oxygen transport."}},
+        {"type": "step", "settings": {"title": "Everyday Immune Support:", "text": "A broad spectrum of vitamins and trace minerals helps support your body's normal immune function and can help cover common nutrient gaps."}},
+        {"type": "step", "settings": {"title": "Balanced Digestion:", "text": "Natural prebiotic properties help nourish beneficial gut bacteria, supporting regularity and a happy microbiome."}},
+        {"type": "step", "settings": {"title": "Relaxed Evenings & Balance:", "text": "Potassium and magnesium help maintain healthy fluid and electrolyte balance and support normal muscle and nerve function great for unwinding at night."}},
+        {"type": "step", "settings": {"title": "Metabolic & Thyroid Support:", "text": "Naturally occurring iodine supports normal thyroid hormone production and a healthy metabolism."}}
+      ]
+    }
+  ]
+}
+{% endschema %}

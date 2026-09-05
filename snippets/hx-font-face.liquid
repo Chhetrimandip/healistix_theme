@@ -1,0 +1,45 @@
+{% comment %}
+  Healistix custom @font-face declarations
+  Loads Forma DJR Display + Text from self-hosted .woff files in assets/
+{% endcomment %}
+
+<style>
+  /* ── Forma DJR Display ── */
+  @font-face {
+    font-family: 'Forma DJR Display';
+    src: url('{{ "FormaDJRDisplay-Regular.woff" | asset_url }}') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Forma DJR Display';
+    src: url('{{ "FormaDJRDisplay-Bold.woff" | asset_url }}') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  /* ── Forma DJR Text ── */
+  @font-face {
+    font-family: 'Forma DJR Text';
+    src: url('{{ "FormaDJRText-Regular.woff" | asset_url }}') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Forma DJR Text';
+    src: url('{{ "FormaDJRText-Medium.woff" | asset_url }}') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Forma DJR Text';
+    src: url('{{ "FormaDJRText-Bold.woff" | asset_url }}') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+</style>

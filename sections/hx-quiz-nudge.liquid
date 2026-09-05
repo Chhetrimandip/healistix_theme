@@ -1,0 +1,42 @@
+{{ 'section-homepage-healistix.css' | asset_url | stylesheet_tag }}
+
+<div class="hx-quiz-nudge" style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;">
+  <div class="hx-quiz-nudge__container">
+    <div class="hx-quiz-nudge__inner">
+      <div class="hx-quiz-nudge__text">
+        <span class="hx-quiz-nudge__icon">{{ section.settings.icon }}</span>
+        <span class="hx-quiz-nudge__message">{{ section.settings.message }}</span>
+      </div>
+      {% if section.settings.button_label != blank %}
+        <a href="{{ section.settings.button_link }}" class="hx-quiz-nudge__button">
+          {{ section.settings.button_label }} →
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Quiz Nudge",
+  "settings": [
+    { "type": "text", "id": "icon", "label": "Icon", "default": "🧪" },
+    { "type": "text", "id": "message", "label": "Message", "default": "Still deciding? Our 60-second quiz finds your perfect match." },
+    { "type": "text", "id": "button_label", "label": "Button Label", "default": "Take the Quiz" },
+    { "type": "url", "id": "button_link", "label": "Button Link" },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "min": 0, "max": 100, "step": 10, "default": 40, "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "min": 0, "max": 100, "step": 10, "default": 40, "unit": "px"
+    }
+  ],
+  "presets": [{ "name": "Quiz Nudge" }]
+}
+{% endschema %}

@@ -1,0 +1,46 @@
+{{ 'batana-page.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'batana-page.js' | asset_url }}" defer></script>
+
+<section class="bt-section bt-tagline{% if section.settings.style == 'green' %} bt-section--green{% elsif section.settings.style == 'deep' %} bt-section--deep{% endif %}">
+  <div class="bt-container bt-container--narrow">
+    <h2 class="bt-tagline__heading">{{ section.settings.heading }}</h2>
+    {%- if section.settings.rating_text != blank -%}
+      <div class="bt-tagline__rating">
+        <svg width="96" height="16" viewBox="0 0 96 16" role="presentation" aria-hidden="true">
+          <g fill="#F5B942">
+            <polygon points="8 0 10.2 5.3 16 6 12 9.9 13 16 8 13.1 3 16 4 9.9 0 6 5.8 5.3 8 0"></polygon>
+            <polygon points="28 0 30.2 5.3 36 6 32 9.9 33 16 28 13.1 23 16 24 9.9 20 6 25.8 5.3 28 0"></polygon>
+            <polygon points="48 0 50.2 5.3 56 6 52 9.9 53 16 48 13.1 43 16 44 9.9 40 6 45.8 5.3 48 0"></polygon>
+            <polygon points="68 0 70.2 5.3 76 6 72 9.9 73 16 68 13.1 63 16 64 9.9 60 6 65.8 5.3 68 0"></polygon>
+            <polygon points="88 0 90.2 5.3 96 6 92 9.9 93 16 88 13.1 83 16 84 9.9 80 6 85.8 5.3 88 0"></polygon>
+          </g>
+        </svg>
+        <span>{{ section.settings.rating_text }}</span>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Batana — Tagline strip",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "The original. The real thing. Trusted for generations." },
+    { "type": "text", "id": "rating_text", "label": "Rating text", "default": "Rated Excellent by verified buyers" },
+    {
+      "type": "select",
+      "id": "style",
+      "label": "Background",
+      "options": [
+        { "value": "cream", "label": "Cream" },
+        { "value": "deep", "label": "Deep cream" },
+        { "value": "green", "label": "Forest green" }
+      ],
+      "default": "cream"
+    }
+  ],
+  "presets": [{ "name": "Batana — Tagline strip" }]
+}
+{% endschema %}

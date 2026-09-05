@@ -1,0 +1,50 @@
+{{ 'batana-page.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'batana-page.js' | asset_url }}" defer></script>
+
+<section class="bt-section bt-section--green">
+  <div class="bt-container bt-center">
+    <h2 class="bt-h2">{{ section.settings.heading }}</h2>
+    {%- if section.settings.subheading != blank -%}
+      <p class="bt-sub">{{ section.settings.subheading }}</p>
+    {%- endif -%}
+
+    <div class="bt-tested__grid">
+      {%- for block in section.blocks -%}
+        <div class="bt-tested__card" {{ block.shopify_attributes }}>
+          <div class="bt-tested__num">{{ block.settings.number }}</div>
+          <div class="bt-tested__bar"><div class="bt-tested__fill" style="width: {{ block.settings.bar_percent }}%"></div></div>
+          <p>{{ block.settings.text }}</p>
+        </div>
+      {%- endfor -%}
+    </div>
+
+    {%- if section.settings.note != blank -%}
+      <p class="bt-tested__note">{{ section.settings.note }}</p>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Batana — Proof stats",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Purity you can verify" },
+    { "type": "textarea", "id": "subheading", "label": "Subheading" },
+    { "type": "text", "id": "note", "label": "Footnote" }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Stat",
+      "settings": [
+        { "type": "text", "id": "number", "label": "Number", "default": "100%" },
+        { "type": "range", "id": "bar_percent", "label": "Bar fill", "min": 0, "max": 100, "step": 1, "unit": "%", "default": 100 },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "Single-ingredient, raw and unrefined." }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Batana — Proof stats" }]
+}
+{% endschema %}

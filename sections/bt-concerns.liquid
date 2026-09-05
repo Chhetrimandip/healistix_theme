@@ -1,0 +1,79 @@
+{{ 'batana-page.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'batana-page.js' | asset_url }}" defer></script>
+
+<section class="bt-section bt-section--white" id="BtConcerns-{{ section.id }}">
+  <div class="bt-container bt-center">
+    <h2 class="bt-h2">{{ section.settings.heading }}</h2>
+    {%- if section.settings.subheading != blank -%}
+      <p class="bt-sub">{{ section.settings.subheading }}</p>
+    {%- endif -%}
+
+    <div class="bt-concerns__tabs" role="tablist">
+      {%- for block in section.blocks -%}
+        <button
+          type="button"
+          role="tab"
+          class="bt-concerns__tab{% if forloop.first %} is-active{% endif %}"
+          data-bt-concern-tab="panel-{{ block.id }}"
+          {{ block.shopify_attributes }}
+        >
+          {{ block.settings.title }}
+        </button>
+      {%- endfor -%}
+    </div>
+
+    {%- for block in section.blocks -%}
+      <div id="panel-{{ block.id }}" class="bt-concerns__panel{% if forloop.first %} is-active{% endif %}">
+        <ul>
+          {%- assign points = block.settings.points | newline_to_br | split: '<br />' -%}
+          {%- for point in points -%}
+            {%- assign trimmed = point | strip -%}
+            {%- if trimmed != blank -%}
+              <li>{{ trimmed }}</li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      </div>
+    {%- endfor -%}
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var root = document.getElementById('BtConcerns-{{ section.id }}');
+    if (!root) return;
+    var tabs = root.querySelectorAll('[data-bt-concern-tab]');
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        tabs.forEach(function (t) { t.classList.remove('is-active'); });
+        root.querySelectorAll('.bt-concerns__panel').forEach(function (p) { p.classList.remove('is-active'); });
+        tab.classList.add('is-active');
+        var panel = root.querySelector('#' + tab.dataset.btConcernTab);
+        if (panel) panel.classList.add('is-active');
+      });
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Batana — Concern tabs",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "One oil. Every major hair concern." },
+    { "type": "textarea", "id": "subheading", "label": "Subheading" }
+  ],
+  "blocks": [
+    {
+      "type": "concern",
+      "name": "Concern",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Tab title", "default": "Thinning edges" },
+        { "type": "textarea", "id": "points", "label": "Bullet points", "info": "One per line." }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Batana — Concern tabs" }]
+}
+{% endschema %}

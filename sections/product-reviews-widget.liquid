@@ -1,0 +1,36 @@
+{{ 'section-product-seamoss.css' | asset_url | stylesheet_tag }}
+
+<div id="ProductReviewsWidget-{{ section.id }}" class="product-reviews-widget">
+  <div class="page-width">
+    <div class="product-reviews-widget__header">
+      <h2 class="product-reviews-widget__title">{{ section.settings.heading }}</h2>
+      <p class="product-reviews-widget__subtitle">{{ section.settings.subheading }}</p>
+    </div>
+    <div class="product-reviews-widget__embed">
+      {%- if section.settings.embed_html != blank -%}
+        {{ section.settings.embed_html }}
+      {%- elsif section.settings.placeholder_text != blank -%}
+        <p>{{ section.settings.placeholder_text }}</p>
+      {%- else -%}
+        <p>Add your review app snippet or metafield here.</p>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Product Reviews Widget",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {"type": "text", "id": "heading", "label": "Heading", "default": "Customer Reviews"},
+    {"type": "textarea", "id": "subheading", "label": "Subheading", "default": "50k+ verified reviews from real customers."},
+    {"type": "richtext", "id": "embed_html", "label": "Embed HTML", "info": "Paste your review widget snippet."},
+    {"type": "textarea", "id": "placeholder_text", "label": "Placeholder text", "default": "This is where Judge.me, Yotpo, or your preferred review widget will appear."}
+  ],
+  "presets": [
+    {"name": "Product Reviews Widget"}
+  ]
+}
+{% endschema %}

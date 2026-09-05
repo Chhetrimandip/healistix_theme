@@ -1,0 +1,1583 @@
+/* ============================================================
+   HEALISTIX — UNIFIED BRAND STYLESHEET
+   Three generations. One family kitchen.
+   ============================================================ */
+
+/* ---- FORMA DJR FONT FACES ----
+   Drop .woff2 files into /assets with these exact filenames:
+     FormaDJRDisplay-Regular.woff2
+     FormaDJRDisplay-Medium.woff2
+     FormaDJRDisplay-Bold.woff2
+     FormaDJRText-Regular.woff2
+     FormaDJRText-Medium.woff2
+     FormaDJRText-Bold.woff2
+   Shopify serves anything in /assets, so {{ 'filename.woff2' | asset_url }} works automatically.
+   If you only grab one cut, "FormaDJRText-Regular.woff2" + "-Bold.woff2" is the minimum. */
+
+@font-face {
+  font-family: "Forma DJR";
+  src: url("FormaDJRText-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Forma DJR";
+  src: url("FormaDJRText-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Forma DJR";
+  src: url("FormaDJRText-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Forma DJR Display";
+  src: url("FormaDJRDisplay-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Forma DJR Display";
+  src: url("FormaDJRDisplay-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Forma DJR Display";
+  src: url("FormaDJRDisplay-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --hx-navy: #0A1628;
+  --hx-navy-soft: #142338;
+  --hx-coral: #E8502A;
+  --hx-coral-dark: #C8401E;
+  --hx-gold: #C8860A;
+  --hx-gold-soft: #E0A43A;
+  --hx-cream: #FBF7F0;
+  --hx-sand: #F2E9D8;
+  --hx-sand-dark: #E8DCC2;
+  --hx-ink: #1A1A1A;
+  --hx-muted: #5A5A5A;
+  --hx-line: rgba(10, 22, 40, 0.12);
+
+  /* Forma DJR everywhere — Display for headings, Text for body/UI */
+  --hx-serif: "Forma DJR Display", "Forma DJR", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --hx-sans: "Forma DJR", "Forma DJR Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  --hx-radius-sm: 6px;
+  --hx-radius: 12px;
+  --hx-radius-lg: 20px;
+  --hx-radius-pill: 999px;
+
+  --hx-shadow-sm: 0 2px 8px rgba(10, 22, 40, 0.06);
+  --hx-shadow: 0 8px 24px rgba(10, 22, 40, 0.08);
+  --hx-shadow-lg: 0 20px 60px rgba(10, 22, 40, 0.12);
+
+  --hx-ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================================
+   GLOBAL RESET / TYPOGRAPHY
+   ============================================================ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--hx-sans) !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  color: var(--hx-ink);
+  background: var(--hx-cream);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h0, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: var(--hx-serif) !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
+  color: var(--hx-navy);
+  line-height: 1.15;
+}
+
+.h0 { font-size: 56px !important; }
+.h1 { font-size: 40px !important; }
+.h2 { font-size: 32px !important; }
+.h3 { font-size: 24px !important; }
+
+p, a, li, span, div, button, input, textarea, select, label {
+  font-family: var(--hx-sans) !important;
+}
+
+p {
+  color: var(--hx-muted);
+  line-height: 1.7;
+}
+
+a { color: var(--hx-coral); text-decoration: none; transition: color 0.2s var(--hx-ease); }
+a:hover { color: var(--hx-coral-dark); }
+
+/* Caption / eyebrow */
+.caption, .caption-with-letter-spacing, .subtitle {
+  font-family: var(--hx-sans) !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+  color: var(--hx-coral) !important;
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+
+.button,
+button.button,
+.shopify-payment-button__button--unbranded,
+.product-form__submit {
+  font-family: var(--hx-sans) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.02em !important;
+  border-radius: var(--hx-radius-pill) !important;
+  padding: 1rem 2rem !important;
+  min-height: 52px !important;
+  transition: all 0.3s var(--hx-ease) !important;
+  border: 2px solid transparent !important;
+  cursor: pointer;
+}
+
+.button--primary,
+.button.button--primary,
+.product-form__submit {
+  background: var(--hx-coral) !important;
+  color: #ffffff !important;
+  box-shadow: 0 6px 20px rgba(232, 80, 42, 0.3) !important;
+}
+
+.button--primary:hover,
+.button.button--primary:hover,
+.product-form__submit:hover {
+  background: var(--hx-coral-dark) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 10px 28px rgba(232, 80, 42, 0.4) !important;
+}
+
+.button--secondary,
+.button.button--secondary {
+  background: transparent !important;
+  color: var(--hx-navy) !important;
+  border: 2px solid var(--hx-navy) !important;
+}
+
+.button--secondary:hover,
+.button.button--secondary:hover {
+  background: var(--hx-navy) !important;
+  color: var(--hx-cream) !important;
+}
+
+/* ============================================================
+   ANNOUNCEMENT BAR + HEADER
+   --------------------------------------------------------------
+   Header styles intentionally removed from this file.
+   Source of truth: assets/custom-header-healistix.css
+   ============================================================ */
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+.footer {
+  background: var(--hx-sand) !important;
+  color: var(--hx-navy) !important;
+  border-top: 1px solid var(--hx-line) !important;
+  padding-top: 4rem !important;
+}
+
+.footer__heading,
+.footer-block__heading {
+  font-family: var(--hx-serif) !important;
+  color: var(--hx-navy) !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  margin-bottom: 1rem !important;
+}
+
+.footer a,
+.footer__list-item a { color: var(--hx-navy) !important; opacity: 0.85; }
+.footer a:hover { opacity: 1; color: var(--hx-coral) !important; }
+
+.newsletter-form__field-wrapper input {
+  background: #ffffff !important;
+  border: 1px solid var(--hx-line) !important;
+  border-radius: var(--hx-radius-pill) !important;
+}
+
+/* ============================================================
+   HERO — SEAMOSS
+   (Single centered column — matches hero-seamoss.liquid structure)
+   ============================================================ */
+
+.hero-seamoss {
+  background: linear-gradient(135deg, var(--hx-navy) 0%, var(--hx-navy-soft) 55%, #0F2B3A 100%) !important;
+  animation: none !important;
+  color: var(--hx-cream) !important;
+  min-height: 0 !important;
+  padding: 3.5rem 0 !important;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.hero-seamoss::before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(200, 134, 10, 0.18) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-seamoss__container {
+  max-width: 900px !important;
+  margin: 0 auto !important;
+  padding: 0 1.5rem !important;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-seamoss__content {
+  max-width: 780px !important;
+  margin: 0 auto !important;
+  padding: 2rem 1rem !important;
+}
+
+.hero-seamoss__badge {
+  display: inline-block !important;
+  padding: 0.4rem 1rem !important;
+  background: rgba(232, 80, 42, 0.15) !important;
+  color: var(--hx-coral) !important;
+  border-radius: var(--hx-radius-pill) !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  margin-bottom: 1.25rem !important;
+  border: 1px solid rgba(232, 80, 42, 0.3) !important;
+  backdrop-filter: blur(8px);
+  box-shadow: none !important;
+}
+
+.hero-seamoss__heading {
+  font-family: var(--hx-serif) !important;
+  font-size: 56px !important;
+  font-weight: 700 !important;
+  line-height: 1.08 !important;
+  letter-spacing: -0.025em !important;
+  color: var(--hx-cream) !important;
+  margin: 0 auto 1rem !important;
+  max-width: 16ch;
+  text-shadow: none !important;
+}
+
+.hero-seamoss__subheading {
+  font-family: var(--hx-serif) !important;
+  font-size: 19px !important;
+  font-style: normal !important;
+  color: var(--hx-gold-soft) !important;
+  margin: 0 0 1rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.02em;
+  opacity: 1 !important;
+}
+
+.hero-seamoss__description {
+  font-size: 17px !important;
+  line-height: 1.6 !important;
+  color: rgba(251, 247, 240, 0.82) !important;
+  margin: 0 auto 1.5rem !important;
+  max-width: 560px !important;
+  font-weight: 400;
+}
+
+.hero-seamoss__reviews {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center;
+  gap: 0.5rem !important;
+  margin: 0 auto 1.5rem !important;
+  font-size: 15px !important;
+  color: rgba(251, 247, 240, 0.85) !important;
+}
+
+.hero-seamoss__reviews::before {
+  content: "★★★★★";
+  color: var(--hx-gold-soft);
+  font-size: 16px;
+  letter-spacing: 0.08em;
+}
+
+.hero-seamoss__review-count {
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  color: var(--hx-cream) !important;
+}
+
+.hero-seamoss__review-label {
+  opacity: 0.75;
+}
+
+.hero-seamoss__buttons {
+  display: flex !important;
+  gap: 0.75rem !important;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0 0 1rem !important;
+}
+
+.hero-seamoss__button {
+  padding: 0.85rem 1.75rem !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  text-transform: none !important;
+  letter-spacing: 0.01em !important;
+  min-height: 48px !important;
+  border-radius: var(--hx-radius-pill) !important;
+}
+
+.hero-seamoss__button--primary {
+  background: var(--hx-coral) !important;
+  color: #fff !important;
+  border: 2px solid var(--hx-coral) !important;
+  box-shadow: 0 8px 24px rgba(232, 80, 42, 0.35) !important;
+  transition: all 0.3s var(--hx-ease) !important;
+}
+
+.hero-seamoss__button--primary:hover {
+  background: var(--hx-coral-dark) !important;
+  border-color: var(--hx-coral-dark) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(232, 80, 42, 0.45) !important;
+}
+
+.hero-seamoss__button--secondary {
+  background: transparent !important;
+  color: var(--hx-cream) !important;
+  border: 2px solid rgba(251, 247, 240, 0.5) !important;
+  transition: all 0.3s var(--hx-ease) !important;
+}
+
+.hero-seamoss__button--secondary:hover {
+  background: rgba(251, 247, 240, 0.1) !important;
+  border-color: var(--hx-cream) !important;
+}
+
+.hero-seamoss__guarantee {
+  font-size: 14px !important;
+  color: rgba(251, 247, 240, 0.65) !important;
+  letter-spacing: 0.02em;
+  margin-top: 0.75rem !important;
+}
+
+@media screen and (max-width: 749px) {
+  .hero-seamoss { padding: 2.5rem 0 !important; }
+  .hero-seamoss__content { padding: 1rem 0.5rem !important; }
+  .hero-seamoss__heading { font-size: 36px !important; }
+  .hero-seamoss__buttons { flex-direction: column; align-items: stretch; }
+  .hero-seamoss__button { width: 100%; }
+}
+
+/* ============================================================
+   BADGES BAR
+   ============================================================ */
+
+.badges-bar-seamoss {
+  background: var(--hx-navy) !important;
+  padding: 0.9rem 0 !important;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.badges-bar-seamoss__container {
+  max-width: 1280px !important;
+  margin: 0 auto !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  flex-wrap: wrap;
+  gap: 1rem 2rem !important;
+}
+
+.badges-bar-seamoss__content { display: contents; }
+
+.badges-bar-seamoss__badge {
+  font-family: var(--hx-sans) !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: var(--hx-cream) !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  opacity: 0.9;
+}
+
+.badges-bar-seamoss__separator {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--hx-coral) !important;
+  opacity: 0.6;
+}
+
+/* ============================================================
+   STATS
+   ============================================================ */
+
+.stats-seamoss {
+  background: var(--hx-cream) !important;
+  padding: 3rem 0 !important;
+}
+
+.stats-seamoss__grid,
+.stats-seamoss__grid-bottom {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 0 1.5rem !important;
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)) !important;
+  gap: 1rem !important;
+}
+
+.stats-seamoss__item,
+[class*="stats-seamoss__item--card"] {
+  background: #ffffff !important;
+  border: 1px solid var(--hx-line) !important;
+  border-radius: var(--hx-radius) !important;
+  padding: 1.5rem 1rem !important;
+  text-align: center !important;
+  box-shadow: var(--hx-shadow-sm) !important;
+  transition: all 0.3s var(--hx-ease) !important;
+}
+
+.stats-seamoss__item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--hx-shadow) !important;
+  border-color: var(--hx-coral);
+}
+
+.stats-seamoss__number {
+  font-family: var(--hx-serif) !important;
+  font-size: 36px !important;
+  font-weight: 700 !important;
+  color: var(--hx-coral) !important;
+  line-height: 1 !important;
+  margin-bottom: 0.4rem !important;
+  display: block;
+}
+
+.stats-seamoss__label {
+  font-family: var(--hx-sans) !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: var(--hx-navy) !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+}
+
+/* ============================================================
+   CTA / FEATURES / COMPARISON shared wrappers
+   ============================================================ */
+
+.cta-seamoss,
+.features-seamoss,
+.comparison-seamoss,
+.benefits-seamoss,
+.testimonials-seamoss,
+.quiz-cta-seamoss {
+  padding: 3.5rem 0 !important;
+}
+
+.cta-seamoss__heading,
+.features-seamoss__heading,
+.comparison-seamoss__heading,
+.benefits-seamoss__heading,
+.testimonials-seamoss__heading,
+.quiz-cta-seamoss__heading {
+  font-family: var(--hx-serif) !important;
+  font-size: 36px !important;
+  font-weight: 700 !important;
+  color: var(--hx-navy) !important;
+  text-align: center;
+  margin-bottom: 0.75rem !important;
+  letter-spacing: -0.02em !important;
+  line-height: 1.15 !important;
+}
+
+/* CTA */
+.cta-seamoss {
+  background: linear-gradient(135deg, var(--hx-navy) 0%, var(--hx-navy-soft) 100%) !important;
+  color: var(--hx-cream) !important;
+  text-align: center;
+}
+
+.cta-seamoss__heading { color: var(--hx-cream) !important; }
+
+.cta-seamoss__description {
+  color: rgba(251, 247, 240, 0.85) !important;
+  font-size: 16px !important;
+  max-width: 580px;
+  margin: 0 auto 1.5rem !important;
+  line-height: 1.6;
+}
+
+.cta-seamoss__button--primary {
+  background: var(--hx-coral) !important;
+  color: #fff !important;
+  padding: 1.1rem 2.5rem !important;
+  border-radius: var(--hx-radius-pill) !important;
+  font-weight: 600 !important;
+  border: none !important;
+}
+
+.cta-seamoss__button--secondary {
+  background: transparent !important;
+  color: var(--hx-cream) !important;
+  padding: 1.1rem 2.5rem !important;
+  border: 2px solid var(--hx-cream) !important;
+  border-radius: var(--hx-radius-pill) !important;
+}
+
+.cta-seamoss__guarantee { color: rgba(251, 247, 240, 0.7) !important; font-size: 15px; }
+
+/* FEATURES */
+.features-seamoss { background: var(--hx-sand) !important; }
+
+.features-seamoss__layout {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 0 1.5rem !important;
+  display: grid !important;
+  grid-template-columns: 1fr 1.1fr 1fr !important;
+  gap: 2rem !important;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .features-seamoss__layout {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+.features-seamoss__item {
+  margin-bottom: 1.25rem;
+  padding: 1rem 1.25rem;
+  background: rgba(255,255,255,0.6);
+  border-radius: var(--hx-radius);
+  border-left: 3px solid var(--hx-coral);
+}
+
+.features-seamoss__title {
+  font-family: var(--hx-serif) !important;
+  font-size: 17px !important;
+  font-weight: 700 !important;
+  color: var(--hx-navy) !important;
+  margin-bottom: 0.35rem !important;
+  line-height: 1.25 !important;
+}
+
+.features-seamoss__description {
+  font-size: 15px !important;
+  color: var(--hx-muted) !important;
+  line-height: 1.55 !important;
+}
+
+.features-seamoss__image-placeholder,
+.features-seamoss__center,
+.features-seamoss__image {
+  aspect-ratio: 1/1 !important;
+  max-width: 320px !important;
+  max-height: 320px !important;
+  margin: 0 auto !important;
+  background: radial-gradient(circle, var(--hx-gold-soft) 0%, var(--hx-navy) 85%) !important;
+  border-radius: 50%;
+  box-shadow: var(--hx-shadow-lg);
+}
+
+/* COMPARISON */
+.comparison-seamoss { background: var(--hx-cream) !important; }
+
+.comparison-seamoss__table,
+.comparison-seamoss__grid {
+  max-width: 960px;
+  margin: 2rem auto 0;
+  padding: 0 2rem;
+}
+
+.comparison-seamoss__cell {
+  padding: 0.65rem 0.75rem !important;
+  border-bottom: 1px solid var(--hx-line) !important;
+  min-height: 0 !important;
+  height: auto !important;
+  font-size: 15px !important;
+  line-height: 1.35 !important;
+}
+
+.comparison-seamoss__row,
+.comparison-seamoss__header {
+  min-height: 0 !important;
+  height: auto !important;
+  padding: 0 !important;
+}
+
+.comparison-seamoss__row > *,
+.comparison-seamoss__header > * {
+  min-height: 0 !important;
+}
+
+/* Quiz CTA — cap the oversized container and rebrand green → sand */
+.quiz-cta-seamoss__container {
+  min-height: 440px !important;
+  background: linear-gradient(135deg, var(--hx-sand) 0%, var(--hx-sand-dark) 100%) !important;
+}
+
+.quiz-cta-seamoss__products-wrapper {
+  min-height: 0 !important;
+  padding: 1.5rem 0 !important;
+  gap: 1.25rem !important;
+}
+
+.quiz-cta-seamoss__product-card {
+  max-width: 180px !important;
+  padding: 0.75rem !important;
+}
+
+.quiz-cta-seamoss__person {
+  max-width: 120px !important;
+  max-height: 120px !important;
+}
+
+.comparison-seamoss__cell--brand {
+  font-family: var(--hx-serif) !important;
+  font-weight: 700 !important;
+  color: var(--hx-navy) !important;
+}
+
+.comparison-seamoss__brand-badge--yours {
+  background: var(--hx-coral) !important;
+  color: #fff !important;
+  padding: 0.25rem 0.75rem !important;
+  border-radius: var(--hx-radius-pill) !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.comparison-seamoss__cell--check { color: #2E8B57 !important; font-weight: 700; }
+.comparison-seamoss__cell--cross { color: #C8401E !important; font-weight: 700; }
+
+.comparison-seamoss__cell--feature {
+  font-weight: 600 !important;
+  color: var(--hx-navy) !important;
+}
+
+.comparison-seamoss__button {
+  background: var(--hx-coral) !important;
+  color: #fff !important;
+  padding: 1rem 2rem !important;
+  border-radius: var(--hx-radius-pill) !important;
+  font-weight: 600 !important;
+  display: inline-block;
+  margin-top: 2rem;
+}
+
+.comparison-seamoss__detail {
+  font-size: 15px !important;
+  color: var(--hx-muted) !important;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+/* BENEFITS */
+.benefits-seamoss { background: var(--hx-sand) !important; }
+
+.benefits-seamoss__layout {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 0 1.5rem !important;
+  display: grid !important;
+  grid-template-columns: 1.1fr 0.9fr !important;
+  gap: 2.5rem !important;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .benefits-seamoss__layout { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
+}
+
+.benefits-seamoss__grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 1rem !important;
+  margin-top: 1.25rem !important;
+}
+
+.benefits-seamoss__item {
+  background: #fff !important;
+  padding: 1.1rem 1.1rem !important;
+  border-radius: var(--hx-radius) !important;
+  box-shadow: var(--hx-shadow-sm) !important;
+  border: 1px solid var(--hx-line) !important;
+  transition: all 0.3s var(--hx-ease);
+}
+
+.benefits-seamoss__item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--hx-shadow);
+}
+
+.benefits-seamoss__icon-wrapper {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(232, 80, 42, 0.1) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.75rem;
+  font-size: 19px;
+}
+
+.benefits-seamoss__image-column,
+.benefits-seamoss__image,
+.benefits-seamoss__visual {
+  aspect-ratio: 4/5 !important;
+  max-width: 380px !important;
+  max-height: 475px !important;
+  margin: 0 auto !important;
+  background: linear-gradient(135deg, var(--hx-navy) 0%, var(--hx-navy-soft) 100%) !important;
+  border-radius: var(--hx-radius-lg);
+  box-shadow: var(--hx-shadow-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.benefits-seamoss__image-column::after {
+  content: "";
+  position: absolute;
+  inset: 15%;
+  background: radial-gradient(circle, var(--hx-gold-soft) 0%, transparent 70%);
+  opacity: 0.4;
+  border-radius: 50%;
+}
+
+.benefits-seamoss__badges-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--hx-line);
+}
+
+/* TESTIMONIALS */
+.testimonials-seamoss { background: var(--hx-cream) !important; }
+
+.testimonials-seamoss__grid {
+  max-width: 1200px !important;
+  margin: 1.5rem auto 0 !important;
+  padding: 0 1.5rem !important;
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+  gap: 1.25rem !important;
+}
+
+.testimonials-seamoss__item {
+  background: #fff !important;
+  padding: 1.5rem !important;
+  border-radius: var(--hx-radius) !important;
+  box-shadow: var(--hx-shadow-sm) !important;
+  border: 1px solid var(--hx-line) !important;
+  transition: all 0.3s var(--hx-ease);
+}
+
+.testimonials-seamoss__item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--hx-shadow);
+}
+
+.testimonials-seamoss__rating { margin-bottom: 1rem; }
+.testimonials-seamoss__rating .star,
+.star { color: var(--hx-gold) !important; font-size: 17px; }
+
+.testimonials-seamoss__quote {
+  font-family: var(--hx-serif) !important;
+  font-size: 16px !important;
+  font-style: normal !important;
+  color: var(--hx-navy) !important;
+  line-height: 1.55 !important;
+  margin-bottom: 1rem !important;
+}
+
+.testimonials-seamoss__logo-container {
+  font-size: 15px !important;
+  color: var(--hx-muted) !important;
+  font-weight: 500 !important;
+  padding-top: 0.75rem !important;
+  margin-top: 0.75rem !important;
+  border-top: 1px solid var(--hx-line);
+  min-height: 0 !important;
+  height: auto !important;
+  max-height: 40px !important;
+  display: flex;
+  align-items: center;
+}
+
+.testimonials-seamoss__logo-container img,
+.testimonials-seamoss__logo-container svg {
+  max-height: 24px !important;
+  width: auto !important;
+}
+
+/* QUIZ CTA */
+.quiz-cta-seamoss {
+  background: linear-gradient(135deg, var(--hx-sand) 0%, var(--hx-sand-dark) 100%) !important;
+  text-align: center;
+}
+
+.quiz-cta-seamoss__button {
+  background: var(--hx-coral) !important;
+  color: #fff !important;
+  padding: 1.1rem 2.5rem !important;
+  border-radius: var(--hx-radius-pill) !important;
+  font-weight: 600 !important;
+  display: inline-block;
+  box-shadow: 0 8px 24px rgba(232, 80, 42, 0.35);
+  transition: all 0.3s var(--hx-ease);
+}
+
+.quiz-cta-seamoss__button:hover {
+  background: var(--hx-coral-dark) !important;
+  transform: translateY(-2px);
+}
+
+.quiz-cta-seamoss__product-card {
+  background: #fff;
+  border-radius: var(--hx-radius);
+  padding: 1rem;
+  box-shadow: var(--hx-shadow-sm);
+  border: 1px solid var(--hx-line);
+}
+
+/* ============================================================
+   PRODUCT PDP — SEAMOSS
+   ============================================================ */
+
+.product-seamoss {
+  background: var(--hx-cream) !important;
+  padding: 3rem 0;
+}
+
+.product-seamoss__title,
+.product__title {
+  font-family: var(--hx-serif) !important;
+  font-size: 48px !important;
+  font-weight: 700 !important;
+  color: var(--hx-navy) !important;
+  letter-spacing: -0.02em !important;
+}
+
+.product-seamoss__price,
+.price__regular .price-item {
+  font-family: var(--hx-serif) !important;
+  font-size: 32px !important;
+  font-weight: 700 !important;
+  color: var(--hx-coral) !important;
+}
+
+.product-seamoss__badge,
+.product-seamoss__eyebrow {
+  display: inline-block;
+  padding: 0.4rem 0.9rem;
+  background: rgba(232, 80, 42, 0.1);
+  color: var(--hx-coral) !important;
+  border-radius: var(--hx-radius-pill);
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.product-seamoss__tab-label,
+.product-seamoss__faq-question {
+  font-family: var(--hx-serif) !important;
+  font-weight: 700 !important;
+  color: var(--hx-navy) !important;
+}
+
+/* ============================================================
+   RICH-TEXT + MULTICOLUMN (About page & generic)
+   ============================================================ */
+
+.rich-text {
+  padding: 4rem 0 !important;
+}
+
+.rich-text__heading {
+  font-family: var(--hx-serif) !important;
+  color: var(--hx-navy) !important;
+}
+
+.rich-text__text p {
+  font-size: 17px !important;
+  line-height: 1.75 !important;
+  color: var(--hx-muted) !important;
+}
+
+.rich-text__caption {
+  color: var(--hx-coral) !important;
+  font-family: var(--hx-sans) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+  font-size: 14px !important;
+}
+
+.multicolumn {
+  background: var(--hx-sand) !important;
+  padding: 4rem 0 !important;
+}
+
+.multicolumn-card,
+.multicolumn-card__info {
+  background: #fff !important;
+  border-radius: var(--hx-radius-lg) !important;
+  padding: 2rem !important;
+  box-shadow: var(--hx-shadow-sm) !important;
+  border: 1px solid var(--hx-line) !important;
+  transition: all 0.3s var(--hx-ease);
+}
+
+.multicolumn-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--hx-shadow);
+}
+
+.multicolumn-card__info h3 {
+  font-family: var(--hx-serif) !important;
+  font-size: 40px !important;
+  color: var(--hx-coral) !important;
+  margin-bottom: 1rem !important;
+}
+
+/* ============================================================
+   COLLECTION GRID
+   ============================================================ */
+
+.card-wrapper .card {
+  background: #fff !important;
+  border-radius: var(--hx-radius-lg) !important;
+  border: 1px solid var(--hx-line) !important;
+  transition: all 0.3s var(--hx-ease) !important;
+  overflow: hidden;
+}
+
+.card-wrapper:hover .card {
+  transform: translateY(-6px);
+  box-shadow: var(--hx-shadow-lg) !important;
+  border-color: var(--hx-coral);
+}
+
+.card__heading a {
+  font-family: var(--hx-serif) !important;
+  color: var(--hx-navy) !important;
+  font-weight: 700 !important;
+}
+
+.card .price-item {
+  color: var(--hx-coral) !important;
+  font-weight: 700 !important;
+}
+
+/* ============================================================
+   CART
+   ============================================================ */
+
+.cart__items,
+.main-cart-items { background: var(--hx-cream) !important; }
+.main-cart-footer { background: var(--hx-sand) !important; }
+
+.cart__subtotal-price,
+.totals__subtotal-value {
+  font-family: var(--hx-serif) !important;
+  color: var(--hx-coral) !important;
+  font-weight: 700 !important;
+  font-size: 24px !important;
+}
+
+/* ============================================================
+   QUIZ PAGE
+   ============================================================ */
+
+.quiz-hero {
+  background: var(--hx-sand) !important;
+  padding: 5rem 2rem !important;
+  text-align: center;
+}
+
+.quiz-hero__heading {
+  font-family: var(--hx-serif) !important;
+  color: var(--hx-navy) !important;
+  font-size: 48px !important;
+  margin-bottom: 1rem !important;
+}
+
+.quiz-options {
+  background: var(--hx-sand) !important;
+  padding: 2rem !important;
+}
+
+.quiz-option {
+  background: #fff !important;
+  border: 2px solid var(--hx-line) !important;
+  border-radius: var(--hx-radius) !important;
+  padding: 1.5rem !important;
+  transition: all 0.3s var(--hx-ease) !important;
+  cursor: pointer;
+}
+
+.quiz-option:hover {
+  border-color: var(--hx-coral) !important;
+  transform: translateY(-2px);
+  box-shadow: var(--hx-shadow);
+}
+
+.quiz-option__title {
+  font-family: var(--hx-serif) !important;
+  color: var(--hx-navy) !important;
+  font-weight: 700 !important;
+}
+
+/* ============================================================
+   FORMS / INPUTS
+   ============================================================ */
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+textarea,
+select,
+.field__input {
+  font-family: var(--hx-sans) !important;
+  border-radius: var(--hx-radius) !important;
+  border: 1px solid var(--hx-line) !important;
+  background: #fff !important;
+  transition: all 0.2s var(--hx-ease) !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+.field__input:focus {
+  outline: none !important;
+  border-color: var(--hx-coral) !important;
+  box-shadow: 0 0 0 3px rgba(232, 80, 42, 0.12) !important;
+}
+
+/* ============================================================
+   UTILITY
+   ============================================================ */
+
+.page-width {
+  max-width: 1280px !important;
+  margin: 0 auto !important;
+  padding: 0 2rem !important;
+}
+
+@media screen and (max-width: 749px) {
+  .page-width { padding: 0 1.25rem !important; }
+}
+
+/* ============================================================
+   AGGRESSIVE OVERRIDES — defeats the oversized min-heights,
+   display:flex centering, 5rem container padding, and 5.5rem
+   headings baked into the base section-*-seamoss.css files.
+   ============================================================ */
+
+.hero-seamoss,
+.stats-seamoss,
+.cta-seamoss,
+.features-seamoss,
+.comparison-seamoss,
+.benefits-seamoss,
+.testimonials-seamoss,
+.quiz-cta-seamoss,
+.badges-bar-seamoss,
+.stats-seamoss__item,
+.testimonials-seamoss__item,
+.benefits-seamoss__item,
+.features-seamoss__item,
+.quiz-cta-seamoss__person,
+.quiz-cta-seamoss__product-card,
+[class*="stats-seamoss__item--card"] {
+  min-height: 0 !important;
+  animation: none !important;
+}
+
+.hero-seamoss,
+.stats-seamoss,
+.cta-seamoss,
+.features-seamoss,
+.comparison-seamoss,
+.benefits-seamoss,
+.testimonials-seamoss,
+.quiz-cta-seamoss,
+.badges-bar-seamoss {
+  display: block !important;
+}
+
+/* Kill the 4–8rem beasts in base section CSS */
+.stats-seamoss__number,
+.benefits-seamoss__number,
+.benefits-seamoss__stat,
+.testimonials-seamoss__quote-mark,
+.testimonials-seamoss__number,
+.comparison-seamoss__number,
+.features-seamoss__number,
+.quiz-cta-seamoss__number {
+  font-size: 36px !important;
+  line-height: 1 !important;
+}
+
+/* Inner container padding caps */
+.hero-seamoss__container,
+.stats-seamoss__container,
+.cta-seamoss__container,
+.features-seamoss__container,
+.comparison-seamoss__container,
+.benefits-seamoss__container,
+.testimonials-seamoss__container,
+.quiz-cta-seamoss__container,
+.badges-bar-seamoss__container {
+  padding: 1.5rem 1.5rem !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+}
+
+.hero-seamoss__content,
+.cta-seamoss__content,
+.stats-seamoss__content,
+.features-seamoss__content,
+.comparison-seamoss__content,
+.benefits-seamoss__content,
+.testimonials-seamoss__content,
+.quiz-cta-seamoss__content {
+  padding: 0 !important;
+  max-width: 100% !important;
+}
+
+.hero-seamoss__content {
+  max-width: 780px !important;
+  margin: 0 auto !important;
+  padding: 1rem 0 !important;
+}
+
+/* Nuke the 5.5rem beast headings in ALL custom sections */
+.cta-seamoss__heading,
+.stats-seamoss__heading,
+.features-seamoss__heading,
+.comparison-seamoss__heading,
+.benefits-seamoss__heading,
+.testimonials-seamoss__heading,
+.quiz-cta-seamoss__heading {
+  font-family: var(--hx-serif) !important;
+  font-size: 36px !important;
+  font-weight: 700 !important;
+  line-height: 1.15 !important;
+  margin-bottom: 0.75rem !important;
+  text-shadow: none !important;
+  animation: none !important;
+}
+
+.cta-seamoss__description,
+.stats-seamoss__description,
+.features-seamoss__description,
+.comparison-seamoss__description,
+.benefits-seamoss__description,
+.testimonials-seamoss__description,
+.quiz-cta-seamoss__description {
+  font-size: 16px !important;
+  line-height: 1.6 !important;
+  margin-bottom: 1.25rem !important;
+  max-width: 600px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Section padding consistency.
+   Custom -seamoss sections set their own padding via !important above.
+   This caps Dawn's generic sections which use theme-editor padding sliders. */
+.shopify-section { position: relative; }
+
+/* Animations */
+@keyframes hxFadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-seamoss__content,
+.stats-seamoss__item,
+.benefits-seamoss__item,
+.testimonials-seamoss__item {
+  animation: hxFadeUp 0.8s var(--hx-ease) both;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--hx-sand); }
+::-webkit-scrollbar-thumb { background: var(--hx-navy); border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: var(--hx-coral); }
+
+/* Selection */
+::selection { background: var(--hx-coral); color: #fff; }
+
+/* ============================================================
+   REM-SCALE CORRECTION
+   Dawn uses html { font-size: 62.5% } → 1rem = 10px (not 16px).
+   This block expresses sizes in px (or properly-scaled rem)
+   so they render at intended proportions on desktop.
+   ============================================================ */
+
+/* ---- Hero ---- */
+.hero-seamoss {
+  padding: 72px 0 !important;
+}
+
+.hero-seamoss__container {
+  padding: 0 24px !important;
+  max-width: 960px !important;
+}
+
+.hero-seamoss__content {
+  padding: 32px 16px !important;
+  max-width: 820px !important;
+}
+
+.hero-seamoss__badge {
+  padding: 8px 18px !important;
+  font-size: 12px !important;
+  letter-spacing: 0.15em !important;
+  margin-bottom: 24px !important;
+}
+
+.hero-seamoss__heading {
+  font-size: clamp(40px, 5vw, 64px) !important;
+  line-height: 1.08 !important;
+  margin: 0 auto 18px !important;
+  max-width: 18ch !important;
+}
+
+.hero-seamoss__subheading {
+  font-size: clamp(16px, 1.5vw, 20px) !important;
+  margin: 0 0 18px !important;
+  font-weight: 500 !important;
+}
+
+.hero-seamoss__description {
+  font-size: clamp(15px, 1.25vw, 18px) !important;
+  line-height: 1.65 !important;
+  margin: 0 auto 28px !important;
+  max-width: 640px !important;
+}
+
+.hero-seamoss__reviews {
+  font-size: 14px !important;
+  gap: 10px !important;
+  margin: 0 auto 28px !important;
+}
+
+.hero-seamoss__reviews::before {
+  font-size: 16px !important;
+}
+
+.hero-seamoss__review-count {
+  font-size: 15px !important;
+}
+
+.hero-seamoss__buttons {
+  gap: 14px !important;
+  margin: 0 0 18px !important;
+}
+
+.button.hero-seamoss__button,
+.hero-seamoss__button {
+  padding: 18px 32px !important;
+  font-size: 15px !important;
+  min-height: 58px !important;
+  letter-spacing: 0.02em !important;
+  text-transform: none !important;
+}
+
+.hero-seamoss__guarantee {
+  font-size: 13px !important;
+  margin-top: 14px !important;
+}
+
+/* ---- Badges bar ---- */
+.badges-bar-seamoss { padding: 18px 0 !important; }
+.badges-bar-seamoss__container { padding: 0 24px !important; gap: 14px 32px !important; }
+.badges-bar-seamoss__badge { font-size: 12px !important; letter-spacing: 0.12em !important; }
+
+/* ---- Stats ---- */
+.stats-seamoss {
+  padding: 64px 0 !important;
+}
+
+.stats-seamoss__container {
+  padding: 0 24px !important;
+  max-width: 1200px !important;
+}
+
+.stats-seamoss__heading {
+  font-size: clamp(26px, 3vw, 36px) !important;
+  margin-bottom: 32px !important;
+}
+
+.stats-seamoss__grid,
+.stats-seamoss__grid-bottom {
+  padding: 0 !important;
+  gap: 20px !important;
+  margin-bottom: 20px !important;
+}
+
+/* Explicit columns: top row 2, bottom row 3 (matches liquid loop) */
+.stats-seamoss__grid { grid-template-columns: 1fr 1fr !important; }
+.stats-seamoss__grid-bottom { grid-template-columns: 1fr 1fr 1fr !important; margin-bottom: 0 !important; }
+
+.stats-seamoss__item {
+  padding: 32px 24px !important;
+  border-radius: 16px !important;
+  min-height: 140px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.stats-seamoss__number {
+  font-size: clamp(32px, 3.5vw, 44px) !important;
+  margin-bottom: 8px !important;
+}
+
+.stats-seamoss__label {
+  font-size: 11px !important;
+  letter-spacing: 0.12em !important;
+  line-height: 1.4 !important;
+}
+
+/* ---- CTA ---- */
+.cta-seamoss { padding: 72px 0 !important; }
+.cta-seamoss__container { padding: 0 24px !important; max-width: 900px !important; }
+.cta-seamoss__heading {
+  font-size: clamp(30px, 3.5vw, 44px) !important;
+  margin-bottom: 16px !important;
+}
+.cta-seamoss__description {
+  font-size: 17px !important;
+  line-height: 1.6 !important;
+  max-width: 620px !important;
+  margin: 0 auto 28px !important;
+}
+.cta-seamoss__button--primary,
+.cta-seamoss__button--secondary,
+.button.cta-seamoss__button--primary,
+.button.cta-seamoss__button--secondary {
+  padding: 18px 36px !important;
+  font-size: 15px !important;
+  min-height: 58px !important;
+}
+.cta-seamoss__guarantee { font-size: 13px !important; margin-top: 20px !important; }
+
+/* ---- Features ---- */
+.features-seamoss { padding: 72px 0 !important; }
+.features-seamoss__container { padding: 0 24px !important; max-width: 1200px !important; }
+.features-seamoss__heading {
+  font-size: clamp(28px, 3vw, 40px) !important;
+  margin-bottom: 40px !important;
+}
+.features-seamoss__layout { gap: 40px !important; padding: 0 !important; }
+.features-seamoss__item {
+  padding: 20px 22px !important;
+  margin-bottom: 20px !important;
+  border-radius: 14px !important;
+}
+.features-seamoss__title {
+  font-size: 19px !important;
+  margin-bottom: 8px !important;
+  line-height: 1.3 !important;
+}
+.features-seamoss__description {
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+}
+.features-seamoss__image-placeholder,
+.features-seamoss__center,
+.features-seamoss__image {
+  max-width: 360px !important;
+  max-height: 360px !important;
+}
+
+/* ---- Comparison ---- */
+.comparison-seamoss { padding: 72px 0 !important; }
+.comparison-seamoss__container { padding: 0 24px !important; max-width: 1080px !important; }
+.comparison-seamoss__heading {
+  font-size: clamp(28px, 3vw, 40px) !important;
+  margin-bottom: 14px !important;
+}
+.comparison-seamoss__subheading {
+  font-size: 16px !important;
+  line-height: 1.55 !important;
+  margin-bottom: 36px !important;
+  text-align: center;
+}
+.comparison-seamoss__table {
+  padding: 0 !important;
+  margin: 0 auto !important;
+}
+.comparison-seamoss__cell {
+  padding: 14px 16px !important;
+  font-size: 14px !important;
+  line-height: 1.4 !important;
+}
+.comparison-seamoss__cell--feature { font-size: 14px !important; font-weight: 600 !important; }
+.comparison-seamoss__brand-badge--yours {
+  padding: 4px 12px !important;
+  font-size: 11px !important;
+}
+.comparison-seamoss__button {
+  padding: 16px 32px !important;
+  font-size: 15px !important;
+  margin-top: 32px !important;
+}
+.comparison-seamoss__detail { font-size: 13px !important; margin-top: 16px !important; }
+
+/* ---- Benefits ---- */
+.benefits-seamoss { padding: 72px 0 !important; }
+.benefits-seamoss__container { padding: 0 24px !important; max-width: 1200px !important; }
+.benefits-seamoss__heading {
+  font-size: clamp(28px, 3vw, 40px) !important;
+  margin-bottom: 16px !important;
+  text-align: left;
+}
+.benefits-seamoss__layout { gap: 56px !important; padding: 0 !important; }
+.benefits-seamoss__grid { gap: 18px !important; margin-top: 28px !important; }
+.benefits-seamoss__item {
+  padding: 22px 22px !important;
+  border-radius: 14px !important;
+}
+.benefits-seamoss__icon-wrapper {
+  width: 48px !important;
+  height: 48px !important;
+  margin-bottom: 14px !important;
+  font-size: 20px !important;
+}
+.benefits-seamoss__item h3,
+.benefits-seamoss__title {
+  font-size: 17px !important;
+  margin-bottom: 6px !important;
+  line-height: 1.3 !important;
+}
+.benefits-seamoss__item p,
+.benefits-seamoss__description {
+  font-size: 14px !important;
+  line-height: 1.55 !important;
+}
+.benefits-seamoss__image-column,
+.benefits-seamoss__image,
+.benefits-seamoss__visual {
+  max-width: 440px !important;
+  max-height: 540px !important;
+}
+
+/* ---- Testimonials ---- */
+.testimonials-seamoss { padding: 72px 0 !important; }
+.testimonials-seamoss__container { padding: 0 24px !important; max-width: 1200px !important; }
+.testimonials-seamoss__heading {
+  font-size: clamp(28px, 3vw, 40px) !important;
+  margin-bottom: 40px !important;
+}
+.testimonials-seamoss__grid { gap: 24px !important; padding: 0 !important; }
+.testimonials-seamoss__item {
+  padding: 28px 28px !important;
+  border-radius: 16px !important;
+}
+.testimonials-seamoss__rating { margin-bottom: 14px !important; }
+.testimonials-seamoss__rating .star,
+.star { font-size: 16px !important; }
+.testimonials-seamoss__quote {
+  font-size: 16px !important;
+  line-height: 1.6 !important;
+  margin-bottom: 18px !important;
+}
+.testimonials-seamoss__logo-container {
+  font-size: 13px !important;
+  padding-top: 14px !important;
+  margin-top: 14px !important;
+  max-height: none !important;
+  height: auto !important;
+}
+
+/* ---- Quiz CTA ---- */
+.quiz-cta-seamoss { padding: 72px 0 !important; }
+.quiz-cta-seamoss__container {
+  padding: 48px 32px !important;
+  max-width: 1200px !important;
+  min-height: 0 !important;
+}
+.quiz-cta-seamoss__heading {
+  font-size: clamp(28px, 3vw, 40px) !important;
+  margin-bottom: 16px !important;
+}
+.quiz-cta-seamoss__button,
+.button.quiz-cta-seamoss__button {
+  padding: 18px 36px !important;
+  font-size: 15px !important;
+  min-height: 58px !important;
+}
+.quiz-cta-seamoss__product-card {
+  max-width: 200px !important;
+  padding: 14px !important;
+}
+.quiz-cta-seamoss__person {
+  max-width: 140px !important;
+  max-height: 140px !important;
+}
+
+/* ---- Generic button override - defeats Dawn .button rem sizing ---- */
+.button.hero-seamoss__button,
+.button.cta-seamoss__button--primary,
+.button.cta-seamoss__button--secondary,
+.button.comparison-seamoss__button,
+.button.quiz-cta-seamoss__button {
+  font-size: 15px !important;
+  line-height: 1.3 !important;
+}

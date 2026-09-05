@@ -1,0 +1,51 @@
+{{ 'batana-page.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'batana-page.js' | asset_url }}" defer></script>
+
+<section class="bt-section bt-section--deep">
+  <div class="bt-container bt-center">
+    {%- if section.settings.eyebrow != blank -%}
+      <span class="bt-eyebrow">{{ section.settings.eyebrow }}</span>
+    {%- endif -%}
+    <h2 class="bt-h2">{{ section.settings.heading }}</h2>
+
+    <div class="bt-vs__grid">
+      <div class="bt-vs__col bt-vs__col--ours">
+        <h3 class="bt-vs__head">{{ section.settings.ours_title }}</h3>
+        <ul>
+          {%- assign ours = section.settings.ours_points | newline_to_br | split: '<br />' -%}
+          {%- for point in ours -%}
+            {%- assign trimmed = point | strip -%}
+            {%- if trimmed != blank -%}<li>{{ trimmed }}</li>{%- endif -%}
+          {%- endfor -%}
+        </ul>
+      </div>
+      <div class="bt-vs__col bt-vs__col--theirs">
+        <h3 class="bt-vs__head">{{ section.settings.theirs_title }}</h3>
+        <ul>
+          {%- assign theirs = section.settings.theirs_points | newline_to_br | split: '<br />' -%}
+          {%- for point in theirs -%}
+            {%- assign trimmed = point | strip -%}
+            {%- if trimmed != blank -%}<li>{{ trimmed }}</li>{%- endif -%}
+          {%- endfor -%}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Batana — Pure vs fake",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "THE GOLD STANDARD IN HAIR OIL" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "How to spot real Batana oil" },
+    { "type": "text", "id": "ours_title", "label": "Our column title", "default": "PURE BATANA OIL" },
+    { "type": "textarea", "id": "ours_points", "label": "Our column points", "info": "One per line." },
+    { "type": "text", "id": "theirs_title", "label": "Their column title", "default": "REFINED / DILUTED OIL" },
+    { "type": "textarea", "id": "theirs_points", "label": "Their column points", "info": "One per line." }
+  ],
+  "presets": [{ "name": "Batana — Pure vs fake" }]
+}
+{% endschema %}

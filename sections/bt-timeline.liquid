@@ -1,0 +1,50 @@
+{{ 'batana-page.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'batana-page.js' | asset_url }}" defer></script>
+
+<section class="bt-section bt-section--white">
+  <div class="bt-container bt-container--narrow">
+    <div class="bt-center">
+      <h2 class="bt-h2">{{ section.settings.heading }}</h2>
+      {%- if section.settings.subheading != blank -%}
+        <p class="bt-sub">{{ section.settings.subheading }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="bt-timeline__grid">
+      {%- for block in section.blocks -%}
+        <div class="bt-timeline__item" {{ block.shopify_attributes }}>
+          <div class="bt-timeline__when">{{ block.settings.when }}</div>
+          <div class="bt-timeline__rail"><div class="bt-timeline__dot"></div></div>
+          <div class="bt-timeline__body">
+            <h3 class="bt-h3">{{ block.settings.title }}</h3>
+            <p>{{ block.settings.text }}</p>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Batana — Timeline",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "What to expect over time" },
+    { "type": "textarea", "id": "subheading", "label": "Subheading" }
+  ],
+  "blocks": [
+    {
+      "type": "phase",
+      "name": "Phase",
+      "settings": [
+        { "type": "text", "id": "when", "label": "When", "default": "Week 1" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Deep nourishment" },
+        { "type": "textarea", "id": "text", "label": "Text" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Batana — Timeline" }]
+}
+{% endschema %}

@@ -1,0 +1,311 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "product-seamoss",
+      "settings": {
+        "eyebrow_text": "WILDCRAFTED · SMALL-BATCH · ONLY AT HEALISTIX",
+        "heading": "Sebi Trinity Sea Moss Gel",
+        "review_text": "460+ verified 5-star reviews",
+        "review_subtext": "The best tasting seamoss gel ever — wildcrafted sea moss, Irish bladderwrack, and burdock root in a single jar.",
+        "option_helper": "Pick a single jar, a bundle, or subscribe and save 15%.",
+        "support_points": "Wildcrafted Atlantic sea moss|The Sebi Trinity in one jar|Blended by hand",
+        "quantity_heading": "How many jars?",
+        "modal_button_label": "Choose flavor",
+        "bundle_heading": "Pick your bundle",
+        "bundle_subheading": "Three jars lasts one person about six weeks. Six jars is the family rhythm.",
+        "flavor_heading": "Pick your flavor",
+        "flavor_subheading": "Trinity is the unflavored original. Elderberry and Soursop are for those who prefer to taste it in a smoothie.",
+        "plan_heading": "One-time, or on rhythm?",
+        "plan_subheading": "Subscribe and we'll ship a fresh jar before your last one runs out. Skip or cancel anytime.",
+        "one_time_heading": "One jar at a time",
+        "one_time_subheading": "Try the Trinity without committing.",
+        "button_label": "ADD TO CART"
+      },
+      "blocks": {
+        "info_tab_1": {
+          "type": "info_tab",
+          "settings": {
+            "title": "What's in the jar",
+            "content": "<p><strong>The Sebi Trinity in one gel.</strong> Every jar contains wildcrafted Atlantic sea moss, Irish bladderwrack, fresh burdock root, and spring water. That's the entire ingredient list. No preservatives. No thickeners. No added water weight.</p><p>Dr. Sebi consistently grouped these three as a nutritional trinity: minerals, iodine, and a clearing herb working together. Every other brand sells them as three separate products. We put all three into one wildcrafted gel so you're not juggling bottles.</p>"
+          }
+        },
+        "info_tab_2": {
+          "type": "info_tab",
+          "settings": {
+            "title": "How to take it",
+            "content": "<p><strong>Daily:</strong> 2 tablespoons a day — not on an empty stomach.</p><p><strong>When:</strong> Morning is the family rhythm, but any consistent time works.</p><p><strong>Monthly supply:</strong> About 2 jars per person.</p><p><strong>Ways to enjoy:</strong> Straight off the spoon, in a smoothie, stirred into tea, blended into oatmeal, or whisked into a dressing. Trinity (unflavored) is the most versatile.</p><p><strong>Storage:</strong> Refrigerate on arrival. Use within 30 days once opened. Freeze up to 4 months if you need to pause.</p>"
+          }
+        },
+        "info_tab_3": {
+          "type": "info_tab",
+          "settings": {
+            "title": "The ingredient rule",
+            "content": "<p><strong>Four ingredients. That is the entire list.</strong> Wildcrafted Atlantic sea moss, Irish bladderwrack, fresh burdock root, and spring water.</p><p>No preservatives. No gums or thickeners. No added water weight. No flavorings. No shelf-stable shortcuts. If it isn't one of those four things, it isn't in the jar — full stop. That's the rule our family kitchen has kept from day one, and it's the rule Healistix runs on too.</p>"
+          }
+        },
+        "info_tab_4": {
+          "type": "info_tab",
+          "settings": {
+            "title": "Where it comes from",
+            "content": "<p><strong>Sea moss:</strong> Wildcrafted from open Atlantic waters off St. Lucia — harvested by hand, not pool-grown in bins. Shipped fresh, never dried twice.</p><p><strong>Bladderwrack:</strong> Irish bladderwrack, sourced wild from the North Atlantic.</p><p><strong>Burdock root:</strong> Fresh burdock, not powder. We process it in the same small 80-jar runs as the rest.</p><p><strong>Where we blend it:</strong> Our family kitchen, same as it’s always been.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "info_tab_1",
+        "info_tab_2",
+        "info_tab_3",
+        "info_tab_4"
+      ]
+    },
+    "product_steps": {
+      "type": "product-steps",
+      "settings": {
+        "heading": "What you may notice after 30 days of the Trinity jar",
+        "image": "shopify://shop_images/seamoss-spoon.png",
+        "button_label": "ADD TO CART — $19.99",
+        "button_link": "",
+        "color_scheme": "scheme-2"
+      },
+      "blocks": {
+        "step_1": {
+          "type": "step",
+          "settings": {
+            "title": "Steadier everyday energy",
+            "text": "The mineral base — iron, magnesium, potassium — supports normal energy production without the caffeine swing."
+          }
+        },
+        "step_2": {
+          "type": "step",
+          "settings": {
+            "title": "Calmer digestion",
+            "text": "Burdock's traditional role as a clearing herb, paired with sea moss's natural prebiotic fiber, supports regularity without being harsh."
+          }
+        },
+        "step_3": {
+          "type": "step",
+          "settings": {
+            "title": "Thyroid & metabolism balance",
+            "text": "Irish bladderwrack brings the iodine layer sea moss alone leaves short — supporting normal thyroid hormone production."
+          }
+        },
+        "step_4": {
+          "type": "step",
+          "settings": {
+            "title": "Skin and hair you can see",
+            "text": "Trace minerals in whole-food form nourish skin and hair from the inside. Most members notice the glow before they notice anything else."
+          }
+        },
+        "step_5": {
+          "type": "step",
+          "settings": {
+            "title": "Immune support that isn't a pill",
+            "text": "A broad spectrum of vitamins and trace minerals in a single spoonful — the way wellness worked before supplement aisles."
+          }
+        }
+      },
+      "block_order": [
+        "step_1",
+        "step_2",
+        "step_3",
+        "step_4",
+        "step_5"
+      ]
+    },
+    "reviews_grid": {
+      "type": "product-reviews-grid",
+      "settings": {
+        "heading": "What the Trinity jar actually changes",
+        "subheading": "Unedited feedback from verified Healistix customers."
+      },
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "badge": "PRIYA K.",
+            "rating": "★★★★★",
+            "text": "First sea moss that didn't feel like eating seaweed glue. The Trinity blend is genuinely different.",
+            "footer": "Verified · 2 weeks ago"
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "badge": "JAMAL R.",
+            "rating": "★★★★★",
+            "text": "I've tried five brands. This is the first one that actually tastes fresh and doesn't separate in the fridge.",
+            "footer": "Verified · 1 month ago"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "badge": "DESIREE L.",
+            "rating": "★★★★★",
+            "text": "Three generations of family craft and it shows. This is the jar I recommend to my family now.",
+            "footer": "Verified · 3 weeks ago"
+          }
+        }
+      },
+      "block_order": [
+        "review_1",
+        "review_2",
+        "review_3"
+      ]
+    },
+    "benefits_list": {
+      "type": "product-benefits-list",
+      "settings": {
+        "heading": "Three herbs. One jar. Why we put them together.",
+        "subheading": "Most brands sell sea moss, bladderwrack, and burdock as three separate bottles. We asked: why should you have to juggle?"
+      },
+      "blocks": {
+        "benefit_1": {
+          "type": "benefit",
+          "settings": {
+            "title": "Wildcrafted sea moss",
+            "text": "The mineral base — 92 of the 102 minerals your body uses every day."
+          }
+        },
+        "benefit_2": {
+          "type": "benefit",
+          "settings": {
+            "title": "Irish bladderwrack",
+            "text": "The iodine layer. Supports thyroid function and rounds out what sea moss alone leaves short."
+          }
+        },
+        "benefit_3": {
+          "type": "benefit",
+          "settings": {
+            "title": "Fresh burdock root",
+            "text": "The clearing herb. Traditionally paired with sea moss for gentle, consistent digestive support."
+          }
+        },
+        "benefit_4": {
+          "type": "benefit",
+          "settings": {
+            "title": "Small 80-jar runs",
+            "text": "80 jars per batch, blended by hand in our family kitchen. No warehouse, no contract manufacturer, no shortcuts — the way our family has always made it."
+          }
+        },
+        "benefit_5": {
+          "type": "benefit",
+          "settings": {
+            "title": "Four ingredients. That's it.",
+            "text": "Wildcrafted sea moss, Irish bladderwrack, burdock root, spring water. No preservatives, no thickeners, no added water weight — ever."
+          }
+        }
+      },
+      "block_order": [
+        "benefit_1",
+        "benefit_2",
+        "benefit_3",
+        "benefit_4",
+        "benefit_5"
+      ]
+    },
+    "product_faq": {
+      "type": "product-faq",
+      "settings": {
+        "heading": "Questions we get every week",
+        "subheading": "If we missed yours, the kitchen answers email directly at hi@healistix.com."
+      },
+      "blocks": {
+        "faq_1": {
+          "type": "faq",
+          "settings": {
+            "question": "What does \"wildcrafted\" actually mean?",
+            "answer": "It means the sea moss is harvested from open Atlantic waters — not grown in salt-water pools on a farm and then dried twice. Most \"wildcrafted\" labels on shelves today are pool-grown. Ours is the real thing, hand-harvested and shipped fresh to our kitchen."
+          }
+        },
+        "faq_2": {
+          "type": "faq",
+          "settings": {
+            "question": "Why is it $19.99 when everyone else charges $28–$40?",
+            "answer": "Because the family that runs Healistix buys their own groceries and knows what $40 for sea moss feels like. We keep margins thin and batches small, and we don't pay a warehouse or a contract manufacturer. That's where the $20 spread goes for other brands."
+          }
+        },
+        "faq_3": {
+          "type": "faq",
+          "settings": {
+            "question": "How fast will I feel a difference?",
+            "answer": "Digestion changes are usually the first thing people notice — often within the first week. Energy and skin tend to show up around day 14–21. Give your body 30 days before you decide."
+          }
+        },
+        "faq_4": {
+          "type": "faq",
+          "settings": {
+            "question": "How do I store it when it arrives?",
+            "answer": "Put it in the fridge as soon as it lands on your doorstep. Sealed, it keeps for 3–4 weeks refrigerated. You can also freeze it in an airtight container for up to 4 months — thaw overnight in the fridge and it picks right back up where it left off."
+          }
+        },
+        "faq_5": {
+          "type": "faq",
+          "settings": {
+            "question": "What makes this the \"Sebi Trinity\"?",
+            "answer": "Dr. Sebi consistently grouped sea moss, Irish bladderwrack, and burdock root as a nutritional trinity: minerals, iodine, and a clearing herb working together. Every other brand sells them as three separate products. We're the only U.S. line blending all three into one wildcrafted gel so you're not juggling bottles."
+          }
+        },
+        "faq_6": {
+          "type": "faq",
+          "settings": {
+            "question": "Is it safe for daily use? For kids? During pregnancy?",
+            "answer": "For most healthy adults, yes — 2 tablespoons a day is the standard serving. For kids under 12, we recommend half that. If you're pregnant, nursing, or on thyroid medication, talk to your practitioner first because of the iodine content."
+          }
+        }
+      },
+      "block_order": [
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "faq_4",
+        "faq_5",
+        "faq_6"
+      ]
+    },
+    "reviews_widget": {
+      "type": "product-reviews-widget",
+      "settings": {
+        "heading": "460+ verified Healistix reviews",
+        "subheading": "Every one is from a customer who actually ordered a jar. No incentives, no paid placements.",
+        "placeholder_text": "Add your Judge.me or Yotpo snippet in the section settings to render reviews."
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    }
+  },
+  "order": [
+    "main",
+    "product_steps",
+    "reviews_grid",
+    "benefits_list",
+    "product_faq",
+    "reviews_widget",
+    "related-products"
+  ]
+}

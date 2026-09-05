@@ -1,0 +1,54 @@
+{{ 'section-product-seamoss.css' | asset_url | stylesheet_tag }}
+
+<div id="ProductReviewsGrid-{{ section.id }}" class="product-reviews-grid">
+  <div class="page-width">
+    <div class="product-reviews-grid__header">
+      <h2 class="product-reviews-grid__title">{{ section.settings.heading }}</h2>
+      <p class="product-reviews-grid__subtitle">{{ section.settings.subheading }}</p>
+    </div>
+    <div class="product-reviews-grid__items">
+      {%- for block in section.blocks -%}
+        <div class="product-reviews-grid__item" {{ block.shopify_attributes }}>
+          <div class="product-reviews-grid__badge">{{ block.settings.badge }}</div>
+          <div class="product-reviews-grid__rating">{{ block.settings.rating }}</div>
+          <div class="product-reviews-grid__text">{{ block.settings.text }}</div>
+          <div class="product-reviews-grid__footer">{{ block.settings.footer }}</div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Product Reviews Grid",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {"type": "text", "id": "heading", "label": "Heading", "default": "See what members are saying about True Sea Moss Gel"},
+    {"type": "text", "id": "subheading", "label": "Subheading", "default": "Real screenshots, real stories, real obsession."}
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        {"type": "text", "id": "badge", "label": "Badge", "default": "AMAZON'S CHOICE"},
+        {"type": "text", "id": "rating", "label": "Rating / metric", "default": "4.9/5"},
+        {"type": "textarea", "id": "text", "label": "Quote", "default": "\"Tastes incredible and I can feel it within a week.\""},
+        {"type": "text", "id": "footer", "label": "Footer", "default": "Verified buyer"}
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Reviews Grid",
+      "blocks": [
+        {"type": "review"},
+        {"type": "review", "settings": {"badge": "SPROUTS MARKET", "rating": "Top Seller", "text": "Sold out in days during launch—customers keep coming back."}},
+        {"type": "review", "settings": {"badge": "COMMUNITY", "rating": "100k+ subscribers", "text": "Households from Queens to California keep jars on repeat."}}
+      ]
+    }
+  ]
+}
+{% endschema %}

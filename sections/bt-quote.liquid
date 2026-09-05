@@ -1,0 +1,29 @@
+{{ 'batana-page.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'batana-page.js' | asset_url }}" defer></script>
+
+<section class="bt-section bt-section--deep">
+  <div class="bt-container">
+    <div class="bt-quote__card">
+      <span class="bt-quote__mark">&ldquo;</span>
+      <p class="bt-quote__text">{{ section.settings.quote }}</p>
+      <div class="bt-quote__name">{{ section.settings.name }}</div>
+      {%- if section.settings.role != blank -%}
+        <div class="bt-quote__role">{{ section.settings.role }}</div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Batana — Quote",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "textarea", "id": "quote", "label": "Quote", "default": "With so many diluted blends on the market, real raw Batana oil stands apart — you can see it in the color, feel it in the texture, and your hair knows the difference." },
+    { "type": "text", "id": "name", "label": "Name", "default": "The Healistix Kitchen" },
+    { "type": "text", "id": "role", "label": "Role / subtitle", "default": "The Healistix family" }
+  ],
+  "presets": [{ "name": "Batana — Quote" }]
+}
+{% endschema %}

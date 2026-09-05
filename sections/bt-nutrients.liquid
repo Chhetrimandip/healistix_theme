@@ -1,0 +1,77 @@
+{{ 'batana-page.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'batana-page.js' | asset_url }}" defer></script>
+
+<section class="bt-section">
+  <div class="bt-container bt-center">
+    {%- if section.settings.eyebrow != blank -%}
+      <span class="bt-eyebrow">{{ section.settings.eyebrow }}</span>
+    {%- endif -%}
+    <h2 class="bt-h2">{{ section.settings.heading }}</h2>
+    {%- if section.settings.subheading != blank -%}
+      <p class="bt-sub">{{ section.settings.subheading }}</p>
+    {%- endif -%}
+
+    <div class="bt-nutrients__grid">
+      {%- for block in section.blocks -%}
+        <div class="bt-nutrients__card" {{ block.shopify_attributes }}>
+          <div class="bt-nutrients__icon">
+            {%- case block.settings.icon -%}
+              {%- when 'shield' -%}
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              {%- when 'wave' -%}
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12c3-6 6 6 9 0s6 6 9 0"/></svg>
+              {%- else -%}
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/><circle cx="12" cy="12" r="3"/></svg>
+            {%- endcase -%}
+          </div>
+          <h3 class="bt-h3">{{ block.settings.title }}</h3>
+          <p>{{ block.settings.text }}</p>
+        </div>
+      {%- endfor -%}
+    </div>
+
+    {%- if section.settings.factbox_title != blank -%}
+      <div class="bt-nutrients__factbox">
+        <h3 class="bt-h3">{{ section.settings.factbox_title }}</h3>
+        <p>{{ section.settings.factbox_text }}</p>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Batana — Nutrients",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "One ingredient. Naturally complete." },
+    { "type": "textarea", "id": "subheading", "label": "Subheading" },
+    { "type": "text", "id": "factbox_title", "label": "Fact box title", "default": "Did you know?" },
+    { "type": "textarea", "id": "factbox_text", "label": "Fact box text" }
+  ],
+  "blocks": [
+    {
+      "type": "nutrient",
+      "name": "Nutrient",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "shield", "label": "Shield" },
+            { "value": "wave", "label": "Wave" },
+            { "value": "sun", "label": "Sun" }
+          ],
+          "default": "shield"
+        },
+        { "type": "text", "id": "title", "label": "Title", "default": "Vitamin E Complex" },
+        { "type": "textarea", "id": "text", "label": "Text" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Batana — Nutrients" }]
+}
+{% endschema %}

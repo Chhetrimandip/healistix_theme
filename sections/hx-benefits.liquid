@@ -1,0 +1,59 @@
+{{ 'section-homepage-healistix.css' | asset_url | stylesheet_tag }}
+
+<div class="hx-benefits" style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;">
+  <div class="hx-benefits__container">
+    {% if section.settings.eyebrow != blank %}
+      <div class="hx-benefits__eyebrow">{{ section.settings.eyebrow }}</div>
+    {% endif %}
+
+    {% if section.settings.heading != blank %}
+      <h2 class="hx-benefits__heading">{{ section.settings.heading }}</h2>
+    {% endif %}
+
+    <div class="hx-benefits__grid">
+      {% for block in section.blocks %}
+        {% if block.type == 'benefit' %}
+          <div class="hx-benefits__item" {{ block.shopify_attributes }}>
+            <div class="hx-benefits__icon">{{ block.settings.icon }}</div>
+            <h3 class="hx-benefits__title">{{ block.settings.title }}</h3>
+            <p class="hx-benefits__description">{{ block.settings.description }}</p>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Benefits Grid",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Why Sea Moss?" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "One Spoonful. 92 Minerals. Full-Body Support." },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "min": 0, "max": 100, "step": 10, "default": 80, "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "min": 0, "max": 100, "step": 10, "default": 80, "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit",
+      "settings": [
+        { "type": "text", "id": "icon", "label": "Icon", "default": "⚡" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Energy" },
+        { "type": "textarea", "id": "description", "label": "Description", "default": "Natural, sustained energy from iron and B-vitamins" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Benefits Grid" }]
+}
+{% endschema %}

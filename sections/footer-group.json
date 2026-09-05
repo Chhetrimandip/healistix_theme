@@ -1,0 +1,63 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "story": {
+          "type": "text",
+          "settings": {
+            "heading": "Healistix — from our kitchen to yours",
+            "subtext": "<p>The wildcrafted wellness line from a family business hand-making natural products for three generations. Three generations, one kitchen, the same rule: if we wouldn't give it to our own kids, we don't sell it.</p>"
+          }
+        },
+        "shop_menu": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Shop",
+            "menu": "main-menu"
+          }
+        },
+        "learn_menu": {
+          "type": "text",
+          "settings": {
+            "heading": "Support",
+            "subtext": "<p><a href=\"/pages/contact\">Contact Us</a><br><a href=\"/policies/shipping-policy\">Shipping Policy</a><br><a href=\"/policies/refund-policy\">Returns & Refunds</a><br><a href=\"/pages/faq\">FAQ</a></p>"
+          }
+        }
+      },
+      "block_order": [
+        "story",
+        "shop_menu",
+        "learn_menu"
+      ],
+      "settings": {
+        "color_scheme": "scheme-2",
+        "newsletter_enable": true,
+        "newsletter_heading": "Join the Healistix list",
+        "enable_follow_on_shop": true,
+        "show_social": true,
+        "enable_country_selector": true,
+        "enable_language_selector": true,
+        "payment_enable": true,
+        "show_policy": true,
+        "margin_top": 0,
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    }
+  },
+  "order": [
+    "footer"
+  ]
+}

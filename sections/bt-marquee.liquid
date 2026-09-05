@@ -1,0 +1,55 @@
+{{ 'batana-page.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'batana-page.js' | asset_url }}" defer></script>
+
+<div class="bt-marquee{% if section.settings.style == 'cream' %} bt-marquee--cream{% endif %}">
+  <div class="bt-marquee__inner">
+    {%- for i in (1..2) -%}
+      <div class="bt-marquee__track" {% if i == 2 %}aria-hidden="true"{% endif %}>
+        {%- for j in (1..3) -%}
+          {%- for block in section.blocks -%}
+            <span class="bt-marquee__item" {% if i == 1 and j == 1 %}{{ block.shopify_attributes }}{% endif %}>{{ block.settings.text }}</span>
+          {%- endfor -%}
+        {%- endfor -%}
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Batana — Marquee line",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "style",
+      "label": "Style",
+      "options": [
+        { "value": "green", "label": "Forest green" },
+        { "value": "cream", "label": "Cream" }
+      ],
+      "default": "green"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Text item",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Text", "default": "TRY HEALISTIX TODAY, RISK-FREE" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Batana — Marquee line",
+      "blocks": [
+        { "type": "item", "settings": { "text": "TRY HEALISTIX TODAY, RISK-FREE" } },
+        { "type": "item", "settings": { "text": "60-DAY MONEY BACK GUARANTEE" } },
+        { "type": "item", "settings": { "text": "100% RAW BATANA OIL" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

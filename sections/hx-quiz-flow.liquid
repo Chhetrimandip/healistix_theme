@@ -1,0 +1,1293 @@
+{{ 'section-hx-quiz-flow.css' | asset_url | stylesheet_tag }}
+
+<div class="hx-quiz-flow" id="hxQuizFlow">
+
+  <!-- ===== PROGRESS BAR ===== -->
+  <div class="hx-quiz-flow__progress" style="display:none;">
+    <div class="hx-quiz-flow__progress-bar">
+      <div class="hx-quiz-flow__progress-fill" id="quizProgressFill" style="width: 0%"></div>
+    </div>
+    <div class="hx-quiz-flow__progress-text" id="quizProgressText"></div>
+  </div>
+
+  <!-- ===== SCREEN 0: LANDING ===== -->
+  <div class="hx-quiz-flow__screen hx-quiz-flow__screen--active" data-screen="landing">
+    <div class="hx-quiz-flow__landing">
+      <div class="hx-quiz-flow__eyebrow">Your personalized formula</div>
+      <h1 class="hx-quiz-flow__heading">
+        Find the Sea Moss<br>
+        <span class="hx-quiz-flow__heading-coral">your body</span><br>
+        <span class="hx-quiz-flow__heading-gold">is asking for.</span>
+      </h1>
+      <p class="hx-quiz-flow__sub">Answer 5 quick questions. We'll match you with the blend your body actually needs.</p>
+
+      <div class="hx-quiz-flow__promise">
+        <div class="hx-quiz-flow__promise-item">
+          <span class="hx-quiz-flow__promise-number">5</span>
+          <span>Questions</span>
+        </div>
+        <div class="hx-quiz-flow__promise-divider"></div>
+        <div class="hx-quiz-flow__promise-item">
+          <span class="hx-quiz-flow__promise-number">12</span>
+          <span>Blends</span>
+        </div>
+        <div class="hx-quiz-flow__promise-divider"></div>
+        <div class="hx-quiz-flow__promise-item">
+          <span class="hx-quiz-flow__promise-number">1</span>
+          <span>Perfect Match</span>
+        </div>
+      </div>
+
+      <button class="hx-quiz-flow__start-btn" id="quizStartBtn">
+        Start the Quiz
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+
+      <div class="hx-quiz-flow__landing-offer">
+        <span class="hx-quiz-flow__offer-badge">20% OFF</span>
+        <span>Complete the quiz to claim your discount</span>
+      </div>
+
+      <!-- Trust strip -->
+      <div class="hx-quiz-flow__trust">
+        <span>Wildcrafted <strong>St. Lucia</strong></span>
+        <span class="hx-quiz-flow__trust-dot">&middot;</span>
+        <span><strong>92</strong> Minerals</span>
+        <span class="hx-quiz-flow__trust-dot">&middot;</span>
+        <span>No Sugar Added</span>
+        <span class="hx-quiz-flow__trust-dot">&middot;</span>
+        <span>Family-crafted, <strong>three generations</strong></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SCREEN 1: Q1 — Health Goals (multi-select up to 3) ===== -->
+  <div class="hx-quiz-flow__screen" data-screen="q1">
+    <div class="hx-quiz-flow__question-wrap">
+      <button class="hx-quiz-flow__back-inline" data-back="true">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Back
+      </button>
+      <div class="hx-quiz-flow__q-number">Question 1 of 5</div>
+      <h2 class="hx-quiz-flow__q-title">What's your body asking for?</h2>
+      <p class="hx-quiz-flow__q-sub">Select up to 3 — a real consultation starts with the full picture.</p>
+      <div class="hx-quiz-flow__options hx-quiz-flow__options--grid hx-quiz-flow__options--multi" data-question="goals" data-max="3">
+        <button class="hx-quiz-flow__option" data-value="energy">
+          <span class="hx-quiz-flow__option-icon">⚡</span>
+          <span class="hx-quiz-flow__option-label">Steady, Lasting Energy</span>
+        </button>
+        <button class="hx-quiz-flow__option" data-value="digestion">
+          <span class="hx-quiz-flow__option-icon">🌿</span>
+          <span class="hx-quiz-flow__option-label">Digestion &amp; Gut Health</span>
+        </button>
+        <button class="hx-quiz-flow__option" data-value="immunity">
+          <span class="hx-quiz-flow__option-icon">🛡️</span>
+          <span class="hx-quiz-flow__option-label">Immune Defense</span>
+        </button>
+        <button class="hx-quiz-flow__option" data-value="skin">
+          <span class="hx-quiz-flow__option-icon">✨</span>
+          <span class="hx-quiz-flow__option-label">Skin, Hair &amp; Nails</span>
+        </button>
+        <button class="hx-quiz-flow__option" data-value="recovery">
+          <span class="hx-quiz-flow__option-icon">💪</span>
+          <span class="hx-quiz-flow__option-label">Recovery &amp; Joints</span>
+        </button>
+        <button class="hx-quiz-flow__option" data-value="focus">
+          <span class="hx-quiz-flow__option-icon">🧠</span>
+          <span class="hx-quiz-flow__option-label">Mental Clarity &amp; Focus</span>
+        </button>
+        <button class="hx-quiz-flow__option" data-value="hormonal">
+          <span class="hx-quiz-flow__option-icon">🌙</span>
+          <span class="hx-quiz-flow__option-label">Hormonal Balance</span>
+        </button>
+        <button class="hx-quiz-flow__option" data-value="sleep">
+          <span class="hx-quiz-flow__option-icon">😴</span>
+          <span class="hx-quiz-flow__option-label">Better Sleep &amp; Calm</span>
+        </button>
+      </div>
+      <button class="hx-quiz-flow__next-btn" data-next-for="q1" disabled>
+        Next
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- ===== SCREEN 2: Q2 — Symptoms / Signals (multi-select up to 3) ===== -->
+  <div class="hx-quiz-flow__screen" data-screen="q2">
+    <div class="hx-quiz-flow__question-wrap">
+      <button class="hx-quiz-flow__back-inline" data-back="true">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Back
+      </button>
+      <div class="hx-quiz-flow__q-number">Question 2 of 5</div>
+      <h2 class="hx-quiz-flow__q-title">What signals is your body sending?</h2>
+      <p class="hx-quiz-flow__q-sub">Select up to 3 — an herbalist listens for these.</p>
+      <div class="hx-quiz-flow__options hx-quiz-flow__options--list hx-quiz-flow__options--multi" data-question="symptoms" data-max="3">
+        <button class="hx-quiz-flow__option" data-value="crashes">
+          <span class="hx-quiz-flow__option-label">Afternoon energy crashes</span>
+        </button>
+        <button class="hx-quiz-flow__option" data-value="bloating">
+          <span class="hx-quiz-flow__option-label">Bloating after meals</span>
+        </button>
+        <button class="hx-quiz-flow__option" data-value="colds">
+          <span class="hx-quiz-flow__option-label">Getting sick more than I should</span>
+        </button>
+        <button class="hx-quiz-flow__option" data-value="skin-hair">
+          <span class="hx-quiz-flow__option-label">Dry skin, dull hair, or brittle nails</span>
+        </button>
+        <button class="hx-quiz-flow__option" data-value="soreness">
+          <span class="hx-quiz-flow__option-label">Muscle soreness or stiff joints</span>
+        </button>
+        <button class="hx-quiz-flow__option" data-value="brainfog">
+          <span class="hx-quiz-flow__option-label">Brain fog or trouble focusing</span>
+        </button>
+        <button class="hx-quiz-flow__option" data-value="mood">
+          <span class="hx-quiz-flow__option-label">Mood swings or irregular cycles</span>
+        </button>
+        <button class="hx-quiz-flow__option" data-value="insomnia">
+          <span class="hx-quiz-flow__option-label">Trouble falling or staying asleep</span>
+        </button>
+        <button class="hx-quiz-flow__option" data-value="none">
+          <span class="hx-quiz-flow__option-label">Nothing specific — just want to stay ahead</span>
+        </button>
+      </div>
+      <button class="hx-quiz-flow__next-btn" data-next-for="q2" disabled>
+        Next
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- ===== SCREEN 3: Q3 — Lifestyle (single select) ===== -->
+  <div class="hx-quiz-flow__screen" data-screen="q3">
+    <div class="hx-quiz-flow__question-wrap">
+      <button class="hx-quiz-flow__back-inline" data-back="true">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Back
+      </button>
+      <div class="hx-quiz-flow__q-number">Question 3 of 5</div>
+      <h2 class="hx-quiz-flow__q-title">What does your day-to-day look like?</h2>
+      <p class="hx-quiz-flow__q-sub">Your lifestyle shapes how your body uses minerals.</p>
+      <div class="hx-quiz-flow__options" data-question="lifestyle">
+        <button class="hx-quiz-flow__option" data-value="active">
+          <span class="hx-quiz-flow__option-icon">🏃</span>
+          <span class="hx-quiz-flow__option-label">Active</span>
+          <span class="hx-quiz-flow__option-desc">Gym, sports, physical work</span>
+        </button>
+        <button class="hx-quiz-flow__option" data-value="moderate">
+          <span class="hx-quiz-flow__option-icon">🚶</span>
+          <span class="hx-quiz-flow__option-label">Moderate</span>
+          <span class="hx-quiz-flow__option-desc">Some movement, mostly desk</span>
+        </button>
+        <button class="hx-quiz-flow__option" data-value="sedentary">
+          <span class="hx-quiz-flow__option-icon">💻</span>
+          <span class="hx-quiz-flow__option-label">Sedentary</span>
+          <span class="hx-quiz-flow__option-desc">Mostly sitting through the day</span>
+        </button>
+        <button class="hx-quiz-flow__option" data-value="high-stress">
+          <span class="hx-quiz-flow__option-icon">🔥</span>
+          <span class="hx-quiz-flow__option-label">High-Stress</span>
+          <span class="hx-quiz-flow__option-desc">Demanding job, caregiving, always on</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SCREEN 4: Q4 — Experience Level (single select) ===== -->
+  <div class="hx-quiz-flow__screen" data-screen="q4">
+    <div class="hx-quiz-flow__question-wrap">
+      <button class="hx-quiz-flow__back-inline" data-back="true">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Back
+      </button>
+      <div class="hx-quiz-flow__q-number">Question 4 of 5</div>
+      <h2 class="hx-quiz-flow__q-title">What's your experience with sea moss?</h2>
+      <p class="hx-quiz-flow__q-sub">This helps us gauge how bold to go with your blend.</p>
+      <div class="hx-quiz-flow__options" data-question="experience">
+        <button class="hx-quiz-flow__option" data-value="first-time">
+          <span class="hx-quiz-flow__option-icon">🌱</span>
+          <span class="hx-quiz-flow__option-label">First time — I'm curious</span>
+        </button>
+        <button class="hx-quiz-flow__option" data-value="some">
+          <span class="hx-quiz-flow__option-icon">🌿</span>
+          <span class="hx-quiz-flow__option-label">Tried it before — want to get serious</span>
+        </button>
+        <button class="hx-quiz-flow__option" data-value="daily">
+          <span class="hx-quiz-flow__option-icon">🌳</span>
+          <span class="hx-quiz-flow__option-label">I take it daily — help me optimize</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SCREEN 5: Q5 — Method (single select) ===== -->
+  <div class="hx-quiz-flow__screen" data-screen="q5">
+    <div class="hx-quiz-flow__question-wrap">
+      <button class="hx-quiz-flow__back-inline" data-back="true">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Back
+      </button>
+      <div class="hx-quiz-flow__q-number">Question 5 of 5</div>
+      <h2 class="hx-quiz-flow__q-title">How do you like to take it?</h2>
+      <p class="hx-quiz-flow__q-sub">Flavor and texture matter — we'll match accordingly.</p>
+      <div class="hx-quiz-flow__options" data-question="method">
+        <button class="hx-quiz-flow__option" data-value="spoon">
+          <span class="hx-quiz-flow__option-icon">🥄</span>
+          <span class="hx-quiz-flow__option-label">Straight from the spoon</span>
+        </button>
+        <button class="hx-quiz-flow__option" data-value="smoothie">
+          <span class="hx-quiz-flow__option-icon">🥤</span>
+          <span class="hx-quiz-flow__option-label">Blended in smoothies</span>
+        </button>
+        <button class="hx-quiz-flow__option" data-value="tea">
+          <span class="hx-quiz-flow__option-icon">🍵</span>
+          <span class="hx-quiz-flow__option-label">Stirred into tea or juice</span>
+        </button>
+        <button class="hx-quiz-flow__option" data-value="food">
+          <span class="hx-quiz-flow__option-icon">🥣</span>
+          <span class="hx-quiz-flow__option-label">Mixed into food</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SCREEN 6: EMAIL CAPTURE ===== -->
+  <div class="hx-quiz-flow__screen" data-screen="email">
+    <div class="hx-quiz-flow__question-wrap">
+      <button class="hx-quiz-flow__back-inline" data-back="true">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Back
+      </button>
+      <div class="hx-quiz-flow__email-icon">🎉</div>
+      <h2 class="hx-quiz-flow__q-title">Your personalized blend is ready.</h2>
+      <p class="hx-quiz-flow__q-sub">Enter your email to unlock your results and get <strong>20% off</strong> your first order.</p>
+      <form class="hx-quiz-flow__email-form" id="quizEmailForm">
+        <input type="email" class="hx-quiz-flow__email-input" id="quizEmailInput" placeholder="Your email address" required autocomplete="email">
+        <label class="hx-quiz-flow__consent">
+          <input type="checkbox" id="quizConsent" checked>
+          <span>Send me my results, discount code, and wellness tips.</span>
+        </label>
+        <button type="submit" class="hx-quiz-flow__submit-btn" id="quizSubmitBtn">
+          See My Results + Get 20% Off
+        </button>
+      </form>
+      <button class="hx-quiz-flow__skip-link" id="quizSkipEmail">Skip — just show me my results</button>
+    </div>
+  </div>
+
+  <!-- ===== SCREEN 7: RESULTS ===== -->
+  <div class="hx-quiz-flow__screen" data-screen="results">
+    <div class="hx-quiz-flow__results-wrap">
+
+      <!-- ===== SECTION 1: Personalized headline ===== -->
+      <div class="hx-quiz-flow__r-header">
+        <div class="hx-quiz-flow__r-header-badge">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+          Your personalized recommendation
+        </div>
+        <h2 class="hx-quiz-flow__r-headline" id="quizResultHeadline">We found your match.</h2>
+        <p class="hx-quiz-flow__r-subline" id="quizResultSubline">Based on your goals and lifestyle, here's what our herbalist recommends.</p>
+      </div>
+
+      <!-- ===== SECTION 2: Hero product card ===== -->
+      <div class="hx-quiz-flow__r-card">
+        <div class="hx-quiz-flow__r-card-img-col">
+          <div class="hx-quiz-flow__r-card-img-wrap">
+            <img id="quizResultImg" class="hx-quiz-flow__r-card-img" src="" alt="Your recommended blend">
+          </div>
+        </div>
+        <div class="hx-quiz-flow__r-card-detail">
+          <div class="hx-quiz-flow__r-card-eyebrow">Recommended for you</div>
+          <h3 class="hx-quiz-flow__r-card-name" id="quizResultFlavor">—</h3>
+
+          <!-- Star rating + review count -->
+          <div class="hx-quiz-flow__r-stars" id="quizResultStars">
+            <span class="hx-quiz-flow__r-stars-icons">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <span class="hx-quiz-flow__r-stars-count">4.8 · 120+ reviews</span>
+          </div>
+
+          <div class="hx-quiz-flow__r-card-price" id="quizResultPrice"></div>
+
+          <p class="hx-quiz-flow__r-card-reason" id="quizResultReason"></p>
+
+          <!-- Profile tags — inline with product -->
+          <div class="hx-quiz-flow__r-card-tags" id="quizProfileTags"></div>
+
+          <!-- Discount code -->
+          <div class="hx-quiz-flow__r-discount" id="quizDiscountBox" style="display:none;">
+            <div class="hx-quiz-flow__r-discount-inner">
+              <span class="hx-quiz-flow__r-discount-pct">20% OFF</span>
+              <span class="hx-quiz-flow__r-discount-code" id="quizDiscountCode">SEAMOSS20</span>
+              <button class="hx-quiz-flow__r-discount-copy" id="quizCopyBtn">Copy</button>
+            </div>
+            <span class="hx-quiz-flow__r-discount-note" id="quizDiscountNote">Valid 30 days · One use per customer</span>
+          </div>
+
+          <!-- Primary CTA -->
+          <a href="#" class="hx-quiz-flow__r-cta" id="quizResultCta">
+            Add to Cart — 20% Off
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+
+          <!-- Trust strip -->
+          <div class="hx-quiz-flow__r-trust">
+            <span class="hx-quiz-flow__r-trust-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+              Free shipping
+            </span>
+            <span class="hx-quiz-flow__r-trust-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+              Family-made
+            </span>
+            <span class="hx-quiz-flow__r-trust-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+              92+ minerals
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== SECTION 3: Why this blend — herbalist-grade breakdown ===== -->
+      <div class="hx-quiz-flow__r-why" id="quizWhyBox">
+        <div class="hx-quiz-flow__r-why-header">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8612D" stroke-width="2"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 15v-4m0-4h.01"/></svg>
+          <span>Why our herbalist chose this for you</span>
+        </div>
+        <ul class="hx-quiz-flow__r-why-list" id="quizWhyList"></ul>
+      </div>
+
+      <!-- ===== SECTION 4: Social proof — customer testimonial ===== -->
+      <div class="hx-quiz-flow__r-proof" id="quizProofBox">
+        <div class="hx-quiz-flow__r-proof-quote" id="quizProofQuote">
+          "I've tried everything for my joints — turmeric capsules, fish oil, you name it. This gel is the first thing that actually made a difference I could feel within a week."
+        </div>
+        <div class="hx-quiz-flow__r-proof-attr">
+          <span class="hx-quiz-flow__r-proof-name" id="quizProofName">— Keisha M., Verified Buyer</span>
+          <span class="hx-quiz-flow__r-proof-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        </div>
+      </div>
+
+      <!-- ===== SECTION 5: Secondary recommendation ===== -->
+      <div class="hx-quiz-flow__r-alt" id="quizSecondaryResult" style="display:none;">
+        <div class="hx-quiz-flow__r-alt-label">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+          <span id="quizSecondaryLabel">Also a strong match for your profile</span>
+        </div>
+        <div class="hx-quiz-flow__r-alt-body">
+          <div class="hx-quiz-flow__r-alt-img-wrap">
+            <img id="quizSecondaryImg" class="hx-quiz-flow__r-alt-img" src="" alt="">
+          </div>
+          <div class="hx-quiz-flow__r-alt-info">
+            <h4 class="hx-quiz-flow__r-alt-name" id="quizSecondaryFlavor"></h4>
+            <p class="hx-quiz-flow__r-alt-reason" id="quizSecondaryReason"></p>
+            <a href="#" class="hx-quiz-flow__r-alt-cta" id="quizSecondaryCta">
+              View This Blend
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== SECTION 6: Flavor pick (fruit flavor for daily use) ===== -->
+      <div class="hx-quiz-flow__r-flavor" id="quizFlavorPick" style="display:none;">
+        <div class="hx-quiz-flow__r-flavor-icon">🍓</div>
+        <div class="hx-quiz-flow__r-flavor-text">
+          <span class="hx-quiz-flow__r-flavor-label">For everyday enjoyment</span>
+          <span class="hx-quiz-flow__r-flavor-name" id="quizFlavorPickName"></span>
+          <span class="hx-quiz-flow__r-flavor-note">Same 92-mineral sea moss base in a flavor you'll look forward to daily.</span>
+        </div>
+      </div>
+
+      <!-- ===== SECTION 7: Bottom actions ===== -->
+      <div class="hx-quiz-flow__r-actions">
+        <a href="/collections/all" class="hx-quiz-flow__r-browse">Browse All Blends</a>
+        <span class="hx-quiz-flow__r-actions-dot">·</span>
+        <button class="hx-quiz-flow__r-retake" id="quizRetakeBtn">Retake Quiz</button>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<script>
+(function() {
+  'use strict';
+
+  /* ============================================================
+     HEALISTIX SEA MOSS QUIZ — HERBALIST-GRADE RECOMMENDATION
+
+     CORE PRINCIPLE: The therapeutic value comes from the HERBS
+     added to the sea moss (bladderwrack, burdock, turmeric,
+     elderberry, ginger, moringa, soursop, sea grape), NOT from
+     fruit flavoring. Every blend delivers the same 92-mineral
+     sea moss base. Fruit flavors are just for taste preference.
+
+     TWO-TIER SYSTEM:
+     - Primary recommendation = herbal/therapeutic blend
+       (scored by health goals, symptoms, lifestyle)
+     - Flavor suggestion = fruit-flavored option for daily use
+       (based on method preference + experience level)
+     ============================================================ */
+
+  /* ===== STATE ===== */
+  var answers = {
+    goals: [],
+    symptoms: [],
+    lifestyle: null,
+    experience: null,
+    method: null
+  };
+  var screens = ['landing', 'q1', 'q2', 'q3', 'q4', 'q5', 'email', 'results'];
+  var currentIdx = 0;
+  var email = '';
+
+  /* ===== DOM ===== */
+  var root = document.getElementById('hxQuizFlow');
+  if (!root) return;
+  var progressFill = document.getElementById('quizProgressFill');
+  var progressText = document.getElementById('quizProgressText');
+
+  /* ===== PRODUCT CATALOG ===== */
+  var products = {
+    'trinity':            { name: 'Trinity Sea Moss Gel', handle: 'sebi-trinity-sea-moss-gel', price: '$19.99' },
+    'elderberry':         { name: 'Elderberry Sea Moss Gel', handle: 'elderberry-sea-moss-gel', price: '$21.99' },
+    'elderberry-ginger':  { name: 'Elderberry Ginger Gel', handle: 'elderberry-ginger-sea-moss-gel', price: '$21.99' },
+    'soursop':            { name: 'Soursop Sea Moss Gel', handle: 'soursop-sea-moss-gel', price: '$21.99' },
+    'turmeric':           { name: 'Turmeric Sea Moss Gel', handle: 'turmeric-sea-moss-gel', price: '$21.99' },
+    'moringa':            { name: 'Moringa Sea Moss Gel', handle: 'moringa-sea-moss-gel', price: '$21.99' },
+    'sea-grape':          { name: 'Sea Grape Gel', handle: 'sea-grape-sea-moss-gel', price: '$21.99' },
+    'pineapple-ginger':   { name: 'Pineapple Ginger Gel', handle: 'pineapple-ginger-sea-moss-gel', price: '$19.99' },
+    'blueberry':          { name: 'Blueberry Sea Moss Gel', handle: 'blueberry-sea-moss-gel', price: '$19.99' },
+    'strawberry':         { name: 'Strawberry Sea Moss Gel', handle: 'strawberry-sea-moss-gel', price: '$19.99' },
+    'mango-pineapple':    { name: 'Mango Pineapple Gel', handle: 'mango-pineapple-sea-moss-gel', price: '$19.99' },
+    'irish-moss':         { name: 'Original Irish Moss Gel', handle: 'original-irish-moss-gel', price: '$19.99' }
+  };
+
+  /* ===== TWO TIERS =====
+     Therapeutic blends: contain herbs/compounds with real medicinal action
+     Flavor blends: fruit-flavored sea moss — same mineral base, just for taste
+  */
+  var therapeuticBlends = ['trinity', 'elderberry', 'elderberry-ginger', 'soursop', 'turmeric', 'moringa', 'sea-grape', 'pineapple-ginger'];
+  var flavorBlends = ['blueberry', 'strawberry', 'mango-pineapple', 'irish-moss'];
+
+  /* ===== THERAPEUTIC SCORING =====
+     ONLY therapeutic blends get scored by health goals and symptoms.
+     Fruit flavors are NEVER recommended for health reasons.
+
+     Herbal rationale:
+     - Trinity: bladderwrack (iodine/thyroid) + burdock root (blood/lymph/skin detox)
+     - Elderberry: immune defense (vitamin C, zinc, anthocyanins)
+     - Elderberry Ginger: immune + circulation (ginger = vasodilator, anti-inflammatory)
+     - Soursop: graviola (anti-inflammatory, calming alkaloids, fiber, B-vitamins)
+     - Turmeric: curcumin (anti-inflammatory, joint support)
+     - Moringa: adaptogen (iron, B12, amino acids, cortisol regulation)
+     - Sea Grape: iodine-dense (thyroid/hormonal), calcium, omega-3
+     - Pineapple Ginger: bromelain (digestive enzyme) + gingerol (motility, circulation)
+  */
+
+  var goalScores = {
+    'energy':    { 'elderberry-ginger': 4, 'moringa': 3, 'pineapple-ginger': 2 },
+    'digestion': { 'soursop': 4, 'pineapple-ginger': 5, 'elderberry-ginger': 1 },
+    'immunity':  { 'elderberry': 5, 'elderberry-ginger': 3, 'moringa': 2 },
+    'skin':      { 'trinity': 5, 'sea-grape': 2, 'moringa': 1 },
+    'recovery':  { 'turmeric': 5, 'trinity': 3, 'moringa': 2 },
+    'focus':     { 'moringa': 5, 'elderberry-ginger': 2 },
+    'hormonal':  { 'sea-grape': 5, 'trinity': 4 },
+    'sleep':     { 'soursop': 5, 'moringa': 2 }
+  };
+
+  var symptomScores = {
+    'crashes':   { 'elderberry-ginger': 3, 'moringa': 2, 'pineapple-ginger': 2 },
+    'bloating':  { 'pineapple-ginger': 4, 'soursop': 3 },
+    'colds':     { 'elderberry': 4, 'elderberry-ginger': 3 },
+    'skin-hair': { 'trinity': 3, 'sea-grape': 2 },
+    'soreness':  { 'turmeric': 4, 'trinity': 2 },
+    'brainfog':  { 'moringa': 3, 'elderberry-ginger': 2 },
+    'mood':      { 'sea-grape': 3, 'trinity': 3, 'soursop': 1 },
+    'insomnia':  { 'soursop': 3, 'moringa': 2 },
+    'none':      { 'trinity': 2, 'elderberry': 1, 'moringa': 1 }
+  };
+
+  var lifestyleScores = {
+    'active':      { 'turmeric': 2, 'trinity': 1, 'moringa': 1 },
+    'moderate':    {},
+    'sedentary':   { 'pineapple-ginger': 1, 'elderberry-ginger': 1 },
+    'high-stress': { 'moringa': 3, 'soursop': 2 }
+  };
+
+  /* Experience adjusts therapeutic scoring too — daily users get advanced blends */
+  var experienceTherapeuticScores = {
+    'first-time': { 'elderberry-ginger': 1, 'soursop': 1 },
+    'some':       {},
+    'daily':      { 'trinity': 2, 'moringa': 2, 'sea-grape': 1 }
+  };
+
+  /* ===== FLAVOR SELECTION =====
+     Separate logic — fruit flavors chosen by taste/method preference only.
+     These all deliver the same sea moss mineral base.
+  */
+  var flavorByMethod = {
+    'spoon':    'strawberry',
+    'smoothie': 'mango-pineapple',
+    'tea':      'blueberry',
+    'food':     'irish-moss'
+  };
+
+  /* Experience adjusts flavor — familiar for beginners, plain for veterans */
+  var flavorByExperience = {
+    'first-time': 'strawberry',
+    'some':       'blueberry',
+    'daily':      'irish-moss'
+  };
+
+  /* ===== HERBALIST RATIONALE =====
+     These explain the HERBAL action, not fruit benefits.
+     Every rationale ties back to the actual therapeutic compound.
+  */
+  var herbalRationale = {
+    'trinity': {
+      base: 'The Trinity blend adds bladderwrack and burdock root to your sea moss — two of the most important herbs in traditional Caribbean and African healing.',
+      why: {
+        'energy': 'Bladderwrack supplies iodine that fuels your thyroid — the gland that sets your metabolic rate. When your thyroid is supported, energy production stabilizes naturally.',
+        'digestion': 'Burdock root is a prebiotic that supports beneficial gut bacteria, while bladderwrack\'s alginic acid soothes the digestive lining.',
+        'immunity': 'Burdock root supports your lymphatic system — your body\'s waste-removal network. A clean lymph system means your immune cells can focus on real threats.',
+        'skin': 'Burdock root is a blood purifier and lymphatic cleanser — when your blood is clean, your skin clears. Herbalists have used burdock for skin conditions for centuries.',
+        'recovery': 'Burdock root reduces systemic inflammation and purifies the blood, while bladderwrack replenishes iodine and trace minerals lost through exertion.',
+        'focus': 'Your thyroid controls metabolic rate in every cell, including your brain. Bladderwrack\'s iodine keeps that engine running so mental clarity follows.',
+        'hormonal': 'Bladderwrack is naturally rich in iodine, which your thyroid needs to produce the hormones that regulate metabolism, energy, and mood.',
+        'sleep': 'When your thyroid is overactive or underactive, sleep suffers. Bladderwrack restores iodine balance so your hormonal rhythm normalizes — sleep improves downstream.',
+        'skin-hair': 'Burdock root supports skin and hair from the inside out by purifying the blood and supporting lymphatic drainage — the root cause of many skin issues.',
+        'mood': 'Thyroid imbalance (low iodine) is a hidden driver of mood instability. Bladderwrack restores iodine levels while burdock root clears toxins that cloud your system.',
+        'crashes': 'Thyroid sluggishness causes energy dips. Bladderwrack delivers the iodine your thyroid needs to maintain steady metabolic output throughout the day.',
+        'bloating': 'Burdock root is a gentle prebiotic and diuretic — it helps reduce water retention and feeds the gut bacteria that keep digestion moving.',
+        'colds': 'Burdock root supports the lymphatic system that carries immune cells throughout your body. Clean lymph flow means faster immune response.',
+        'brainfog': 'Brain fog often signals a sluggish thyroid or toxic load. Bladderwrack restores thyroid function while burdock root purifies the blood that feeds your brain.',
+        'soreness': 'Burdock root is anti-inflammatory and supports blood circulation, helping your body clear the metabolic waste that causes lingering soreness.',
+        'insomnia': 'Hormonal imbalance driven by iodine deficiency disrupts your sleep cycle. Bladderwrack supports the thyroid balance that lets your body wind down properly.',
+        'active': 'Active bodies deplete minerals fast. The Trinity blend restores what sweat strips away — iodine, potassium, magnesium — through bladderwrack and burdock root.',
+        'sedentary': 'Sedentary lifestyles slow lymphatic drainage. Burdock root keeps your lymph system moving, preventing the toxic buildup that comes from sitting.',
+        'high-stress': 'Stress depletes your thyroid and overloads your lymph system. Trinity replenishes iodine while burdock root helps your body clear the metabolic debris stress creates.',
+        'first-time': 'Trinity is the herbalist\'s recommendation for new users — bladderwrack and burdock root provide broad systemic support without overstimulating anything.',
+        'daily': 'For daily users, Trinity is the herbalist\'s foundation. Bladderwrack and burdock root provide long-term systemic support you won\'t get from sea moss alone.',
+        'none': 'When nothing specific is wrong, Trinity is the preventive choice — bladderwrack and burdock root keep your thyroid, blood, and lymph system running clean.'
+      }
+    },
+    'elderberry': {
+      base: 'This blend adds concentrated elderberry to your sea moss — one of the most researched natural immune defenders, rich in vitamin C, zinc, and anthocyanins.',
+      why: {
+        'immunity': 'Elderberry directly stimulates your immune system\'s cytokine response — your body\'s first-line signaling system when a threat is detected.',
+        'colds': 'Frequent illness signals a depleted immune baseline. Elderberry provides the vitamin C, zinc, and antioxidants your body needs to rebuild that defense.',
+        'energy': 'Your body spends enormous energy fighting off low-grade infections. Elderberry\'s immune support frees up that energy for the rest of your life.',
+        'digestion': 'Elderberry\'s anthocyanins reduce gut inflammation and support the intestinal lining — a strong immune system starts in the gut, and elderberry protects both.',
+        'recovery': 'Elderberry\'s antioxidants neutralize the oxidative stress that intense activity generates, while its vitamin C supports the collagen repair your muscles need to recover.',
+        'focus': 'Elderberry\'s antioxidants cross the blood-brain barrier and reduce neuroinflammation — when your immune system isn\'t fighting background battles, your brain can focus.',
+        'hormonal': 'A taxed immune system competes with your endocrine system for resources. Elderberry lifts that burden so your body can direct energy toward hormonal balance.',
+        'sleep': 'Elderberry\'s anti-inflammatory compounds reduce the cytokine activity that disrupts sleep. Stronger immunity during the day means less immune interference at night.',
+        'skin': 'Elderberry\'s anthocyanins are powerful antioxidants that protect skin cells from oxidative damage — the same defense that fights illness also protects your complexion.',
+        'skin-hair': 'The vitamin C and zinc in elderberry are essential for collagen production and hair follicle health — immune nutrients that double as beauty nutrients.',
+        'bloating': 'When your immune system is fighting gut-level inflammation, bloating follows. Elderberry\'s anti-inflammatory anthocyanins help calm that response.',
+        'soreness': 'Anthocyanins in elderberry are natural anti-inflammatory compounds. While not as targeted as turmeric, they reduce the systemic inflammation behind general soreness.',
+        'brainfog': 'Elderberry\'s antioxidants cross the blood-brain barrier and protect neural tissue from oxidative stress — one of the overlooked causes of mental fog.',
+        'mood': 'Zinc deficiency is linked to mood instability. Elderberry is one of the richest plant sources of zinc, supporting the neurotransmitter balance that stabilizes mood.',
+        'insomnia': 'Elderberry\'s antioxidant load helps reduce the inflammatory cytokines that can disrupt sleep. Better immune balance means your body can rest properly.',
+        'crashes': 'If your immune system is constantly fighting, it drains your energy reserves. Elderberry restores immune efficiency so your body stops wasting energy on low-grade battles.',
+        'none': 'Even when you feel fine, elderberry builds immune reserves. Think of it as preventive armor — you notice it most when cold season hits and you\'re the one who doesn\'t get sick.',
+        'active': 'Intense exercise temporarily suppresses immunity. Elderberry counteracts that post-workout immune dip so you stay protected during your recovery window.',
+        'high-stress': 'Chronic stress suppresses immune function. Elderberry compensates by directly boosting the immune pathways that stress tries to shut down.',
+        'first-time': 'Elderberry is one of the most approachable medicinal herbs — familiar, well-researched, and effective. A perfect entry point for immune-focused supplementation.'
+      }
+    },
+    'elderberry-ginger': {
+      base: 'Two herbs working together: elderberry arms your immune system while ginger root fires up circulation and reduces inflammation.',
+      why: {
+        'energy': 'Ginger root is a natural vasodilator — it opens blood vessels so nutrients and oxygen reach your cells faster. That\'s real, sustained energy, not stimulation.',
+        'immunity': 'Elderberry strengthens immune cell response while ginger\'s anti-inflammatory action reduces the burden on your immune system — letting it focus on real threats.',
+        'recovery': 'Ginger accelerates circulation to deliver nutrients to damaged tissue faster, while elderberry\'s antioxidants protect cells during the repair process.',
+        'focus': 'Ginger improves cerebral blood flow — more blood to your brain means more oxygen and sharper thinking. Combined with elderberry\'s antioxidant protection, your brain gets fuel and defense.',
+        'hormonal': 'Ginger has been shown to support testosterone and thyroid hormone levels, while improved circulation ensures hormones are delivered efficiently throughout your body.',
+        'sleep': 'Ginger\'s anti-inflammatory properties reduce the systemic inflammation that disrupts sleep, while elderberry\'s antioxidants calm the immune activity that can keep you restless at night.',
+        'skin': 'Ginger\'s circulation boost delivers nutrients to skin cells faster, while elderberry\'s anthocyanins protect against the oxidative damage that ages skin.',
+        'crashes': 'Afternoon crashes are often a circulation problem. Ginger root stimulates blood flow so your body can actually deliver the fuel you\'ve eaten to the cells that need it.',
+        'colds': 'This blend attacks frequent illness from two angles: elderberry builds immune strength while ginger improves the circulation that delivers those immune cells to infection sites.',
+        'digestion': 'Ginger root is a traditional digestive herb — it stimulates gastric motility and calms nausea, while elderberry adds antioxidant protection for the gut lining.',
+        'skin-hair': 'Better blood flow (ginger) means better nutrient delivery to hair follicles and skin cells. Elderberry adds the antioxidant shield that prevents premature aging.',
+        'soreness': 'Gingerol is a proven anti-inflammatory — studies show it reduces muscle pain comparably to ibuprofen. Elderberry adds antioxidant recovery support.',
+        'bloating': 'Ginger is a carminative — it relaxes intestinal muscles and helps trapped gas move. Combined with elderberry\'s gut-soothing anthocyanins, this blend eases digestive discomfort.',
+        'brainfog': 'Ginger improves blood flow to the brain while elderberry\'s antioxidants protect neural tissue. More oxygen plus less oxidative damage equals clearer thinking.',
+        'mood': 'Poor circulation affects neurotransmitter production. Ginger ensures your brain gets the blood flow it needs, while elderberry provides the zinc that stabilizes mood.',
+        'insomnia': 'Ginger\'s anti-inflammatory action reduces the nighttime restlessness that comes from systemic inflammation. Better circulation also helps your body temperature regulate for sleep.',
+        'sedentary': 'Sedentary days slow circulation. Ginger root counteracts that by stimulating blood flow even when you\'re not moving much.',
+        'active': 'Active bodies need faster recovery. Ginger speeds up nutrient delivery to muscles while elderberry replenishes the antioxidants that intense exercise depletes.',
+        'high-stress': 'Stress constricts blood vessels and suppresses immunity simultaneously. This blend opens circulation (ginger) while rebuilding immune defenses (elderberry).',
+        'first-time': 'The ginger makes this blend warming and familiar — most people already know ginger works. A great starting point that delivers real herbal action.',
+        'none': 'Even without specific symptoms, this blend optimizes two core systems: circulation and immunity. Think of it as keeping your engine tuned and your defenses ready.'
+      }
+    },
+    'soursop': {
+      base: 'Soursop (graviola) contains acetogenins and alkaloids with documented anti-inflammatory and calming properties — used in Caribbean herbalism for generations.',
+      why: {
+        'digestion': 'Soursop\'s high fiber content feeds beneficial gut bacteria, while its anti-inflammatory compounds soothe irritation along the entire digestive tract.',
+        'sleep': 'The alkaloids in soursop have natural sedative properties. Caribbean herbalists have used graviola leaves and fruit to promote deep, restorative sleep for generations.',
+        'energy': 'Soursop\'s B-vitamins support cellular energy production, while its calming compounds prevent the anxious energy spikes that lead to crashes later.',
+        'immunity': 'Soursop contains compounds that support immune cell activity. Its anti-inflammatory action also reduces the burden on your immune system so it can work more efficiently.',
+        'skin': 'Soursop\'s vitamin C and anti-inflammatory compounds support collagen production and reduce the skin inflammation that causes breakouts and irritation.',
+        'recovery': 'The anti-inflammatory acetogenins in soursop help reduce post-exertion inflammation, supporting your body\'s natural repair processes.',
+        'focus': 'When your nervous system is calm, your brain can focus. Soursop\'s alkaloids reduce neural noise — the background anxiety that fragments your attention.',
+        'hormonal': 'Soursop\'s calming effect on the nervous system helps regulate the stress hormones that throw your endocrine system out of balance.',
+        'bloating': 'Bloating is gut inflammation. Soursop calms that inflammation directly while its fiber promotes healthy motility — moving things through instead of letting them sit.',
+        'colds': 'Soursop\'s vitamin C content supports immune function, while its anti-inflammatory compounds reduce the severity and duration of respiratory symptoms.',
+        'skin-hair': 'The anti-inflammatory and vitamin C content in soursop work together — reducing the internal inflammation that shows up as skin irritation, while supporting the collagen your hair needs.',
+        'soreness': 'Soursop\'s acetogenins are anti-inflammatory compounds that help reduce the general inflammation behind muscle stiffness and joint discomfort.',
+        'brainfog': 'Mental clarity requires a calm nervous system. Soursop\'s alkaloids reduce the neural inflammation and anxiety that cloud your thinking.',
+        'crashes': 'Energy crashes often follow anxiety spikes. Soursop\'s calming alkaloids prevent those nervous energy surges, giving you steadier output through the day.',
+        'insomnia': 'Soursop works with your nervous system, not against it. Its calming compounds ease you into sleep naturally, without the grogginess of synthetic alternatives.',
+        'mood': 'Gut inflammation and poor sleep destabilize mood. Soursop tackles both root causes rather than masking symptoms.',
+        'high-stress': 'Chronic stress attacks your gut and sleep first. Soursop addresses both — its anti-inflammatory action soothes the gut while its alkaloids calm the nervous system.',
+        'sedentary': 'Sedentary lifestyles often come with poor sleep and gut issues. Soursop\'s dual action on digestion and nervous system relaxation addresses both.',
+        'first-time': 'Soursop has a familiar tropical taste that makes daily use easy, with calming properties you\'ll notice within the first week.',
+        'none': 'Even when you feel fine, soursop\'s anti-inflammatory and calming compounds support the gut-brain connection that keeps your whole system balanced.'
+      }
+    },
+    'turmeric': {
+      base: 'Turmeric adds curcumin to your sea moss — one of the most extensively researched anti-inflammatory compounds in natural medicine.',
+      why: {
+        'recovery': 'Curcumin inhibits NF-kB, a key molecule that triggers inflammatory cascades in your muscles and joints. Less inflammation means faster recovery between workouts.',
+        'soreness': 'Joint stiffness and muscle soreness are caused by inflammatory cytokines. Curcumin directly blocks the pathways that produce them — this is backed by extensive clinical research.',
+        'energy': 'Chronic inflammation is a hidden energy drain — your body diverts resources to fight it. Curcumin reduces that background inflammation so your energy goes where you need it.',
+        'skin': 'Inflammatory skin conditions respond to curcumin because it blocks the same inflammatory pathways internally that cause redness, irritation, and breakouts externally.',
+        'digestion': 'Curcumin stimulates bile production, which improves fat digestion, and its anti-inflammatory properties soothe gut irritation that leads to discomfort.',
+        'immunity': 'Curcumin is an immunomodulator — it helps your immune system respond appropriately rather than overreacting (allergies) or underreacting (infections).',
+        'hormonal': 'Chronic inflammation disrupts the endocrine system. Curcumin reduces the inflammatory load so your hormonal pathways — thyroid, adrenal, reproductive — can function without interference.',
+        'sleep': 'Curcumin reduces the systemic inflammation that elevates cortisol at night. Lower nighttime cortisol means your body can transition into the deep sleep stages it needs to repair.',
+        'focus': 'Brain inflammation impairs cognitive function. Curcumin crosses the blood-brain barrier and directly reduces neuroinflammation, supporting clearer thinking.',
+        'skin-hair': 'Curcumin reduces the inflammatory markers behind scalp conditions, dandruff, and skin irritation — treating the root cause rather than surface symptoms.',
+        'crashes': 'Inflammation drives blood sugar instability. Curcumin helps regulate the inflammatory response that causes the energy spikes and crashes throughout your day.',
+        'bloating': 'Curcumin stimulates bile production for better fat digestion and reduces gut inflammation — two of the most common mechanical causes of bloating.',
+        'colds': 'Curcumin modulates immune response, helping your body mount a stronger defense against pathogens while reducing the inflammation that makes symptoms feel worse.',
+        'brainfog': 'Neuroinflammation is a leading cause of brain fog. Curcumin is one of the few natural compounds proven to cross the blood-brain barrier and reduce it directly.',
+        'mood': 'Curcumin has been shown to increase BDNF (brain-derived neurotrophic factor), a protein that supports mood regulation and mental resilience.',
+        'insomnia': 'Systemic inflammation interferes with sleep architecture. By reducing inflammatory cytokines, curcumin helps your body achieve the deep, restorative sleep stages.',
+        'active': 'Active bodies generate more oxidative stress and inflammation than sedentary ones. Curcumin neutralizes both, combined with 92 sea moss minerals to replenish what exertion depletes.',
+        'sedentary': 'Sedentary bodies accumulate inflammation from poor circulation and metabolic stagnation. Curcumin addresses that buildup directly.',
+        'high-stress': 'Stress triggers chronic low-grade inflammation. Curcumin interrupts that cycle, reducing the inflammatory markers that stress elevates.',
+        'none': 'Curcumin is one of the most studied preventive compounds in natural medicine — daily use reduces the baseline inflammation that drives chronic disease.',
+        'first-time': 'Turmeric is one of the most recognized and trusted herbs worldwide. Its golden color and warming flavor make it an accessible starting point with serious therapeutic depth.'
+      }
+    },
+    'moringa': {
+      base: 'Moringa is a true medicinal herb — classified as an adaptogen, it contains more iron than spinach, more calcium than milk, and all 9 essential amino acids.',
+      why: {
+        'energy': 'The most common cause of chronic fatigue is iron deficiency. Moringa delivers highly bioavailable plant-based iron alongside B-vitamins that drive cellular energy production.',
+        'focus': 'Your brain needs iron to deliver oxygen and B-vitamins to synthesize neurotransmitters. Moringa provides both — it\'s why herbalists call it the "clarity herb."',
+        'sleep': 'As an adaptogen, moringa helps your body self-regulate: more energy during the day, deeper rest at night. It works with your circadian rhythm, not against it.',
+        'immunity': 'Moringa contains more vitamin C per gram than oranges, along with zinc and iron — the three nutrients your immune system depends on most.',
+        'skin': 'Moringa\'s vitamin A and E content supports skin cell regeneration, while its amino acids provide the building blocks for collagen and elastin.',
+        'recovery': 'Moringa\'s complete amino acid profile supports muscle protein synthesis, while its anti-inflammatory compounds speed up tissue repair.',
+        'hormonal': 'As an adaptogen, moringa helps regulate the hypothalamic-pituitary axis — the master control system for your hormones.',
+        'digestion': 'Moringa is naturally high in fiber and contains isothiocyanates — compounds that reduce gut inflammation and support healthy bacterial balance.',
+        'skin-hair': 'Moringa\'s vitamin A, zinc, and amino acids are the raw materials your body needs for hair growth and skin cell renewal. Deficiency in any of them shows in your hair and skin first.',
+        'soreness': 'Moringa\'s isothiocyanates are anti-inflammatory compounds that help reduce the oxidative stress and inflammation behind persistent muscle and joint discomfort.',
+        'bloating': 'Moringa\'s fiber content and anti-inflammatory compounds support digestive regularity and reduce the gut inflammation that traps gas.',
+        'colds': 'Moringa packs vitamin C, zinc, and iron into a single source — the immune trifecta. Your body uses these nutrients to produce and deploy immune cells.',
+        'insomnia': 'Moringa\'s adaptogenic properties help calibrate your cortisol curve — high in the morning for energy, low at night for sleep. Your body relearns its natural rhythm.',
+        'mood': 'Iron deficiency and amino acid gaps directly impact neurotransmitter production. Moringa fills both, providing the raw materials for serotonin and dopamine synthesis.',
+        'high-stress': 'Adaptogens modulate cortisol — your stress hormone. Instead of letting cortisol spike unchecked, moringa helps your body mount a proportional response and recover faster.',
+        'crashes': 'Energy crashes often signal iron deficiency or B-vitamin depletion. Moringa restores both, providing steady fuel instead of peaks and valleys.',
+        'brainfog': 'Brain fog is frequently an iron and oxygen delivery problem. Moringa\'s iron content helps your blood carry more oxygen to your brain — clarity you can feel.',
+        'active': 'Active lifestyles demand more protein, iron, and recovery support. Moringa\'s complete amino acid profile and mineral density meet those demands head-on.',
+        'sedentary': 'Sedentary bodies often develop nutrient absorption issues. Moringa is so nutrient-dense that it compensates — delivering vitamins, minerals, and amino acids your diet may be missing.',
+        'daily': 'For daily users, moringa is the upgrade. Its nutrient density — iron, calcium, protein, B12 — fills gaps that sea moss alone doesn\'t fully cover.',
+        'first-time': 'Moringa has a mild, earthy flavor that blends easily into your routine. Its adaptogenic nature means it adjusts to what your body needs — a smart starting point.',
+        'none': 'Moringa is the nutritional safety net. Even without specific complaints, its adaptogenic action and nutrient density keep your baseline higher.'
+      }
+    },
+    'sea-grape': {
+      base: 'Sea grape is a Caribbean marine plant — not just a flavor, but a concentrated source of iodine, calcium, and omega-3 fatty acids rarely found in plant form.',
+      why: {
+        'hormonal': 'Your thyroid cannot produce hormones without iodine — it\'s the raw material. Sea grape delivers bioavailable iodine in amounts that support healthy thyroid output.',
+        'mood': 'Mood instability often traces back to thyroid and endocrine imbalance. Sea grape\'s iodine supports the hormonal cascade that regulates your emotional baseline.',
+        'skin': 'Sea grape\'s omega-3 fatty acids strengthen skin cell membranes, improving moisture retention and reducing the inflammation behind dryness and irritation.',
+        'skin-hair': 'Omega-3 fatty acids from sea grape support skin cell membrane integrity and scalp health — building from the cellular level rather than treating surface symptoms.',
+        'energy': 'Iodine deficiency causes thyroid sluggishness — one of the most underdiagnosed causes of fatigue. Sea grape\'s bioavailable iodine restores thyroid-driven energy production.',
+        'immunity': 'Sea grape\'s unique mineral profile — including iodine, calcium, and trace minerals — provides the raw materials your immune system needs for cell production.',
+        'sleep': 'Thyroid imbalance disrupts your sleep-wake cycle. Sea grape\'s iodine helps normalize thyroid function, which restores the hormonal rhythm that governs sleep.',
+        'focus': 'Omega-3 fatty acids are structural components of brain cell membranes. Sea grape provides plant-based omega-3s that support neural signaling and cognitive clarity.',
+        'recovery': 'Calcium and omega-3s from sea grape support bone health and reduce the inflammatory response to exercise, aiding recovery at the structural level.',
+        'digestion': 'Sea grape\'s natural fiber and mineral content support digestive health, while its anti-inflammatory properties soothe gut irritation.',
+        'crashes': 'Energy crashes driven by thyroid underperformance respond to iodine. Sea grape restores the thyroid output that keeps your metabolism steady.',
+        'bloating': 'Sea grape\'s mineral content supports electrolyte balance, which helps regulate fluid retention — one of the overlooked causes of abdominal bloating.',
+        'colds': 'The trace minerals in sea grape support immune cell function. Iodine specifically plays a role in your body\'s first-line immune defense in mucous membranes.',
+        'brainfog': 'Omega-3s improve neural membrane fluidity — your brain cells communicate faster when their membranes are healthy. Sea grape delivers these fats in a bioavailable form.',
+        'soreness': 'Omega-3 fatty acids are natural anti-inflammatories. Sea grape provides them in plant form, helping reduce the inflammatory response behind muscle and joint stiffness.',
+        'insomnia': 'Iodine imbalance affects the thyroid hormones that regulate your circadian rhythm. Sea grape helps restore the hormonal balance that lets you fall and stay asleep.',
+        'active': 'Active bodies need calcium for bone density and omega-3s for inflammation management. Sea grape delivers both from a single marine-plant source.',
+        'sedentary': 'Sedentary lifestyles often coincide with low omega-3 intake. Sea grape fills that gap, supporting brain function and reducing the inflammation that inactivity promotes.',
+        'high-stress': 'Chronic stress depletes thyroid reserves and increases omega-3 demand. Sea grape replenishes both — restoring the hormonal foundation that stress erodes.',
+        'daily': 'Experienced users benefit from sea grape\'s unique mineral profile — the iodine density and omega-3 content add a layer that other blends don\'t provide.',
+        'first-time': 'Sea grape is uniquely Caribbean and deeply nourishing. Its mild ocean-mineral flavor introduces you to marine herbalism with iodine and omega-3 benefits.',
+        'none': 'Sea grape fills nutritional gaps most people don\'t know they have — iodine deficiency is widespread and omega-3 intake is chronically low in most diets.'
+      }
+    },
+    'pineapple-ginger': {
+      base: 'This blend combines two therapeutic compounds: bromelain (a real digestive enzyme from pineapple) and gingerol (the active compound in ginger root).',
+      why: {
+        'digestion': 'Bromelain physically breaks down proteins in your gut, while gingerol stimulates gastric motility — together they help your digestive system actually do its job.',
+        'bloating': 'Ginger is a carminative herb — it helps your gut expel trapped gas. Combined with bromelain\'s enzyme action, this blend tackles bloating at the mechanical level.',
+        'energy': 'Poor nutrient absorption drains your energy. Bromelain improves protein digestion while ginger increases circulation — together they ensure your body actually uses the fuel you eat.',
+        'focus': 'Ginger increases cerebral blood flow, delivering more oxygen to your brain. Better circulation plus better nutrient absorption (bromelain) means your brain gets the fuel it needs to focus.',
+        'hormonal': 'Your gut produces hormones and neurotransmitters that affect your entire endocrine system. Bromelain and ginger optimize gut function, supporting the hormonal signaling that starts there.',
+        'immunity': 'Bromelain has documented immune-modulating properties, and ginger\'s anti-inflammatory action reduces the burden on your immune system.',
+        'skin': 'Ginger\'s circulation boost delivers nutrients to skin cells faster, while bromelain\'s anti-inflammatory properties reduce the internal triggers behind skin flare-ups.',
+        'recovery': 'Bromelain is used clinically to reduce post-surgical and exercise-related swelling. Combined with ginger\'s circulation support, this blend accelerates tissue repair.',
+        'crashes': 'Ginger improves circulation and bromelain improves nutrient absorption — if your body can\'t absorb what you eat, you crash. This blend fixes the delivery system.',
+        'colds': 'Ginger is a traditional cold-fighting herb — it warms the body and stimulates circulation. Bromelain helps thin mucus and reduce sinus inflammation.',
+        'skin-hair': 'Better circulation (ginger) delivers more nutrients to hair follicles and skin cells. Bromelain\'s anti-inflammatory action addresses the internal triggers behind skin and scalp issues.',
+        'soreness': 'Bromelain reduces tissue swelling and ginger blocks inflammatory pain pathways. Together they provide natural relief for exercise-related or chronic soreness.',
+        'brainfog': 'Ginger improves cerebral blood flow and bromelain reduces the systemic inflammation that impairs cognitive function. Clearer circulation means clearer thinking.',
+        'mood': 'Gut health directly impacts mood through the gut-brain axis. This blend optimizes digestion and circulation — two systems that influence how you feel emotionally.',
+        'insomnia': 'Gut discomfort and inflammation are underrecognized sleep disruptors. This blend calms digestive issues and reduces inflammation so your body can rest.',
+        'sedentary': 'Sitting slows digestion and circulation. Ginger stimulates both, keeping your system moving even when your body isn\'t.',
+        'active': 'Bromelain is used by athletes for recovery — it reduces swelling and improves protein absorption for muscle repair. Ginger adds the circulation support active bodies need.',
+        'high-stress': 'Stress disrupts digestion first. Ginger calms nausea and stimulates motility while bromelain ensures you\'re actually absorbing the nutrients from whatever you manage to eat.',
+        'first-time': 'Pineapple and ginger are flavors everyone recognizes. This blend tastes great while delivering real enzymatic and circulatory support from day one.',
+        'none': 'Even without symptoms, this blend optimizes two core functions: digestion and circulation. Your body absorbs more and delivers it faster.'
+      }
+    }
+  };
+
+  /* ===== SCORING ENGINE ===== */
+  function computeTherapeuticScores() {
+    /* Only score therapeutic blends */
+    var scores = {};
+    therapeuticBlends.forEach(function(f) { scores[f] = 0; });
+
+    /* 1. Goals — heaviest weight */
+    answers.goals.forEach(function(g) {
+      var map = goalScores[g];
+      if (map) Object.keys(map).forEach(function(f) {
+        if (scores[f] !== undefined) scores[f] += map[f];
+      });
+    });
+
+    /* 2. Symptoms */
+    answers.symptoms.forEach(function(s) {
+      var map = symptomScores[s];
+      if (map) Object.keys(map).forEach(function(f) {
+        if (scores[f] !== undefined) scores[f] += map[f];
+      });
+    });
+
+    /* 3. Lifestyle */
+    if (answers.lifestyle) {
+      var lmap = lifestyleScores[answers.lifestyle];
+      if (lmap) Object.keys(lmap).forEach(function(f) {
+        if (scores[f] !== undefined) scores[f] += lmap[f];
+      });
+    }
+
+    /* 4. Experience — adjusts therapeutic blend weighting */
+    if (answers.experience) {
+      var emap = experienceTherapeuticScores[answers.experience];
+      if (emap) Object.keys(emap).forEach(function(f) {
+        if (scores[f] !== undefined) scores[f] += emap[f];
+      });
+    }
+
+    return scores;
+  }
+
+  function resolveRecommendation() {
+    var scores = computeTherapeuticScores();
+
+    /* Compute goal-only scores for tiebreaking (goals = strongest herbal intent) */
+    var goalOnly = {};
+    therapeuticBlends.forEach(function(f) { goalOnly[f] = 0; });
+    answers.goals.forEach(function(g) {
+      var map = goalScores[g];
+      if (map) Object.keys(map).forEach(function(f) {
+        if (goalOnly[f] !== undefined) goalOnly[f] += map[f];
+      });
+    });
+
+    /* Sort therapeutic blends by total score, break ties with goal-only score */
+    var sorted = therapeuticBlends.slice().sort(function(a, b) {
+      var diff = scores[b] - scores[a];
+      if (diff !== 0) return diff;
+      return goalOnly[b] - goalOnly[a];
+    });
+
+    var primaryKey = sorted[0];
+    var secondaryKey = sorted[1];
+
+    /* Only show secondary if it actually scored meaningfully (not zero) */
+    var showSecondary = scores[secondaryKey] > 0 && secondaryKey !== primaryKey;
+
+    /* Pick a fruit flavor based on method and experience (separate logic) */
+    var flavorKey = pickFlavor();
+
+    /* Build rationale from herbal fragments */
+    var reason = buildRationale(primaryKey);
+    var secondaryReason = showSecondary ? buildRationale(secondaryKey, true) : '';
+
+    return {
+      primary: primaryKey,
+      secondary: showSecondary ? secondaryKey : null,
+      flavor: flavorKey,
+      reason: reason,
+      secondaryReason: secondaryReason,
+      whyPoints: buildWhyPoints(primaryKey)
+    };
+  }
+
+  function pickFlavor() {
+    /* If they mix into food, unflavored makes most sense regardless */
+    if (answers.method === 'food') return 'irish-moss';
+
+    /* Method is the primary driver for flavor preference */
+    var flavor = flavorByMethod[answers.method] || 'strawberry';
+
+    /* Daily users prefer unflavored; experience adjusts the pick */
+    if (answers.experience === 'daily') return 'irish-moss';
+
+    /* "Some" experience users get a different option from the default */
+    if (answers.experience === 'some' && answers.method !== 'smoothie') return 'blueberry';
+
+    return flavor;
+  }
+
+  function buildRationale(key, short) {
+    var herb = herbalRationale[key];
+    if (!herb) return '';
+    if (short) return herb.base;
+
+    var parts = [herb.base];
+    var contextKeys = []
+      .concat(answers.goals)
+      .concat(answers.symptoms)
+      .concat(answers.lifestyle ? [answers.lifestyle] : [])
+      .concat(answers.experience ? [answers.experience] : []);
+
+    var added = 0;
+    contextKeys.forEach(function(k) {
+      if (herb.why[k] && added < 2) {
+        parts.push(herb.why[k]);
+        added++;
+      }
+    });
+
+    return parts.join(' ');
+  }
+
+  function buildWhyPoints(key) {
+    var herb = herbalRationale[key];
+    if (!herb || !herb.why) return [];
+
+    var points = [];
+    var contextKeys = []
+      .concat(answers.goals)
+      .concat(answers.symptoms)
+      .concat(answers.lifestyle ? [answers.lifestyle] : [])
+      .concat(answers.experience ? [answers.experience] : []);
+
+    contextKeys.forEach(function(k) {
+      if (herb.why[k]) points.push(herb.why[k]);
+    });
+
+    return points.slice(0, 3);
+  }
+
+  /* ===== NAVIGATION ===== */
+  function goTo(screenName) {
+    var allScreens = root.querySelectorAll('.hx-quiz-flow__screen');
+    for (var i = 0; i < allScreens.length; i++) {
+      allScreens[i].classList.remove('hx-quiz-flow__screen--active');
+    }
+    var target = root.querySelector('[data-screen="' + screenName + '"]');
+    if (target) target.classList.add('hx-quiz-flow__screen--active');
+
+    currentIdx = screens.indexOf(screenName);
+    updateProgress();
+    root.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function goBack() {
+    if (currentIdx > 0) goTo(screens[currentIdx - 1]);
+  }
+
+  function updateProgress() {
+    var totalQuestions = 5;
+    var questionMap = { q1: 1, q2: 2, q3: 3, q4: 4, q5: 5 };
+    var current = screens[currentIdx];
+    var pct = 0;
+    var text = '';
+
+    if (current === 'landing') {
+      pct = 0; text = '';
+    } else if (questionMap[current]) {
+      pct = (questionMap[current] / totalQuestions) * 80;
+      text = questionMap[current] + ' of ' + totalQuestions;
+    } else if (current === 'email') {
+      pct = 90; text = 'Almost there!';
+    } else if (current === 'results') {
+      pct = 100; text = 'Complete!';
+    }
+
+    progressFill.style.width = pct + '%';
+    progressText.textContent = text;
+    root.querySelector('.hx-quiz-flow__progress').style.display = current === 'landing' ? 'none' : 'flex';
+  }
+
+  /* ===== OPTION CLICKS ===== */
+  function setupOptionClicks() {
+    var optionGroups = root.querySelectorAll('.hx-quiz-flow__options');
+    optionGroups.forEach(function(group) {
+      var question = group.dataset.question;
+      var isMulti = group.classList.contains('hx-quiz-flow__options--multi');
+      var maxSelect = parseInt(group.dataset.max) || 99;
+
+      group.querySelectorAll('.hx-quiz-flow__option').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var val = this.dataset.value;
+
+          if (isMulti) {
+            /* Handle "none" as exclusive option in symptoms */
+            if (question === 'symptoms' && val === 'none') {
+              group.querySelectorAll('.hx-quiz-flow__option').forEach(function(b) {
+                b.classList.remove('hx-quiz-flow__option--selected');
+              });
+              this.classList.add('hx-quiz-flow__option--selected');
+              answers[question] = ['none'];
+            } else if (question === 'symptoms') {
+              var noneBtn = group.querySelector('[data-value="none"]');
+              if (noneBtn) noneBtn.classList.remove('hx-quiz-flow__option--selected');
+              answers[question] = answers[question].filter(function(v) { return v !== 'none'; });
+
+              if (this.classList.contains('hx-quiz-flow__option--selected')) {
+                this.classList.remove('hx-quiz-flow__option--selected');
+                answers[question] = answers[question].filter(function(v) { return v !== val; });
+              } else {
+                var selected = group.querySelectorAll('.hx-quiz-flow__option--selected');
+                if (selected.length >= maxSelect) return;
+                this.classList.add('hx-quiz-flow__option--selected');
+                answers[question].push(val);
+              }
+            } else {
+              if (this.classList.contains('hx-quiz-flow__option--selected')) {
+                this.classList.remove('hx-quiz-flow__option--selected');
+                answers[question] = answers[question].filter(function(v) { return v !== val; });
+              } else {
+                var selected = group.querySelectorAll('.hx-quiz-flow__option--selected');
+                if (selected.length >= maxSelect) return;
+                this.classList.add('hx-quiz-flow__option--selected');
+                answers[question].push(val);
+              }
+            }
+
+            var nextBtn = root.querySelector('[data-next-for="' + screens[currentIdx] + '"]');
+            if (nextBtn) {
+              nextBtn.disabled = answers[question].length === 0;
+            }
+
+          } else {
+            group.querySelectorAll('.hx-quiz-flow__option').forEach(function(b) {
+              b.classList.remove('hx-quiz-flow__option--selected');
+            });
+            this.classList.add('hx-quiz-flow__option--selected');
+            answers[question] = val;
+
+            fireEvent('quiz_question_answered', { question: question, value: val });
+
+            setTimeout(function() {
+              goTo(screens[currentIdx + 1]);
+            }, 300);
+          }
+        });
+      });
+    });
+  }
+
+  /* ===== RESULTS ===== */
+  function showResults() {
+    var rec = resolveRecommendation();
+    var primary = products[rec.primary];
+
+    /* ===== Personalized headline based on goals ===== */
+    var goalHeadlines = {
+      'energy':    'Your energy blend is ready.',
+      'digestion': 'Your gut-health blend is ready.',
+      'immunity':  'Your immunity blend is ready.',
+      'skin':      'Your glow-up blend is ready.',
+      'recovery':  'Your recovery blend is ready.',
+      'focus':     'Your clarity blend is ready.',
+      'hormonal':  'Your balance blend is ready.',
+      'sleep':     'Your rest blend is ready.'
+    };
+    var headline = 'We found your match.';
+    if (answers.goals.length > 0) {
+      headline = goalHeadlines[answers.goals[0]] || headline;
+    }
+    document.getElementById('quizResultHeadline').textContent = headline;
+
+    /* Personalized subline */
+    var goalNames = { 'energy': 'energy', 'digestion': 'digestion', 'immunity': 'immunity', 'skin': 'skin & hair', 'recovery': 'recovery', 'focus': 'focus', 'hormonal': 'hormonal balance', 'sleep': 'sleep' };
+    var goalList = answers.goals.map(function(g) { return goalNames[g] || g; });
+    if (goalList.length === 1) {
+      document.getElementById('quizResultSubline').textContent = 'Based on your ' + goalList[0] + ' goals and lifestyle, here\'s what our herbalist recommends.';
+    } else if (goalList.length === 2) {
+      document.getElementById('quizResultSubline').textContent = 'Based on your ' + goalList[0] + ' and ' + goalList[1] + ' goals, here\'s what our herbalist recommends.';
+    } else if (goalList.length > 2) {
+      var last = goalList.pop();
+      document.getElementById('quizResultSubline').textContent = 'Based on your ' + goalList.join(', ') + ', and ' + last + ' goals, here\'s what our herbalist recommends.';
+    }
+
+    /* ===== Primary product ===== */
+    document.getElementById('quizResultFlavor').textContent = primary.name;
+    document.getElementById('quizResultReason').textContent = rec.reason;
+    document.getElementById('quizResultPrice').textContent = primary.price;
+
+    var ctaLink = document.getElementById('quizResultCta');
+    ctaLink.href = '/products/' + primary.handle;
+
+    /* Fetch real product image from Shopify */
+    fetchProductImage(primary.handle, 'quizResultImg');
+
+    /* ===== Profile tags ===== */
+    var profileTags = document.getElementById('quizProfileTags');
+    profileTags.innerHTML = '';
+    var tagLabels = {
+      'energy': 'Energy', 'digestion': 'Digestion', 'immunity': 'Immunity', 'skin': 'Skin & Hair',
+      'recovery': 'Recovery', 'focus': 'Focus', 'hormonal': 'Hormonal', 'sleep': 'Sleep',
+      'crashes': 'Energy crashes', 'bloating': 'Bloating', 'colds': 'Frequent colds',
+      'skin-hair': 'Skin/hair issues', 'soreness': 'Joint soreness', 'brainfog': 'Brain fog',
+      'mood': 'Mood swings', 'insomnia': 'Sleep issues', 'none': 'Preventive',
+      'active': 'Active lifestyle', 'moderate': 'Moderate activity', 'sedentary': 'Sedentary',
+      'high-stress': 'High-stress', 'first-time': 'New to sea moss', 'some': 'Some experience',
+      'daily': 'Daily user'
+    };
+    var allTags = [].concat(answers.goals, answers.symptoms, answers.lifestyle ? [answers.lifestyle] : [], answers.experience ? [answers.experience] : []);
+    allTags.forEach(function(tag) {
+      if (tagLabels[tag]) {
+        var span = document.createElement('span');
+        span.className = 'hx-quiz-flow__r-tag';
+        span.textContent = tagLabels[tag];
+        profileTags.appendChild(span);
+      }
+    });
+
+    /* ===== Why points — herbal rationale ===== */
+    var whyList = document.getElementById('quizWhyList');
+    whyList.innerHTML = '';
+    if (rec.whyPoints.length > 0) {
+      document.getElementById('quizWhyBox').style.display = 'block';
+      rec.whyPoints.forEach(function(point) {
+        var li = document.createElement('li');
+        li.textContent = point;
+        whyList.appendChild(li);
+      });
+    }
+
+    /* ===== Social proof — match testimonial to product ===== */
+    var testimonials = {
+      'turmeric': { quote: 'I\'ve tried everything for my joints — turmeric capsules, fish oil, you name it. This gel is the first thing that actually made a difference I could feel within a week.', name: 'Keisha M.', stars: 5 },
+      'elderberry': { quote: 'Cold season used to wreck me every year. I\'ve been taking the elderberry blend daily for three months now and haven\'t been sick once.', name: 'Marcus T.', stars: 5 },
+      'elderberry-ginger': { quote: 'My digestion has never been better. The ginger really works — I notice the difference on days I forget to take it.', name: 'Daniella R.', stars: 5 },
+      'trinity': { quote: 'This is the one. I feel more balanced, my energy is steady all day, and my skin is clearing up. The trinity blend covers everything.', name: 'Jasmine W.', stars: 5 },
+      'moringa': { quote: 'I started taking the moringa blend for energy and honestly I\'m sleeping better too. It\'s like my whole system calmed down.', name: 'Andre P.', stars: 5 },
+      'soursop': { quote: 'My mom put me onto soursop and I was skeptical, but this blend is legit. My inflammation went way down in two weeks.', name: 'Brianna C.', stars: 5 },
+      'sea-grape': { quote: 'I didn\'t expect much but the sea grape blend has been amazing for my skin. People keep asking what I\'m doing differently.', name: 'Tanya L.', stars: 5 },
+      'pineapple-ginger': { quote: 'Perfect for after the gym. The ginger helps with soreness and the pineapple makes it actually taste good. Win-win.', name: 'Devon H.', stars: 5 }
+    };
+    var testimonial = testimonials[rec.primary] || testimonials['trinity'];
+    document.getElementById('quizProofQuote').textContent = '"' + testimonial.quote + '"';
+    document.getElementById('quizProofName').textContent = '— ' + testimonial.name + ', Verified Buyer';
+
+    /* ===== Secondary therapeutic blend ===== */
+    if (rec.secondary) {
+      var secondary = products[rec.secondary];
+      var secEl = document.getElementById('quizSecondaryResult');
+      secEl.style.display = 'block';
+      document.getElementById('quizSecondaryFlavor').textContent = secondary.name;
+      document.getElementById('quizSecondaryReason').textContent = rec.secondaryReason;
+      var secCta = document.getElementById('quizSecondaryCta');
+      if (secCta) secCta.href = '/products/' + secondary.handle;
+      fetchProductImage(secondary.handle, 'quizSecondaryImg');
+    }
+
+    /* ===== Flavor suggestion ===== */
+    if (rec.flavor && rec.flavor !== rec.primary) {
+      var flavorProduct = products[rec.flavor];
+      var fpEl = document.getElementById('quizFlavorPick');
+      fpEl.style.display = 'block';
+      document.getElementById('quizFlavorPickName').textContent = flavorProduct.name;
+    }
+
+    fireEvent('quiz_completed', {
+      recommended_blend: primary.name,
+      secondary_blend: rec.secondary ? products[rec.secondary].name : '',
+      flavor_suggestion: rec.flavor ? products[rec.flavor].name : '',
+      goals: answers.goals.join(','),
+      symptoms: answers.symptoms.join(','),
+      lifestyle: answers.lifestyle,
+      experience: answers.experience
+    });
+
+    goTo('results');
+  }
+
+  /* Fetch product image from Shopify AJAX API */
+  function fetchProductImage(handle, imgElementId) {
+    fetch('/products/' + handle + '.json')
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        if (data.product && data.product.image && data.product.image.src) {
+          var img = document.getElementById(imgElementId);
+          if (img) {
+            img.src = data.product.image.src;
+            img.alt = data.product.title;
+          }
+        }
+      })
+      .catch(function() { /* silently fail — placeholder stays */ });
+  }
+
+  /* ===== GA4 EVENTS ===== */
+  function fireEvent(name, params) {
+    if (typeof gtag === 'function') {
+      gtag('event', name, params || {});
+    }
+    console.log('[HX Quiz]', name, params || {});
+  }
+
+  /* ===== COPY CODE ===== */
+  function setupCopy() {
+    var copyBtn = document.getElementById('quizCopyBtn');
+    if (!copyBtn) return;
+    copyBtn.addEventListener('click', function() {
+      var code = document.getElementById('quizDiscountCode').textContent;
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(code).then(function() {
+          copyBtn.textContent = 'Copied!';
+          setTimeout(function() { copyBtn.textContent = 'Copy Code'; }, 2000);
+        });
+      }
+    });
+  }
+
+  /* ===== INIT ===== */
+  function init() {
+    setupOptionClicks();
+    setupCopy();
+    updateProgress();
+
+    document.getElementById('quizStartBtn').addEventListener('click', function() {
+      fireEvent('quiz_start');
+      goTo('q1');
+    });
+
+    root.querySelectorAll('[data-back="true"]').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        goBack();
+      });
+    });
+
+    root.querySelectorAll('.hx-quiz-flow__next-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var forScreen = this.dataset.nextFor;
+        var questionMap = { q1: 'goals', q2: 'symptoms' };
+        var question = questionMap[forScreen];
+        if (question) {
+          fireEvent('quiz_question_answered', { question: question, value: answers[question].join(',') });
+        }
+        goTo(screens[currentIdx + 1]);
+      });
+    });
+
+    document.getElementById('quizEmailForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      email = document.getElementById('quizEmailInput').value;
+      fireEvent('quiz_email_captured', { email_provided: true });
+
+      document.getElementById('quizDiscountBox').style.display = 'block';
+      document.getElementById('quizDiscountCode').textContent = 'SEAMOSS20';
+
+      showResults();
+    });
+
+    document.getElementById('quizSkipEmail').addEventListener('click', function() {
+      fireEvent('quiz_email_captured', { email_provided: false });
+      showResults();
+    });
+
+    document.getElementById('quizRetakeBtn').addEventListener('click', function() {
+      answers = { goals: [], symptoms: [], lifestyle: null, experience: null, method: null };
+      root.querySelectorAll('.hx-quiz-flow__option--selected').forEach(function(el) {
+        el.classList.remove('hx-quiz-flow__option--selected');
+      });
+      root.querySelectorAll('.hx-quiz-flow__next-btn').forEach(function(btn) {
+        btn.disabled = true;
+      });
+      document.getElementById('quizSecondaryResult').style.display = 'none';
+      document.getElementById('quizDiscountBox').style.display = 'none';
+      document.getElementById('quizWhyBox').style.display = 'none';
+      document.getElementById('quizFlavorPick').style.display = 'none';
+      document.getElementById('quizProfileTags').innerHTML = '';
+      document.getElementById('quizWhyList').innerHTML = '';
+      document.getElementById('quizResultHeadline').textContent = 'We found your match.';
+      document.getElementById('quizResultSubline').textContent = 'Based on your goals and lifestyle, here\'s what our herbalist recommends.';
+      goTo('landing');
+    });
+
+    document.getElementById('quizResultCta').addEventListener('click', function() {
+      fireEvent('quiz_cta_clicked', { blend: document.getElementById('quizResultFlavor').textContent });
+    });
+
+    preserveUtms();
+  }
+
+  function preserveUtms() {
+    var params = new URLSearchParams(window.location.search);
+    var utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+    var utms = {};
+    utmKeys.forEach(function(k) {
+      if (params.get(k)) utms[k] = params.get(k);
+    });
+    if (Object.keys(utms).length > 0) {
+      try { sessionStorage.setItem('hx_quiz_utms', JSON.stringify(utms)); } catch(e) {}
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+
+{% schema %}
+{
+  "name": "HX Quiz Flow",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Landing Heading",
+      "default": "Find the Sea Moss your body is asking for."
+    },
+    {
+      "type": "text",
+      "id": "offer_text",
+      "label": "Offer Text",
+      "default": "Complete the quiz to get 20% off"
+    }
+  ],
+  "presets": [
+    {
+      "name": "HX Quiz Flow"
+    }
+  ]
+}
+{% endschema %}

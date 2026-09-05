@@ -1,0 +1,51 @@
+{{ 'section-quiz-hero.css' | asset_url | stylesheet_tag }}
+
+<div id="QuizHero-{{ section.id }}" class="quiz-hero" style="background-color: {{ section.settings.background_color }};">
+  <div class="quiz-hero__container page-width">
+    {%- if section.settings.heading != blank -%}
+      <h1 class="quiz-hero__heading">
+        {{ section.settings.heading }}
+      </h1>
+    {%- endif -%}
+    
+    {%- if section.settings.question != blank -%}
+      <p class="quiz-hero__question">
+        {{ section.settings.question }}
+      </p>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Quiz Hero",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Take 2 minutes to take the test and receive a promo code for a 10% discount"
+    },
+    {
+      "type": "text",
+      "id": "question",
+      "label": "Question",
+      "default": "What is your main goal?"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#e8f5e9"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Quiz Hero"
+    }
+  ]
+}
+{% endschema %}
+

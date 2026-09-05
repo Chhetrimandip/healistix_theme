@@ -1,0 +1,57 @@
+{{ 'batana-page.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'batana-page.js' | asset_url }}" defer></script>
+
+<section class="bt-section">
+  <div class="bt-container bt-center">
+    {%- if section.settings.eyebrow != blank -%}
+      <span class="bt-eyebrow">{{ section.settings.eyebrow }}</span>
+    {%- endif -%}
+    <h2 class="bt-h2">{{ section.settings.heading }}</h2>
+    {%- if section.settings.subheading != blank -%}
+      <p class="bt-sub">{{ section.settings.subheading }}</p>
+    {%- endif -%}
+
+    <div class="bt-source__grid">
+      {%- for block in section.blocks -%}
+        <div class="bt-source__card" {{ block.shopify_attributes }}>
+          {%- if block.settings.image != blank -%}
+            <div class="bt-source__img">
+              <img src="{{ block.settings.image | image_url: width: 600 }}" alt="{{ block.settings.title | escape }}" loading="lazy" width="600" height="450">
+            </div>
+          {%- endif -%}
+          <div class="bt-source__body">
+            <div class="bt-source__kicker">{{ block.settings.kicker }}</div>
+            <h3 class="bt-h3">{{ block.settings.title }}</h3>
+            <p>{{ block.settings.text }}</p>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Batana — Source story",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Rainforest-grown, small-batch, verified pure" },
+    { "type": "textarea", "id": "subheading", "label": "Subheading" }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Story card",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "kicker", "label": "Kicker", "default": "The Source" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Where it begins" },
+        { "type": "textarea", "id": "text", "label": "Text" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Batana — Source story" }]
+}
+{% endschema %}

@@ -1,0 +1,82 @@
+{{ 'section-homepage-healistix.css' | asset_url | stylesheet_tag }}
+
+<div class="hx-ingredients" style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;">
+  <div class="hx-ingredients__container">
+    {% if section.settings.eyebrow != blank %}
+      <div class="hx-ingredients__eyebrow">{{ section.settings.eyebrow }}</div>
+    {% endif %}
+
+    {% if section.settings.heading != blank %}
+      <h2 class="hx-ingredients__heading">{{ section.settings.heading }}</h2>
+    {% endif %}
+
+    {% if section.settings.subtitle != blank %}
+      <p class="hx-ingredients__subtitle">{{ section.settings.subtitle }}</p>
+    {% endif %}
+
+    <div class="hx-ingredients__grid">
+      {% for block in section.blocks %}
+        {% if block.type == 'ingredient' %}
+          <div class="hx-ingredients__card" {{ block.shopify_attributes }}>
+            <div class="hx-ingredients__icon">
+              {% if block.settings.image %}
+                <img
+                  src="{{ block.settings.image | image_url: width: 120 }}"
+                  alt="{{ block.settings.name | escape }}"
+                  width="60" height="60" loading="lazy"
+                >
+              {% else %}
+                <span class="hx-ingredients__icon-emoji">{{ block.settings.icon }}</span>
+              {% endif %}
+            </div>
+            <h3 class="hx-ingredients__name">{{ block.settings.name }}</h3>
+            <p class="hx-ingredients__origin">{{ block.settings.origin }}</p>
+            <p class="hx-ingredients__benefit">{{ block.settings.benefit }}</p>
+
+            {% if block.settings.key_stat != blank %}
+              <div class="hx-ingredients__stat">{{ block.settings.key_stat }}</div>
+            {% endif %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Ingredients",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "What's Inside" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Nature's Most Powerful Ingredients" },
+    { "type": "textarea", "id": "subtitle", "label": "Subtitle" },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "min": 0, "max": 100, "step": 10, "default": 80, "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "min": 0, "max": 100, "step": 10, "default": 80, "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "ingredient",
+      "name": "Ingredient",
+      "settings": [
+        { "type": "text", "id": "icon", "label": "Icon (emoji fallback)", "default": "🌊" },
+        { "type": "image_picker", "id": "image", "label": "Ingredient Image" },
+        { "type": "text", "id": "name", "label": "Name", "default": "Sea Moss" },
+        { "type": "text", "id": "origin", "label": "Origin", "default": "Wildcrafted, St. Lucia" },
+        { "type": "textarea", "id": "benefit", "label": "Key Benefit", "default": "92 essential minerals your body needs daily" },
+        { "type": "text", "id": "key_stat", "label": "Key Stat" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Ingredients" }]
+}
+{% endschema %}

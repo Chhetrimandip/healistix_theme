@@ -1,0 +1,80 @@
+{{ 'section-badges-bar-seamoss.css' | asset_url | stylesheet_tag }}
+
+<div id="BadgesBar-{{ section.id }}" class="badges-bar-seamoss color-{{ section.settings.color_scheme }}">
+  <div class="badges-bar-seamoss__container">
+    <div class="badges-bar-seamoss__content">
+      <span class="badges-bar-seamoss__badge">GLUTEN FREE</span>
+      <span class="badges-bar-seamoss__separator">•</span>
+      <span class="badges-bar-seamoss__badge">100% VEGAN</span>
+      <span class="badges-bar-seamoss__separator">•</span>
+      <span class="badges-bar-seamoss__badge">NON GMO</span>
+      <span class="badges-bar-seamoss__separator">•</span>
+      <span class="badges-bar-seamoss__badge">DAIRY FREE</span>
+      <span class="badges-bar-seamoss__separator">•</span>
+      <span class="badges-bar-seamoss__badge">SOY FREE</span>
+      <span class="badges-bar-seamoss__separator">•</span>
+      <span class="badges-bar-seamoss__badge">PALEO DIET</span>
+      <span class="badges-bar-seamoss__separator">•</span>
+      <span class="badges-bar-seamoss__badge">GLUTEN FREE</span>
+      <span class="badges-bar-seamoss__separator">•</span>
+      <span class="badges-bar-seamoss__badge">100% VEGAN</span>
+      <span class="badges-bar-seamoss__separator">•</span>
+      <span class="badges-bar-seamoss__badge">NON GMO</span>
+      <span class="badges-bar-seamoss__separator">•</span>
+      <span class="badges-bar-seamoss__badge">DAIRY FREE</span>
+      <span class="badges-bar-seamoss__separator">•</span>
+      <span class="badges-bar-seamoss__badge">SOY FREE</span>
+      <span class="badges-bar-seamoss__separator">•</span>
+      <span class="badges-bar-seamoss__badge">PALEO DIET</span>
+    </div>
+  </div>
+</div>
+
+{% style %}
+  #BadgesBar-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Badges Bar Sea Moss",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Badges Bar Sea Moss"
+    }
+  ]
+}
+{% endschema %}
+

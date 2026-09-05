@@ -1,0 +1,97 @@
+.badges-bar-seamoss {
+  width: 100%;
+  background: linear-gradient(90deg, #FF6B4A 0%, #FF8566 50%, #FF6B4A 100%);
+  background-size: 200% 100%;
+  animation: shimmer 8s ease infinite;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 2px 15px rgba(255, 107, 74, 0.2);
+}
+
+.badges-bar-seamoss::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 255, 255, 0.1) 50%, 
+    transparent 100%);
+  opacity: 0.6;
+}
+
+@keyframes shimmer {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.badges-bar-seamoss__container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.badges-bar-seamoss__content {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  animation: scrollBadges 35s linear infinite;
+  padding: 1.4rem 0;
+}
+
+.badges-bar-seamoss__badge {
+  font-family: 'Poppins', sans-serif;
+  display: inline-block;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0 1.5rem;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease;
+}
+
+.badges-bar-seamoss__separator {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.1rem;
+  padding: 0 0.8rem;
+  font-weight: 400;
+}
+
+@keyframes scrollBadges {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.badges-bar-seamoss__content:hover {
+  animation-play-state: paused;
+}
+
+@media screen and (max-width: 749px) {
+  .badges-bar-seamoss__content {
+    padding: 0.9rem 0;
+  }
+  
+  .badges-bar-seamoss__badge {
+    font-size: 0.8rem;
+    padding: 0 1rem;
+  }
+  
+  .badges-bar-seamoss__separator {
+    font-size: 0.8rem;
+    padding: 0 0.5rem;
+  }
+}
+

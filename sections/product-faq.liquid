@@ -1,0 +1,53 @@
+{{ 'section-product-seamoss.css' | asset_url | stylesheet_tag }}
+
+<div id="ProductFaq-{{ section.id }}" class="product-faq">
+  <div class="page-width">
+    <div class="product-faq__heading">
+      <h2>{{ section.settings.heading }}</h2>
+      <p>{{ section.settings.subheading }}</p>
+    </div>
+    <div class="product-faq__list">
+      {%- for block in section.blocks -%}
+        <details class="product-faq__item" {{ block.shopify_attributes }}>
+          <summary>
+            <span>{{ block.settings.question }}</span>
+            <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M8 1v14M1 8h14"/></svg>
+          </summary>
+          <div class="product-faq__item-content">{{ block.settings.answer }}</div>
+        </details>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Product FAQ",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {"type": "text", "id": "heading", "label": "Heading", "default": "FAQ"},
+    {"type": "textarea", "id": "subheading", "label": "Subheading", "default": "Everything you might be wondering before your first scoop."}
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "Question",
+      "settings": [
+        {"type": "text", "id": "question", "label": "Question", "default": "How fast will I feel a difference?"},
+        {"type": "textarea", "id": "answer", "label": "Answer", "default": "Many members notice smoother digestion and energy in the first week. Give your body at least 30 days to build the ritual."}
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product FAQ",
+      "blocks": [
+        {"type": "faq"},
+        {"type": "faq", "settings": {"question": "How do I store the jars?", "answer": "Refrigerate upon arrival and use within 30 days. You can freeze jars for up to 4 months."}},
+        {"type": "faq", "settings": {"question": "Is this safe for daily use?", "answer": "Yes—crafted in a GMP kitchen with clean-label ingredients. Consult your practitioner if you are pregnant or have thyroid therapy."}}
+      ]
+    }
+  ]
+}
+{% endschema %}

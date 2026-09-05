@@ -1,0 +1,76 @@
+{% comment %}
+  Healistix custom desktop nav with Shop mega dropdown.
+
+  Usage:
+  {% render 'header-dropdown-menu' %}
+{% endcomment %}
+
+<nav class="header__inline-menu">
+  <ul class="list-menu list-menu--inline" role="list">
+    {%- comment -%} Shop — with dropdown {%- endcomment -%}
+    <li>
+      <header-menu>
+        <details id="Details-HeaderMenu-shop">
+          <summary
+            id="HeaderMenu-shop"
+            class="header__menu-item list-menu__item link focus-inset"
+          >
+            <span>Shop</span>
+            {% render 'icon-caret' %}
+          </summary>
+          <ul
+            id="HeaderMenu-MenuList-shop"
+            class="header__submenu list-menu list-menu--disclosure hx-shop-dropdown color-{{ section.settings.menu_color_scheme }} gradient caption-large motion-reduce global-settings-popup"
+            role="list"
+            tabindex="-1"
+          >
+            <li>
+              <a href="/collections/sea-moss" class="header__menu-item list-menu__item link link--text focus-inset caption-large">
+                Sea Moss
+              </a>
+            </li>
+            <li>
+              <a href="/collections/batana" class="header__menu-item list-menu__item link link--text focus-inset caption-large">
+                Batana
+              </a>
+            </li>
+            <li>
+              <a href="/collections/shilajit" class="header__menu-item list-menu__item link link--text focus-inset caption-large">
+                Shilajit
+              </a>
+            </li>
+            <li>
+              <a href="/collections/super-tonics" class="header__menu-item list-menu__item link link--text focus-inset caption-large">
+                Super Tonics
+              </a>
+            </li>
+            <li>
+              <a href="/collections/super-bitters" class="header__menu-item list-menu__item link link--text focus-inset caption-large">
+                Super Bitters
+              </a>
+            </li>
+            <li>
+              <a href="/collections/beef-tallow" class="header__menu-item list-menu__item link link--text focus-inset caption-large">
+                Beef Tallow
+              </a>
+            </li>
+          </ul>
+        </details>
+      </header-menu>
+    </li>
+
+    {%- comment -%} My Health {%- endcomment -%}
+    <li>
+      <a id="HeaderMenu-my-health" href="/pages/my-health" class="header__menu-item list-menu__item link link--text focus-inset">
+        <span>My Health</span>
+      </a>
+    </li>
+
+    {%- comment -%} Contact {%- endcomment -%}
+    <li>
+      <a id="HeaderMenu-contact" href="/pages/contact" class="header__menu-item list-menu__item link link--text focus-inset">
+        <span>Contact</span>
+      </a>
+    </li>
+  </ul>
+</nav>

@@ -1,0 +1,35 @@
+{{ 'batana-page.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'batana-page.js' | asset_url }}" defer></script>
+
+<section class="bt-section bt-section--green">
+  <div class="bt-container">
+    <div class="bt-stats__row">
+      {%- for block in section.blocks -%}
+        <div class="bt-stats__item" {{ block.shopify_attributes }}>
+          <div class="bt-stats__num">{{ block.settings.number }}</div>
+          <div class="bt-stats__label">{{ block.settings.label }}</div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Batana — Stats bar",
+  "tag": "section",
+  "class": "section",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Stat",
+      "settings": [
+        { "type": "text", "id": "number", "label": "Number", "default": "200,000+" },
+        { "type": "text", "id": "label", "label": "Label", "default": "Customers" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Batana — Stats bar" }]
+}
+{% endschema %}

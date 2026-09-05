@@ -1,0 +1,124 @@
+{{ 'batana-page.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'batana-page.js' | asset_url }}" defer></script>
+
+<section class="bt-section" id="BtBeforeAfter-{{ section.id }}">
+  <div class="bt-container bt-center">
+    <h2 class="bt-h2">{{ section.settings.heading }}</h2>
+    {%- if section.settings.subheading != blank -%}
+      <p class="bt-sub">{{ section.settings.subheading }}</p>
+    {%- endif -%}
+
+    {%- if section.settings.show_pills -%}
+      {%- comment -%} Build unique category list from blocks {%- endcomment -%}
+      {%- assign categories = '' -%}
+      {%- for block in section.blocks -%}
+        {%- assign cat = block.settings.category | strip -%}
+        {%- if cat != blank -%}
+          {%- unless categories contains cat -%}
+            {%- if categories == '' -%}
+              {%- assign categories = cat -%}
+            {%- else -%}
+              {%- assign categories = categories | append: '||' | append: cat -%}
+            {%- endif -%}
+          {%- endunless -%}
+        {%- endif -%}
+      {%- endfor -%}
+      {%- assign category_list = categories | split: '||' -%}
+      {%- if category_list.size > 0 -%}
+        <div class="bt-ba__pills" data-bt-ba-pills>
+          <button type="button" class="bt-ba__pill is-active" data-bt-ba-filter="all">All</button>
+          {%- for cat in category_list -%}
+            <button type="button" class="bt-ba__pill" data-bt-ba-filter="{{ cat | escape }}">{{ cat }}</button>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    {%- endif -%}
+  </div>
+  <div class="bt-container">
+    <div class="bt-ba__track">
+      {%- for block in section.blocks -%}
+        <div class="bt-ba__card" data-bt-ba-category="{{ block.settings.category | strip | escape }}" {{ block.shopify_attributes }}>
+          <div class="bt-ba__imgs">
+            <div class="bt-ba__img">
+              {%- if block.settings.before_image != blank -%}
+                <img src="{{ block.settings.before_image | image_url: width: 400 }}" alt="Before" loading="lazy" width="400" height="500">
+              {%- endif -%}
+              <span class="bt-ba__day">{{ block.settings.before_label }}</span>
+            </div>
+            <div class="bt-ba__img">
+              {%- if block.settings.after_image != blank -%}
+                <img src="{{ block.settings.after_image | image_url: width: 400 }}" alt="After" loading="lazy" width="400" height="500">
+              {%- endif -%}
+              <span class="bt-ba__day">{{ block.settings.after_label }}</span>
+            </div>
+          </div>
+          <div class="bt-ba__body">
+            {%- if block.settings.problem != blank -%}
+              <div class="bt-ba__problem">{{ block.settings.problem }}</div>
+            {%- endif -%}
+            {%- if block.settings.title != blank -%}
+              <p class="bt-ba__title">{{ block.settings.title }}</p>
+            {%- endif -%}
+            <p class="bt-ba__text">{{ block.settings.text }}</p>
+            <div class="bt-ba__author">{{ block.settings.author }}</div>
+            <span class="bt-ba__verified">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>
+              Verified Buyer
+            </span>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var root = document.getElementById('BtBeforeAfter-{{ section.id }}');
+    if (!root) return;
+    var pills = root.querySelectorAll('[data-bt-ba-filter]');
+    var cards = root.querySelectorAll('[data-bt-ba-category]');
+    pills.forEach(function (pill) {
+      pill.addEventListener('click', function () {
+        pills.forEach(function (p) { p.classList.remove('is-active'); });
+        pill.classList.add('is-active');
+        var filter = pill.dataset.btBaFilter;
+        cards.forEach(function (card) {
+          var show = filter === 'all' || card.dataset.btBaCategory === filter;
+          card.classList.toggle('is-hidden', !show);
+        });
+      });
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Batana — Before/After",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "What can 3–8 weeks of use do for your edges?" },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Beyond edge growth, customers also notice remarkable shine, softness, and thickness across their entire hair." },
+    { "type": "checkbox", "id": "show_pills", "label": "Show category filter pills", "default": true }
+  ],
+  "blocks": [
+    {
+      "type": "result",
+      "name": "Result card",
+      "settings": [
+        { "type": "text", "id": "category", "label": "Category (for filter pills)", "default": "Edges growth" },
+        { "type": "image_picker", "id": "before_image", "label": "Before image" },
+        { "type": "image_picker", "id": "after_image", "label": "After image" },
+        { "type": "text", "id": "before_label", "label": "Before label", "default": "Day 01" },
+        { "type": "text", "id": "after_label", "label": "After label", "default": "Day 42" },
+        { "type": "text", "id": "problem", "label": "Problem tag", "default": "PROBLEM: Thinning edges" },
+        { "type": "text", "id": "title", "label": "Review title" },
+        { "type": "textarea", "id": "text", "label": "Review text" },
+        { "type": "text", "id": "author", "label": "Author", "default": "Customer, USA" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Batana — Before/After" }]
+}
+{% endschema %}

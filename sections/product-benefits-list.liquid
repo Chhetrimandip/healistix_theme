@@ -1,0 +1,67 @@
+{{ 'section-product-seamoss.css' | asset_url | stylesheet_tag }}
+
+<div id="ProductBenefitsList-{{ section.id }}" class="product-benefits-list">
+  <div class="product-benefits-list__inner page-width">
+    <div class="product-benefits-list__content">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="product-benefits-list__heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      {%- if section.settings.subheading != blank -%}
+        <p class="product-benefits-list__subheading">{{ section.settings.subheading }}</p>
+      {%- endif -%}
+      <div class="product-benefits-list__items">
+        {%- for block in section.blocks -%}
+          <div class="product-benefits-list__item" {{ block.shopify_attributes }}>
+            <div class="product-benefits-list__num">{{ forloop.index | prepend: '0' }}</div>
+            <div class="product-benefits-list__body">
+              <h3>{{ block.settings.title }}</h3>
+              <p>{{ block.settings.text }}</p>
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+    <div class="product-benefits-list__media">
+      {%- if section.settings.image != blank -%}
+        <img src="{{ section.settings.image | image_url: width: 800 }}" alt="{{ section.settings.heading }}" loading="lazy">
+      {%- else -%}
+        <div class="product-benefits-list__media-placeholder">Add spoon photo</div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Product Benefits List",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {"type": "text", "id": "heading", "label": "Heading", "default": "With Sea Moss you may notice and feel significant differences"},
+    {"type": "textarea", "id": "subheading", "label": "Subheading", "default": "Members call it their all-in-one ritual for energy, calm digestion, and radiant focus."},
+    {"type": "image_picker", "id": "image", "label": "Image"}
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit",
+      "settings": [
+        {"type": "text", "id": "title", "label": "Title", "default": "More everyday energy"},
+        {"type": "textarea", "id": "text", "label": "Description", "default": "Fuel workouts and workdays with a mineral-dense boost."}
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Benefits List",
+      "blocks": [
+        {"type": "benefit"},
+        {"type": "benefit", "settings": {"title": "Everyday immune support", "text": "Traditional blend used for decades to keep households well."}},
+        {"type": "benefit", "settings": {"title": "Balanced digestion", "text": "Loaded with gentle prebiotics that help everything flow."}},
+        {"type": "benefit", "settings": {"title": "Metabolism & thyroid support", "text": "Sea minerals naturally rich in iodine and antioxidants."}},
+        {"type": "benefit", "settings": {"title": "Clear focus & mood", "text": "Members rave about a calm, steady mindset."}}
+      ]
+    }
+  ]
+}
+{% endschema %}

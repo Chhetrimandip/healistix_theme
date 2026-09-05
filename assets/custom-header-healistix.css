@@ -1,0 +1,419 @@
+/* ============================================
+   HEALISTIX - CUSTOM HEADER STYLES
+   Overrides Dawn's default header for brand look
+   All units in px (Dawn base: 62.5%)
+   ============================================ */
+
+/* ---- Announcement Bar ---- */
+.shopify-section-announcement-bar,
+.section-announcement-bar {
+  display: block !important;
+}
+
+.shopify-section-announcement-bar .color-scheme-3.gradient,
+.announcement-bar-section .color-scheme-3.gradient {
+  background: #1A1410 !important;
+  color: #FBF7F0 !important;
+}
+
+.section-header .announcement-bar,
+.announcement-bar {
+  font-family: 'Forma DJR Text', 'DM Sans', sans-serif;
+  font-size: 13px;
+  letter-spacing: 1.2px;
+  font-weight: 500;
+  padding: 4px 20px !important;
+  min-height: 0;
+  background: #1A1410 !important;
+  color: #FBF7F0 !important;
+}
+
+/* Ensure announcement bar slider text is visible */
+.announcement-bar-slider .announcement-bar__message,
+.slider--everywhere .announcement-bar__message {
+  color: #FBF7F0 !important;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 1.2px;
+}
+
+/* Make sure announcement slider arrows are visible */
+.announcement-bar .slider-button {
+  color: #FBF7F0 !important;
+  opacity: 0.7;
+}
+
+.announcement-bar .slider-button:hover {
+  opacity: 1;
+}
+
+.announcement-bar__message {
+  font-family: 'Forma DJR Text', 'DM Sans', sans-serif;
+  color: #FBF7F0 !important;
+  padding: 4px 0 !important;
+  min-height: 0 !important;
+}
+
+.announcement-bar__link {
+  color: #FBF7F0 !important;
+}
+
+.announcement-bar .announcement-bar__message span,
+.announcement-bar .announcement-bar__message p {
+  color: #FBF7F0 !important;
+}
+
+/* ---- Header background ---- */
+.header-wrapper.color-scheme-3.gradient {
+  background: #0A1628 !important;
+  color: #FBF7F0 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Keep announcement bar dark — do NOT inherit light cream */
+.utility-bar.color-scheme-3.gradient {
+  background: #1A1410 !important;
+  color: #FBF7F0 !important;
+}
+
+/* ---- Main Header Container ---- */
+.section-header .header {
+  font-family: 'Forma DJR Text', 'DM Sans', sans-serif;
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
+}
+
+/* Remove Dawn's default bottom border, use our subtle coral one */
+.section-header .header--border-bottom {
+  border-bottom: none !important;
+}
+
+.section-header .header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(232, 97, 45, 0.25) 30%, rgba(232, 97, 45, 0.25) 70%, transparent 100%);
+}
+
+/* ---- Custom Logo Styling ---- */
+.hx-logo-wrapper {
+  max-width: 260px !important;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hx-logo-img {
+  width: 240px;
+  height: auto;
+  max-height: 64px;
+  display: block;
+  object-fit: contain;
+}
+
+/* Logo sizing for uploaded images */
+.header__heading-logo-wrapper {
+  max-width: 240px;
+  margin: 0 auto;
+  line-height: 0;
+}
+
+.header__heading-logo {
+  max-height: 36px;
+  width: auto;
+}
+
+/* Center the logo heading area */
+.header--middle-center .header__heading {
+  margin: 0;
+  padding: 0;
+}
+
+/* If shop.name text shows, style it as brand */
+.header--middle-center .header__heading .h2 {
+  font-family: 'Forma DJR Display', 'DM Sans', sans-serif;
+  font-size: 38px;
+  font-weight: 700;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+}
+
+/* ---- Navigation Links ---- */
+.header--middle-center .header__inline-menu {
+  justify-content: center;
+}
+
+.header__menu-item {
+  font-family: 'Forma DJR Text', 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: none;
+  padding: 6px 16px;
+  transition: color 0.3s ease, opacity 0.3s ease;
+  opacity: 0.85;
+}
+
+.header__menu-item:hover,
+.header__menu-item:focus {
+  opacity: 1;
+  color: #E8612D !important;
+}
+
+/* Active menu item underline accent */
+.header__active-menu-item {
+  border-bottom-color: #E8612D;
+}
+
+/* ---- Header Icons (Search, Account, Cart) ---- */
+.header__icon {
+  transition: opacity 0.3s ease, color 0.3s ease;
+  opacity: 0.8;
+}
+
+.header__icon:hover {
+  opacity: 1;
+  color: #E8612D !important;
+}
+
+.header__icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.header__icon {
+  padding: 4px;
+}
+
+/* Space the icons nicely */
+.header__icons {
+  gap: 8px;
+}
+
+/* Cart count bubble - coral brand accent */
+.cart-count-bubble {
+  background-color: #E8612D !important;
+  color: #FFFFFF !important;
+  font-family: 'Forma DJR Text', 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  min-width: 22px;
+  min-height: 22px;
+}
+
+/* ---- Search Modal Styling ---- */
+.search-modal__content {
+  font-family: 'Forma DJR Text', 'DM Sans', sans-serif;
+}
+
+.search-modal__form input[type="search"],
+.search__input {
+  font-family: 'Forma DJR Text', 'DM Sans', sans-serif;
+  font-size: 18px;
+}
+
+/* ---- Drawer Menu (Mobile) ---- */
+.menu-drawer {
+  font-family: 'Forma DJR Text', 'DM Sans', sans-serif;
+}
+
+.menu-drawer__menu-item {
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: none;
+  padding: 16px 20px;
+}
+
+/* ---------- Healistix custom drawer layout ---------- */
+.hx-drawer-menu {
+  padding: 8px 0;
+}
+
+.hx-drawer-link {
+  font-size: 20px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.3px !important;
+  text-transform: none !important;
+  padding: 14px 24px !important;
+}
+
+.hx-drawer-menu--secondary .hx-drawer-link {
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  opacity: 0.8;
+}
+
+/* Divider line between product list and Contact */
+.hx-drawer-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(232, 97, 45, 0.25) 20%, rgba(232, 97, 45, 0.25) 80%, transparent);
+  margin: 12px 24px;
+}
+
+/* My Health highlighted card */
+.hx-drawer-highlight {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 12px 20px 8px;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, #E8612D 0%, #D4A84A 100%);
+  border-radius: 14px;
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.hx-drawer-highlight:active {
+  transform: scale(0.98);
+}
+
+.hx-drawer-highlight__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.hx-drawer-highlight__text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.hx-drawer-highlight__label {
+  font-family: 'Forma DJR Text', 'DM Sans', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.2px;
+}
+
+.hx-drawer-highlight__sublabel {
+  font-family: 'Forma DJR Text', 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.hx-drawer-highlight__arrow {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.85);
+  transition: transform 0.25s ease;
+}
+
+/* ---- Sticky Header Refinement ---- */
+.shopify-section-header-sticky {
+  transition: box-shadow 0.3s ease;
+}
+
+.scrolled-past-header .section-header {
+  box-shadow: 0 2px 20px rgba(10, 22, 40, 0.2);
+}
+
+/* ---- Dropdown Menu Styling ---- */
+.header__submenu {
+  font-family: 'Forma DJR Text', 'DM Sans', sans-serif;
+  border-top: 2px solid #E8612D;
+  background: #FFFFFF !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 0 0 12px 12px;
+  padding: 8px 0;
+}
+
+.header__submenu .header__menu-item {
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  text-transform: none;
+  padding: 12px 24px;
+  color: #1A1410 !important;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.header__submenu .header__menu-item:hover {
+  background: rgba(232, 97, 45, 0.06);
+  color: #E8612D !important;
+}
+
+/* ---- Line separator override ---- */
+.header--middle-center .header__heading-link {
+  text-decoration: none;
+}
+
+/* Light text/icons on dark header */
+.header-wrapper.color-scheme-3 .header__icon,
+.header-wrapper.color-scheme-3 .header__heading-link,
+.header-wrapper.color-scheme-3 .header__menu-item,
+.header-wrapper.color-scheme-3 .header__menu-item span,
+.header-wrapper.color-scheme-3 .header a,
+.header-wrapper.color-scheme-3 .header__icon svg {
+  color: #FBF7F0 !important;
+}
+
+.header-wrapper.color-scheme-3 .header__menu-item {
+  opacity: 0.85;
+}
+
+.header-wrapper.color-scheme-3 .header__menu-item:hover {
+  opacity: 1;
+}
+
+.header-wrapper.color-scheme-3 .header__icon {
+  opacity: 0.7;
+}
+
+/* ---- Mobile Adjustments ---- */
+@media (max-width: 989px) {
+  .hx-logo-wrapper {
+    max-width: 200px !important;
+  }
+
+  .hx-logo-img {
+    width: 180px;
+    max-height: 52px;
+  }
+
+  .header__heading-logo-wrapper {
+    max-width: 180px;
+  }
+
+  .header__heading-logo {
+    max-height: 36px;
+  }
+
+  .header--middle-center .header__heading .h2 {
+    font-size: 24px;
+    letter-spacing: 3px;
+  }
+
+  .section-header .header {
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+  }
+
+  .header__icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .section-header .announcement-bar {
+    font-size: 12px;
+    padding: 4px 16px !important;
+    min-height: 0;
+  }
+
+  .announcement-bar__message {
+    padding: 2px 0 !important;
+  }
+}

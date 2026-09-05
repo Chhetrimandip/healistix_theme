@@ -1,0 +1,130 @@
+{{ 'section-quiz-options.css' | asset_url | stylesheet_tag }}
+
+<div id="QuizOptions-{{ section.id }}" class="quiz-options" style="background-color: {{ section.settings.background_color }};">
+  <div class="quiz-options__container page-width">
+    <div class="quiz-options__grid">
+      {%- for block in section.blocks -%}
+        <button 
+          type="button" 
+          class="quiz-options__card" 
+          data-value="{{ block.settings.value }}"
+          {{ block.shopify_attributes }}
+        >
+          {%- if block.settings.icon != blank -%}
+            <div class="quiz-options__icon">
+              {{ block.settings.icon }}
+            </div>
+          {%- endif -%}
+          
+          {%- if block.settings.title != blank -%}
+            <h3 class="quiz-options__title">
+              {{ block.settings.title }}
+            </h3>
+          {%- endif -%}
+        </button>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const cards = document.querySelectorAll('.quiz-options__card');
+  
+  cards.forEach(card => {
+    card.addEventListener('click', function() {
+      const value = this.getAttribute('data-value');
+      console.log('Selected:', value);
+      
+      // Add selected state
+      cards.forEach(c => c.classList.remove('selected'));
+      this.classList.add('selected');
+      
+      // TODO: Navigate to next question or submit
+      // For now, just log the selection
+    });
+  });
+});
+</script>
+
+{% schema %}
+{
+  "name": "Quiz Options",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#e8f5e9"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "option",
+      "name": "Option",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon (emoji or text)",
+          "default": "🛡️"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Strong Immunity"
+        },
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Value",
+          "default": "immunity"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Quiz Options",
+      "blocks": [
+        {
+          "type": "option",
+          "settings": {
+            "icon": "🛡️",
+            "title": "Strong Immunity",
+            "value": "immunity"
+          }
+        },
+        {
+          "type": "option",
+          "settings": {
+            "icon": "🦠",
+            "title": "Digestion & Gut",
+            "value": "digestion"
+          }
+        },
+        {
+          "type": "option",
+          "settings": {
+            "icon": "⚡",
+            "title": "Energy & Sleep",
+            "value": "energy"
+          }
+        },
+        {
+          "type": "option",
+          "settings": {
+            "icon": "🧠",
+            "title": "Brain & Focus",
+            "value": "brain"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+

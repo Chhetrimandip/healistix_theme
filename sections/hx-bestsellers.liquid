@@ -1,0 +1,147 @@
+{{ 'section-homepage-healistix.css' | asset_url | stylesheet_tag }}
+
+<div class="hx-bestsellers" style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;">
+  <div class="hx-bestsellers__container">
+    {% if section.settings.eyebrow != blank %}
+      <div class="hx-bestsellers__eyebrow">{{ section.settings.eyebrow }}</div>
+    {% endif %}
+
+    {% if section.settings.heading != blank %}
+      <h2 class="hx-bestsellers__heading">{{ section.settings.heading }}</h2>
+    {% endif %}
+
+    <div class="hx-bestsellers__grid">
+      {% for block in section.blocks %}
+        {% if block.type == 'product_card' %}
+          {% assign product = all_products[block.settings.product_handle] %}
+          <div class="hx-bestsellers__card" {{ block.shopify_attributes }}>
+            {% if block.settings.badge_text != blank %}
+              <div class="hx-bestsellers__badge">{{ block.settings.badge_text }}</div>
+            {% endif %}
+
+            <a href="{{ product.url | default: '#' }}" class="hx-bestsellers__image-link">
+              {% if product.featured_image %}
+                <img
+                  src="{{ product.featured_image | image_url: width: 480 }}"
+                  alt="{{ product.title | escape }}"
+                  class="hx-bestsellers__image"
+                  width="480"
+                  height="480"
+                  loading="lazy"
+                >
+              {% else %}
+                <div class="hx-bestsellers__image-placeholder">
+                  <span>{{ block.settings.title | default: 'Product' }}</span>
+                </div>
+              {% endif %}
+            </a>
+
+            <div class="hx-bestsellers__info">
+              <h3 class="hx-bestsellers__title">
+                {{ product.title | default: block.settings.title }}
+              </h3>
+
+              {% if block.settings.subtitle != blank %}
+                <p class="hx-bestsellers__subtitle">{{ block.settings.subtitle }}</p>
+              {% endif %}
+
+              <div class="hx-bestsellers__price-row">
+                {% if product.price %}
+                  <span class="hx-bestsellers__price">{{ product.price | money }}</span>
+                  {% if product.compare_at_price > product.price %}
+                    <span class="hx-bestsellers__compare-price">{{ product.compare_at_price | money }}</span>
+                  {% endif %}
+                {% else %}
+                  <span class="hx-bestsellers__price">{{ block.settings.fallback_price }}</span>
+                {% endif %}
+              </div>
+
+              <div class="hx-bestsellers__stars">
+                <span class="hx-bestsellers__stars-icons">★★★★★</span>
+                {% if block.settings.review_count != blank %}
+                  <span class="hx-bestsellers__review-count">({{ block.settings.review_count }})</span>
+                {% endif %}
+              </div>
+
+              {% if product.available %}
+                <a href="{{ product.url }}" class="hx-bestsellers__cta">Shop Now</a>
+              {% else %}
+                <a href="{{ product.url | default: '#' }}" class="hx-bestsellers__cta">View Details</a>
+              {% endif %}
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    {% if section.settings.view_all_link != blank %}
+      <div class="hx-bestsellers__view-all">
+        <a href="{{ section.settings.view_all_link }}" class="hx-bestsellers__view-all-link">
+          {{ section.settings.view_all_text | default: 'View All Products' }} →
+        </a>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Bestsellers",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Customer Favorites"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Bestselling Blends"
+    },
+    {
+      "type": "url",
+      "id": "view_all_link",
+      "label": "View All Link"
+    },
+    {
+      "type": "text",
+      "id": "view_all_text",
+      "label": "View All Text",
+      "default": "View All Products"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "min": 0, "max": 100, "step": 10, "default": 80, "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "min": 0, "max": 100, "step": 10, "default": 80, "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product_card",
+      "name": "Product",
+      "settings": [
+        { "type": "product", "id": "product_handle", "label": "Product" },
+        { "type": "text", "id": "title", "label": "Fallback Title", "default": "Product Name" },
+        { "type": "text", "id": "subtitle", "label": "Short Description" },
+        { "type": "text", "id": "fallback_price", "label": "Fallback Price", "default": "$19.99" },
+        { "type": "text", "id": "badge_text", "label": "Badge Text" },
+        { "type": "text", "id": "review_count", "label": "Review Count" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bestsellers"
+    }
+  ]
+}
+{% endschema %}

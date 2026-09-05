@@ -1,0 +1,42 @@
+{{ 'batana-page.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'batana-page.js' | asset_url }}" defer></script>
+
+<section class="bt-section bt-cta{% if section.settings.style == 'green' %} bt-section--green{% elsif section.settings.style == 'deep' %} bt-section--deep{% endif %}">
+  <div class="bt-container bt-container--narrow bt-center">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="bt-h2">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+    <a href="{{ section.settings.button_link | default: '#batana-buy' }}" class="bt-btn{% if section.settings.style == 'green' %} bt-btn--light{% endif %}">
+      {{ section.settings.button_label }}
+    </a>
+    {%- if section.settings.note != blank -%}
+      <span class="bt-guarantee-note">{{ section.settings.note }}</span>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Batana — CTA",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Try Healistix today, risk-free" },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "ADD TO CART" },
+    { "type": "url", "id": "button_link", "label": "Button link", "info": "Defaults to the buy box on this page." },
+    { "type": "text", "id": "note", "label": "Note under button", "default": "60-DAY RESULTS OR MONEY BACK" },
+    {
+      "type": "select",
+      "id": "style",
+      "label": "Background",
+      "options": [
+        { "value": "cream", "label": "Cream" },
+        { "value": "deep", "label": "Deep cream" },
+        { "value": "green", "label": "Forest green" }
+      ],
+      "default": "cream"
+    }
+  ],
+  "presets": [{ "name": "Batana — CTA" }]
+}
+{% endschema %}

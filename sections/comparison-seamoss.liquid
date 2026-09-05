@@ -1,0 +1,167 @@
+{{ 'section-comparison-seamoss.css' | asset_url | stylesheet_tag }}
+
+<div id="Comparison-{{ section.id }}" class="comparison-seamoss color-{{ section.settings.color_scheme }}">
+  <div class="comparison-seamoss__container page-width">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="comparison-seamoss__heading">
+        {{ section.settings.heading }}
+      </h2>
+    {%- endif -%}
+    
+    {%- if section.settings.subheading != blank -%}
+      <p class="comparison-seamoss__subheading">
+        {{ section.settings.subheading }}
+      </p>
+    {%- endif -%}
+    
+    <div class="comparison-seamoss__table">
+      <div class="comparison-seamoss__header">
+        <div class="comparison-seamoss__cell comparison-seamoss__cell--empty"></div>
+        <div class="comparison-seamoss__cell comparison-seamoss__cell--brand">
+          <div class="comparison-seamoss__brand-badge comparison-seamoss__brand-badge--yours">HEALISTIX</div>
+        </div>
+        <div class="comparison-seamoss__cell comparison-seamoss__cell--brand">
+          <div class="comparison-seamoss__brand-badge">Other Brands</div>
+        </div>
+      </div>
+      
+      <div class="comparison-seamoss__row">
+        <div class="comparison-seamoss__cell comparison-seamoss__cell--feature">Origin</div>
+        <div class="comparison-seamoss__cell comparison-seamoss__cell--check">
+          <span class="comparison-seamoss__icon">✓</span>
+          <span class="comparison-seamoss__detail">St. Lucia, Caribbean</span>
+        </div>
+        <div class="comparison-seamoss__cell comparison-seamoss__cell--cross">
+          <span class="comparison-seamoss__icon">✗</span>
+          <span class="comparison-seamoss__detail">Vietnam, Asia</span>
+        </div>
+      </div>
+      
+      <div class="comparison-seamoss__row">
+        <div class="comparison-seamoss__cell comparison-seamoss__cell--feature">Taste Rating</div>
+        <div class="comparison-seamoss__cell comparison-seamoss__cell--check">
+          <span class="comparison-seamoss__icon">✓</span>
+          <span class="comparison-seamoss__detail">#1 in America</span>
+        </div>
+        <div class="comparison-seamoss__cell comparison-seamoss__cell--cross">
+          <span class="comparison-seamoss__icon">—</span>
+          <span class="comparison-seamoss__detail">Standard</span>
+        </div>
+      </div>
+      
+      <div class="comparison-seamoss__row">
+        <div class="comparison-seamoss__cell comparison-seamoss__cell--feature">Made In</div>
+        <div class="comparison-seamoss__cell comparison-seamoss__cell--check">
+          <span class="comparison-seamoss__icon">✓</span>
+          <span class="comparison-seamoss__detail">Family Owned</span>
+        </div>
+        <div class="comparison-seamoss__cell comparison-seamoss__cell--cross">
+          <span class="comparison-seamoss__icon">—</span>
+          <span class="comparison-seamoss__detail">Various</span>
+        </div>
+      </div>
+      
+      <div class="comparison-seamoss__row">
+        <div class="comparison-seamoss__cell comparison-seamoss__cell--feature">Price</div>
+        <div class="comparison-seamoss__cell comparison-seamoss__cell--check">
+          <span class="comparison-seamoss__icon">✓</span>
+          <span class="comparison-seamoss__detail">Better Value</span>
+        </div>
+        <div class="comparison-seamoss__cell comparison-seamoss__cell--cross">
+          <span class="comparison-seamoss__icon">—</span>
+          <span class="comparison-seamoss__detail">Premium Priced</span>
+        </div>
+      </div>
+      
+      <div class="comparison-seamoss__row">
+        <div class="comparison-seamoss__cell comparison-seamoss__cell--feature">Wild-Crafted</div>
+        <div class="comparison-seamoss__cell comparison-seamoss__cell--check">
+          <span class="comparison-seamoss__icon">✓</span>
+        </div>
+        <div class="comparison-seamoss__cell comparison-seamoss__cell--check">
+          <span class="comparison-seamoss__icon">✓</span>
+        </div>
+      </div>
+    </div>
+    
+    {%- if section.settings.button_label != blank -%}
+      <div class="comparison-seamoss__cta">
+        <a href="{{ section.settings.button_link }}" class="button comparison-seamoss__button">
+          {{ section.settings.button_label }}
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% style %}
+  #Comparison-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Comparison Table",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "See The Difference"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Caribbean quality vs. Asian imports"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Try HEALISTIX Today"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 60
+    }
+  ],
+  "presets": [
+    {
+      "name": "Comparison Table"
+    }
+  ]
+}
+{% endschema %}
+

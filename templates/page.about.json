@@ -1,0 +1,215 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "about_hero": {
+      "type": "rich-text",
+      "blocks": {
+        "eyebrow": {
+          "type": "caption",
+          "settings": {
+            "caption": "OUR STORY",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
+          }
+        },
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Three generations. One family kitchen. The same rule from day one.",
+            "heading_size": "h0"
+          }
+        },
+        "body": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Our family started with six products hand-blended in the family kitchen. Today that same kitchen — a little bigger, a lot cleaner — is where we make Healistix.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "eyebrow",
+        "heading",
+        "body"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-2",
+        "full_width": true,
+        "padding_top": 96,
+        "padding_bottom": 48
+      }
+    },
+    "why_we_started": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Why we started Healistix",
+            "heading_size": "h1"
+          }
+        },
+        "body_1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We started Healistix because the sea moss we kept seeing on the market didn't taste like the sea moss in our house. Most of what's sold as \"wildcrafted\" is pool-grown, dried twice, and rehydrated on a warehouse floor somewhere. It's not bad for you. It's just not what we'd hand our kids.</p>"
+          }
+        },
+        "body_2": {
+          "type": "text",
+          "settings": {
+            "text": "<p>So we built Healistix to do one thing: make the jar we'd actually give our family, and sell it at a price our neighbors could afford. Every batch is blended in small 80-jar runs. Every jar has a lab report you can download. Every bottle of batana comes directly from a Miskito cooperative in Honduras. And every order ships with the same rule we’ve had on the wall from day one.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "body_1",
+        "body_2"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "scheme-1",
+        "full_width": false,
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "timeline": {
+      "type": "multicolumn",
+      "blocks": {
+        "year_2004": {
+          "type": "column",
+          "settings": {
+            "title": "2004",
+            "text": "<p>The second generation joins the kitchen. The product line grows, but the 80-jar batch stays exactly the same.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "year_2019": {
+          "type": "column",
+          "settings": {
+            "title": "2019",
+            "text": "<p>We make our first jars of sea moss gel for ourselves. Then for friends. Then for the neighborhood. People keep asking for more.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "year_2024": {
+          "type": "column",
+          "settings": {
+            "title": "2024",
+            "text": "<p>Healistix launches — the wildcrafted line, built for the family table first. Every jar ships with a batch lab report.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "day_one": {
+          "type": "column",
+          "settings": {
+            "title": "Day one",
+            "text": "<p>Our family starts out with six hand-blended products and a rule: we don’t sell what we wouldn’t give our own kids.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "day_one",
+        "year_2004",
+        "year_2019",
+        "year_2024"
+      ],
+      "settings": {
+        "title": "A kitchen that hasn't moved",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 4,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-2",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "rule": {
+      "type": "rich-text",
+      "blocks": {
+        "eyebrow": {
+          "type": "caption",
+          "settings": {
+            "caption": "THE RULE ON THE WALL",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
+          }
+        },
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "If we wouldn't give it to our own kids, we don't sell it.",
+            "heading_size": "h0"
+          }
+        },
+        "body": {
+          "type": "text",
+          "settings": {
+            "text": "<p>That's why every jar has a batch number you can use to download its lab report. That's why the sea moss is wildcrafted, not pool-grown. That's why the cold chain never breaks. And that's why the Trinity jar is $19.99 instead of $40 — because the family that runs Healistix buys their own groceries and knows exactly what $40 for sea moss feels like.</p>"
+          }
+        },
+        "button_primary": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop the Trinity Jar",
+            "button_link": "/products/sebi-trinity-sea-moss-gel",
+            "button_style_secondary": false
+          }
+        },
+        "button_secondary": {
+          "type": "button",
+          "settings": {
+            "button_label": "Read a lab report",
+            "button_link": "/pages/provenance",
+            "button_style_secondary": true
+          }
+        }
+      },
+      "block_order": [
+        "eyebrow",
+        "heading",
+        "body",
+        "button_primary",
+        "button_secondary"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-3",
+        "full_width": true,
+        "padding_top": 96,
+        "padding_bottom": 96
+      }
+    }
+  },
+  "order": [
+    "about_hero",
+    "why_we_started",
+    "timeline",
+    "rule"
+  ]
+}

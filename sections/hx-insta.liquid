@@ -1,0 +1,128 @@
+{{ 'section-homepage-healistix.css' | asset_url | stylesheet_tag }}
+
+<div class="hx-insta hx-insta--wrapper" style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;">
+  <div class="hx-insta__container">
+    {% if section.settings.eyebrow != blank %}
+      <div class="hx-insta__eyebrow">
+        {{ section.settings.eyebrow }}
+      </div>
+    {% endif %}
+
+    {% if section.settings.heading != blank %}
+      <h2 class="hx-insta__heading">
+        {{ section.settings.heading }}
+      </h2>
+    {% endif %}
+
+    {% if section.settings.handle != blank %}
+      <p class="hx-insta__handle">
+        {{ section.settings.handle }}
+      </p>
+    {% endif %}
+
+    <div class="hx-insta__grid">
+      {% for block in section.blocks %}
+        {% if block.type == "post" %}
+          <div class="hx-insta__post" {{ block.shopify_attributes }}>
+            {% if block.settings.link != blank %}
+              <a href="{{ block.settings.link }}" class="hx-insta__link" target="_blank" rel="noopener noreferrer">
+                {% if block.settings.image != blank %}
+                  <img
+                    src="{{ block.settings.image | image_url: width: 400 }}"
+                    alt="Instagram post"
+                    class="hx-insta__image"
+                    loading="lazy"
+                  />
+                {% else %}
+                  <div class="hx-insta__placeholder">
+                    No image
+                  </div>
+                {% endif %}
+              </a>
+            {% else %}
+              {% if block.settings.image != blank %}
+                <img
+                  src="{{ block.settings.image | image_url: width: 400 }}"
+                  alt="Instagram post"
+                  class="hx-insta__image"
+                  loading="lazy"
+                />
+              {% else %}
+                <div class="hx-insta__placeholder">
+                  No image
+                </div>
+              {% endif %}
+            {% endif %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Instagram Feed",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow Text"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "handle",
+      "label": "Instagram Handle",
+      "default": "@healistix"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "default": 40,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "default": 40,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "post",
+      "name": "Post",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Instagram Feed"
+    }
+  ]
+}
+{% endschema %}

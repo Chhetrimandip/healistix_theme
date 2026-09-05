@@ -1,0 +1,55 @@
+{{ 'batana-page.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'batana-page.js' | asset_url }}" defer></script>
+
+<section class="bt-section bt-section--white" style="padding: 40px 0;">
+  <div class="bt-container">
+    <div class="bt-badges__row">
+      {%- for block in section.blocks -%}
+        <div class="bt-badges__item" {{ block.shopify_attributes }}>
+          {%- case block.settings.icon -%}
+            {%- when 'drop' -%}
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.7C9 7 5.5 10.6 5.5 14.5a6.5 6.5 0 0 0 13 0C18.5 10.6 15 7 12 2.7z"/></svg>
+            {%- when 'derm' -%}
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 5-5.5"/></svg>
+            {%- when 'leaf' -%}
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20C4 10 10 4 20 4c0 10-6 16-16 16z"/><path d="M4 20c4-6 8-10 12-12"/></svg>
+            {%- else -%}
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          {%- endcase -%}
+          <p>{{ block.settings.label }}</p>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Batana — Trust badges",
+  "tag": "section",
+  "class": "section",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "badge",
+      "name": "Badge",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "drop", "label": "Oil drop" },
+            { "value": "derm", "label": "Check circle" },
+            { "value": "leaf", "label": "Leaf" },
+            { "value": "shield", "label": "Shield" }
+          ],
+          "default": "drop"
+        },
+        { "type": "text", "id": "label", "label": "Label", "default": "100% PURE BATANA OIL" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Batana — Trust badges" }]
+}
+{% endschema %}

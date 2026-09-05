@@ -1,0 +1,331 @@
+{% comment %}
+  Product Lineup Section
+  - Product grid with featured card spanning full width
+  - Customizable product lines with color themes and CTAs
+  - Includes flavor bar block for featured cards
+{% endcomment %}
+
+<link rel="stylesheet" href="{{ 'section-homepage-healistix.css' | asset_url }}">
+
+<div class="hx-lineup" style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;">
+  <div class="hx-lineup__container">
+    {% if section.settings.eyebrow %}
+      <div class="hx-lineup__eyebrow">{{ section.settings.eyebrow }}</div>
+    {% endif %}
+
+    {% if section.settings.heading %}
+      <h2 class="hx-lineup__heading">{{ section.settings.heading }}</h2>
+    {% endif %}
+
+    {% if section.settings.subtitle %}
+      <p class="hx-lineup__subtitle">{{ section.settings.subtitle }}</p>
+    {% endif %}
+
+    <div class="hx-lineup__grid">
+      {% assign product_line_index = 0 %}
+      {% assign flavor_bar_content = '' %}
+
+      {% for block in section.blocks %}
+        {% if block.type == 'product_line' %}
+          {% assign product_line_index = product_line_index | plus: 1 %}
+          {% assign is_featured = block.settings.is_featured %}
+          {% assign color_theme = block.settings.color_theme %}
+
+          <div 
+            class="hx-lineup__card hx-lineup__card--{{ color_theme }}{% if is_featured %} hx-lineup__card--featured{% endif %}"
+            {{ block.shopify_attributes }}
+          >
+            {% if is_featured %}
+              <div class="hx-lineup__card-featured-wrapper">
+                <div class="hx-lineup__card-image-area">
+                  {% if block.settings.product_image %}
+                    <img 
+                      src="{{ block.settings.product_image | image_url: width: 600 }}"
+                      alt="{{ block.settings.name }}"
+                      class="hx-lineup__card-image"
+                      loading="lazy"
+                    >
+                  {% endif %}
+                </div>
+
+                <div class="hx-lineup__card-content">
+                  {% if block.settings.badge_text %}
+                    <span class="hx-lineup__card-badge">{{ block.settings.badge_text }}</span>
+                  {% endif %}
+
+                  <div class="hx-lineup__card-watermark">{{ product_line_index }}</div>
+
+                  <h3 class="hx-lineup__card-name">{{ block.settings.name }}</h3>
+
+                  <p class="hx-lineup__card-hook">{{ block.settings.hook }}</p>
+
+                  {% comment %} Flavor bar block - only appears in featured cards {% endcomment %}
+                  {% for flavor_block in section.blocks %}
+                    {% if flavor_block.type == 'flavor_bar' and flavor_block.settings.text %}
+                      <div class="hx-lineup__flavor-bar">
+                        {{ flavor_block.settings.text }}
+                      </div>
+                    {% endif %}
+                  {% endfor %}
+
+                  {% if block.settings.cta_label and block.settings.cta_link %}
+                    <a href="{{ block.settings.cta_link }}" class="hx-lineup__card-cta">
+                      {{ block.settings.cta_label }}
+                      <svg class="hx-lineup__card-cta-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M1 8h14M9 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </a>
+                  {% endif %}
+                </div>
+              </div>
+            {% else %}
+              {% if block.settings.product_image %}
+                <div class="hx-lineup__card-image-area">
+                  <img 
+                    src="{{ block.settings.product_image | image_url: width: 400 }}"
+                    alt="{{ block.settings.name }}"
+                    class="hx-lineup__card-image"
+                    loading="lazy"
+                  >
+                </div>
+              {% endif %}
+
+              <div class="hx-lineup__card-content">
+                {% if block.settings.badge_text %}
+                  <span class="hx-lineup__card-badge">{{ block.settings.badge_text }}</span>
+                {% endif %}
+
+                <div class="hx-lineup__card-watermark">{{ product_line_index }}</div>
+
+                <h3 class="hx-lineup__card-name">{{ block.settings.name }}</h3>
+
+                <p class="hx-lineup__card-hook">{{ block.settings.hook }}</p>
+
+                {% if block.settings.cta_label and block.settings.cta_link %}
+                  <a href="{{ block.settings.cta_link }}" class="hx-lineup__card-cta">
+                    {{ block.settings.cta_label }}
+                    <svg class="hx-lineup__card-cta-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path d="M1 8h14M9 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </a>
+                {% endif %}
+              </div>
+            {% endif %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Product Lineup",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Our Collection"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Explore Our Product Lines"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Discover the perfect wellness products for your needs"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product_line",
+      "name": "Product Line",
+      "settings": [
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Product Name",
+          "default": "Product Name"
+        },
+        {
+          "type": "textarea",
+          "id": "hook",
+          "label": "Hook Text",
+          "default": "Brief description of the product"
+        },
+        {
+          "type": "text",
+          "id": "badge_text",
+          "label": "Badge Text (leave space to hide)",
+          "default": "New"
+        },
+        {
+          "type": "text",
+          "id": "cta_label",
+          "label": "CTA Label",
+          "default": "Learn More"
+        },
+        {
+          "type": "url",
+          "id": "cta_link",
+          "label": "CTA Link"
+        },
+        {
+          "type": "image_picker",
+          "id": "product_image",
+          "label": "Product Image"
+        },
+        {
+          "type": "select",
+          "id": "color_theme",
+          "label": "Color Theme",
+          "options": [
+            {
+              "value": "seamoss",
+              "label": "Sea Moss"
+            },
+            {
+              "value": "batana",
+              "label": "Batana"
+            },
+            {
+              "value": "tallow",
+              "label": "Tallow"
+            },
+            {
+              "value": "soursop",
+              "label": "Soursop"
+            },
+            {
+              "value": "blackseed",
+              "label": "Black Seed"
+            },
+            {
+              "value": "shilajit",
+              "label": "Shilajit"
+            }
+          ],
+          "default": "seamoss"
+        },
+        {
+          "type": "checkbox",
+          "id": "is_featured",
+          "label": "Featured (full width with side layout)",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "flavor_bar",
+      "name": "Flavor Bar",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Flavor Bar Text",
+          "default": "Available in multiple flavors"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Lineup",
+      "blocks": [
+        {
+          "type": "product_line",
+          "settings": {
+            "name": "Sea Moss",
+            "hook": "Premium Irish sea moss packed with 92 essential minerals for natural vitality and wellness support.",
+            "badge_text": "Best Seller",
+            "cta_label": "Shop Sea Moss",
+            "cta_link": "/products/sea-moss",
+            "color_theme": "seamoss",
+            "is_featured": true
+          }
+        },
+        {
+          "type": "flavor_bar",
+          "settings": {
+            "text": "Available in Tropical, Unflavored, and Blueberry"
+          }
+        },
+        {
+          "type": "product_line",
+          "settings": {
+            "name": "Batana Oil",
+            "hook": "Ancient Jamaican hair and skin oil tradition meets modern wellness.",
+            "badge_text": "",
+            "cta_label": "Shop Batana",
+            "cta_link": "/products/batana-oil",
+            "color_theme": "batana",
+            "is_featured": false
+          }
+        },
+        {
+          "type": "product_line",
+          "settings": {
+            "name": "Tallow",
+            "hook": "Grass-fed beef tallow for natural skincare and wellness benefits.",
+            "badge_text": "",
+            "cta_label": "Shop Tallow",
+            "cta_link": "/products/tallow",
+            "color_theme": "tallow",
+            "is_featured": false
+          }
+        },
+        {
+          "type": "product_line",
+          "settings": {
+            "name": "Soursop",
+            "hook": "Tropical soursop leaf extract packed with antioxidants and immune support.",
+            "badge_text": "",
+            "cta_label": "Shop Soursop",
+            "cta_link": "/products/soursop",
+            "color_theme": "soursop",
+            "is_featured": false
+          }
+        },
+        {
+          "type": "product_line",
+          "settings": {
+            "name": "Black Seed",
+            "hook": "Black seed oil, also known as thymoquinone, for comprehensive wellness support.",
+            "badge_text": "",
+            "cta_label": "Shop Black Seed",
+            "cta_link": "/products/black-seed",
+            "color_theme": "blackseed",
+            "is_featured": false
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
