@@ -1,76 +1,144 @@
 {{ 'section-product-seamoss.css' | asset_url | stylesheet_tag }}
+{{ 'hx-pdp-playful.css' | asset_url | stylesheet_tag }}
+{{ 'hx-bloom-pdp.css' | asset_url | stylesheet_tag }}
+{{ 'hx-product-collage.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'hx-product-collage.js' | asset_url }}" defer></script>
+<script src="{{ 'hx-jar-viewer.js' | asset_url }}" defer="defer"></script>
 
 {%- liquid
   assign initial_variant = product.selected_or_first_available_variant
+  capture supported_flavors
+    render 'hx-flavor-support'
+  endcapture
+  assign pilot_flavors = supported_flavors | strip | split: ','
+  capture interactive_flavors
+    render 'hx-flavor-support', mode: 'interactive'
+  endcapture
+  assign jar_flavors = interactive_flavors | strip | split: ','
   assign option_count = product.options_with_values | size
   assign selected_options_string = initial_variant.options | join: '||'
-  assign selling_plan_group = product.selling_plan_groups | first
-  assign initial_plan_id = ''
-  if selling_plan_group and selling_plan_group.selling_plans.size > 0
-    assign initial_plan_id = selling_plan_group.selling_plans.first.id
-  endif
-  assign logo_blocks = section.blocks | where: 'type', 'logo'
-  assign bundle_blocks = section.blocks | where: 'type', 'bundle'
   assign flavor_blocks = section.blocks | where: 'type', 'flavor'
   assign promo_blocks = section.blocks | where: 'type', 'promo'
   assign info_tabs = section.blocks | where: 'type', 'info_tab'
+  assign assurance_blocks = section.blocks | where: 'type', 'assurance'
+  assign logo_blocks = section.blocks | where: 'type', 'logo'
 -%}
 
 <section
   id="ProductSeamoss-{{ section.id }}"
-  class="product-seamoss"
+  class="product-seamoss product-seamoss--gruns hx-bloom-pdp"
   data-section-id="{{ section.id }}"
   data-option-count="{{ option_count }}"
   data-selected-options="{{ selected_options_string | escape }}"
+  data-active-flavor="{{ initial_variant.option1 | downcase | escape }}"
 >
   <div class="product-seamoss__container page-width">
     <div class="product-seamoss__layout">
       <div class="product-seamoss__media">
-        <div class="product-seamoss__media-main">
-          {%- if product.featured_media -%}
-            {%- assign featured_image = product.featured_media | image_url: width: 900 -%}
-            <img
-              src="{{ featured_image }}"
-              alt="{{ product.featured_media.alt | escape }}"
-              loading="eager"
-              width="{{ product.featured_media.width }}"
-              height="{{ product.featured_media.height }}"
-              data-product-media-main
-            >
-          {%- else -%}
-            <img
-              src="https://dummyimage.com/900x900/F5F5F5/BBBBBB&text=Sea+Moss+Gel"
-              alt="{{ product.title }}"
-              loading="lazy"
-              width="900"
-              height="900"
-              data-product-media-main
-            >
-          {%- endif -%}
-        </div>
-        {%- if product.media.size > 1 -%}
+        {%- comment -%} Thumbs first in DOM — CSS flex order puts them left on desktop, below on mobile {%- endcomment -%}
+        {%- if product.images.size > 0 -%}
           <div class="product-seamoss__media-thumbs">
-            {%- for media in product.media limit: 6 -%}
-              {%- assign thumb_src = media | image_url: width: 400 -%}
+            {% render 'hx-pilot-gallery', product: product, initial_variant: initial_variant %}
+            {%- for image in product.images -%}
+              {%- liquid
+                assign flavor_keys = ''
+                if image.attached_to_variant?
+                  for attached_variant in image.variants
+                    assign flavor_keys = flavor_keys | append: attached_variant.option1 | append: '|'
+                  endfor
+                endif
+                assign haystack = image.src | append: ' ' | append: image.alt | downcase
+                for option in product.options_with_values
+                  for value in option.values
+                    assign value_down = value | downcase
+                    if haystack contains value_down
+                      assign flavor_keys = flavor_keys | append: value | append: '|'
+                    endif
+                  endfor
+                endfor
+                if flavor_keys == blank
+                  assign flavor_keys = '*'
+                endif
+                assign replaced_by_cutout = false
+                for pilot_flavor in pilot_flavors
+                  if flavor_keys contains pilot_flavor
+                    if haystack contains 'hx-pilot-'
+                      assign replaced_by_cutout = true
+                    endif
+                  endif
+                endfor
+                if haystack contains 'sea_moss_gel_-_banana_16_oz' or haystack contains 'seamossgoldgelbananaprime'
+                  assign replaced_by_cutout = true
+                endif
+                if replaced_by_cutout
+                  continue
+                endif
+                assign show_thumb = false
+                if flavor_keys == '*' or flavor_keys contains initial_variant.option1
+                  assign show_thumb = true
+                endif
+              -%}
               <button
                 type="button"
-                class="product-seamoss__media-thumb{% if forloop.first %} is-active{% endif %}"
+                class="product-seamoss__media-thumb{% if show_thumb and initial_variant.featured_image and image.id == initial_variant.featured_image.id %} is-active{% endif %}"
                 data-product-thumb
-                data-image="{{ thumb_src }}"
-                aria-label="Show {{ media.alt | default: product.title }}"
+                data-media-id="{{ image.id }}"
+                data-image="{{ image | image_url: width: 900 }}"
+                data-flavors="{{ flavor_keys | escape }}"
+                aria-label="View {{ image.alt | default: product.title | escape }}"
+                {% unless show_thumb %}hidden{% endunless %}
               >
-                <img src="{{ thumb_src }}" alt="{{ media.alt | escape }}">
+                <img src="{{ image | image_url: width: 300 }}" alt="{{ image.alt | escape }}" width="{{ image.width }}" height="{{ image.height }}" loading="lazy">
               </button>
             {%- endfor -%}
           </div>
         {%- endif -%}
+
+        <div class="product-seamoss__media-main">
+          <div class="hx-gallery-heading"><span>A LITTLE DAILY GOODNESS</span><span class="hx-flavor-pill" data-gallery-flavor>{{ initial_variant.option1 }}</span></div>
+          <span class="hx-gallery-spark hx-gallery-spark--one" aria-hidden="true">✦</span>
+          <span class="hx-gallery-spark hx-gallery-spark--two" aria-hidden="true">✦</span>
+          {%- assign gallery_media = initial_variant.featured_media -%}
+          {%- if initial_variant.option1 == 'Banana' or initial_variant.option1 == 'Blueberry' -%}
+            {%- assign story_hero = initial_variant.option1 | handleize | prepend: 'hx-' | append: '-studio-v3.png' -%}
+            <img src="{{ story_hero | asset_url }}" alt="Healistix {{ initial_variant.option1 | escape }} sea moss gel with fresh fruit" loading="eager" width="1254" height="1254" data-product-media-main>
+          {%- elsif pilot_flavors contains initial_variant.option1 -%}
+            {%- assign pilot_hero = initial_variant.option1 | handleize | prepend: 'hx-pilot-' | append: '-front.webp' -%}
+            <img src="{{ pilot_hero | asset_url }}" alt="{{ initial_variant.option1 | escape }} sea moss gel — front" loading="eager" width="1354" height="1836" data-product-media-main>
+          {%- elsif gallery_media -%}
+            {%- assign featured_image = gallery_media | image_url: width: 900 -%}
+            <img
+              src="{{ featured_image }}"
+              alt="{{ gallery_media.alt | escape }}"
+              loading="eager"
+              width="{{ gallery_media.width }}"
+              height="{{ gallery_media.height }}"
+              data-product-media-main
+            >
+          {%- else -%}
+            <img
+              alt="{{ product.title | escape }}"
+              loading="lazy"
+              width="900"
+              height="900"
+              data-product-media-main
+              hidden
+            >
+          {%- endif -%}
+          <p class="hx-gallery-empty" data-gallery-empty{% if gallery_media or pilot_flavors contains initial_variant.option1 %} hidden{% endif %}>Photos for {{ initial_variant.option1 | escape }} are coming soon.</p>
+          {%- if section.settings.enable_jar_viewer -%}
+            {% render 'hx-jar-viewer' %}
+          {%- endif -%}
+          <button class="hx-gallery-open" type="button" data-gallery-open aria-label="Enlarge product image"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg>Take a closer look</span></button>
+          <div class="hx-gallery-caption"><span class="hx-caption-photo">Meet your next spoonful.</span><span class="hx-caption-spin">Drag it. Turn it. Get to know it.</span><span aria-hidden="true">✳</span></div>
+        </div>
 
         {%- if promo_blocks.size > 0 -%}
           <div class="product-seamoss__promo-grid">
             {%- for block in promo_blocks -%}
               <div class="product-seamoss__promo-card" {{ block.shopify_attributes }}>
                 {%- if block.settings.image != blank -%}
-                  <img src="{{ block.settings.image | image_url: width: 320 }}" alt="{{ block.settings.title | escape }}">
+                  <img src="{{ block.settings.image | image_url: width: 320 }}" alt="{{ block.settings.title | escape }}" width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}" loading="lazy">
                 {%- endif -%}
                 <div class="product-seamoss__promo-copy">
                   {%- if block.settings.eyebrow != blank -%}
@@ -87,18 +155,39 @@
             {%- endfor -%}
           </div>
         {%- endif -%}
+
+        <div class="hx-gallery-tools">
+          {% if section.settings.enable_jar_viewer %}
+            <button type="button" data-jar-trigger aria-label="Explore {{ initial_variant.option1 | escape }} in 360 degrees" aria-pressed="false"{% unless jar_flavors contains initial_variant.option1 %} hidden{% endunless %}>↻ Explore in 360°</button>
+            <button type="button" class="hx-gallery-return" data-gallery-return>Back to photos</button>
+          {% endif %}
+        <button
+          class="product-seamoss__nutrition-btn"
+          type="button"
+          data-hx-nutrition-toggle
+          aria-controls="HxNutriDrawer-{{ section.id }}"
+          aria-expanded="false"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+            <polyline points="10 9 9 9 8 9"/>
+          </svg>
+          View Jar Label
+        </button>
+        </div>
       </div>
 
       <div class="product-seamoss__details">
-        <p class="product-seamoss__eyebrow">{{ section.settings.eyebrow_text }}</p>
-        <h1 class="product-seamoss__title">
-          {%- if section.settings.heading != blank -%}
-            {{ section.settings.heading }}
-          {%- else -%}
-            {{ product.title }}
-          {%- endif -%}
-        </h1>
-        <div class="product-seamoss__reviews">
+        <div class="hx-buybox">
+        <span class="hx-best-tasting">#1 Best Tasting</span>
+        <a class="hx-pdp-review-link" href="#customer-voices">Customer photos &amp; reviews ↗</a>
+        {%- comment -%} Grüns buy-box order: social proof → title → support → flavor → price → qty → ATC → trust → accordions {%- endcomment -%}
+
+        {%- if section.settings.review_text != blank -%}
+        <div class="product-seamoss__reviews" data-buybox-reviews>
           <svg width="96" height="16" viewBox="0 0 96 16" role="presentation" aria-hidden="true">
             <g fill="#FBBF24">
               <polygon points="8 0 10.2 5.3 16 6 12 9.9 13 16 8 13.1 3 16 4 9.9 0 6 5.8 5.3 8 0"></polygon>
@@ -110,46 +199,44 @@
           </svg>
           <span>{{ section.settings.review_text }}</span>
         </div>
-        <p class="product-seamoss__subtext">{{ section.settings.review_subtext }}</p>
+        {%- endif -%}
+
+        {%- if section.settings.eyebrow_text != blank -%}
+          <p class="product-seamoss__eyebrow">{{ section.settings.eyebrow_text }}</p>
+        {%- endif -%}
+
+        <h1 class="product-seamoss__title">
+          {%- if section.settings.heading != blank -%}
+            {{ section.settings.heading }}
+          {%- else -%}
+            {{ product.title }}
+          {%- endif -%}
+        </h1>
+
+        {%- if section.settings.review_subtext != blank -%}
+          <p class="product-seamoss__subtext">{{ section.settings.review_subtext }}</p>
+        {%- endif -%}
 
         {%- if section.settings.support_points != blank -%}
-          <div class="product-seamoss__support-row">
+          <ul class="product-seamoss__benefits">
             {%- assign points = section.settings.support_points | split: '|' -%}
             {%- for point in points -%}
-              <div class="product-seamoss__support-item">
-                <span>✓</span>
-                <span>{{ point | strip }}</span>
-              </div>
+              {%- if point != blank -%}
+                <li class="product-seamoss__benefit">
+                  <span class="product-seamoss__benefit-check" aria-hidden="true">✓</span>
+                  <span>{{ point | strip }}</span>
+                </li>
+              {%- endif -%}
             {%- endfor -%}
-          </div>
+          </ul>
         {%- endif -%}
 
         {%- if logo_blocks.size > 0 -%}
           <div class="product-seamoss__logos">
-            {%- for block in section.blocks -%}
-              {%- if block.type == 'logo' and block.settings.image != blank -%}
+            {%- for block in logo_blocks -%}
+              {%- if block.settings.image != blank -%}
                 <div class="product-seamoss__logo" {{ block.shopify_attributes }}>
-                  <img src="{{ block.settings.image | image_url: width: 160 }}" alt="{{ block.settings.alt_text | escape }}">
-                </div>
-              {%- endif -%}
-            {%- endfor -%}
-          </div>
-        {%- endif -%}
-
-        {%- assign has_badges = false -%}
-        {%- for block in section.blocks -%}
-          {%- if block.type == 'badge' -%}
-            {%- assign has_badges = true -%}
-          {%- endif -%}
-        {%- endfor -%}
-
-        {%- if has_badges -%}
-          <div class="product-seamoss__badges">
-            {%- for block in section.blocks -%}
-              {%- if block.type == 'badge' -%}
-                <div class="product-seamoss__badge" {{ block.shopify_attributes }}>
-                  <span class="product-seamoss__badge-title">{{ block.settings.title }}</span>
-                  <span class="product-seamoss__badge-subtitle">{{ block.settings.subtitle }}</span>
+                  <img src="{{ block.settings.image | image_url: width: 160 }}" alt="{{ block.settings.alt_text | escape }}" width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}" loading="lazy">
                 </div>
               {%- endif -%}
             {%- endfor -%}
@@ -160,127 +247,124 @@
         {%- form 'product', product, id: form_id, class: 'product-seamoss__form', novalidate: 'novalidate', data-product-form: '' -%}
           <input type="hidden" name="id" value="{{ initial_variant.id }}" data-product-variant-input>
           <input type="hidden" name="quantity" value="1" data-quantity-input>
-          <input type="hidden" name="selling_plan" value="{{ initial_plan_id }}" data-selling-plan-input>
+          {%- comment -%} Subscription deferred (v1): do not send selling_plan {%- endcomment -%}
 
-          {%- assign step_index = 0 -%}
           {%- for option in product.options_with_values -%}
-            {%- assign step_index = step_index | plus: 1 -%}
-            <div class="product-seamoss__step" data-option-block>
-              <div class="product-seamoss__step-label">0{{ step_index }}</div>
-              <h3>Choose {{ option.name | downcase }}</h3>
-              <p class="product-seamoss__step-note">{{ section.settings.option_helper }}</p>
-              <div class="product-seamoss__swipe-hint">
-                <svg class="product-seamoss__swipe-hand" width="36" height="36" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M0 0 C7.12940756 6.91020177 11.81054462 16.0213942 16.66796875 24.5859375 C17.65361191 26.30908989 18.63926267 28.03223798 19.62536621 29.75512695 C20.63969748 31.5286457 21.65201941 33.30329971 22.6640625 35.078125 C25.81114606 40.59275328 28.99149308 46.08820722 32.16796875 51.5859375 C33.41163277 53.74078475 34.65512172 55.89573305 35.8984375 58.05078125 C36.51638184 59.12183105 37.13432617 60.19288086 37.77099609 61.29638672 C39.71316814 64.66431802 41.65363502 68.0332271 43.59375 71.40234375 C50.56119757 83.49779796 57.55771598 95.57379281 64.66796875 107.5859375 C65.00828125 106.956875 65.34859375 106.3278125 65.69921875 105.6796875 C72.30630981 94.01184584 80.25404822 86.98640134 93.15625 82.7734375 C104.27199985 80.00889868 115.96338369 81.71190131 125.98046875 87.2734375 C127.219846 88.0277443 128.45357621 88.7920323 129.66796875 89.5859375 C129.70921875 88.8021875 129.75046875 88.0184375 129.79296875 87.2109375 C131.87865863 78.5702223 137.70199506 70.98977423 144.66796875 65.5859375 C156.3737728 58.67981403 167.71032841 56.70542749 181.1015625 59.234375 C188.1971922 61.3935133 193.8692862 65.01883354 199.66796875 69.5859375 C199.78140625 68.83957031 199.89484375 68.09320313 200.01171875 67.32421875 C201.87325366 59.55674271 209.4273766 53.10360533 215.66796875 48.5859375 C226.4323282 42.95210232 237.04642453 42.40733472 248.640625 45.55078125 C262.32090814 50.22855549 268.89335232 60.32642541 275.66796875 72.4609375 C276.65346691 74.19761957 277.6389795 75.93429364 278.62536621 77.67047119 C279.64103301 79.4607295 280.65280898 81.2531442 281.6640625 83.04589844 C284.79185688 88.5823366 287.98359338 94.08192382 291.16796875 99.5859375 C292.41826031 101.75243593 293.66825959 103.91910307 294.91796875 106.0859375 C295.53671875 107.1584375 296.15546875 108.2309375 296.79296875 109.3359375 C302.41796875 119.0859375 302.41796875 119.0859375 304.29492188 122.33935547 C305.53837385 124.49465061 306.78186311 126.64992423 308.02539062 128.80517578 C310.9125975 133.80931424 313.79947305 138.8136427 316.68493652 143.81878662 C317.69415979 145.56934991 318.70350711 147.31984161 319.71289062 149.0703125 C320.96964535 151.24985915 322.22617461 153.42953582 323.48242188 155.609375 C324.05927734 156.6096875 324.63613281 157.61 325.23046875 158.640625 C325.79531982 159.62216553 326.3601709 160.60370605 326.94213867 161.61499023 C328.11885645 163.64066269 329.30976336 165.65814301 330.51293945 167.66821289 C334.12269859 173.7213828 337.29339986 179.70649642 339.85546875 186.2734375 C340.19006104 187.11994873 340.52465332 187.96645996 340.86938477 188.83862305 C350.75603741 214.64319609 352.18825205 244.96524691 344.66796875 271.5859375 C344.4860498 272.25431641 344.30413086 272.92269531 344.11669922 273.61132812 C331.84586888 317.60647676 299.71517766 341.96912409 261.89607239 363.59231567 C256.71477888 366.55553324 251.54703 369.54192172 246.38061523 372.53100586 C242.09080848 375.01150636 237.79682045 377.48468937 233.50146484 379.95556641 C231.73019066 380.97474347 229.95957251 381.9950625 228.18994141 383.01708984 C214.50768265 390.90967396 200.94101285 397.45544429 185.66796875 401.5859375 C183.94320312 402.06933594 183.94320312 402.06933594 182.18359375 402.5625 C144.03185509 411.47567912 108.4201249 399.57887719 75.66796875 380.5859375 C74.94222656 380.16586426 74.21648437 379.74579102 73.46875 379.31298828 C70.06920101 377.33720279 66.68381507 375.33860162 63.3046875 373.328125 C57.64318104 369.96656637 51.93584745 366.68479284 46.23046875 363.3984375 C45.12348633 362.76059326 44.01650391 362.12274902 42.87597656 361.46557617 C40.60509601 360.1573515 38.3340989 358.84932913 36.06298828 357.54150391 C30.596269 354.39261699 25.13219229 351.2391526 19.66796875 348.0859375 C13.14564436 344.32228385 6.62283112 340.55949127 0.09765625 336.80078125 C-12.59969411 329.48500805 -25.29318815 322.16272939 -37.9296875 314.7421875 C-41.25293619 312.7915216 -44.58921537 310.87178032 -47.953125 308.9921875 C-54.71872182 305.17064942 -60.64509934 301.71686394 -64.33203125 294.5859375 C-64.66460937 293.97363281 -64.9971875 293.36132812 -65.33984375 292.73046875 C-68.25466897 286.36249474 -68.46541788 278.93415036 -66.7109375 272.203125 C-60.7320548 257.37549589 -48.47337699 246.39792722 -34.33203125 239.5859375 C-20.72511406 233.84869256 -3.33069648 232.99050674 10.55224609 238.28759766 C20.12080563 242.27487235 29.07520023 247.43919993 37.98046875 252.7109375 C40.03893028 253.92209975 42.09752065 255.13304305 44.15625 256.34375 C45.10580566 256.90352539 46.05536133 257.46330078 47.03369141 258.04003906 C50.23014396 259.91584421 53.44397841 261.75794862 56.66796875 263.5859375 C49.56107961 250.92288314 42.37521394 238.31123099 35.0402832 225.77880859 C28.83200072 215.16946961 22.69468101 204.51965247 16.55908203 193.86816406 C13.43116727 188.43933808 10.29938427 183.01274469 7.16796875 177.5859375 C5.91794996 175.41928167 4.66794997 173.252615 3.41796875 171.0859375 C2.79921875 170.0134375 2.18046875 168.9409375 1.54296875 167.8359375 C-10.33203125 147.25260417 -22.20703125 126.66927083 -34.08203125 106.0859375 C-34.70134521 105.01263184 -35.32065918 103.93932617 -35.95874023 102.83349609 C-37.20364535 100.67531443 -38.44795267 98.51678783 -39.69165039 96.35791016 C-42.88968836 90.80838601 -46.09914296 85.26595961 -49.328125 79.734375 C-60.65293972 60.29775489 -60.65293972 60.29775489 -65.20703125 51.2109375 C-65.522771 50.58106934 -65.83851074 49.95120117 -66.16381836 49.30224609 C-70.74951196 39.89318978 -71.10428207 27.52395337 -67.70703125 17.5859375 C-62.47343991 5.50841903 -54.99327454 -2.20321521 -42.9453125 -7.46875 C-27.85204768 -12.92849602 -12.65983482 -8.9894641 0 0 Z " fill="#999" transform="translate(116.33203125,99.4140625)"/>
-                  <path d="M0 0 C0.72849152 -0.00974854 1.45698303 -0.01949707 2.20755005 -0.02954102 C18.55035564 -0.2032182 34.20407009 0.04190771 50.1171875 4.23828125 C50.82601074 4.4202002 51.53483398 4.60211914 52.26513672 4.78955078 C85.93185843 13.68939996 118.36008919 33.99950355 139.1171875 62.23828125 C139.59027344 62.86089844 140.06335938 63.48351562 140.55078125 64.125 C143.75415446 68.8801803 143.8950528 73.72762103 143.1171875 79.23828125 C141.49495591 82.96941391 139.17251564 85.56486913 136.1171875 88.23828125 C130.48880313 90.11440937 124.39564431 90.22114497 118.9296875 87.86328125 C115.74147059 84.88761213 113.23136256 81.65493656 110.5625 78.21484375 C88.17916903 50.96868049 57.20554201 36.35342495 22.60546875 31.7734375 C-9.08987988 28.67015254 -42.51844254 38.01045241 -67.8828125 57.23828125 C-65.67335112 59.44774263 -58.73888543 58.57800047 -55.71484375 58.6640625 C-50.76448206 59.40585982 -47.60694542 61.17652439 -44.38671875 65.02734375 C-41.556602 70.54665858 -41.18605344 75.24440458 -42.8828125 81.23828125 C-45.8348646 86.3121208 -48.84168547 87.9665518 -54.19961548 89.64727783 C-59.29696556 90.7700248 -64.38920846 90.54551588 -69.58203125 90.41796875 C-70.77584915 90.39864288 -71.96966705 90.37931702 -73.19966125 90.35940552 C-75.71016125 90.31471355 -78.22053229 90.26215661 -80.73071289 90.20214844 C-84.56846239 90.11332407 -88.40574766 90.05692069 -92.24414062 90.00390625 C-94.69014257 89.95636365 -97.136109 89.90694879 -99.58203125 89.85546875 C-101.29781624 89.83176712 -101.29781624 89.83176712 -103.04826355 89.80758667 C-108.67684103 89.65276317 -113.07835162 89.5097187 -117.8828125 86.23828125 C-121.94706419 81.84449564 -123.00307322 78.67147395 -123.04394531 72.77636719 C-123.05355286 71.65800476 -123.0631604 70.53964233 -123.07305908 69.38739014 C-123.07730896 68.17802795 -123.08155884 66.96866577 -123.0859375 65.72265625 C-123.09163757 64.47832825 -123.09733765 63.23400024 -123.10321045 61.95196533 C-123.11266484 59.31575871 -123.11955919 56.67966603 -123.12304688 54.04345703 C-123.12743303 51.34703039 -123.14132933 48.65092346 -123.1640625 45.95458984 C-123.19456039 42.06467991 -123.20509956 38.1751725 -123.2109375 34.28515625 C-123.2232843 33.08389099 -123.2356311 31.88262573 -123.24835205 30.6449585 C-123.22994934 23.70985502 -123.09903947 17.97379486 -118.3828125 12.49609375 C-113.95665531 9.15342296 -110.70040305 7.8115456 -105.078125 7.89453125 C-101.07970116 8.52061897 -97.79123374 10.46528539 -94.8828125 13.23828125 C-92.03757897 17.76957909 -91.37333425 21.86418287 -91.1953125 27.11328125 C-91.16115234 27.80164063 -91.12699219 28.49 -91.09179688 29.19921875 C-91.01017159 30.87836738 -90.9447968 32.55829293 -90.8828125 34.23828125 C-90.08101562 33.63242187 -89.27921875 33.0265625 -88.453125 32.40234375 C-62.93499135 13.44994453 -32.18189374 0.36033984 0 0 Z " fill="#999" transform="translate(266.8828125,7.76171875)"/>
-                  <!-- Green arrow pointing left -->
-                  <path d="M350 250 L320 250 L320 240 L310 250 L320 260 L320 250 Z" fill="#00ff00"/>
-                </svg>
-              </div>
-              <div class="product-seamoss__options">
-                {%- for value in option.values -%}
+            <div class="product-seamoss__flavor-block" data-option-block>
+              <h3 class="product-seamoss__flavor-heading">
+                <span class="product-seamoss__flavor-heading-static">
+                  {%- if section.settings.flavor_heading != blank -%}
+                    {{ section.settings.flavor_heading }}
+                  {%- else -%}
+                    Select {{ option.name }}
+                  {%- endif -%}:
+                </span>
+                <span class="product-seamoss__flavor-heading-value" data-flavor-current-name>{{ initial_variant.options[forloop.index0] }}</span>
+              </h3>
+              {%- if section.settings.flavor_subheading != blank -%}
+                <p class="product-seamoss__flavor-subheading">{{ section.settings.flavor_subheading }}</p>
+              {%- endif -%}
+
+              <div class="product-seamoss__flavor-grid" role="listbox" aria-label="{{ option.name | escape }}">
+                {%- assign display_values = option.values -%}
+                {%- if option.name == 'Flavor' -%}
+                  {%- assign display_values = pilot_flavors | concat: option.values | uniq -%}
+                {%- endif -%}
+                {%- for value in display_values -%}
+                  {%- unless option.values contains value -%}{%- continue -%}{%- endunless -%}
                   {%- liquid
-                    assign flavor_emoji = ''
-                    assign value_lower = value | downcase
-                    if value_lower contains 'banana'
-                      assign flavor_emoji = '🍌'
-                    elsif value_lower contains 'blueberry'
-                      assign flavor_emoji = '🫐'
-                    elsif value_lower contains 'mango'
-                      assign flavor_emoji = '🥭'
-                    elsif value_lower contains 'strawberry'
-                      assign flavor_emoji = '🍓'
-                    elsif value_lower contains 'pineapple'
-                      assign flavor_emoji = '🍍'
-                    elsif value_lower contains 'peach'
-                      assign flavor_emoji = '🍑'
-                    elsif value_lower contains 'apple'
-                      assign flavor_emoji = '🍎'
-                    elsif value_lower contains 'orange'
-                      assign flavor_emoji = '🍊'
-                    elsif value_lower contains 'grape'
-                      assign flavor_emoji = '🍇'
-                    elsif value_lower contains 'cherry'
-                      assign flavor_emoji = '🍒'
-                    elsif value_lower contains 'watermelon'
-                      assign flavor_emoji = '🍉'
-                    elsif value_lower contains 'kiwi'
-                      assign flavor_emoji = '🥝'
-                    elsif value_lower contains 'coconut'
-                      assign flavor_emoji = '🥥'
-                    elsif value_lower contains 'lemon'
-                      assign flavor_emoji = '🍋'
-                    elsif value_lower contains 'lime'
-                      assign flavor_emoji = '🍋'
-                    else
-                      assign flavor_emoji = '✨'
+                    assign flavor_label = value
+                    assign flavor_tagline = ''
+                    assign flavor_badge = ''
+                    assign flavor_image = blank
+
+                    for block in flavor_blocks
+                      if block.settings.option_value == value
+                        if block.settings.label != blank
+                          assign flavor_label = block.settings.label
+                        endif
+                        assign flavor_tagline = block.settings.tagline
+                        assign flavor_badge = block.settings.badge
+                        assign flavor_image = block.settings.image
+                        break
+                      endif
+                    endfor
+
+                    if flavor_tagline == blank or flavor_badge == blank
+                      for v in product.variants
+                        if v.options contains value
+                          if flavor_tagline == blank and v.metafields.seamoss.flavor_tagline != blank
+                            assign flavor_tagline = v.metafields.seamoss.flavor_tagline.value
+                          endif
+                          if flavor_badge == blank and v.metafields.seamoss.flavor_badge != blank
+                            assign flavor_badge = v.metafields.seamoss.flavor_badge.value
+                          endif
+                          if flavor_tagline == blank and v.metafields.seamoss.tastes_like != blank
+                            assign flavor_tagline = v.metafields.seamoss.tastes_like.value
+                          endif
+                          break
+                        endif
+                      endfor
+                    endif
+
+                    assign fruit_asset = value | downcase | replace: ' ', '-' | prepend: 'fruit-' | append: '.png' | asset_url
+                    assign flavor_variant = nil
+                    for v in product.variants
+                      if v.options contains value
+                        assign flavor_variant = v
+                        break
+                      endif
+                    endfor
+                    assign is_active = false
+                    if initial_variant.options[forloop.parentloop.index0] == value
+                      assign is_active = true
                     endif
                   -%}
+
                   <button
                     type="button"
-                    class="product-seamoss__option-card{% if initial_variant.options[forloop.parentloop.index0] == value %} is-active{% endif %}"
+                    class="product-seamoss__flavor-card{% if is_active %} is-active{% endif %}"
                     data-option-index="{{ forloop.parentloop.index0 }}"
                     data-option-value="{{ value | escape }}"
+                    role="option"
+                    aria-selected="{% if is_active %}true{% else %}false{% endif %}"
                   >
-                    <span class="product-seamoss__option-emoji">{{ flavor_emoji }}</span>
-                    <span class="product-seamoss__option-divider"></span>
-                    <span class="product-seamoss__option-title">{{ value }}</span>
-                    <span class="product-seamoss__option-note">{{ option.name }}</span>
+                    {%- if flavor_badge != blank -%}
+                      <span class="product-seamoss__flavor-badge">{{ flavor_badge }}</span>
+                    {%- endif -%}
+                    <span class="product-seamoss__flavor-thumb">
+                      {%- if flavor_image != blank -%}
+                        <img src="{{ flavor_image | image_url: width: 200 }}" alt="{{ flavor_label | escape }}" width="100" height="100" loading="lazy">
+                      {%- elsif pilot_flavors contains value -%}
+                        {%- assign pilot_picker = value | handleize | prepend: 'hx-pilot-' | append: '-front.webp' -%}
+                        <img src="{{ pilot_picker | asset_url }}" alt="{{ flavor_label | escape }}" width="100" height="100" loading="lazy">
+                      {%- elsif flavor_variant.featured_image -%}
+                        <img src="{{ flavor_variant.featured_image | image_url: width: 200 }}" alt="{{ flavor_label | escape }}" width="100" height="100" loading="lazy">
+                      {%- elsif value == 'Apple' or value == 'Guava' or value == 'Grape' or value == 'Elderberry' -%}
+                        <img src="{{ fruit_asset }}" alt="{{ flavor_label | escape }}" width="100" height="100" loading="lazy">
+                      {%- else -%}
+                        <span class="hx-flavor-fallback" aria-hidden="true">{{ flavor_label | slice: 0 }}</span>
+                      {%- endif -%}
+                    </span>
+                    <span class="product-seamoss__flavor-label">{{ flavor_label }}</span>
+                    {%- if flavor_tagline != blank -%}
+                      <span class="product-seamoss__flavor-tagline">{{ flavor_tagline }}</span>
+                    {%- endif -%}
                   </button>
                 {%- endfor -%}
               </div>
             </div>
           {%- endfor -%}
 
-          {%- assign step_index = step_index | plus: 1 -%}
-          <div class="product-seamoss__step">
-            <div class="product-seamoss__step-label">0{{ step_index }}</div>
-            <h3>{{ section.settings.quantity_heading }}</h3>
-            <div class="product-seamoss__quantity-controls">
-              <button type="button" data-quantity-minus aria-label="Decrease quantity">-</button>
-              <input type="number" min="1" value="1" data-quantity-display aria-label="Quantity">
-              <button type="button" data-quantity-plus aria-label="Increase quantity">+</button>
-            </div>
-          </div>
-
-          {%- if selling_plan_group -%}
-            {%- assign step_index = step_index | plus: 1 -%}
-            <div class="product-seamoss__step">
-              <div class="product-seamoss__step-label">0{{ step_index }}</div>
-              <h3>{{ section.settings.plan_heading }}</h3>
-              <p class="product-seamoss__step-note">{{ section.settings.plan_subheading }}</p>
-              <div class="product-seamoss__options">
-                {%- for selling_plan in selling_plan_group.selling_plans -%}
-                  {%- assign adjustment = selling_plan.price_adjustments | first -%}
-                  <button
-                    type="button"
-                    class="product-seamoss__option-card{% if selling_plan.id == initial_plan_id %} is-active{% endif %}"
-                    data-plan-option="{{ selling_plan.id }}"
-                  >
-                    <span class="product-seamoss__option-title">{{ selling_plan.name }}</span>
-                    {%- if adjustment and adjustment.value -%}
-                      <span class="product-seamoss__plan-note">
-                        Save {{ adjustment.value }}{% if adjustment.value_type == 'percentage' %}%{% endif %}
-                      </span>
-                    {%- endif -%}
-                  </button>
-                {%- endfor -%}
-                <button
-                  type="button"
-                  class="product-seamoss__option-card{% if initial_plan_id == blank %} is-active{% endif %}"
-                  data-plan-option=""
-                >
-                  <span class="product-seamoss__option-title">{{ section.settings.one_time_heading }}</span>
-                  <span class="product-seamoss__option-note">{{ section.settings.one_time_subheading }}</span>
-                </button>
-              </div>
-            </div>
-          {%- endif -%}
-
           <div class="product-seamoss__purchase">
+            <p class="hx-purchase-label">One-time purchase<small>Your selected jar, delivered once.</small></p>
             <div class="product-seamoss__price-row">
               <div class="product-seamoss__price" data-product-price>{{ initial_variant.price | money }}</div>
-              <div class="product-seamoss__compare" data-product-compare {% unless initial_variant.compare_at_price > initial_variant.price %}style="display:none"{% endunless %}>
+              <div
+                class="product-seamoss__compare"
+                data-product-compare
+                {% unless initial_variant.compare_at_price > initial_variant.price %}style="display:none"{% endunless %}
+              >
                 {{ initial_variant.compare_at_price | money }}
               </div>
             </div>
@@ -291,9 +375,25 @@
                 {{ savings | money }}
               {%- endif -%}
             </div>
-            <button type="button" class="product-seamoss__config-btn" data-configurator-open>
-              {{ section.settings.modal_button_label }}
-            </button>
+
+            <div class="product-seamoss__qty-row">
+              <label class="product-seamoss__qty-label" for="ProductSeamossQty-{{ section.id }}">
+                {{ section.settings.quantity_heading | default: 'Quantity' }}
+              </label>
+              <div class="product-seamoss__quantity-controls">
+                <button type="button" data-quantity-minus aria-label="Decrease quantity">−</button>
+                <input
+                  id="ProductSeamossQty-{{ section.id }}"
+                  type="number"
+                  min="1"
+                  value="1"
+                  data-quantity-display
+                  aria-label="Quantity"
+                >
+                <button type="button" data-quantity-plus aria-label="Increase quantity">+</button>
+              </div>
+            </div>
+
             <button
               type="submit"
               class="product-seamoss__submit"
@@ -302,81 +402,51 @@
             >
               {{ section.settings.button_label }}
             </button>
+
+            {%- if section.settings.trust_line != blank -%}
+              <p class="product-seamoss__trust">{{ section.settings.trust_line }}</p>
+            {%- endif -%}
+            {%- if section.settings.guarantee_note != blank -%}
+              <p class="product-seamoss__guarantee">{{ section.settings.guarantee_note }}</p>
+            {%- endif -%}
+
             <div data-product-errors role="alert"></div>
             {{ form | payment_terms }}
           </div>
 
-          <div class="product-seamoss__assurances">
-            {%- for block in section.blocks -%}
-              {%- if block.type == 'assurance' -%}
+          {%- if assurance_blocks.size > 0 -%}
+            <div class="product-seamoss__assurances">
+              {%- for block in assurance_blocks -%}
                 <div class="product-seamoss__assurance" {{ block.shopify_attributes }}>
-                  <span>{{ block.settings.icon_text }}</span>
+                  <span aria-hidden="true">{{ block.settings.icon_text }}</span>
                   <p>{{ block.settings.text }}</p>
                 </div>
-              {%- endif -%}
-            {%- endfor -%}
-          </div>
+              {%- endfor -%}
+            </div>
+          {%- endif -%}
 
           {%- if info_tabs.size > 0 -%}
-            <div class="product-info-tabs" data-product-info-tabs>
-              <div class="product-info-tabs__nav">
-                {%- for block in info_tabs -%}
-                  <button
-                    type="button"
-                    class="product-info-tabs__btn{% if forloop.first %} is-active{% endif %}"
-                    data-tab-target="info-{{ block.id }}"
-                    {{ block.shopify_attributes }}
-                  >
-                    {{ block.settings.title }}
-                  </button>
-                {%- endfor -%}
-              </div>
-              <div class="product-info-tabs__panels">
-                {%- for block in info_tabs -%}
-                  <div id="info-{{ block.id }}" class="product-info-tabs__panel{% if forloop.first %} is-active{% endif %}">
-                    {%- assign content = block.settings.content -%}
-                    {%- assign paragraphs = content | split: '<p>' -%}
-                    {%- for para in paragraphs -%}
-                      {%- if para != blank and para contains '</p>' -%}
-                        {%- assign clean_para = para | split: '</p>' | first -%}
-                        {%- assign title_match = clean_para | split: '<strong>' | last | split: ':</strong>' | first | downcase -%}
-                        {%- assign text_content = clean_para | split: '</strong>' | last -%}
-                        <div class="product-info-tabs__item">
-                          <div class="product-info-tabs__icon">
-                            {%- if title_match contains 'energy' -%}
-                              <svg viewBox="0 0 24 24" fill="none" stroke="#0f7a64" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                            {%- elsif title_match contains 'gut' -%}
-                              <svg viewBox="0 0 24 24" fill="none" stroke="#0f7a64" stroke-width="2"><path d="M9 11a3 3 0 1 0 6 0 3 3 0 0 0-6 0z"/><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 0 1-2.827 0l-4.244-4.243a8 8 0 1 1 11.314 0z"/></svg>
-                            {%- elsif title_match contains 'immune' -%}
-                              <svg viewBox="0 0 24 24" fill="none" stroke="#0f7a64" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8v4M12 16h.01"/></svg>
-                            {%- elsif title_match contains 'metabolism' -%}
-                              <svg viewBox="0 0 24 24" fill="none" stroke="#0f7a64" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                            {%- elsif title_match contains 'skin' or title_match contains 'hair' -%}
-                              <svg viewBox="0 0 24 24" fill="none" stroke="#0f7a64" stroke-width="2"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M12 6v6l4 2"/></svg>
-                            {%- elsif title_match contains 'daily' or title_match contains 'dosage' -%}
-                              <svg viewBox="0 0 24 24" fill="none" stroke="#0f7a64" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-                            {%- elsif title_match contains 'when' -%}
-                              <svg viewBox="0 0 24 24" fill="none" stroke="#0f7a64" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                            {%- elsif title_match contains 'monthly' or title_match contains 'supply' -%}
-                              <svg viewBox="0 0 24 24" fill="none" stroke="#0f7a64" stroke-width="2"><path d="M20 7h-4V6a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v1H4a1 1 0 0 0-1 1v11a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a1 1 0 0 0-1-1z"/></svg>
-                            {%- elsif title_match contains 'ways' or title_match contains 'enjoy' -%}
-                              <svg viewBox="0 0 24 24" fill="none" stroke="#0f7a64" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-                            {%- elsif title_match contains 'storage' -%}
-                              <svg viewBox="0 0 24 24" fill="none" stroke="#0f7a64" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><path d="M3 9h18M9 3v18"/></svg>
-                            {%- else -%}
-                              <svg viewBox="0 0 24 24" fill="none" stroke="#0f7a64" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg>
-                            {%- endif -%}
-                          </div>
-                          <div class="product-info-tabs__item-content">{{ clean_para }}</div>
-                        </div>
-                      {%- endif -%}
-                    {%- endfor -%}
+            <div class="product-seamoss__accordions" data-product-accordions>
+              {%- for block in info_tabs -%}
+                <details
+                  class="product-seamoss__accordion"
+
+                  {{ block.shopify_attributes }}
+                >
+                  <summary class="product-seamoss__accordion-summary">
+                    <span>{{ block.settings.title }}</span>
+                    <span class="product-seamoss__accordion-icon" aria-hidden="true"></span>
+                  </summary>
+                  <div class="product-seamoss__accordion-body rte">
+                    {{ block.settings.content }}
                   </div>
-                {%- endfor -%}
-              </div>
+                </details>
+              {%- endfor -%}
             </div>
           {%- endif -%}
         {%- endform -%}
+        </div>
+        {% render 'hx-pair-with', product: product, section: section %}
       </div>
     </div>
   </div>
@@ -385,76 +455,56 @@
     {{ product.variants | json }}
   </script>
 
-  {%- if bundle_blocks.size > 0 or flavor_blocks.size > 0 -%}
-    <div class="product-configurator" data-configurator hidden>
-      <div class="product-configurator__overlay" data-configurator-close></div>
-      <div class="product-configurator__panel">
-        <button type="button" class="product-configurator__close" data-configurator-close aria-label="Close planner">
-          &times;
+  {%- comment -%}── Nutrition Label Drawer ──────────────────────────────{%- endcomment -%}
+  <div
+    class="hx-nutri-drawer"
+    id="HxNutriDrawer-{{ section.id }}"
+    aria-hidden="true"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Healistix jar label and ingredients"
+  >
+    <div class="hx-nutri-drawer__overlay" data-hx-nutrition-close></div>
+    <div class="hx-nutri-drawer__panel">
+
+      <div class="hx-nutri-drawer__header">
+        <h2 class="hx-nutri-drawer__title">Jar label &amp; ingredients</h2>
+        <button class="hx-nutri-drawer__close" data-hx-nutrition-close aria-label="Close jar label">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
         </button>
-        <div class="product-configurator__content">
-          <div class="product-configurator__step">
-            <h3>{{ section.settings.bundle_heading }}</h3>
-            <p>{{ section.settings.bundle_subheading }}</p>
-            <div class="configurator-bundles">
-              {%- for block in section.blocks -%}
-                {%- if block.type == 'bundle' -%}
-                  <button
-                    type="button"
-                    class="configurator-bundle{% if forloop.first %} is-active{% endif %}"
-                    data-bundle-qty="{{ block.settings.quantity | default: 1 }}"
-                    data-configurator-select="bundle"
-                  >
-                    <div class="configurator-bundle__top">
-                      <div>
-                        <div class="configurator-bundle__title">{{ block.settings.label }}</div>
-                        <div class="configurator-bundle__subtitle">{{ block.settings.subtext }}</div>
-                      </div>
-                      <span class="configurator-bundle__price">{{ block.settings.price_text }}</span>
-                    </div>
-                    <div class="configurator-bundle__meta">
-                      <span>{{ block.settings.tagline }}</span>
-                      {%- if block.settings.badge != blank -%}
-                        <span class="configurator-bundle__badge">{{ block.settings.badge }}</span>
-                      {%- endif -%}
-                    </div>
-                  </button>
-                {%- endif -%}
-              {%- endfor -%}
-            </div>
-          </div>
-          <div class="product-configurator__step">
-            <h3>{{ section.settings.flavor_heading }}</h3>
-            <p>{{ section.settings.flavor_subheading }}</p>
-            <div class="configurator-flavors">
-              {%- for block in section.blocks -%}
-                {%- if block.type == 'flavor' -%}
-                  <button
-                    type="button"
-                    class="configurator-flavor{% if forloop.first %} is-active{% endif %}"
-                    data-configurator-flavor="{{ block.settings.option_value | escape }}"
-                  >
-                    <span class="configurator-flavor__label">{{ block.settings.label }}</span>
-                    <span class="configurator-flavor__note">{{ block.settings.tagline }}</span>
-                  </button>
-                {%- endif -%}
-              {%- endfor -%}
-            </div>
-          </div>
-        </div>
-        <div class="product-configurator__footer">
-          <button type="button" class="product-configurator__btn" data-configurator-close>{{ section.settings.modal_button_label }}</button>
-        </div>
       </div>
-    </div>
-  {%- endif -%}
+
+      <div class="hx-nutri-drawer__body">
+        {% render 'hx-flavor-labels', initial_variant: initial_variant %}
+      </div>{%- comment -%}end body{%- endcomment -%}
+    </div>{%- comment -%}end panel{%- endcomment -%}
+  </div>{%- comment -%}end drawer{%- endcomment -%}
+
 </section>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function () {
     const section = document.getElementById('ProductSeamoss-{{ section.id }}');
     if (!section) return;
 
+    section.querySelectorAll('.product-seamoss__flavor-grid').forEach((grid, index) => {
+      if (grid.children.length <= 10) return;
+      const toggle = document.createElement('button');
+      toggle.type = 'button'; toggle.className = 'hx-flavors-toggle';
+      grid.id = grid.id || `${section.id}-flavors-${index}`;
+      toggle.setAttribute('aria-controls', grid.id);
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.textContent = `Explore all ${grid.children.length} flavors +`;
+      toggle.addEventListener('click', () => {
+        const expanded = grid.classList.toggle('is-expanded');
+        toggle.setAttribute('aria-expanded', String(expanded));
+        toggle.textContent = expanded ? 'Show fewer flavors −' : `Explore all ${grid.children.length} flavors +`;
+      });
+      grid.after(toggle);
+    });
     const variantDataEl = section.querySelector('[data-product-variants]');
     const variants = variantDataEl ? JSON.parse(variantDataEl.textContent) : [];
     const optionCount = parseInt(section.dataset.optionCount || '0', 10);
@@ -472,18 +522,17 @@
     const qtyDisplay = section.querySelector('[data-quantity-display]');
     const qtyMinus = section.querySelector('[data-quantity-minus]');
     const qtyPlus = section.querySelector('[data-quantity-plus]');
-    const planButtons = section.querySelectorAll('[data-plan-option]');
-    const planInput = section.querySelector('[data-selling-plan-input]');
     const optionButtons = section.querySelectorAll('[data-option-value]');
     const mainImage = section.querySelector('[data-product-media-main]');
     const thumbButtons = section.querySelectorAll('[data-product-thumb]');
     const moneyFormat = {{ shop.money_format | json }};
+    const buttonLabel = {{ section.settings.button_label | json }};
+    const soldOutLabel = {{ 'products.product.sold_out' | t | json }};
 
     const formatMoney = (value) => {
       if (window.Shopify && Shopify.formatMoney) {
         return Shopify.formatMoney(value, moneyFormat);
       }
-
       return (value / 100).toLocaleString(undefined, {
         style: 'currency',
         currency: '{{ shop.currency }}'
@@ -493,49 +542,33 @@
     const updateSavings = (variant) => {
       if (!savingsEl) return;
       if (variant.compare_at_price && variant.compare_at_price > variant.price) {
-        const diff = variant.compare_at_price - variant.price;
-        savingsEl.textContent = `You save ${formatMoney(diff)}`;
+        savingsEl.textContent = `You save ${formatMoney(variant.compare_at_price - variant.price)}`;
       } else {
         savingsEl.textContent = '';
       }
     };
 
-    const setActiveClass = (selector, value, attr = 'optionValue') => {
-      section.querySelectorAll(selector).forEach((el) => {
-        if (value && el.dataset[attr] === value) {
-          el.classList.add('is-active');
-        } else if (!value && !el.dataset[attr]) {
-          el.classList.add('is-active');
-        } else {
-          el.classList.remove('is-active');
-        }
-      });
-    };
-
     const updateVariant = () => {
       if (!variants.length) return;
-      const variant = variants.find((entry) => {
-        return entry.options.every((option, index) => {
+      const variant = variants.find((entry) =>
+        entry.options.every((option, index) => {
           if (!selectedOptions[index]) return true;
           return option === selectedOptions[index];
-        });
-      });
+        })
+      );
 
       if (!variant) {
         if (submitBtn) {
           submitBtn.disabled = true;
-          submitBtn.textContent = '{{ 'products.product.sold_out' | t | escape }}';
+          submitBtn.textContent = soldOutLabel;
         }
         return;
       }
 
-      if (variantInput) {
-        variantInput.value = variant.id;
-      }
-
-      if (priceEl) {
-        priceEl.textContent = formatMoney(variant.price);
-      }
+      if (variantInput) variantInput.value = variant.id;
+      section.dataset.activeFlavor = (variant.option1 || '').toLowerCase();
+      section.dispatchEvent(new CustomEvent('hx:variant-change', { detail: { variant } }));
+      if (priceEl) priceEl.textContent = formatMoney(variant.price);
 
       if (compareEl) {
         if (variant.compare_at_price && variant.compare_at_price > variant.price) {
@@ -550,14 +583,60 @@
 
       if (submitBtn) {
         submitBtn.disabled = !variant.available;
-        submitBtn.textContent = variant.available ? {{ section.settings.button_label | json }} : '{{ 'products.product.sold_out' | t | escape }}';
+        submitBtn.textContent = variant.available ? buttonLabel : soldOutLabel;
       }
 
-      if (variant.featured_media && mainImage) {
-        const newSrc = `${variant.featured_media.preview_image.src}&width=900`;
-        mainImage.src = newSrc;
+      const flavorName = variant.option1 || selectedOptions[0] || '';
+      let hasLabel = false;
+      section.querySelectorAll('[data-flavor-label]').forEach(panel => {
+        panel.hidden = panel.dataset.flavorLabel !== flavorName;
+        if (!panel.hidden) hasLabel = true;
+      });
+      const nutritionToggle = section.querySelector('[data-hx-nutrition-toggle]');
+      if (nutritionToggle) nutritionToggle.hidden = !hasLabel;
+
+      const thumbs = section.querySelectorAll('[data-product-thumb]');
+      let firstVisibleThumb = null;
+      thumbs.forEach((thumb) => {
+        const flavors = thumb.dataset.flavors || '*';
+        const show = flavors === '*' || flavors.split('|').includes(flavorName);
+        thumb.hidden = !show;
+        thumb.classList.toggle('is-active', false);
+        if (show && !firstVisibleThumb) firstVisibleThumb = thumb;
+      });
+
+      if (firstVisibleThumb?.hasAttribute('data-pilot-cutout') && mainImage) {
+        mainImage.src = firstVisibleThumb.dataset.image;
+        mainImage.alt = firstVisibleThumb.querySelector('img').alt;
+      } else if (variant.featured_media && mainImage) {
+        const src = variant.featured_media.preview_image.src;
+        mainImage.src = src.includes('?') ? `${src}&width=900` : `${src}?width=900`;
         mainImage.alt = variant.featured_media.preview_image.alt || mainImage.alt;
+        thumbs.forEach((thumb) => {
+          if (!thumb.hidden && String(thumb.dataset.mediaId) === String(variant.featured_media.id)) {
+            firstVisibleThumb = thumb;
+          }
+        });
+      } else if (firstVisibleThumb && mainImage) {
+        mainImage.src = firstVisibleThumb.dataset.image;
       }
+
+      const hasPhoto = Boolean(firstVisibleThumb || variant.featured_media);
+      if (mainImage) mainImage.hidden = !hasPhoto;
+      const emptyGallery = section.querySelector('[data-gallery-empty]');
+      if (emptyGallery) {
+        emptyGallery.hidden = hasPhoto;
+        emptyGallery.textContent = `Photos for ${flavorName} are coming soon.`;
+      }
+
+      if (firstVisibleThumb) firstVisibleThumb.classList.add('is-active');
+
+      if (variant.id && window.history && window.history.replaceState) {
+        const nextUrl = new URL(window.location.href);
+        nextUrl.searchParams.set('variant', variant.id);
+        window.history.replaceState({}, '', nextUrl);
+      }
+      section.dispatchEvent(new CustomEvent('hx:gallery-updated'));
     };
 
     optionButtons.forEach((button) => {
@@ -566,17 +645,18 @@
         const optionValue = button.dataset.optionValue;
         selectedOptions[optionIndex] = optionValue;
         section.setAttribute('data-selected-options', selectedOptions.join('||'));
-        setActiveClass(`[data-option-index="${optionIndex}"]`, optionValue);
-        updateVariant();
-      });
-    });
 
-    planButtons.forEach((button) => {
-      button.addEventListener('click', () => {
-        const planId = button.dataset.planOption || '';
-        planInput.value = planId;
-        planButtons.forEach((planButton) => planButton.classList.remove('is-active'));
-        button.classList.add('is-active');
+        section.querySelectorAll(`[data-option-index="${optionIndex}"]`).forEach((el) => {
+          const active = el.dataset.optionValue === optionValue;
+          el.classList.toggle('is-active', active);
+          el.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+
+        // Update "Select Flavor: [Name]" label
+        const flavorLabel = section.querySelector('[data-flavor-current-name]');
+        if (flavorLabel) flavorLabel.textContent = optionValue;
+
+        updateVariant();
       });
     });
 
@@ -591,13 +671,11 @@
         updateQuantity((parseInt(qtyDisplay.value, 10) || 1) - 1);
       });
     }
-
     if (qtyPlus) {
       qtyPlus.addEventListener('click', () => {
         updateQuantity((parseInt(qtyDisplay.value, 10) || 1) + 1);
       });
     }
-
     if (qtyDisplay) {
       qtyDisplay.addEventListener('change', () => updateQuantity(qtyDisplay.value));
     }
@@ -607,80 +685,60 @@
         const image = thumb.dataset.image;
         if (image && mainImage) {
           mainImage.src = image;
+          mainImage.alt = thumb.querySelector('img')?.alt || '';
         }
         thumbButtons.forEach((btn) => btn.classList.remove('is-active'));
         thumb.classList.add('is-active');
       });
     });
 
-    const infoTabsContainer = section.querySelector('[data-product-info-tabs]');
-    if (infoTabsContainer) {
-      const tabButtons = infoTabsContainer.querySelectorAll('[data-tab-target]');
-      const tabPanels = infoTabsContainer.querySelectorAll('.product-info-tabs__panel');
-      tabButtons.forEach((button) => {
-        button.addEventListener('click', () => {
-          const id = button.dataset.tabTarget;
-          tabButtons.forEach((btn) => btn.classList.remove('is-active'));
-          tabPanels.forEach((panel) => panel.classList.remove('is-active'));
-          button.classList.add('is-active');
-          infoTabsContainer.querySelector('#' + id)?.classList.add('is-active');
-        });
-      });
-    }
-
-    const configurator = section.querySelector('[data-configurator]');
-    const configuratorOpen = section.querySelector('[data-configurator-open]');
-    const configuratorCloseElements = section.querySelectorAll('[data-configurator-close]');
-
-    const setConfiguratorState = (open) => {
-      if (!configurator) return;
-      configurator.hidden = !open;
-      configurator.classList.toggle('is-open', open);
-      document.documentElement.classList.toggle('configurator-open', open);
-    };
-
-    if (configurator && configuratorOpen) {
-      configuratorOpen.addEventListener('click', () => setConfiguratorState(true));
-      configuratorCloseElements.forEach((element) => {
-        element.addEventListener('click', () => setConfiguratorState(false));
-      });
-
-      const bundleButtons = configurator.querySelectorAll('[data-bundle-qty]');
-      bundleButtons.forEach((button) => {
-        button.addEventListener('click', () => {
-          const qty = parseInt(button.dataset.bundleQty || '1', 10);
-          updateQuantity(qty);
-          bundleButtons.forEach((btn) => btn.classList.remove('is-active'));
-          button.classList.add('is-active');
-        });
-      });
-
-      const flavorButtons = configurator.querySelectorAll('[data-configurator-flavor]');
-      flavorButtons.forEach((button) => {
-        button.addEventListener('click', () => {
-          const flavorValue = button.dataset.configuratorFlavor;
-          optionButtons.forEach((optionButton) => {
-            if (optionButton.dataset.optionValue === flavorValue) {
-              optionButton.click();
-            }
-          });
-          flavorButtons.forEach((btn) => btn.classList.remove('is-active'));
-          button.classList.add('is-active');
-        });
-      });
-    }
-
-    // Force horizontal scroll layout on mobile
-    const optionsContainers = section.querySelectorAll('.product-seamoss__options');
-    optionsContainers.forEach((container) => {
-      container.style.display = 'flex';
-      container.style.flexDirection = 'row';
-      container.style.gridTemplateColumns = 'none';
-      container.style.overflowX = 'auto';
-      container.style.webkitOverflowScrolling = 'touch';
-    });
-
     updateVariant();
+
+    // ── Nutrition Label Drawer ─────────────────────────────────
+    const nutDrawer = document.getElementById('HxNutriDrawer-{{ section.id }}');
+    const nutToggle = section.querySelector('[data-hx-nutrition-toggle]');
+
+    if (nutDrawer && nutToggle) {
+      const openNutDrawer = () => {
+        nutDrawer.setAttribute('aria-hidden', 'false');
+        nutToggle.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+        const closeBtn = nutDrawer.querySelector('[data-hx-nutrition-close]:not(.hx-nutri-drawer__overlay)');
+        if (closeBtn) setTimeout(() => closeBtn.focus(), 50);
+      };
+
+      const closeNutDrawer = () => {
+        nutDrawer.setAttribute('aria-hidden', 'true');
+        nutToggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+        nutToggle.focus();
+      };
+
+      nutToggle.addEventListener('click', openNutDrawer);
+
+      nutDrawer.querySelectorAll('[data-hx-nutrition-close]').forEach((el) => {
+        el.addEventListener('click', closeNutDrawer);
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && nutDrawer.getAttribute('aria-hidden') === 'false') {
+          closeNutDrawer();
+        }
+        if (e.key === 'Tab' && nutDrawer.getAttribute('aria-hidden') === 'false') {
+          const focusable = Array.from(nutDrawer.querySelectorAll('button, a[href], summary, input, select, textarea, [tabindex="0"]'))
+            .filter(el => !el.disabled && el.getClientRects().length > 0);
+          const first = focusable[0];
+          const last = focusable[focusable.length - 1];
+          if (first && e.shiftKey && (document.activeElement === first || !nutDrawer.contains(document.activeElement))) {
+            e.preventDefault();
+            last.focus();
+          } else if (last && !e.shiftKey && (document.activeElement === last || !nutDrawer.contains(document.activeElement))) {
+            e.preventDefault();
+            first.focus();
+          }
+        }
+      });
+    }
   });
 </script>
 
@@ -691,10 +749,17 @@
   "class": "section",
   "settings": [
     {
+      "type": "checkbox",
+      "id": "enable_jar_viewer",
+      "label": "Enable 360° jar viewer",
+      "default": true,
+      "info": "Loads on click for flavors with prepared front and side labels. Other flavors keep their photo galleries."
+    },
+    {
       "type": "text",
       "id": "eyebrow_text",
       "label": "Eyebrow text",
-      "default": "#1 SEA MOSS GEL"
+      "default": "WILDCRAFTED · SMALL-BATCH · ONLY AT HEALISTIX"
     },
     {
       "type": "text",
@@ -706,74 +771,72 @@
       "type": "text",
       "id": "review_text",
       "label": "Review highlight",
-      "default": "54,000+ verified 5-star reviews"
+      "default": "4.8/5.0 · 460+ verified reviews"
     },
     {
-      "type": "text",
+      "type": "textarea",
       "id": "review_subtext",
-      "label": "Subheading",
-      "default": "Loved by Sprouts, Bristol Farms and over 500k happy customers worldwide."
-    },
-    {
-      "type": "text",
-      "id": "option_helper",
-      "label": "Option helper text",
-      "default": "Tap a card to lock in your favorite combo."
+      "label": "Supporting sentence",
+      "default": "Wildcrafted sea moss, Irish bladderwrack, and burdock root in a single jar — the Sebi Trinity."
     },
     {
       "type": "textarea",
       "id": "support_points",
-      "label": "Support bullet list",
+      "label": "Benefit bullets",
       "info": "Separate items with |",
-      "default": "Wildcrafted Atlantic sea moss|Four ingredients, no fillers|Family kitchen, three generations"
+      "default": "Wildcrafted Atlantic sea moss|The Sebi Trinity in one jar|Blended by hand in small batches|Four ingredients, no fillers"
+    },
+    {
+      "type": "text",
+      "id": "flavor_heading",
+      "label": "Flavor heading",
+      "default": "Select Flavor"
+    },
+    {
+      "type": "text",
+      "id": "flavor_subheading",
+      "label": "Flavor subheading",
+      "default": "Each flavor is a separate variant — price updates when you pick one."
     },
     {
       "type": "text",
       "id": "quantity_heading",
       "label": "Quantity heading",
-      "default": "Pick your jar count"
+      "default": "Quantity"
     },
     {
       "type": "text",
-      "id": "modal_button_label",
-      "label": "Configurator button label",
-      "default": "Choose flavor"
+      "id": "button_label",
+      "label": "Add to cart label",
+      "default": "ADD TO CART"
     },
     {
       "type": "text",
-      "id": "bundle_heading",
-      "label": "Configurator quantity heading",
-      "default": "Select quantity"
+      "id": "trust_line",
+      "label": "Trust line (under ATC)",
+      "default": "Ships in 1–2 business days · Refrigerate on arrival"
     },
     {
       "type": "text",
-      "id": "bundle_subheading",
-      "label": "Configurator quantity subheading",
-      "default": "Pick a bundle and lock in your savings."
+      "id": "guarantee_note",
+      "label": "Guarantee note",
+      "default": "Love it or reach out — the kitchen answers at hi@healistix.com"
     },
     {
-      "type": "text",
-      "id": "flavor_heading",
-      "label": "Configurator flavor heading",
-      "default": "Select taste"
-    },
-    {
-      "type": "text",
-      "id": "flavor_subheading",
-      "label": "Configurator flavor subheading",
-      "default": "Choose from our bestselling chef-crafted blends."
+      "type": "header",
+      "content": "Deferred — subscription (hidden in v1)"
     },
     {
       "type": "text",
       "id": "plan_heading",
       "label": "Plan heading",
-      "default": "Choose how you want to enjoy it"
+      "default": "Subscribe & save"
     },
     {
       "type": "text",
       "id": "plan_subheading",
       "label": "Plan subheading",
-      "default": "Subscribe & save for effortless monthly deliveries."
+      "default": "Skip or cancel anytime."
     },
     {
       "type": "text",
@@ -788,63 +851,93 @@
       "default": "Try it once and come back anytime."
     },
     {
+      "type": "header",
+      "content": "Deferred — configurator / bundles"
+    },
+    {
       "type": "text",
-      "id": "button_label",
-      "label": "Button label",
-      "default": "ADD TO BAG"
+      "id": "option_helper",
+      "label": "Legacy option helper",
+      "default": "Tap a card to choose your flavor."
+    },
+    {
+      "type": "text",
+      "id": "modal_button_label",
+      "label": "Configurator button label",
+      "default": "Choose flavor"
+    },
+    {
+      "type": "text",
+      "id": "bundle_heading",
+      "label": "Bundle heading",
+      "default": "Pick your bundle"
+    },
+    {
+      "type": "text",
+      "id": "bundle_subheading",
+      "label": "Bundle subheading",
+      "default": "Stock up for the month."
     }
   ],
   "blocks": [
     {
-      "type": "logo",
-      "name": "As seen logo",
-      "settings": [
-        {"type": "image_picker", "id": "image", "label": "Logo"},
-        {"type": "text", "id": "alt_text", "label": "Alt text"}
-      ]
-    },
-    {
-      "type": "bundle",
-      "name": "Configurator bundle",
-      "settings": [
-        {"type": "text", "id": "label", "label": "Title", "default": "1 Jar"},
-        {"type": "text", "id": "subtext", "label": "Description", "default": "Perfect for tasting"},
-        {"type": "text", "id": "price_text", "label": "Price text", "default": "$24.00"},
-        {"type": "text", "id": "tagline", "label": "Tagline", "default": "Ships next business day"},
-        {"type": "text", "id": "badge", "label": "Badge"},
-        {"type": "number", "id": "quantity", "label": "Quantity", "default": 1}
-      ]
-    },
-    {
       "type": "flavor",
-      "name": "Configurator flavor",
+      "name": "Flavor card",
       "settings": [
-        {"type": "text", "id": "label", "label": "Label", "default": "Mango Pineapple"},
-        {"type": "text", "id": "option_value", "label": "Matching variant option value", "default": "Mango Pineapple"},
-        {"type": "text", "id": "tagline", "label": "Tagline", "default": "Bright & tropical"}
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Display label",
+          "default": "Blueberry"
+        },
+        {
+          "type": "text",
+          "id": "option_value",
+          "label": "Matching variant option value",
+          "info": "Must match the Flavor variant name in Admin exactly.",
+          "default": "Blueberry"
+        },
+        {
+          "type": "text",
+          "id": "tagline",
+          "label": "Tagline",
+          "default": "Bright berry, smoothie-ready"
+        },
+        {
+          "type": "text",
+          "id": "badge",
+          "label": "Badge",
+          "info": "e.g. BEST SELLER or NEW"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Optional thumb image",
+          "info": "Leave blank to use the variant's product photo from Admin."
+        }
       ]
     },
     {
-      "type": "badge",
-      "name": "Highlight badge",
+      "type": "info_tab",
+      "name": "Accordion",
       "settings": [
         {
           "type": "text",
           "id": "title",
           "label": "Title",
-          "default": "500k+"
+          "default": "Why Healistix?"
         },
         {
-          "type": "text",
-          "id": "subtitle",
-          "label": "Subtitle",
-          "default": "Happy customers globally"
+          "type": "richtext",
+          "id": "content",
+          "label": "Content",
+          "default": "<p>Describe why this product is different.</p>"
         }
       ]
     },
     {
       "type": "assurance",
-      "name": "Assurance item",
+      "name": "Assurance chip",
       "settings": [
         {
           "type": "text",
@@ -856,7 +949,7 @@
           "type": "text",
           "id": "text",
           "label": "Text",
-          "default": "30-day clean-label guarantee"
+          "default": "Small-batch, family kitchen"
         }
       ]
     },
@@ -865,17 +958,37 @@
       "name": "Promo card",
       "settings": [
         { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "New flavor" },
-        { "type": "text", "id": "title", "label": "Title", "default": "Banana Cream Dream" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Blueberry" },
         { "type": "textarea", "id": "text", "label": "Copy", "default": "Limited-run jars packed with real fruit." },
         { "type": "image_picker", "id": "image", "label": "Image" }
       ]
     },
     {
-      "type": "info_tab",
-      "name": "Info tab",
+      "type": "logo",
+      "name": "As seen logo",
       "settings": [
-        { "type": "text", "id": "title", "label": "Title", "default": "How it works" },
-        { "type": "richtext", "id": "content", "label": "Content", "default": "<p>Describe what it is, ingredients, and texture.</p>" }
+        { "type": "image_picker", "id": "image", "label": "Logo" },
+        { "type": "text", "id": "alt_text", "label": "Alt text" }
+      ]
+    },
+    {
+      "type": "bundle",
+      "name": "Bundle (deferred)",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Title", "default": "1 Jar" },
+        { "type": "text", "id": "subtext", "label": "Description", "default": "Perfect for tasting" },
+        { "type": "text", "id": "price_text", "label": "Price text", "default": "$19.99" },
+        { "type": "text", "id": "tagline", "label": "Tagline", "default": "Ships next business day" },
+        { "type": "text", "id": "badge", "label": "Badge" },
+        { "type": "number", "id": "quantity", "label": "Quantity", "default": 1 }
+      ]
+    },
+    {
+      "type": "badge",
+      "name": "Highlight badge (legacy)",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "460+" },
+        { "type": "text", "id": "subtitle", "label": "Subtitle", "default": "Verified reviews" }
       ]
     }
   ],
@@ -884,66 +997,35 @@
       "name": "Product Sea Moss",
       "blocks": [
         {
-          "type": "badge",
+          "type": "flavor",
           "settings": {
-            "title": "460+",
-            "subtitle": "Sprouts shops & retail chains"
+            "label": "Trinity",
+            "option_value": "Trinity",
+            "tagline": "Unflavored original",
+            "badge": "BEST SELLER"
           }
-        },
-        {
-          "type": "badge",
-          "settings": {
-            "title": "500k+",
-            "subtitle": "Happy customers globally"
-          }
-        },
-        {
-          "type": "badge",
-          "settings": {
-            "title": "100k+",
-            "subtitle": "Active subscribers"
-          }
-        },
-        {
-          "type": "logo"
-        },
-        {
-          "type": "bundle",
-          "settings": {
-            "label": "1 Jar",
-            "subtext": "Perfect for tasting",
-            "price_text": "$24",
-            "tagline": "Ships next business day",
-            "quantity": 1
-          }
-        },
-        {
-          "type": "bundle",
-          "settings": {
-            "label": "3 Jars",
-            "subtext": "Free shipping",
-            "price_text": "$60",
-            "tagline": "Most popular",
-            "badge": "SAVE $12",
-            "quantity": 3
-          }
-        },
-        {
-          "type": "flavor"
         },
         {
           "type": "flavor",
           "settings": {
-            "label": "Banana",
-            "option_value": "Banana",
-            "tagline": "Creamy dessert"
+            "label": "Blueberry",
+            "option_value": "Blueberry",
+            "tagline": "Bright berry, smoothie-ready"
+          }
+        },
+        {
+          "type": "flavor",
+          "settings": {
+            "label": "Apple",
+            "option_value": "Apple",
+            "tagline": "Crisp and clean"
           }
         },
         {
           "type": "assurance",
           "settings": {
             "icon_text": "✓",
-            "text": "Free gummies with every plan"
+            "text": "Four ingredients. That's it."
           }
         },
         {
@@ -951,6 +1033,34 @@
           "settings": {
             "icon_text": "🚚",
             "text": "Ships next business day"
+          }
+        },
+        {
+          "type": "info_tab",
+          "settings": {
+            "title": "Why Healistix?",
+            "content": "<p><strong>The Sebi Trinity in one jar.</strong> Wildcrafted Atlantic sea moss, Irish bladderwrack, and burdock root — blended by hand so you are not juggling three bottles.</p>"
+          }
+        },
+        {
+          "type": "info_tab",
+          "settings": {
+            "title": "Ingredients",
+            "content": "<p>Wildcrafted Atlantic sea moss, Irish bladderwrack, fresh burdock root, spring water. No preservatives. No thickeners.</p>"
+          }
+        },
+        {
+          "type": "info_tab",
+          "settings": {
+            "title": "How to take it",
+            "content": "<p><strong>Daily:</strong> 2 tablespoons. Morning is the family rhythm. Refrigerate on arrival; use within 30 days once opened.</p>"
+          }
+        },
+        {
+          "type": "info_tab",
+          "settings": {
+            "title": "Shipping & storage",
+            "content": "<p>Ships in 1–2 business days. Put it in the fridge as soon as it lands. Freeze up to 4 months if you need to pause.</p>"
           }
         }
       ]

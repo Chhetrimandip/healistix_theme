@@ -11,6 +11,13 @@
   "current": "Default",
   "presets": {
     "Default": {
+      "blocks": {
+        "14060646107696862457": {
+          "type": "shopify://apps/judge-me-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "disabled": false,
+          "settings": {}
+        }
+      },
       "logo_width": 90,
       "color_schemes": {
         "scheme-1": {
@@ -197,6 +204,100 @@
           "settings": {
             "color_scheme": "scheme-1"
           }
+        },
+        "hx-fruit-bg": {
+          "type": "hx-fruit-bg",
+          "settings": {
+            "enabled": true
+          },
+          "blocks": {
+            "fruit-banana": {
+              "type": "fruit",
+              "settings": {
+                "builtin": "fruit-banana.png",
+                "left": 2,
+                "top": 300,
+                "size": 220,
+                "rotation": -14,
+                "hide_mobile": false
+              }
+            },
+            "fruit-blueberry": {
+              "type": "fruit",
+              "settings": {
+                "builtin": "fruit-blueberry.png",
+                "left": 85,
+                "top": 600,
+                "size": 200,
+                "rotation": 11,
+                "hide_mobile": false
+              }
+            },
+            "fruit-apple": {
+              "type": "fruit",
+              "settings": {
+                "builtin": "fruit-apple.png",
+                "left": 7,
+                "top": 950,
+                "size": 230,
+                "rotation": 18,
+                "hide_mobile": false
+              }
+            },
+            "fruit-elderberry": {
+              "type": "fruit",
+              "settings": {
+                "builtin": "fruit-elderberry.png",
+                "left": 82,
+                "top": 1300,
+                "size": 200,
+                "rotation": -9,
+                "hide_mobile": true
+              }
+            },
+            "fruit-mango": {
+              "type": "fruit",
+              "settings": {
+                "builtin": "fruit-mango.png",
+                "left": 3,
+                "top": 1700,
+                "size": 220,
+                "rotation": 23,
+                "hide_mobile": true
+              }
+            },
+            "fruit-grape": {
+              "type": "fruit",
+              "settings": {
+                "builtin": "fruit-grape.png",
+                "left": 88,
+                "top": 2000,
+                "size": 210,
+                "rotation": -21,
+                "hide_mobile": true
+              }
+            },
+            "fruit-guava": {
+              "type": "fruit",
+              "settings": {
+                "builtin": "fruit-guava.png",
+                "left": 5,
+                "top": 2350,
+                "size": 200,
+                "rotation": 15,
+                "hide_mobile": true
+              }
+            }
+          },
+          "block_order": [
+            "fruit-banana",
+            "fruit-blueberry",
+            "fruit-apple",
+            "fruit-elderberry",
+            "fruit-mango",
+            "fruit-grape",
+            "fruit-guava"
+          ]
         }
       }
     }

@@ -1,0 +1,52 @@
+{{ 'hx-goodness-fan.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'hx-goodness-fan.js' | asset_url }}" defer="defer"></script>
+<hx-goodness-fan class="hx-goodness" id="Goodness-{{ section.id }}" aria-labelledby="GoodnessTitle-{{ section.id }}" style="--fan-duration:{{ section.settings.rotation_duration }}s">
+  <div class="hx-goodness__intro">
+    <p class="hx-goodness__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+    <h2 id="GoodnessTitle-{{ section.id }}"><span>{{ section.settings.heading_first | escape }}</span>{{ section.settings.heading_second | escape }}</h2>
+    <p class="hx-goodness__text">{{ section.settings.text | escape }}</p>
+    <div class="hx-goodness__actions">
+      <a class="hx-goodness__link" href="{{ section.settings.product.url | default: routes.all_products_collection_url }}">{{ section.settings.link_label | escape }} <span aria-hidden="true">↗</span></a>
+      <button class="hx-goodness__pause" type="button" aria-label="Pause photo rotation" aria-pressed="false">Ⅱ</button>
+    </div>
+  </div>
+  <div class="hx-goodness__stage">
+    <div class="hx-goodness__wheel">
+      {%- assign default_files = 'hx-goodness-breakfast-v2.jpg,hx-goodness-sofa-v2.jpg,hx-goodness-kitchen-v2.jpg,hx-goodness-friends-v2.jpg,hx-goodness-spoon-v2.jpg' | split: ',' -%}
+      {%- assign default_captions = 'Slow mornings,Sofa snack,Blend & go,Better together,One more spoon' | split: ',' -%}
+      {%- assign default_alts = 'AI-generated lifestyle scene of a woman eating mango yogurt at home,AI-generated lifestyle scene of a man enjoying a blueberry bowl on his sofa,AI-generated lifestyle scene of a woman pouring a homemade smoothie,AI-generated lifestyle scene of friends sharing smoothies on a balcony,AI-generated lifestyle scene of a spoonful of blueberry oatmeal at breakfast' | split: ',' -%}
+      {%- for i in (0..19) -%}
+        {%- assign slot = i | modulo: 5 -%}
+        {%- assign angle = i | times: 18 -%}
+        {%- assign photo = section.blocks[slot] -%}
+        <figure class="hx-goodness__card" style="--angle:{{ angle }}deg" {% if i > 4 %}aria-hidden="true"{% else %}{{ photo.shopify_attributes }}{% endif %}>
+          {%- if photo.settings.image != blank -%}
+            {{ photo.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', widths: '400, 600, 800', sizes: '(max-width: 749px) 180px, 280px' }}
+          {%- else -%}
+            <img src="{{ default_files[slot] | asset_url }}" alt="{{ default_alts[slot] }}" width="800" height="1200" loading="lazy">
+          {%- endif -%}
+          <figcaption>{{ photo.settings.caption | default: default_captions[slot] | escape }}</figcaption>
+        </figure>
+      {%- endfor -%}
+    </div>
+  </div>
+  <div class="hx-goodness__footer">{{ section.settings.footer | escape }}</div>
+</hx-goodness-fan>
+{% schema %}
+{
+  "name": "Healistix — Photo fan",
+  "settings": [
+    {"type":"text","id":"eyebrow","label":"Eyebrow","default":"A LITTLE HEALISTIX. A LITTLE YOU TIME."},
+    {"type":"text","id":"heading_first","label":"Heading first line","default":"Goodness looks"},
+    {"type":"text","id":"heading_second","label":"Heading second line","default":"good on you."},
+    {"type":"text","id":"text","label":"Supporting text","default":"Your favorite flavor. Your everyday little ritual."},
+    {"type":"text","id":"link_label","label":"Link label","default":"Find your flavor"},
+    {"type":"product","id":"product","label":"Linked product"},
+    {"type":"range","id":"rotation_duration","label":"Seconds per full rotation","min":90,"max":300,"step":10,"default":180},
+    {"type":"text","id":"footer","label":"Bottom ribbon","default":"A SPOONFUL OF GOODNESS. A MOMENT FOR YOU."}
+  ],
+  "blocks": [{"type":"photo","name":"Lifestyle photo","limit":5,"settings":[{"type":"image_picker","id":"image","label":"Photo","info":"Leave empty to use the generated campaign photo for this position."},{"type":"text","id":"caption","label":"Caption"}]}],
+  "max_blocks":5,
+  "presets":[{"name":"Healistix — Photo fan","blocks":[{"type":"photo"},{"type":"photo"},{"type":"photo"},{"type":"photo"},{"type":"photo"}]}]
+}
+{% endschema %}

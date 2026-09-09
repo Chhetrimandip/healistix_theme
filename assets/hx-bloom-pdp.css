@@ -1,0 +1,78 @@
+/* Bloom-inspired structure, scoped to the Sea Moss product template. */
+body:has(.hx-bloom-pdp) #hx-fruit-bg{display:none}
+.product-seamoss.product-seamoss--gruns.hx-bloom-pdp{background:#edf6e7!important;padding:42px 0 64px;color:#174b3c}
+.product-seamoss.product-seamoss--gruns.hx-bloom-pdp .product-seamoss__container{max-width:1440px;padding:0 5%!important}
+.product-seamoss.product-seamoss--gruns.hx-bloom-pdp .product-seamoss__layout{grid-template-columns:minmax(0,1.12fr) minmax(0,1fr);gap:5.5%;align-items:start}
+.product-seamoss.product-seamoss--gruns.hx-bloom-pdp .product-seamoss__media{position:static;display:flex;flex-direction:column;gap:16px;min-width:0}
+.product-seamoss.product-seamoss--gruns.hx-bloom-pdp .product-seamoss__media-main{order:0;flex:auto;width:100%;aspect-ratio:1!important;border-radius:24px;box-shadow:none;border:0;min-height:0}
+.hx-bloom-pdp .hx-gallery-spark,.hx-bloom-pdp .hx-gallery-heading,.hx-bloom-pdp .hx-gallery-caption{display:none}
+.product-seamoss.product-seamoss--gruns.hx-bloom-pdp .product-seamoss__media-thumbs{order:1;width:100%;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;max-height:none;overflow:visible;padding:0}
+.product-seamoss.product-seamoss--gruns.hx-bloom-pdp .product-seamoss__media-thumb{width:100%;height:auto;aspect-ratio:1;border-radius:20px;border:2px solid transparent;box-shadow:none;background:#f9fbf2;overflow:hidden;transform:none}
+.product-seamoss.product-seamoss--gruns.hx-bloom-pdp .product-seamoss__media-thumb img{width:100%;height:100%;object-fit:contain}
+.product-seamoss.product-seamoss--gruns.hx-bloom-pdp .product-seamoss__media-thumb.is-active{border-color:#174b3c;box-shadow:none}
+.hx-bloom-pdp .hx-jar-thumb>span{font-size:72px}.hx-bloom-pdp .hx-jar-thumb>strong{font-size:18px}
+.product-seamoss.product-seamoss--gruns.hx-bloom-pdp .product-seamoss__nutrition-btn{order:2;margin:0;background:white}
+.product-seamoss.product-seamoss--gruns.hx-bloom-pdp .product-seamoss__details{padding:0!important;animation:none;min-width:0}
+.hx-buybox{position:relative;background:white;border:2px solid #d5e5ce;border-radius:24px;padding:28px 26px 20px;box-shadow:5px 6px 0 #dcefd5}
+.hx-pdp-review-link{display:inline-flex;border:1px solid #a8c1a3;border-radius:30px;padding:5px 13px;background:white;color:#174b3c;font-size:12px;line-height:1.4;text-decoration:none;margin-bottom:16px}
+.hx-pdp-review-link:hover{text-decoration:underline}
+.product-seamoss.product-seamoss--gruns.hx-bloom-pdp .product-seamoss__eyebrow{background:none;font-size:10px;letter-spacing:1px;padding:0;margin:0 0 8px}
+.product-seamoss.product-seamoss--gruns.hx-bloom-pdp .product-seamoss__title{font-size:clamp(34px,3.8vw,52px)!important;letter-spacing:-1.5px;line-height:1.03!important;margin:0 0 12px}
+.product-seamoss.product-seamoss--gruns.hx-bloom-pdp .product-seamoss__subtext{font-size:15px;font-weight:400;line-height:1.55;margin:0;color:#4d6b55;max-width:none}
+.product-seamoss.product-seamoss--gruns.hx-bloom-pdp .product-seamoss__benefits{margin:20px 0 24px;gap:6px;flex-direction:row}
+.product-seamoss.product-seamoss--gruns.hx-bloom-pdp .product-seamoss__benefit{background:#e8f3df;font-size:10px!important;text-transform:uppercase;padding:6px 9px}
+.product-seamoss.product-seamoss--gruns.hx-bloom-pdp .product-seamoss__flavor-heading{font-size:15px;margin-bottom:10px}
+.product-seamoss.product-seamoss--gruns.hx-bloom-pdp .product-seamoss__flavor-heading-value{background:none;padding:0;margin-left:4px;font-weight:500}
+.product-seamoss.product-seamoss--gruns.hx-bloom-pdp .product-seamoss__flavor-subheading{display:none}
+.product-seamoss.product-seamoss--gruns.hx-bloom-pdp .product-seamoss__flavor-grid{grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;max-height:224px;padding:4px 4px 8px;scrollbar-width:thin;scrollbar-color:#9db596 #edf6e7}
+.product-seamoss.product-seamoss--gruns.hx-bloom-pdp .product-seamoss__flavor-card{border:0;background:none;padding:3px 0;box-shadow:none;transform:none;border-radius:0;gap:0}
+.product-seamoss.product-seamoss--gruns.hx-bloom-pdp .product-seamoss__flavor-card.is-active{box-shadow:none;background:none}
+.product-seamoss.product-seamoss--gruns.hx-bloom-pdp .product-seamoss__flavor-card.is-active::after{display:none}
+.product-seamoss.product-seamoss--gruns.hx-bloom-pdp .product-seamoss__flavor-thumb{width:56px;height:56px;border-radius:50%;background:#edf3e3!important;border:2px solid transparent;box-shadow:none;padding:4px;margin:0 auto 6px}
+.product-seamoss.product-seamoss--gruns.hx-bloom-pdp .product-seamoss__flavor-card.is-active .product-seamoss__flavor-thumb{border-color:#174b3c;background:var(--hx-fruit-light)!important}
+.product-seamoss.product-seamoss--gruns.hx-bloom-pdp .product-seamoss__flavor-label{font-size:10px;line-height:1.2;font-weight:500;padding:0;overflow-wrap:normal;word-break:normal}
+.hx-flavors-toggle{border:0;border-bottom:1px solid #65846c;background:none;color:#174b3c;font:inherit;font-size:12px;padding:5px 0;margin:8px 0 18px;cursor:pointer}
+.product-seamoss.product-seamoss--gruns.hx-bloom-pdp .product-seamoss__flavor-grid.is-expanded{max-height:none}
+.product-seamoss.product-seamoss--gruns.hx-bloom-pdp .product-seamoss__purchase{display:grid;grid-template-columns:116px minmax(0,1fr);gap:12px;margin:0;padding:0;background:none;border:0;box-shadow:none}
+.hx-purchase-label{grid-column:1/-1;margin:0;font-size:14px;font-weight:700}
+.hx-purchase-label small{font-size:12px;font-weight:400;display:block;margin-top:3px;color:#627661}
+.product-seamoss.product-seamoss--gruns.hx-bloom-pdp .product-seamoss__price-row{grid-column:1/-1;border:1px solid #9bb797;border-radius:12px;padding:12px 16px;background:#f5f9f0;justify-content:flex-start;margin:0}
+.product-seamoss.product-seamoss--gruns.hx-bloom-pdp .product-seamoss__price{font-size:26px}
+.hx-bloom-pdp .product-seamoss__savings:empty{display:none}
+.hx-bloom-pdp .product-seamoss__savings{grid-column:1/-1}
+.product-seamoss.product-seamoss--gruns.hx-bloom-pdp .product-seamoss__qty-row{margin:0;display:block;align-self:start}
+.hx-bloom-pdp .product-seamoss__qty-label{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.product-seamoss.product-seamoss--gruns.hx-bloom-pdp .product-seamoss__quantity-controls{height:52px;min-width:0;width:116px;border:1px solid #91ac8b;border-radius:30px;padding:0;display:flex}
+.hx-bloom-pdp .product-seamoss__quantity-controls input{min-width:0;width:34px;padding:0}
+.hx-bloom-pdp .product-seamoss__quantity-controls button{width:38px;min-width:0;padding:0;height:50px}
+.product-seamoss.product-seamoss--gruns.hx-bloom-pdp .product-seamoss__submit{height:52px;min-height:52px;box-shadow:none;font-size:14px;margin:0;transform:none}
+.hx-bloom-pdp .product-seamoss__purchase>p,.hx-bloom-pdp [data-product-errors],.hx-bloom-pdp shopify-payment-terms{grid-column:1/-1}
+.hx-bloom-pdp .product-seamoss__trust,.hx-bloom-pdp .product-seamoss__guarantee{font-size:11px;margin:0;line-height:1.5}
+.hx-bloom-pdp .product-seamoss__assurances{display:none}
+.hx-bloom-pdp .product-seamoss__accordions{margin-top:24px}
+.hx-bloom-pdp .product-seamoss__accordion{background:none;border:0;border-top:1px solid #d9dfd4;border-radius:0;margin:0;box-shadow:none}
+.hx-bloom-pdp .product-seamoss__accordion-summary{padding:16px 0;font-size:16px;color:#174b3c}
+.hx-bloom-pdp .product-seamoss__accordion-body{padding:0 0 16px;font-size:14px}
+.hx-pair{margin-top:36px}.hx-pair h2{display:inline-block;background:white;border:2px solid #d5e5ce;border-bottom:0;border-radius:14px 14px 0 0;margin:0 0 -2px;padding:10px 20px;font-family:inherit;font-weight:700;font-size:15px;color:#174b3c;position:relative;z-index:1}
+.hx-pair__cards{display:grid;gap:0;background:white;border:2px solid #d5e5ce;border-radius:0 22px 22px 22px;padding:22px;box-shadow:5px 6px 0 #dcefd5}
+.hx-pair__card{display:grid;grid-template-columns:34% minmax(0,1fr);gap:16px;padding:0 0 20px;margin-bottom:20px;border-bottom:1px solid #dde7d7}
+.hx-pair__card:last-child{border:0;padding-bottom:0;margin-bottom:0}
+.hx-pair__image{display:flex;align-items:center;justify-content:center;border-radius:16px;background:#f9f1e6;overflow:hidden}
+.hx-pair__image img{width:100%;height:auto;max-height:220px;object-fit:contain;padding:10px}
+.hx-pair__copy h3{font-size:17px;line-height:1.2;margin:0 0 8px}.hx-pair a{color:#174b3c;text-decoration:none}.hx-pair a:hover{text-decoration:underline}
+.hx-pair__copy p{font-size:12px;line-height:1.5;margin:0 0 10px;color:#567059}.hx-pair__price{font-size:15px;font-weight:700}
+.hx-pair form{margin:8px 0}.hx-pair button{border:0;border-radius:30px;background:#174b3c;color:white;width:100%;min-height:42px;font:inherit;font-size:12px;font-weight:700;cursor:pointer}.hx-pair button:disabled{background:#e5eddf;color:#4e654c;cursor:default}.hx-pair__details{font-size:11px;text-decoration:underline!important}
+@media(max-width:989px){.product-seamoss.product-seamoss--gruns.hx-bloom-pdp .product-seamoss__layout{gap:24px}.hx-buybox{padding:22px 18px}.hx-pair__cards{padding:16px}.product-seamoss.product-seamoss--gruns.hx-bloom-pdp .product-seamoss__flavor-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:749px){
+ .product-seamoss.product-seamoss--gruns.hx-bloom-pdp{padding:20px 0 36px}
+ .product-seamoss.product-seamoss--gruns.hx-bloom-pdp .product-seamoss__container{padding:0 16px!important}
+ .product-seamoss.product-seamoss--gruns.hx-bloom-pdp .product-seamoss__layout{display:flex!important;gap:24px!important}
+ .product-seamoss.product-seamoss--gruns.hx-bloom-pdp .product-seamoss__media-main{border-radius:20px!important;flex:auto}
+ .product-seamoss.product-seamoss--gruns.hx-bloom-pdp .product-seamoss__media-thumbs{display:flex!important;overflow-x:auto;gap:10px;padding:3px 2px 8px}
+ .product-seamoss.product-seamoss--gruns.hx-bloom-pdp .product-seamoss__media-thumb{width:76px;flex:0 0 76px;height:76px;border-radius:12px}
+ .hx-bloom-pdp .hx-jar-thumb>span{font-size:34px}.hx-bloom-pdp .hx-jar-thumb>strong{font-size:12px}
+ .product-seamoss.product-seamoss--gruns.hx-bloom-pdp .product-seamoss__title{font-size:40px!important}
+ .product-seamoss.product-seamoss--gruns.hx-bloom-pdp .product-seamoss__flavor-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+ .hx-buybox{border-radius:20px;padding:22px 18px}.hx-pair{margin-top:28px}
+ .product-seamoss.product-seamoss--gruns.hx-bloom-pdp.is-jar-open .product-seamoss__media-main{aspect-ratio:1/1.45!important}
+}

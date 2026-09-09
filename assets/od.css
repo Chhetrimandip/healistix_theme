@@ -627,3 +627,241 @@ body {
   .od-faq__grid { grid-template-columns: 1fr; }
   .od-faq__aside { position: static; }
 }
+
+/* ==========================================================================
+   OD Best Sellers carousel (od-bestsellers.liquid)
+   ========================================================================== */
+.od-bs {
+  padding: var(--od-section) 0;
+  background: #FAF8F5;
+  overflow: hidden;
+}
+.od-bs__heading {
+  font-family: var(--od-font-display);
+  font-size: clamp(32px, 4.5vw, 52px);
+  font-weight: 600;
+  line-height: 1.1;
+  text-align: center;
+  margin: 0 0 clamp(32px, 4vw, 52px);
+  letter-spacing: -0.02em;
+}
+
+/* Shell = the scrollable area + arrow buttons */
+.od-bs__shell {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Track = horizontally scrollable card row */
+.od-bs__track {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 12px clamp(20px, 4vw, 64px) 24px;
+  width: 100%;
+}
+.od-bs__track::-webkit-scrollbar { display: none; }
+
+/* Arrow buttons */
+.od-bs__arrow {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(26, 58, 42, 0.25);
+  background: #fff;
+  color: #1A3A2A;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,.10);
+  transition: background 0.18s, border-color 0.18s, opacity 0.18s;
+  flex-shrink: 0;
+}
+.od-bs__arrow:disabled { opacity: 0.3; cursor: default; }
+.od-bs__arrow:not(:disabled):hover { background: #1A3A2A; color: #fff; border-color: #1A3A2A; }
+.od-bs__arrow svg { width: 20px; height: 20px; }
+.od-bs__arrow--prev { left: 6px; }
+.od-bs__arrow--next { right: 6px; }
+
+/* Card */
+.od-bs__card {
+  flex: 0 0 260px;
+  scroll-snap-align: start;
+  background: #F9F6EF;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 12px rgba(0,0,0,.06);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.od-bs__card:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,.12);
+  transform: translateY(-2px);
+}
+.od-bs__card-link,
+.od-bs__name-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Image area */
+.od-bs__img-wrap {
+  position: relative;
+  background: #EEF7F3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+.od-bs__img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 16px;
+  display: block;
+}
+.od-placeholder-jar {
+  width: 60%;
+  height: auto;
+}
+
+/* Discount badge top-left */
+.od-bs__badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: #1A3A2A;
+  color: #fff;
+  font-family: var(--od-font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border-radius: 20px;
+  z-index: 1;
+}
+
+/* Mint-green savings banner */
+.od-bs__banner {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-family: var(--od-font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 6px 8px;
+}
+
+/* Info area */
+.od-bs__info {
+  padding: 16px 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+.od-bs__name {
+  font-family: var(--od-font-body);
+  font-size: 14px;
+  font-weight: 600;
+  color: #1A3A2A;
+  margin: 0;
+  line-height: 1.3;
+}
+.od-bs__price {
+  font-family: var(--od-font-body);
+  font-size: 14px;
+  font-weight: 600;
+  color: #1A3A2A;
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+.od-bs__price s {
+  font-weight: 400;
+  color: #9aaa9a;
+  font-size: 12px;
+}
+.od-bs__variant {
+  font-family: var(--od-font-body);
+  font-size: 12px;
+  color: #6b7a88;
+  margin: 0;
+}
+
+/* Swatches */
+.od-bs__swatches {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 2px;
+}
+.od-bs__swatch {
+  display: block;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+.od-bs__swatch.is-active,
+.od-bs__swatch:hover {
+  border-color: #1A3A2A;
+  outline: 2px solid #1A3A2A;
+  outline-offset: 1px;
+}
+.od-bs__swatch-more {
+  font-family: var(--od-font-body);
+  font-size: 11px;
+  font-weight: 600;
+  color: #1A3A2A;
+  background: rgba(26,58,42,.1);
+  border-radius: 20px;
+  padding: 2px 7px;
+}
+
+/* Add-to-cart button */
+.od-bs__btn {
+  margin-top: auto;
+  display: block;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-family: var(--od-font-body);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: filter 0.18s, opacity 0.18s;
+}
+.od-bs__btn:not(:disabled):hover { filter: brightness(1.15); }
+.od-bs__btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* Mobile tweaks */
+@media (max-width: 600px) {
+  .od-bs__card { flex: 0 0 220px; }
+  .od-bs__arrow--prev { left: 2px; }
+  .od-bs__arrow--next { right: 2px; }
+}

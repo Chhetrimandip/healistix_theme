@@ -65,9 +65,19 @@
 
 /* ---- Header background ---- */
 .header-wrapper.color-scheme-3.gradient {
-  background: #0A1628 !important;
-  color: #FBF7F0 !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(242, 247, 240, 0.52) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  backdrop-filter: blur(24px) saturate(160%);
+  color: #1A2521 !important;
+  border: 1px solid rgba(255, 255, 255, 0.82);
+  border-radius: 18px;
+  box-shadow: 0 8px 26px rgba(35, 48, 40, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  margin: 10px 16px;
+  width: calc(100% - 32px);
+}
+
+.header-wrapper.color-scheme-3.gradient .header {
+  background: transparent !important;
 }
 
 /* Keep announcement bar dark — do NOT inherit light cream */
@@ -183,6 +193,12 @@
 .header__icon svg {
   width: 22px;
   height: 22px;
+}
+
+.header__icon--cart .icon,
+.header__icon--cart svg {
+  width: 50px;
+  height: 50px;
 }
 
 .header__icon {
@@ -351,14 +367,14 @@
   text-decoration: none;
 }
 
-/* Light text/icons on dark header */
+/* Dark text/icons on the light glass header */
 .header-wrapper.color-scheme-3 .header__icon,
 .header-wrapper.color-scheme-3 .header__heading-link,
 .header-wrapper.color-scheme-3 .header__menu-item,
 .header-wrapper.color-scheme-3 .header__menu-item span,
 .header-wrapper.color-scheme-3 .header a,
 .header-wrapper.color-scheme-3 .header__icon svg {
-  color: #FBF7F0 !important;
+  color: #1A2521 !important;
 }
 
 .header-wrapper.color-scheme-3 .header__menu-item {
@@ -370,7 +386,7 @@
 }
 
 .header-wrapper.color-scheme-3 .header__icon {
-  opacity: 0.7;
+  opacity: 0.82;
 }
 
 /* ---- Mobile Adjustments ---- */

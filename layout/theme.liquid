@@ -238,6 +238,7 @@
         box-sizing: border-box;
         font-size: calc(var(--font-body-scale) * 62.5%);
         height: 100%;
+        overflow-x: clip;
       }
 
       body {
@@ -302,6 +303,9 @@
   </head>
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}{% if template.suffix == 'batana' %} template-product-batana{% endif %}">
+
+    {% section 'hx-fruit-bg' %}
+
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
     </a>
@@ -368,5 +372,9 @@
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
+
+
+    <!-- fruit bg moved to top of body -->
+
   </body>
 </html>

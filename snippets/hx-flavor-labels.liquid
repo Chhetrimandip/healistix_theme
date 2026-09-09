@@ -1,0 +1,34 @@
+{{ 'hx-label-drawer.css' | asset_url | stylesheet_tag }}
+{%- capture supported_labels -%}{%- render 'hx-flavor-support', mode: 'interactive' -%}{%- endcapture -%}
+{%- assign source_flavors = supported_labels | strip | split: ',' -%}
+{%- assign label_flavors = product.variants | map: 'option1' | uniq -%}
+{%- for flavor in label_flavors -%}
+  {%- assign prefix = flavor | handleize | prepend: 'hx-label-' -%}
+  <div data-flavor-label="{{ flavor | escape }}"{% unless initial_variant.option1 == flavor %} hidden{% endunless %}>
+    <div class="hx-label-intro"><span>THE DETAILS IN YOUR JAR</span><h3>{{ flavor }}<br>sea moss gel</h3><p>Ingredients, nutrition &amp; a little know-how.</p></div>
+    {% if source_flavors contains flavor %}
+      {% render 'hx-label-content-by-flavor', flavor: flavor %}
+    {% else %}
+      <section class="hx-label-card">
+        <p class="hx-label-kicker">{{ flavor | escape }} · LABEL INFORMATION</p>
+        <h4>Label details are not available yet</h4>
+        <p>We don't have a verified ingredient and nutrition panel for {{ flavor | escape }} to display here. Please check your jar or <a href="{{ routes.root_url }}pages/contact">contact us for this flavor's label</a> before ordering.</p>
+        <p class="hx-label-caption">Ingredients and nutrition can differ by flavor. We have not substituted information from another jar.</p>
+      </section>
+    {% endif %}
+    {% if source_flavors contains flavor %}
+    <details class="hx-label-originals">
+    <summary>View original printed label</summary>
+    <p>Ingredients &amp; nutrition · tap to enlarge</p>
+    <a href="{{ prefix | append: '-right.webp' | asset_url }}" target="_blank" rel="noopener" aria-label="Open {{ flavor }} jar label at full size">
+      <img src="{{ prefix | append: '-right.webp' | asset_url }}" alt="{{ flavor }} ingredient panel, as printed on the jar" width="1200" height="1100" loading="lazy" style="width:100%;height:auto">
+    </a>
+    <p>Directions</p>
+    <a href="{{ prefix | append: '-left.webp' | asset_url }}" target="_blank" rel="noopener" aria-label="Open {{ flavor }} directions at full size">
+      <img src="{{ prefix | append: '-left.webp' | asset_url }}" alt="{{ flavor }} directions, as printed on the jar" width="1200" height="1100" loading="lazy" style="width:100%;height:auto">
+    </a>
+    </details>
+    {% endif %}
+  </div>
+{%- endfor -%}
+<!-- label-panels-end -->

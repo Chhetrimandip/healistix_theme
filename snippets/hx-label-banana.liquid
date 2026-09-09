@@ -1,0 +1,40 @@
+{% comment %}Banana only. Transcribed from hx-label-banana-right.webp and -left.webp. Do not reuse for other flavors.{% endcomment %}
+<div class="hx-label-content">
+  <section class="hx-label-card">
+    <p class="hx-label-kicker">01 / WHAT'S INSIDE</p>
+    <h4>Ingredients</h4>
+    <p>100% Pure Wildcrafted Ocean Sea Moss (St Lucia) Spring Water, Banana Puree, Citric Acid (100% Natural, Helps Keep It Fresh)</p>
+    <p class="hx-label-caption">Ingredient wording as printed on the Banana jar.</p>
+  </section>
+  <section class="hx-label-card hx-label-storage">
+    <p class="hx-label-kicker">KEEP IT FRESH · AS PRINTED</p>
+    <h4>Refrigerate after opening.</h4>
+    <p>After opening, best before 30 days.</p>
+  </section>
+  <section class="hx-label-card hx-label-nutrition">
+    <p class="hx-label-kicker">02 / PER SERVING</p>
+    <h4>Nutrition Facts</h4>
+    <p>16 servings per container</p>
+    <div class="hx-label-serving"><strong>Serving size</strong><strong>2 Tablespoon (28g)</strong></div>
+    <div class="hx-label-calories"><div><span>Amount per serving</span><strong>Calories</strong></div><b>5</b></div>
+    <table>
+      <caption class="visually-hidden">Banana sea moss gel nutrition, as printed on the jar</caption>
+      <thead><tr><th scope="col">Nutrient</th><th scope="col">% Daily Value*</th></tr></thead>
+      <tbody>
+      {% assign nutrient_rows = 'Total Fat 0g|0%;Saturated Fat 0g|0%;Trans Fat 0g|—;Polyunsaturated Fat 0g|—;Monounsaturated Fat 0g|—;Cholesterol 0mg|0%;Sodium 20mg|1%;Total Carbohydrate 2g|1%;Dietary Fiber 0g|0%;Total Sugars 2g|—;Includes 0g Added Sugars|0%;Protein 0g|0%;Vitamin D 0mcg|0%;Calcium 0mg|0%;Iron 2.52mg|15%;Potassium 47mg|0%;Vitamin A|10%;Vitamin C|0%;Vitamin E|2%;Vitamin K|2%;Thiamin|0%;Riboflavin|10%;Niacin|0%;Vitamin B6|10%;Folate|15%;Vitamin B12|0%;Phosphorus|4%;Magnesium|4%;Zinc|4%;Copper|2%;Manganese|4%' | split: ';' %}
+      {% for nutrient_row in nutrient_rows %}{% assign cells = nutrient_row | split: '|' %}
+        <tr><th scope="row">{{ cells[0] }}</th><td>{{ cells[1] }}</td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+    <p class="hx-label-caption">*The % Daily Value (DV) tells you how much a nutrient in a serving of food contributes to a daily diet. 2,000 calories a day is used for general nutrition advice.</p>
+    <p class="hx-label-caption">Values reproduced from the printed label. — means no Daily Value is printed.</p>
+  </section>
+  <section class="hx-label-card">
+    <p class="hx-label-kicker">03 / LABEL DIRECTIONS</p>
+    <h4>How to enjoy</h4>
+    <p>Incorporate 1–2 tablespoons of Sea Moss Gel daily. Add to smoothies, shakes, teas, or spread on toast. Consume directly if desired.</p>
+    <details class="hx-label-extra"><summary>Skin &amp; hair directions on the label</summary><h5>Skin</h5><p>Cleanse face with a mild cleanser. Apply Sea Moss Gel, avoiding eyes. Leave for 15–20 minutes, rinse with cool water, and pat dry.</p><h5>Hair</h5><p>After shampooing, apply Sea Moss Gel to hair, especially ends. Leave for 3–5 minutes, then rinse with cool water.</p></details>
+  </section>
+  <p class="hx-label-notice">A readable guide to the Banana label—not a replacement for the jar you receive. Always check its ingredients, directions and date information.</p>
+</div>

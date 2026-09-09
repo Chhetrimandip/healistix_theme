@@ -1,0 +1,87 @@
+{{ 'hx-pdp-reviews.css' | asset_url | stylesheet_tag }}
+{% if section.settings.review_source == 'judgeme' %}
+  {{ 'hx-judgeme-reviews.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'hx-judgeme-reviews.js' | asset_url }}" defer></script>
+  {% render 'hx-judgeme-reviews', section: section, product: product %}
+{% else %}
+<script src="{{ 'hx-pdp-reviews.js' | asset_url }}" defer></script>
+<section class="hx-pdp-reviews" id="customer-voices" data-pdp-reviews aria-labelledby="ReviewsTitle-{{ section.id }}">
+  <div class="hx-pdp-reviews__inner">
+    <div class="hx-pdp-reviews__intro">
+      <div><h2 id="ReviewsTitle-{{ section.id }}">{{ section.settings.heading | escape }}</h2><p>{{ section.settings.subheading | escape }}</p><p>These are selected excerpts, not an overall product rating. Each review identifies its flavor and source.</p></div>
+      {% if section.settings.source_url != blank %}<a class="hx-pdp-reviews__source" href="{{ section.settings.source_url }}" target="_blank" rel="noopener">See all on Amazon ↗</a>{% endif %}
+    </div>
+    <div class="hx-pdp-reviews__media" aria-label="Customer photos and videos">
+      {% for block in section.blocks %}{% if block.settings.image_asset != blank %}
+        <a href="#Review-{{ section.id }}-{{ block.id }}" data-review-jump aria-label="See review by {{ block.settings.badge | escape }}"><img src="{{ block.settings.image_asset | asset_url }}" width="96" height="96" loading="lazy" alt="Customer photo by {{ block.settings.badge | escape }}">{% if block.settings.video_asset != blank %}<span aria-hidden="true">▶</span>{% endif %}</a>
+      {% endif %}{% endfor %}
+    </div>
+    <div class="hx-pdp-reviews__tools">
+      <label>Flavor <select data-review-flavor><option value="">All flavors</option></select></label>
+      <label>Sort <select data-review-sort><option value="featured">Featured</option><option value="recent">Most recent</option><option value="high">Highest rating</option><option value="low">Lowest rating</option></select></label>
+      <label><input type="checkbox" data-review-media> Photos &amp; videos</label>
+      <span class="hx-pdp-reviews__count" data-review-count role="status" aria-live="polite">{{ section.blocks.size }} selected reviews</span>
+    </div>
+    <div data-review-list>
+    {% for block in section.blocks %}
+      {% assign review_flavor = block.settings.footer | split: '·' | first | strip %}
+      {% assign review_date = block.settings.footer | split: '·' | last | strip %}
+      {% assign review_rating = block.settings.rating | split: '·' | last | strip | plus: 0 %}
+      <article class="hx-review-row" id="Review-{{ section.id }}-{{ block.id }}" tabindex="-1" data-review-row data-flavor="{{ review_flavor | escape }}" data-date="{{ review_date | escape }}" data-rating="{{ review_rating }}" data-order="{{ forloop.index }}" data-media="{% if block.settings.image_asset != blank or block.settings.video_asset != blank %}true{% else %}false{% endif %}" {{ block.shopify_attributes }}>
+        <div class="hx-review-row__author"><span class="hx-review-row__avatar" aria-hidden="true">{{ block.settings.badge | slice: 0 | escape }}</span><strong>{{ block.settings.badge | escape }}</strong><p>{{ block.settings.footer | escape }}</p></div>
+        <div>
+          {% if block.settings.rating != blank %}<div class="hx-review-row__rating">{{ block.settings.rating | escape }}</div>{% endif %}
+          <h3>{{ block.settings.title | escape }}</h3>
+          {% if block.settings.text != blank %}<blockquote>“{{ block.settings.text | escape | newline_to_br }}”</blockquote>{% endif %}
+          {% if block.settings.video_asset != blank %}<div class="hx-review-row__attachment"><video controls playsinline preload="none" poster="{{ block.settings.image_asset | asset_url }}" aria-label="Customer video by {{ block.settings.badge | escape }}"><source src="{{ block.settings.video_asset | asset_url }}" type="video/mp4">{% if block.settings.captions_asset != blank %}<track kind="captions" src="{{ block.settings.captions_asset | asset_url }}" srclang="en" label="English" default>{% endif %}</video></div>
+          {% elsif block.settings.image_asset != blank %}<a class="hx-review-row__attachment" href="{{ block.settings.source_url | default: section.settings.source_url }}" target="_blank" rel="noopener"><img src="{{ block.settings.image_asset | asset_url }}" alt="{{ block.settings.media_alt | default: block.settings.badge | escape }}" width="132" height="176" loading="lazy"></a>{% endif %}
+          {% if block.settings.disclosure != blank %}<p class="hx-review-row__disclosure">{{ block.settings.disclosure | escape }}</p>{% endif %}
+          <a class="hx-review-row__source" href="{{ block.settings.source_url | default: section.settings.source_url }}" target="_blank" rel="noopener">{% if block.settings.source_url != blank %}Read original review{% else %}Browse source reviews{% endif %} ↗</a>
+        </div>
+      </article>
+    {% endfor %}
+    </div>
+    <p class="hx-pdp-reviews__empty" data-review-empty hidden>No selected reviews match these filters. Try another flavor or include reviews without photos.</p>
+    <button class="hx-pdp-reviews__more" type="button" data-review-more hidden>Show more reviews</button>
+  </div>
+</section>
+{% endif %}
+
+{% schema %}
+{
+  "name": "PDP Customer Reviews",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {"type": "select", "id": "review_source", "label": "Review source", "default": "selected", "options": [{"value": "selected", "label": "Selected theme reviews"}, {"value": "judgeme", "label": "Judge.me published reviews"}], "info": "Judge.me requires its app embed enabled. Existing customer videos remain separate from the imported reviews."},
+    {"type": "text", "id": "heading", "label": "Heading", "default": "Customer experiences"},
+    {"type": "text", "id": "subheading", "label": "Subheading"},
+    {"type": "url", "id": "source_url", "label": "Amazon reviews link"}
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        {"type": "text", "id": "badge", "label": "Reviewer display name"},
+        {"type": "text", "id": "rating", "label": "Original rating"},
+        {"type": "text", "id": "title", "label": "Editorial topic heading (not a quote)"},
+        {"type": "textarea", "id": "text", "label": "Verified review excerpt"},
+        {"type": "text", "id": "footer", "label": "Source, flavor and review date"},
+        {"type": "text", "id": "video_asset", "label": "Original customer video asset filename"},
+        {"type": "text", "id": "image_asset", "label": "Customer photo or video poster asset filename"},
+        {"type": "text", "id": "captions_asset", "label": "English captions asset filename"},
+        {"type": "text", "id": "media_alt", "label": "Customer photo description"},
+        {"type": "text", "id": "disclosure", "label": "Original source disclosure"},
+        {"type": "url", "id": "source_url", "label": "Original review URL"}
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "PDP Customer Reviews",
+      "blocks": []
+    }
+  ]
+}
+{% endschema %}

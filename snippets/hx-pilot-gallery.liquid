@@ -1,0 +1,48 @@
+{%- comment -%} Interim theme-backed gallery. Only render for existing flavor options; catalog media takes over after the import. {%- endcomment -%}
+{%- capture supported_flavors -%}{%- render 'hx-flavor-support' -%}{%- endcapture -%}
+{%- assign pilot_flavors = supported_flavors | strip | split: ',' -%}
+{%- capture supported_jars -%}{%- render 'hx-flavor-support', mode: 'interactive' -%}{%- endcapture -%}
+{%- assign jar_flavors = supported_jars | strip | split: ',' -%}
+{%- comment -%} Merchant approved the legacy side labels alongside the 2025 fronts. {%- endcomment -%}
+{%- assign pilot_views = 'front.webp,left.webp,right.webp' | split: ',' -%}
+{%- for flavor in pilot_flavors -%}
+  {%- assign flavor_exists = false -%}
+  {%- for option in product.options_with_values -%}
+    {%- if option.values contains flavor -%}{%- assign flavor_exists = true -%}{%- endif -%}
+  {%- endfor -%}
+  {%- if flavor_exists -%}
+    {%- assign pilot_views = 'front.webp' | split: ',' -%}
+    {%- if jar_flavors contains flavor -%}{%- assign pilot_views = 'front.webp,left.webp,right.webp' | split: ',' -%}{%- endif -%}
+    {%- if flavor == 'Banana' or flavor == 'Blueberry' -%}
+      {%- assign pilot_views = '' | split: ',' -%}
+      {%- assign new_stories = 'studio,breakfast' | split: ',' -%}
+      {%- for story in new_stories -%}
+        {%- assign story_file = flavor | handleize | prepend: 'hx-' | append: '-' | append: story | append: '-v3.png' -%}
+        <button type="button" class="product-seamoss__media-thumb" data-product-thumb data-pilot-cutout data-gallery-story {% if forloop.first %}data-gallery-cover{% endif %} data-image="{{ story_file | asset_url }}" data-flavors="{{ flavor }}|" aria-label="View {{ flavor }} {{ story }} scene"{% unless initial_variant.option1 == flavor %} hidden{% endunless %}>
+          <img src="{{ story_file | asset_url }}" alt="Healistix {{ flavor }} sea moss gel — {{ story }} scene{% if story == 'breakfast' %}, serving suggestion{% endif %}" width="1254" height="1254" loading="lazy">
+        </button>
+      {%- endfor -%}
+    {%- endif -%}
+    {%- for view in pilot_views -%}
+      {%- assign pilot_file = flavor | handleize | prepend: 'hx-pilot-' | append: '-' | append: view -%}
+      <button type="button" class="product-seamoss__media-thumb" data-product-thumb data-pilot-cutout {% if view == 'front.webp' and flavor != 'Banana' and flavor != 'Blueberry' %}data-gallery-cover{% endif %} data-image="{{ pilot_file | asset_url }}" data-flavors="{{ flavor }}|" aria-label="View {{ flavor }} {{ view | split: '.' | first }}"{% unless initial_variant.option1 == flavor %} hidden{% endunless %}>
+        <img src="{{ pilot_file | asset_url }}" alt="{{ flavor }} sea moss gel — {{ view | split: '.' | first }}" width="100" height="100" loading="lazy">
+      </button>
+    {%- endfor -%}
+    {%- if flavor == 'Banana' or flavor == 'Blueberry' -%}
+      {%- if flavor == 'Blueberry' -%}
+        {%- assign editorial_labels = 'Blueberry serving directions and storage|Four ingredients in Blueberry sea moss gel|Three ways to enjoy Blueberry sea moss gel' | split: '|' -%}
+      {%- else -%}
+        {%- assign editorial_labels = 'Banana nutrition facts from the jar label|Four ingredients in Banana sea moss gel|Three ways to enjoy Banana sea moss gel' | split: '|' -%}
+      {%- endif -%}
+      {%- assign banana_stories = 'facts,ingredients,ritual' | split: ',' -%}
+      {%- for story in banana_stories -%}
+        {%- assign story_file = flavor | handleize | prepend: 'hx-' | append: '-editorial-' | append: story | append: '-v2.png' -%}
+        <button type="button" class="product-seamoss__media-thumb" data-product-thumb data-pilot-cutout data-gallery-story data-image="{{ story_file | asset_url }}" data-flavors="{{ flavor }}|" aria-label="{{ editorial_labels[forloop.index0] | escape }}"{% unless initial_variant.option1 == flavor %} hidden{% endunless %}>
+          <img src="{{ story_file | asset_url }}" alt="{{ editorial_labels[forloop.index0] | escape }}" width="100" height="100" loading="lazy">
+        </button>
+      {%- endfor -%}
+    {%- endif -%}
+
+  {%- endif -%}
+{%- endfor -%}

@@ -1,0 +1,46 @@
+{{ 'hx-wellness-collection.css' | asset_url | stylesheet_tag }}
+{% liquid
+  assign kind = section.settings.kind
+  assign wellness_product = product
+  if wellness_product == blank
+    assign wellness_product = all_products[section.settings.handle]
+  endif
+  assign current_variant = wellness_product.selected_or_first_available_variant
+  assign artwork = 'hx-product-' | append: kind | append: '-front.webp'
+%}
+<section class="hx-wellness-page hx-wellness-page--{{ kind }}" aria-labelledby="WellnessTitle-{{ section.id }}">
+  <a class="hx-wellness-page__back" href="{{ routes.root_url }}#WellnessCollection">← Explore the collection</a>
+  <div class="hx-wellness-page__hero">
+    <div class="hx-wellness-page__photo"><img src="{{ artwork | asset_url }}" alt="{{ section.settings.title | escape }} jar" width="900" height="1000" loading="eager" fetchpriority="high"></div>
+    <div class="hx-wellness-page__copy">
+      <span class="hx-wellness-pill">{{ section.settings.category | escape }}</span>
+      <h1 id="WellnessTitle-{{ section.id }}">{{ wellness_product.title | default: section.settings.title | escape }}</h1>
+      <p class="hx-wellness-page__intro">{{ section.settings.intro | escape }}</p>
+      <p class="hx-wellness-page__price">{% if current_variant != blank and current_variant.price > 0 %}{{ current_variant.price | money }}{% elsif wellness_product == blank %}{{ section.settings.preview_price | times: 100 | round | money }}{% else %}Price coming soon{% endif %}</p>
+      {% if current_variant.available and current_variant.price > 0 %}
+        {% form 'product', wellness_product %}
+          <input type="hidden" name="id" value="{{ current_variant.id }}">
+          <input type="hidden" name="quantity" value="1">
+          <button class="hx-wellness-page__button" type="submit">Add to cart</button>
+        {% endform %}
+      {% elsif wellness_product == blank %}
+        <button class="hx-wellness-page__button" type="button" disabled>Not yet available online</button>
+        <p class="hx-wellness-page__note">Online ordering is not open for this product yet.</p>
+      {% elsif current_variant.price <= 0 %}
+        <button class="hx-wellness-page__button" type="button" disabled>Not yet available online</button>
+      {% else %}
+        <button class="hx-wellness-page__button" type="button" disabled>Sold out online</button>
+        <p class="hx-wellness-page__note">Currently unavailable for online orders. Please check back for availability.</p>
+      {% endif %}
+      <p class="hx-wellness-page__note">Shopping in person? <a href="{{ routes.root_url }}pages/contact">Ask about in-store availability</a>. For ingredients and directions, refer to your product label.</p>
+      <details><summary>Product details</summary><p>{{ section.settings.details | escape }}</p></details>
+      <details><summary>How to use</summary><p>{{ section.settings.directions | escape }}</p></details>
+      <details><summary>Shipping &amp; availability</summary><p>Online availability is shown above. When available, add this product to your cart to see delivery options at checkout. Contact our team to check availability at our physical store.</p></details>
+    </div>
+  </div>
+  <div class="hx-wellness-page__details"><div><p class="hx-wellness-eyebrow">MAKE A MOMENT FOR YOURSELF</p><h2>{{ section.settings.story_heading | escape }}</h2></div><div><p>{{ section.settings.story | escape }}</p><p>Need help choosing? Get in touch with the Healistix team.</p></div></div>
+  <a class="hx-wellness-link hx-wellness-page__crosslink" href="{{ routes.root_url }}#WellnessCollection">Meet the rest of the collection <span aria-hidden="true">↗</span></a>
+</section>
+{% schema %}
+{"name":"Healistix — Wellness PDP","settings":[{"type":"select","id":"kind","label":"Artwork","options":[{"value":"batana","label":"Batana"},{"value":"shilajit","label":"Shilajit"}],"default":"batana"},{"type":"text","id":"handle","label":"Product handle"},{"type":"text","id":"title","label":"Preview title"},{"type":"text","id":"category","label":"Category"},{"type":"textarea","id":"intro","label":"Introduction"},{"type":"textarea","id":"details","label":"Product details"},{"type":"textarea","id":"directions","label":"Directions"},{"type":"text","id":"story_heading","label":"Story heading"},{"type":"textarea","id":"story","label":"Story"},{"type":"text","id":"preview_price","label":"Price when product is a draft","default":"25.00"}]}
+{% endschema %}

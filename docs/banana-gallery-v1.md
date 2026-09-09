@@ -1,0 +1,22 @@
+# Banana gallery expansion
+
+Five photo slides: transparent hero, taste, serving ideas, ingredients, clean original front. Optional 360 viewer remains separate. New generated slides have designed opaque backgrounds and fill the gallery without decorative overlays. Only Banana uses these slides.
+
+Built-in imagegen used for all three new PNGs. Ingredients transcribed from assets/hx-label-banana-right.webp: St. Lucia sea moss, spring water, banana puree, citric acid. Serving scenes are suggestions. No customer quotes or medical claims added.
+
+Files: assets/hx-banana-taste-v1.png, assets/hx-banana-ritual-v1.png, assets/hx-banana-ingredients-v1.png.
+
+## Prompts
+
+### taste
+
+Create one square premium ecommerce gallery slide for HEALISTIX Banana Sea Moss Gel. Reference 1 is the actual jar: preserve black lid, exact white teal and yellow label, brand spelling and proportions. Reference 2 is the approved visual direction, with appetizing banana photography, playful teal/yellow graphic accents. Original composition; don't repeat the hero. Bold rounded typography, very legible mobile hierarchy, generous margins. No medical claims, invented reviews, awards, discounts or additional text beyond specified copy. Full opaque designed backdrop, no checkerboard. Butter-yellow background with subtle paper texture. Huge dark teal headline at top "BIG BANANA ENERGY." Smaller subtitle "Your spoonful of sunshine." Hero is a luscious spoonful of pale banana sea moss gel in foreground with fresh banana slices, jar medium size behind to left. On right three small clean teal outlined stickers with exact text "REAL BANANA", "FRUITY & SMOOTH", "SPOON. SMILE. REPEAT." Warm natural studio lighting, appetizing macro textures, sophisticated playful editorial design. Do not depict a thin beverage or ice cream.
+
+### ritual
+
+Create one square premium ecommerce gallery slide for HEALISTIX Banana Sea Moss Gel. Reference 1 is the actual jar: preserve black lid, exact white teal and yellow label, brand spelling and proportions. Reference 2 is the approved visual direction, with appetizing banana photography, playful teal/yellow graphic accents. Original composition; don't repeat the hero. Bold rounded typography, very legible mobile hierarchy, generous margins. No medical claims, invented reviews, awards, discounts or additional text beyond specified copy. Full opaque designed backdrop, no checkerboard. Cream and pale mint background. Exact headline "MAKE IT YOUR MORNING." Subtitle "Three ways to enjoy banana sea moss." Three beautifully arranged photographic scenes in a coherent grid with large numbered yellow circles: spoon with gel labeled "01  BY THE SPOON"; banana smoothie in glass labeled "02  BLEND INTO A SMOOTHIE"; breakfast bowl with oats, banana slices and a spoonful of gel labeled "03  SWIRL INTO YOUR BOWL". The real jar appears small at bottom right anchoring scene. Bottom small text "Serving ideas". Modern premium food editorial photography, teal rounded labels, clear separation and breathable layout. These are serving suggestions, no dose or nutritional claims.
+
+### ingredients
+
+Create one square premium ecommerce gallery slide for HEALISTIX Banana Sea Moss Gel. Reference 1 is the actual jar: preserve black lid, exact white teal and yellow label, brand spelling and proportions. Reference 2 is the approved visual direction, with appetizing banana photography, playful teal/yellow graphic accents. Original composition; don't repeat the hero. Bold rounded typography, very legible mobile hierarchy, generous margins. No medical claims, invented reviews, awards, discounts or additional text beyond specified copy. Full opaque designed backdrop, no checkerboard. Pale seafoam background with a restrained wave motif. Headline "A LITTLE LOOK INSIDE." Subtitle "Four ingredients. One banana-filled jar." Large real jar at lower center surrounded by four attractive infographic callouts with delicate leader lines, each with a small ingredient photograph or illustration: sea moss labeled "ST. LUCIA SEA MOSS"; water droplet labeled "SPRING WATER"; fresh banana labeled "BANANA PUREE"; simple tiny white crystals labeled "CITRIC ACID". Bottom teal rounded bar reading "Made with real banana". Do not add citrus fruit or imply citric acid is fresh lime. Only these four ingredients, no health or nutritional assertions. Calm balanced modern layout, mix studio photography with playful editorial accents.
+

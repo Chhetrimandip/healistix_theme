@@ -1,66 +1,278 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "main": {
       "type": "product-seamoss",
       "settings": {
-        "eyebrow_text": "WILDCRAFTED · SMALL-BATCH · ONLY AT HEALISTIX",
-        "heading": "Sebi Trinity Sea Moss Gel",
-        "review_text": "460+ verified 5-star reviews",
-        "review_subtext": "The best tasting seamoss gel ever — wildcrafted sea moss, Irish bladderwrack, and burdock root in a single jar.",
-        "option_helper": "Pick a single jar, a bundle, or subscribe and save 15%.",
-        "support_points": "Wildcrafted Atlantic sea moss|The Sebi Trinity in one jar|Blended by hand",
-        "quantity_heading": "How many jars?",
-        "modal_button_label": "Choose flavor",
-        "bundle_heading": "Pick your bundle",
-        "bundle_subheading": "Three jars lasts one person about six weeks. Six jars is the family rhythm.",
+        "enable_jar_viewer": true,
+        "eyebrow_text": "HEALISTIX · FIND YOUR DAILY GOODNESS",
+        "heading": "Sea Moss Gel",
+        "review_text": "",
+        "review_subtext": "A little daily goodness, in your favorite flavor. Find your next spoonful.",
+        "support_points": "Fruit flavors|Spoon, blend, enjoy|Your daily ritual",
         "flavor_heading": "Pick your flavor",
-        "flavor_subheading": "Trinity is the unflavored original. Elderberry and Soursop are for those who prefer to taste it in a smoothie.",
-        "plan_heading": "One-time, or on rhythm?",
-        "plan_subheading": "Subscribe and we'll ship a fresh jar before your last one runs out. Skip or cancel anytime.",
-        "one_time_heading": "One jar at a time",
-        "one_time_subheading": "Try the Trinity without committing.",
-        "button_label": "ADD TO CART"
+        "flavor_subheading": "",
+        "quantity_heading": "Quantity",
+        "button_label": "ADD TO CART",
+        "trust_line": "Read the selected flavor’s label for ingredients and storage directions.",
+        "guarantee_note": "Questions about your jar? Contact us at hi@healistix.com."
       },
       "blocks": {
+        "flavor_banana": {
+          "type": "flavor",
+          "settings": {
+            "label": "Banana",
+            "option_value": "Banana",
+            "tagline": "",
+            "badge": ""
+          }
+        },
+        "flavor_blueberry": {
+          "type": "flavor",
+          "settings": {
+            "label": "Blueberry",
+            "option_value": "Blueberry",
+            "tagline": "",
+            "badge": ""
+          }
+        },
+        "flavor_mango": {
+          "type": "flavor",
+          "settings": {
+            "label": "Mango",
+            "option_value": "Mango",
+            "tagline": "",
+            "badge": ""
+          }
+        },
+        "flavor_pineapple": {
+          "type": "flavor",
+          "settings": {
+            "label": "Pineapple",
+            "option_value": "Pineapple",
+            "tagline": "",
+            "badge": ""
+          }
+        },
+        "flavor_watermelon": {
+          "type": "flavor",
+          "settings": {
+            "label": "Watermelon",
+            "option_value": "Watermelon",
+            "tagline": "",
+            "badge": ""
+          }
+        },
+        "assurance_1": {
+          "type": "assurance",
+          "settings": {
+            "icon_text": "✓",
+            "text": "Choose your flavor"
+          }
+        },
+        "assurance_2": {
+          "type": "assurance",
+          "settings": {
+            "icon_text": "🚚",
+            "text": "Check the label for your jar"
+          }
+        },
         "info_tab_1": {
           "type": "info_tab",
           "settings": {
-            "title": "What's in the jar",
-            "content": "<p><strong>The Sebi Trinity in one gel.</strong> Every jar contains wildcrafted Atlantic sea moss, Irish bladderwrack, fresh burdock root, and spring water. That's the entire ingredient list. No preservatives. No thickeners. No added water weight.</p><p>Dr. Sebi consistently grouped these three as a nutritional trinity: minerals, iodine, and a clearing herb working together. Every other brand sells them as three separate products. We put all three into one wildcrafted gel so you're not juggling bottles.</p>"
+            "title": "Tell me more",
+            "content": "<p><strong>Find your next favorite spoonful.</strong> Browse bright fruit flavors, familiar classics and blends. Choose a jar to see its photos, price and availability.</p><p>Where available, tap 360° to take a look around or View Jar Label to read the printed details.</p>"
           }
         },
         "info_tab_2": {
           "type": "info_tab",
           "settings": {
-            "title": "How to take it",
-            "content": "<p><strong>Daily:</strong> 2 tablespoons a day — not on an empty stomach.</p><p><strong>When:</strong> Morning is the family rhythm, but any consistent time works.</p><p><strong>Monthly supply:</strong> About 2 jars per person.</p><p><strong>Ways to enjoy:</strong> Straight off the spoon, in a smoothie, stirred into tea, blended into oatmeal, or whisked into a dressing. Trinity (unflavored) is the most versatile.</p><p><strong>Storage:</strong> Refrigerate on arrival. Use within 30 days once opened. Freeze up to 4 months if you need to pause.</p>"
+            "title": "Ingredients",
+            "content": "<p><strong>Check the label for your selected flavor.</strong> Ingredient lists can differ between flavors. Use the printed label images to read the ingredients and any allergen information.</p><p>Refer to the label on the jar you receive before use.</p>"
           }
         },
         "info_tab_3": {
           "type": "info_tab",
           "settings": {
-            "title": "The ingredient rule",
-            "content": "<p><strong>Four ingredients. That is the entire list.</strong> Wildcrafted Atlantic sea moss, Irish bladderwrack, fresh burdock root, and spring water.</p><p>No preservatives. No gums or thickeners. No added water weight. No flavorings. No shelf-stable shortcuts. If it isn't one of those four things, it isn't in the jar — full stop. That's the rule our family kitchen has kept from day one, and it's the rule Healistix runs on too.</p>"
+            "title": "How to enjoy",
+            "content": "<p><strong>Start with the directions on your jar.</strong> Follow the serving and usage instructions printed for your selected flavor.</p><p>Use the gallery and label view to get familiar with your selection before adding it to your routine.</p>"
           }
         },
         "info_tab_4": {
           "type": "info_tab",
           "settings": {
-            "title": "Where it comes from",
-            "content": "<p><strong>Sea moss:</strong> Wildcrafted from open Atlantic waters off St. Lucia — harvested by hand, not pool-grown in bins. Shipped fresh, never dried twice.</p><p><strong>Bladderwrack:</strong> Irish bladderwrack, sourced wild from the North Atlantic.</p><p><strong>Burdock root:</strong> Fresh burdock, not powder. We process it in the same small 80-jar runs as the rest.</p><p><strong>Where we blend it:</strong> Our family kitchen, same as it’s always been.</p>"
+            "title": "Shipping & storage",
+            "content": "<p><strong>Shipping:</strong> Review the shipping policy and the delivery options shown at checkout for your order.</p><p><strong>Storage:</strong> Follow the storage directions and date information printed on the jar you receive.</p>"
+          }
+        },
+        "flavor_red_guava": {
+          "type": "flavor",
+          "settings": {
+            "label": "Red Guava",
+            "option_value": "Red Guava",
+            "tagline": "",
+            "badge": ""
+          }
+        },
+        "flavor_passion_fruit": {
+          "type": "flavor",
+          "settings": {
+            "label": "Passion Fruit",
+            "option_value": "Passion Fruit",
+            "tagline": "",
+            "badge": ""
+          }
+        },
+        "flavor_lychee": {
+          "type": "flavor",
+          "settings": {
+            "label": "Lychee",
+            "option_value": "Lychee",
+            "tagline": "",
+            "badge": ""
+          }
+        },
+        "flavor_guava_lemon": {
+          "type": "flavor",
+          "settings": {
+            "label": "Guava Lemon",
+            "option_value": "Guava Lemon",
+            "tagline": "",
+            "badge": ""
+          }
+        },
+        "flavor_pineapple_mango": {
+          "type": "flavor",
+          "settings": {
+            "label": "Pineapple Mango",
+            "option_value": "Pineapple Mango",
+            "tagline": "",
+            "badge": ""
+          }
+        },
+        "flavor_peach": {
+          "type": "flavor",
+          "settings": {
+            "label": "Peach",
+            "option_value": "Peach",
+            "tagline": "",
+            "badge": ""
+          }
+        },
+        "flavor_strawberry": {
+          "type": "flavor",
+          "settings": {
+            "label": "Strawberry",
+            "option_value": "Strawberry",
+            "tagline": "",
+            "badge": ""
+          }
+        },
+        "flavor_unflavored": {
+          "type": "flavor",
+          "settings": {
+            "label": "Unflavored",
+            "option_value": "Unflavored",
+            "tagline": "",
+            "badge": ""
+          }
+        },
+        "flavor_dragonfruit": {
+          "type": "flavor",
+          "settings": {
+            "label": "Dragonfruit",
+            "option_value": "Dragonfruit",
+            "tagline": "",
+            "badge": ""
+          }
+        },
+        "flavor_strawberry_pineapple": {
+          "type": "flavor",
+          "settings": {
+            "label": "Strawberry Pineapple",
+            "option_value": "Strawberry Pineapple",
+            "tagline": "",
+            "badge": ""
+          }
+        },
+        "flavor_grape": {
+          "type": "flavor",
+          "settings": {
+            "label": "Grape",
+            "option_value": "Grape",
+            "tagline": "",
+            "badge": ""
+          }
+        },
+        "flavor_maca_ashwagandha": {
+          "type": "flavor",
+          "settings": {
+            "label": "Maca Ashwagandha",
+            "option_value": "Maca Ashwagandha",
+            "tagline": "",
+            "badge": ""
+          }
+        },
+        "flavor_ashwagandha_mango": {
+          "type": "flavor",
+          "settings": {
+            "label": "Ashwagandha Mango",
+            "option_value": "Ashwagandha Mango",
+            "tagline": "",
+            "badge": ""
+          }
+        },
+        "flavor_elderberry_ginger": {
+          "type": "flavor",
+          "settings": {
+            "label": "Elderberry Ginger",
+            "option_value": "Elderberry Ginger",
+            "tagline": "",
+            "badge": ""
+          }
+        },
+        "flavor_honey": {
+          "type": "flavor",
+          "settings": {
+            "label": "Honey",
+            "option_value": "Honey",
+            "tagline": "",
+            "badge": ""
+          }
+        },
+        "flavor_beet_root": {
+          "type": "flavor",
+          "settings": {
+            "label": "Beet Root",
+            "option_value": "Beet Root",
+            "tagline": "",
+            "badge": ""
           }
         }
       },
       "block_order": [
+        "flavor_banana",
+        "flavor_blueberry",
+        "flavor_mango",
+        "flavor_pineapple",
+        "flavor_watermelon",
+        "flavor_red_guava",
+        "flavor_passion_fruit",
+        "flavor_lychee",
+        "flavor_guava_lemon",
+        "flavor_pineapple_mango",
+        "flavor_peach",
+        "flavor_strawberry",
+        "flavor_unflavored",
+        "flavor_dragonfruit",
+        "flavor_strawberry_pineapple",
+        "flavor_grape",
+        "flavor_maca_ashwagandha",
+        "flavor_ashwagandha_mango",
+        "flavor_elderberry_ginger",
+        "flavor_honey",
+        "flavor_beet_root",
+        "assurance_1",
+        "assurance_2",
         "info_tab_1",
         "info_tab_2",
         "info_tab_3",
@@ -70,9 +282,9 @@
     "product_steps": {
       "type": "product-steps",
       "settings": {
-        "heading": "What you may notice after 30 days of the Trinity jar",
+        "heading": "Get to know your next jar",
         "image": "shopify://shop_images/seamoss-spoon.png",
-        "button_label": "ADD TO CART — $19.99",
+        "button_label": "ADD TO CART",
         "button_link": "",
         "color_scheme": "scheme-2"
       },
@@ -80,36 +292,36 @@
         "step_1": {
           "type": "step",
           "settings": {
-            "title": "Steadier everyday energy",
-            "text": "The mineral base — iron, magnesium, potassium — supports normal energy production without the caffeine swing."
+            "title": "Choose your flavor",
+            "text": "From Banana and Blueberry to tropical fruit blends, choose the jar that catches your eye."
           }
         },
         "step_2": {
           "type": "step",
           "settings": {
-            "title": "Calmer digestion",
-            "text": "Burdock's traditional role as a clearing herb, paired with sea moss's natural prebiotic fiber, supports regularity without being harsh."
+            "title": "Take a closer look",
+            "text": "Tap the photos for a closer look at your selected jar."
           }
         },
         "step_3": {
           "type": "step",
           "settings": {
-            "title": "Thyroid & metabolism balance",
-            "text": "Irish bladderwrack brings the iodine layer sea moss alone leaves short — supporting normal thyroid hormone production."
+            "title": "Give it a turn",
+            "text": "When you see the 360° thumbnail, tap it and drag horizontally to turn the jar."
           }
         },
         "step_4": {
           "type": "step",
           "settings": {
-            "title": "Skin and hair you can see",
-            "text": "Trace minerals in whole-food form nourish skin and hair from the inside. Most members notice the glow before they notice anything else."
+            "title": "Read the printed label",
+            "text": "Open View Jar Label, where available, to read the printed details for your flavor."
           }
         },
         "step_5": {
           "type": "step",
           "settings": {
-            "title": "Immune support that isn't a pill",
-            "text": "A broad spectrum of vitamins and trace minerals in a single spoonful — the way wellness worked before supplement aisles."
+            "title": "Follow your jar’s directions",
+            "text": "Check the serving, storage and date information on the jar you receive before use."
           }
         }
       },
@@ -119,89 +331,264 @@
         "step_3",
         "step_4",
         "step_5"
-      ]
+      ],
+      "disabled": true
     },
     "reviews_grid": {
-      "type": "product-reviews-grid",
+      "type": "hx-pdp-reviews",
       "settings": {
-        "heading": "What the Trinity jar actually changes",
-        "subheading": "Unedited feedback from verified Healistix customers."
+        "review_source": "judgeme",
+        "heading": "A little love from our community",
+        "subheading": "Selected customer reviews from Amazon. Explore their photos, videos and experiences across our flavors.",
+        "source_url": "https://www.amazon.com/portal/customer-reviews/B0CFD6RMMF/ref=cm_cr_dp_d_show_all_top?reviewerType=all_reviews"
       },
       "blocks": {
-        "review_1": {
+        "review_liliane": {
           "type": "review",
           "settings": {
-            "badge": "PRIYA K.",
-            "rating": "★★★★★",
-            "text": "First sea moss that didn't feel like eating seaweed glue. The Trinity blend is genuinely different.",
-            "footer": "Verified · 2 weeks ago"
+            "badge": "Liliane Avalos",
+            "title": "In the morning smoothie",
+            "rating": "★★★★★ · 5 out of 5",
+            "text": "The taste is not strong at all, so it doesn’t interrupt the flavors of my smoothie, which I really enjoy.",
+            "footer": "Raw Original · Customer review · April 2, 2026",
+            "video_asset": "review-r24ycvpkmg721g.mp4",
+            "image_asset": "review-r24ycvpkmg721g.jpg",
+            "captions_asset": "review-r24ycvpkmg721g.vtt",
+            "source_url": "https://www.amazon.com/gp/customer-reviews/R24YCVPKMG721G?ref=va_cr_lb",
+            "disclosure": "Video creator earns commissions"
           }
         },
-        "review_2": {
+        "review_anderson": {
           "type": "review",
           "settings": {
-            "badge": "JAMAL R.",
-            "rating": "★★★★★",
-            "text": "I've tried five brands. This is the first one that actually tastes fresh and doesn't separate in the fridge.",
-            "footer": "Verified · 1 month ago"
+            "badge": "Me. Anderson",
+            "title": "A familiar flavor",
+            "rating": "★★★★★ · 5 out of 5",
+            "text": "This was good I enjoyed the flavor and the natural goodness I get from raw sea moss.",
+            "footer": "Raw Original · Customer review · December 21, 2025"
           }
         },
-        "review_3": {
+        "review_rosie": {
           "type": "review",
           "settings": {
-            "badge": "DESIREE L.",
-            "rating": "★★★★★",
-            "text": "Three generations of family craft and it shows. This is the jar I recommend to my family now.",
-            "footer": "Verified · 3 weeks ago"
+            "badge": "Rosie G",
+            "title": "Better mixed than straight",
+            "rating": "★★★★☆ · 4 out of 5",
+            "text": "In its Raw natural form I couldn’t swallow it. It’s not a nasty taste but definitely an acquired taste. I took a star off because i had trouble swallowing it by itself.",
+            "footer": "Raw Original · Customer review · December 3, 2025"
+          }
+        },
+        "review_review-r1jp22ig92fuxy": {
+          "type": "review",
+          "settings": {
+            "badge": "Emily",
+            "video_asset": "review-r1jp22ig92fuxy.mp4",
+            "image_asset": "review-r1jp22ig92fuxy.jpg",
+            "captions_asset": "review-r1jp22ig92fuxy.vtt",
+            "source_url": "https://www.amazon.com/gp/customer-reviews/R1JP22IG92FUXY?ref=va_cr_lb",
+            "disclosure": "Video creator earns commissions",
+            "title": "Delicious flavor and smooth texture",
+            "text": "I really enjoyed trying this red guava sea moss gel. The texture is smooth and easy to mix into my daily routine. The red guava flavor gives it a pleasant fruity taste without being too strong, which makes it much more enjoyable than some sea moss products I’ve tried before.\n\nI also like that it comes in a glass jar and has a good 16 oz size. It’s easy to scoop and add to smoothies, yogurt, or other foods and drinks. The consistency is thick but not difficult to work with.\n\nOverall, this is a nice-tasting sea moss gel with a convenient texture and attractive packaging. I’m happy with the quality and would definitely consider getting it again.",
+            "footer": "Red Guava · Customer video · Aug 12, 2026"
+          }
+        },
+        "review_review-r1a9mbbgyfnif6": {
+          "type": "review",
+          "settings": {
+            "badge": "Annalise Slezak",
+            "video_asset": "review-r1a9mbbgyfnif6.mp4",
+            "image_asset": "review-r1a9mbbgyfnif6.jpg",
+            "captions_asset": "review-r1a9mbbgyfnif6.vtt",
+            "source_url": "https://www.amazon.com/gp/customer-reviews/R1A9MBBGYFNIF6?ref=va_cr_lb",
+            "disclosure": "Received a free product through Vine. Video creator earns commissions.",
+            "title": "Quality ingredients, pleasant taste",
+            "rating": "★★★★★ · 5 out of 5",
+            "text": "I have no prior experience with any such product, and only time will tell whether it's doing anything good, but I can say it doesn't seem to be doing any harm. I've consumed a tablespoonful every day for the past three straight, and it's rather tasty — fresh, fruity, a bit zesty—and has a pleasant apple saucy texture. If you take it on an empty stomach, keep in mind that it contains lime juice, which can be a bit acidic for some.",
+            "footer": "Red Guava · Customer review · August 16, 2026"
+          }
+        },
+        "review_rv2d7hwhnwfu3": {
+          "type": "review",
+          "settings": {
+            "badge": "Lakesha",
+            "title": "A spoonful of pineapple",
+            "rating": "★★★★★ · 5 out of 5",
+            "text": "I love the flavor of this I take Two table spoons a day directly. You can put it in drinks as well.",
+            "footer": "Pineapple · April 25, 2024",
+            "source_url": "https://www.amazon.com/gp/customer-reviews/RV2D7HWHNWFU3",
+            "disclosure": "",
+            "image_asset": "review-rv2d7hwhnwfu3.jpg",
+            "media_alt": "Customer photo shared by Lakesha with their Pineapple review"
+          }
+        },
+        "review_r18tcyz0ahj6ic": {
+          "type": "review",
+          "settings": {
+            "badge": "Manila Mike",
+            "title": "More ways to enjoy it",
+            "rating": "★★★★★ · 5 out of 5",
+            "text": "It can be used like you would use a mango chutney.",
+            "footer": "Mango Pineapple · February 24, 2024",
+            "source_url": "https://www.amazon.com/gp/customer-reviews/R18TCYZ0AHJ6IC",
+            "disclosure": "Received a free product for review.",
+            "image_asset": "review-r18tcyz0ahj6ic.jpg",
+            "media_alt": "Customer photo shared by Manila Mike with their Mango Pineapple review"
+          }
+        },
+        "review_r364iaev1vdskz": {
+          "type": "review",
+          "settings": {
+            "badge": "ChiefB & SweetieBoo",
+            "title": "A thinner texture",
+            "rating": "★★★★☆ · 4 out of 5",
+            "text": "the texture of this product in the jar I received is thin, almost runny. … It tastes good",
+            "footer": "Passion Fruit · November 26, 2023",
+            "source_url": "https://www.amazon.com/gp/customer-reviews/R364IAEV1VDSKZ",
+            "disclosure": "Received a free product for review.",
+            "image_asset": "review-r364iaev1vdskz.jpg",
+            "media_alt": "Customer photo shared by ChiefB & SweetieBoo with their Passion Fruit review"
+          }
+        },
+        "review_r7013980iza78": {
+          "type": "review",
+          "settings": {
+            "badge": "ErikaShanice",
+            "title": "Customer video · 0:13",
+            "footer": "Strawberry listing · February 14, 2024",
+            "source_url": "https://www.amazon.com/gp/customer-reviews/R7013980IZA78?ref=va_cr_lb",
+            "disclosure": "Video creator earns commissions.",
+            "video_asset": "review-r7013980iza78.mp4",
+            "image_asset": "review-r7013980iza78.jpg",
+            "captions_asset": "review-r7013980iza78.vtt"
+          }
+        },
+        "review_r3kpfdnrzp4nqg": {
+          "type": "review",
+          "settings": {
+            "badge": "Mary K.",
+            "title": "Customer video · 0:17",
+            "footer": "Strawberry · Feb 12, 2024",
+            "source_url": "https://www.amazon.com/gp/customer-reviews/R3KPFDNRZP4NQG?ref=va_cr_lb",
+            "disclosure": "Video creator earns commissions.",
+            "video_asset": "review-r3kpfdnrzp4nqg.mp4",
+            "image_asset": "review-r3kpfdnrzp4nqg.jpg",
+            "captions_asset": "review-r3kpfdnrzp4nqg.vtt"
+          }
+        },
+        "review_r27gqgjssa5hvq": {
+          "type": "review",
+          "settings": {
+            "badge": "SuperHeroTo5",
+            "title": "A fruity spoonful",
+            "rating": "★★★★★ · 5 out of 5",
+            "text": "I have never had guava before, but it tastes like a bold, delicious strawberry applesauce.",
+            "footer": "Red Guava · August 9, 2026",
+            "source_url": "https://www.amazon.com/gp/customer-reviews/R27GQGJSSA5HVQ",
+            "disclosure": "Received a free product through Vine.",
+            "image_asset": "review-r27gqgjssa5hvq.jpg",
+            "media_alt": "Customer photo shared by SuperHeroTo5 with their Red Guava review"
+          }
+        },
+        "review_r1jzo5pxcimb21": {
+          "type": "review",
+          "settings": {
+            "badge": "Southern California Living",
+            "title": "Straight from the jar",
+            "rating": "★★★★★ · 5 out of 5",
+            "text": "It has that smooth, applesauce-like texture that makes it so easy to eat by the spoonful.",
+            "footer": "Red Guava · August 10, 2026",
+            "source_url": "https://www.amazon.com/gp/customer-reviews/R1JZO5PXCIMB21",
+            "disclosure": "Received a free product through Vine.",
+            "image_asset": "review-r1jzo5pxcimb21.jpg",
+            "media_alt": "Customer photo shared by Southern California Living with their Red Guava review"
+          }
+        },
+        "review_rt97myltp17el": {
+          "type": "review",
+          "settings": {
+            "badge": "Gorr",
+            "title": "In smoothies and overnight oats",
+            "rating": "★★★★★ · 5 out of 5",
+            "text": "I've been blending it into morning smoothies and overnight oats, and it adds a perfect, subtle tropical vibe.",
+            "footer": "Red Guava · August 25, 2026",
+            "source_url": "https://www.amazon.com/gp/customer-reviews/RT97MYLTP17EL",
+            "disclosure": "Received a free product through Vine.",
+            "image_asset": "review-rt97myltp17el.jpg",
+            "media_alt": "Customer photo shared by Gorr with their Red Guava review"
+          }
+        },
+        "review_rpzmzj892z3um": {
+          "type": "review",
+          "settings": {
+            "badge": "Matt Fuchs",
+            "title": "An honest take on texture",
+            "rating": "★★★★★ · 5 out of 5",
+            "text": "I still wouldn't say I particularly like the flavor. It's quite sweet, and the texture isn't my favorite either.",
+            "footer": "Red Guava · August 17, 2026",
+            "source_url": "https://www.amazon.com/gp/customer-reviews/RPZMZJ892Z3UM",
+            "disclosure": "Received a free product through Vine.",
+            "image_asset": "review-rpzmzj892z3um.jpg",
+            "media_alt": "Customer photo shared by Matt Fuchs with their Red Guava review"
           }
         }
       },
       "block_order": [
-        "review_1",
-        "review_2",
-        "review_3"
+        "review_review-r1a9mbbgyfnif6",
+        "review_liliane",
+        "review_review-r1jp22ig92fuxy",
+        "review_anderson",
+        "review_rosie",
+        "review_rv2d7hwhnwfu3",
+        "review_r18tcyz0ahj6ic",
+        "review_r364iaev1vdskz",
+        "review_r7013980iza78",
+        "review_r3kpfdnrzp4nqg",
+        "review_r27gqgjssa5hvq",
+        "review_r1jzo5pxcimb21",
+        "review_rt97myltp17el",
+        "review_rpzmzj892z3um"
       ]
     },
     "benefits_list": {
       "type": "product-benefits-list",
       "settings": {
-        "heading": "Three herbs. One jar. Why we put them together.",
-        "subheading": "Most brands sell sea moss, bladderwrack, and burdock as three separate bottles. We asked: why should you have to juggle?"
+        "heading": "A few to get you started",
+        "subheading": "Meet five favorites, then explore the full flavor selection above."
       },
       "blocks": {
         "benefit_1": {
           "type": "benefit",
           "settings": {
-            "title": "Wildcrafted sea moss",
-            "text": "The mineral base — 92 of the 102 minerals your body uses every day."
+            "title": "Banana",
+            "text": "Select Banana to explore its jar images, interactive view and printed label."
           }
         },
         "benefit_2": {
           "type": "benefit",
           "settings": {
-            "title": "Irish bladderwrack",
-            "text": "The iodine layer. Supports thyroid function and rounds out what sea moss alone leaves short."
+            "title": "Blueberry",
+            "text": "Select Blueberry to explore its jar images, interactive view and printed label."
           }
         },
         "benefit_3": {
           "type": "benefit",
           "settings": {
-            "title": "Fresh burdock root",
-            "text": "The clearing herb. Traditionally paired with sea moss for gentle, consistent digestive support."
+            "title": "Mango",
+            "text": "Select Mango to explore its jar images, interactive view and printed label."
           }
         },
         "benefit_4": {
           "type": "benefit",
           "settings": {
-            "title": "Small 80-jar runs",
-            "text": "80 jars per batch, blended by hand in our family kitchen. No warehouse, no contract manufacturer, no shortcuts — the way our family has always made it."
+            "title": "Pineapple",
+            "text": "Select Pineapple to explore its jar images, interactive view and printed label."
           }
         },
         "benefit_5": {
           "type": "benefit",
           "settings": {
-            "title": "Four ingredients. That's it.",
-            "text": "Wildcrafted sea moss, Irish bladderwrack, burdock root, spring water. No preservatives, no thickeners, no added water weight — ever."
+            "title": "Watermelon",
+            "text": "Select Watermelon to explore its jar images, interactive view and printed label."
           }
         }
       },
@@ -211,55 +598,56 @@
         "benefit_3",
         "benefit_4",
         "benefit_5"
-      ]
+      ],
+      "disabled": true
     },
     "product_faq": {
       "type": "product-faq",
       "settings": {
-        "heading": "Questions we get every week",
-        "subheading": "If we missed yours, the kitchen answers email directly at hi@healistix.com."
+        "heading": "A little curious?",
+        "subheading": "Questions about your selection? Contact us at hi@healistix.com."
       },
       "blocks": {
         "faq_1": {
           "type": "faq",
           "settings": {
-            "question": "What does \"wildcrafted\" actually mean?",
-            "answer": "It means the sea moss is harvested from open Atlantic waters — not grown in salt-water pools on a farm and then dried twice. Most \"wildcrafted\" labels on shelves today are pool-grown. Ours is the real thing, hand-harvested and shipped fresh to our kitchen."
+            "question": "Which flavors can I explore?",
+            "answer": "Browse the flavor selector at the top of this page for the full selection. Pick a flavor to see its photos, current price and availability."
           }
         },
         "faq_2": {
           "type": "faq",
           "settings": {
-            "question": "Why is it $19.99 when everyone else charges $28–$40?",
-            "answer": "Because the family that runs Healistix buys their own groceries and knows what $40 for sea moss feels like. We keep margins thin and batches small, and we don't pay a warehouse or a contract manufacturer. That's where the $20 spread goes for other brands."
+            "question": "Do different flavors have different prices?",
+            "answer": "They can. Select a flavor to see its current price and availability before adding it to your cart."
           }
         },
         "faq_3": {
           "type": "faq",
           "settings": {
-            "question": "How fast will I feel a difference?",
-            "answer": "Digestion changes are usually the first thing people notice — often within the first week. Energy and skin tend to show up around day 14–21. Give your body 30 days before you decide."
+            "question": "How do I rotate the jar?",
+            "answer": "When your selected flavor has a 360° thumbnail, tap it and drag horizontally. You can also use the arrow controls, zoom buttons or keyboard arrows. Open View Jar Label for a flat, readable view of the printed panels."
           }
         },
         "faq_4": {
           "type": "faq",
           "settings": {
-            "question": "How do I store it when it arrives?",
-            "answer": "Put it in the fridge as soon as it lands on your doorstep. Sealed, it keeps for 3–4 weeks refrigerated. You can also freeze it in an airtight container for up to 4 months — thaw overnight in the fridge and it picks right back up where it left off."
+            "question": "How should I store my jar?",
+            "answer": "Follow the storage directions and date information printed on the jar you receive. Contact us if you need help reading or understanding those directions."
           }
         },
         "faq_5": {
           "type": "faq",
           "settings": {
-            "question": "What makes this the \"Sebi Trinity\"?",
-            "answer": "Dr. Sebi consistently grouped sea moss, Irish bladderwrack, and burdock root as a nutritional trinity: minerals, iodine, and a clearing herb working together. Every other brand sells them as three separate products. We're the only U.S. line blending all three into one wildcrafted gel so you're not juggling bottles."
+            "question": "Are the ingredients the same for every flavor?",
+            "answer": "Do not assume that every flavor has the same ingredients. Select your flavor and read its printed label images, then check the label on the jar you receive before use."
           }
         },
         "faq_6": {
           "type": "faq",
           "settings": {
-            "question": "Is it safe for daily use? For kids? During pregnancy?",
-            "answer": "For most healthy adults, yes — 2 tablespoons a day is the standard serving. For kids under 12, we recommend half that. If you're pregnant, nursing, or on thyroid medication, talk to your practitioner first because of the iodine content."
+            "question": "Where can I read the ingredients and jar directions?",
+            "answer": "Choose your flavor, then open View Jar Label where available. If your selection does not have a label view yet, contact hi@healistix.com for its details before ordering. Follow the directions on the jar you receive."
           }
         }
       },
@@ -275,10 +663,11 @@
     "reviews_widget": {
       "type": "product-reviews-widget",
       "settings": {
-        "heading": "460+ verified Healistix reviews",
-        "subheading": "Every one is from a customer who actually ordered a jar. No incentives, no paid placements.",
-        "placeholder_text": "Add your Judge.me or Yotpo snippet in the section settings to render reviews."
-      }
+        "heading": "Customer reviews",
+        "subheading": "",
+        "placeholder_text": "Customer reviews will appear here when a review integration is connected."
+      },
+      "disabled": true
     },
     "related-products": {
       "type": "related-products",
@@ -296,15 +685,16 @@
         "columns_mobile": "2",
         "padding_top": 36,
         "padding_bottom": 28
-      }
+      },
+      "disabled": true
     }
   },
   "order": [
     "main",
-    "product_steps",
-    "reviews_grid",
-    "benefits_list",
     "product_faq",
+    "reviews_grid",
+    "product_steps",
+    "benefits_list",
     "reviews_widget",
     "related-products"
   ]

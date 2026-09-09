@@ -1,0 +1,126 @@
+/* Only product.wellness includes the marker. Native product functionality stays intact. */
+body:has(.hx-wellness-design) #MainContent {
+  --hx-wellness-ink: #174b3c;
+  --hx-wellness-paper: #fffaf0;
+  --hx-wellness-accent: #e6ebce;
+  --color-foreground: 23, 75, 60;
+  --color-background: 255, 250, 240;
+  --color-button: 23, 75, 60;
+  --color-button-text: 255, 250, 240;
+  color: var(--hx-wellness-ink);
+}
+body:has(.hx-wellness-design) #MainContent .page-width { max-width: 1450px; }
+body:has(.hx-wellness-design) #MainContent .product {
+  padding: 24px;
+  border-radius: 38px;
+  background: var(--hx-wellness-paper);
+  color: var(--hx-wellness-ink);
+}
+body:has(.hx-wellness-design) #MainContent .product__media-wrapper { min-width: 0; }
+body:has(.hx-wellness-design) #MainContent .product-media-container {
+  border: 2px solid #ffffff;
+  border-radius: 30px;
+  overflow: hidden;
+  background: var(--hx-wellness-accent);
+  box-shadow: 0 6px 0 #174b3c0d;
+}
+body:has(.hx-wellness-design) #MainContent .product__media { background: var(--hx-wellness-accent); }
+body:has(.hx-wellness-design) #MainContent .product__media img { object-fit: contain; }
+body:has(.hx-wellness-design) #MainContent .thumbnail {
+  border-radius: 18px;
+  border: 2px solid #d9e1cb;
+  background: #fffef9;
+}
+body:has(.hx-wellness-design) #MainContent .thumbnail[aria-current="true"] {
+  border-color: var(--hx-wellness-ink);
+  box-shadow: 0 3px 0 var(--hx-wellness-ink);
+}
+body:has(.hx-wellness-design) #MainContent .thumbnail-list { padding-bottom: 7px; }
+body:has(.hx-wellness-design) #MainContent .product__info-container { max-width: none; }
+body:has(.hx-wellness-design) #MainContent .product__text.caption-with-letter-spacing {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 100px;
+  background: #e8edd8;
+  color: var(--hx-wellness-ink);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+}
+body:has(.hx-wellness-design) #MainContent .product__title h1 {
+  font-family: 'Forma DJR Display', var(--font-heading-family), sans-serif;
+  font-size: clamp(40px, 4.5vw, 65px);
+  font-weight: 700;
+  line-height: 1.04;
+  letter-spacing: -1.6px;
+  color: var(--hx-wellness-ink);
+  overflow-wrap: anywhere;
+}
+body:has(.hx-wellness-design) #MainContent .price { color: var(--hx-wellness-ink); font-size: 25px; }
+body:has(.hx-wellness-design) #MainContent .product-form__input .form__label {
+  color: var(--hx-wellness-ink);
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+body:has(.hx-wellness-design) #MainContent .product-form__input--pill input[type="radio"] + label {
+  border: 2px solid #d9e1cb;
+  border-radius: 18px;
+  padding: 14px 18px;
+  background: #fffef9;
+  color: var(--hx-wellness-ink);
+  min-height: 46px;
+}
+body:has(.hx-wellness-design) #MainContent .product-form__input--pill input[type="radio"]:checked + label {
+  border-color: var(--hx-wellness-ink);
+  background: #e8edd8;
+  color: var(--hx-wellness-ink);
+  box-shadow: 0 3px 0 var(--hx-wellness-ink);
+}
+body:has(.hx-wellness-design) #MainContent .quantity { border-radius: 100px; background: #fffef9; }
+body:has(.hx-wellness-design) #MainContent .quantity::after { border-radius: 100px; }
+body:has(.hx-wellness-design) #MainContent .product-form__buttons { max-width: none; }
+body:has(.hx-wellness-design) #MainContent .product-form__submit {
+  min-height: 58px;
+  border-radius: 100px;
+  background: var(--hx-wellness-ink);
+  color: var(--hx-wellness-paper);
+  font-size: 17px;
+  font-weight: 700;
+  box-shadow: 0 5px 0 #0c3328;
+}
+body:has(.hx-wellness-design) #MainContent .product-form__submit::before,
+body:has(.hx-wellness-design) #MainContent .product-form__submit::after { border-radius: inherit; }
+body:has(.hx-wellness-design) #MainContent .product-form__submit[disabled],
+body:has(.hx-wellness-design) #MainContent .product-form__submit[aria-disabled="true"] { box-shadow: none; }
+body:has(.hx-wellness-design) #MainContent .product__description {
+  padding: 24px;
+  border: 1px solid #d9e1cb;
+  border-radius: 25px;
+  background: #fffef9;
+  color: var(--hx-wellness-ink);
+  font-size: 16px;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+body:has(.hx-wellness-design) #MainContent .product__description :is(p, h2, h3, h4, li) { color: var(--hx-wellness-ink); }
+body:has(.hx-wellness-design) #MainContent .product__description :is(h2, h3, h4) {
+  font-family: 'Forma DJR Display', var(--font-heading-family), sans-serif;
+  line-height: 1.15;
+}
+body:has(.hx-wellness-design) #MainContent .product__description img { max-width: 100%; height: auto; border-radius: 16px; }
+body:has(.hx-wellness-design) #MainContent .product__description table { display: block; max-width: 100%; overflow-x: auto; }
+body:has(.hx-wellness-design) #MainContent .product__accordion { border-color: #d9e1cb; }
+body:has(.hx-wellness-design) #MainContent .product__accordion summary { min-height: 54px; }
+body:has(.hx-wellness-design) #MainContent :is(button, a, input, select, summary):focus-visible {
+  outline: 3px solid #8b5a16;
+  outline-offset: 4px;
+}
+@media (max-width: 749px) {
+  body:has(.hx-wellness-design) #MainContent .page-width { padding-inline: 16px; }
+  body:has(.hx-wellness-design) #MainContent .product { padding: 14px; border-radius: 28px; }
+  body:has(.hx-wellness-design) #MainContent .product__info-wrapper { padding-top: 28px; }
+  body:has(.hx-wellness-design) #MainContent .product-media-container { border-radius: 24px; }
+  body:has(.hx-wellness-design) #MainContent .product__title h1 { font-size: 42px; letter-spacing: -1px; }
+  body:has(.hx-wellness-design) #MainContent .product__description { padding: 18px; border-radius: 22px; }
+}

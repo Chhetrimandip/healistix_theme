@@ -1,0 +1,22 @@
+{
+  "sections": {
+    "main": {
+      "type": "hx-wellness-product",
+      "settings": {
+        "kind": "batana",
+        "handle": "raw-honduran-batana-oil",
+        "title": "Raw Honduran Batana Oil",
+        "category": "HAIR & SCALP RITUAL",
+        "intro": "A little care. A little quiet. Make room for Batana in your hair-care routine.",
+        "details": "Healistix Raw Honduran Batana Oil. Refer to the product label for pack size and the complete ingredient list.",
+        "directions": "Follow the directions on your product label. Contact our team if you need help with product use.",
+        "story_heading": "A ritual, all your own.",
+        "story": "Slow down and make a little room for care. Our Batana collection brings a simple, thoughtful moment to your hair-care shelf.",
+        "preview_price": "25.00"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

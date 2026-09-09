@@ -1,0 +1,21 @@
+{{ 'hx-wellness-collection.css' | asset_url | stylesheet_tag }}
+<section class="hx-wellness-collection" id="WellnessCollection" aria-labelledby="WellnessHeading-{{ section.id }}">
+  <div class="hx-wellness-heading"><p class="hx-wellness-eyebrow">A LITTLE MORE HEALISTIX</p><h2 id="WellnessHeading-{{ section.id }}">Beyond Sea Moss.</h2><p>Meet two more ways to make a little space for yourself.</p></div>
+  <div class="hx-wellness-cards">
+    {% for block in section.blocks %}
+      {% assign item = all_products[block.settings.handle] %}
+      {% assign item_url = item.url | default: block.settings.preview_url %}
+      <article class="hx-wellness-card hx-wellness-card--{{ block.settings.kind }}" {{ block.shopify_attributes }}>
+        <a class="hx-wellness-card__image" href="{{ item_url }}" aria-label="Explore {{ block.settings.title | escape }}">
+          <span class="hx-wellness-pill">{{ block.settings.category | escape }}</span>
+          {% assign artwork = 'hx-product-' | append: block.settings.kind | append: '-front.webp' %}
+          <img src="{{ artwork | asset_url }}" alt="Healistix {{ block.settings.title | escape }}" width="900" height="1000" loading="lazy">
+        </a>
+        <div class="hx-wellness-card__copy"><h3><a href="{{ item_url }}">{{ block.settings.title | escape }}</a></h3><p>{{ block.settings.text | escape }}</p><a class="hx-wellness-link" href="{{ item_url }}">Explore {{ block.settings.short_title | escape }} <span aria-hidden="true">↗</span></a></div>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+{% schema %}
+{"name":"Healistix — Wellness","settings":[],"blocks":[{"type":"product","name":"Wellness product","settings":[{"type":"select","id":"kind","label":"Artwork","options":[{"value":"batana","label":"Batana"},{"value":"shilajit","label":"Shilajit"}],"default":"batana"},{"type":"text","id":"handle","label":"Product handle"},{"type":"url","id":"preview_url","label":"Draft preview link"},{"type":"text","id":"category","label":"Category"},{"type":"text","id":"title","label":"Title"},{"type":"text","id":"short_title","label":"Link name"},{"type":"textarea","id":"text","label":"Description"}]}],"presets":[{"name":"Healistix — Wellness"}]}
+{% endschema %}

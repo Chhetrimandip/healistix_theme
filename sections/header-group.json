@@ -24,15 +24,15 @@
         "announcement-bar-1": {
           "type": "announcement",
           "settings": {
-            "text": "NEW · THE SEBI TRINITY JAR — SEA MOSS + BLADDERWRACK + BURDOCK IN ONE JAR · $19.99",
-            "link": "/products/sebi-trinity-sea-moss-gel"
+            "text": "FIND YOUR FLAVOR · EXPLORE HEALISTIX SEA MOSS GEL",
+            "link": "/products/sea-moss-gel-banana"
           }
         },
         "announcement-bar-2": {
           "type": "announcement",
           "settings": {
-            "text": "THE BEST TASTING SEAMOSS GEL EVER · SEA MOSS + BLADDERWRACK + BURDOCK IN ONE JAR",
-            "link": "/products/sebi-trinity-sea-moss-gel"
+            "text": "A LITTLE DAILY GOODNESS · MAKE IT YOUR RITUAL",
+            "link": "/products/sea-moss-gel-banana"
           }
         }
       },

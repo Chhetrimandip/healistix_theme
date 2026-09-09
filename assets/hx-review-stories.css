@@ -1,0 +1,38 @@
+/* Editorial excerpts only: no aggregate rating or purchase-verification claims. */
+.hx-review-stories .product-reviews-grid__text { white-space: pre-line; }
+.hx-review-stories__more { margin-top: 24px; }
+.hx-review-stories__more > summary { width: fit-content; cursor: pointer; color: #174b3c; font-size: 16px; font-weight: 600; padding: 14px 22px; border: 1px solid #174b3c; border-radius: 28px; }
+.hx-review-stories__more > summary:focus-visible { outline: 2px solid #174b3c; outline-offset: 4px; }
+.hx-review-stories__more[open] > summary { margin-bottom: 24px; }
+#MainContent .hx-review-stories { background: #fffaf0; color: #174b3c; }
+#MainContent .hx-review-stories .product-reviews-grid__title { color: #174b3c; }
+#MainContent .hx-review-stories .product-reviews-grid__subtitle { color: #527063; }
+#MainContent .hx-review-stories__eyebrow { font-size: 11px; font-weight: 700; letter-spacing: .16em; margin: 0 0 20px; color: #527063; }
+#MainContent .hx-review-stories .product-reviews-grid__items { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+#MainContent .hx-review-stories .product-reviews-grid__item { background: #fffdf7; border: 1px solid #d6dfce; border-radius: 24px; padding: 28px; box-shadow: none; display: flex; flex-direction: column; }
+#MainContent .hx-review-stories .product-reviews-grid__item:nth-child(2) { background: #f1f4e6; }
+#MainContent .hx-review-stories .product-reviews-grid__badge { font-size: 14px; letter-spacing: 0; text-transform: none; background: none; border: 0; padding: 0; opacity: 1; font-weight: 600; }
+#MainContent .hx-review-stories .product-reviews-grid__rating { font-size: 15px; color: #476337; margin: 12px 0 24px; letter-spacing: .025em; }
+#MainContent .hx-review-stories__card-title { font-family: inherit; font-size: 22px; line-height: 1.2; font-weight: 700; color: #174b3c; margin: 0 0 14px; }
+#MainContent .hx-review-stories .product-reviews-grid__text { padding: 0; border: 0; margin: 0 0 28px; font-size: 17px; line-height: 1.65; font-style: normal; color: #304f41; }
+#MainContent .hx-review-stories .product-reviews-grid__footer { margin-top: auto; padding-top: 18px; border-top: 1px solid #d6dfce; color: #527063; opacity: 1; font-size: 12px; line-height: 1.7; }
+#MainContent .hx-review-stories__source-row { display: flex; gap: 28px; align-items: center; justify-content: space-between; margin-top: 28px; padding-top: 24px; border-top: 1px solid #d6dfce; }
+#MainContent .hx-review-stories__source-row p { margin: 0; max-width: 640px; font-size: 13px; line-height: 1.7; color: #527063; }
+#MainContent .hx-review-stories .hx-review-source { flex-shrink: 0; font-size: 14px; font-weight: 600; text-underline-offset: 5px; padding-block: 12px; }
+#MainContent .hx-review-stories a:focus-visible { outline: 2px solid #174b3c; outline-offset: 5px; }
+#MainContent .hx-review-stories .product-reviews-grid__item > a,
+#MainContent .hx-review-stories .product-reviews-grid__item > a:visited { color: #174b3c; text-decoration: underline; text-underline-offset: 4px; padding-block: 10px; }
+#MainContent .hx-review-stories .product-reviews-grid__item > a:hover { color: #0b3227; }
+#MainContent .hx-review-stories__media { display: block; margin: 18px 0; overflow: hidden; border-radius: 14px; background: #e9edde; }
+#MainContent .hx-review-stories__media video,
+#MainContent .hx-review-stories__media img { display: block; width: 100%; aspect-ratio: 3 / 4; height: auto; max-height: 420px; object-fit: contain; background: #122a22; }
+#MainContent .hx-review-stories__disclosure { margin: 6px 0 12px; color: #527063; font-size: 12px; line-height: 1.5; }
+#MainContent .hx-review-stories a.hx-review-source,
+#MainContent .hx-review-stories a.hx-review-source:visited { color: #fff8d5 !important; background-color: #174b3c; }
+#MainContent .hx-review-stories a.hx-review-source:hover,
+#MainContent .hx-review-stories a.hx-review-source:focus-visible { color: #fff8d5 !important; background-color: #0b3227; }
+@media (max-width: 900px) {
+  #MainContent .hx-review-stories .product-reviews-grid__items { grid-template-columns: 1fr; }
+  #MainContent .hx-review-stories__source-row { flex-direction: column; align-items: flex-start; gap: 10px; }
+  #MainContent .hx-review-stories .product-reviews-grid__item { padding: 24px; }
+}

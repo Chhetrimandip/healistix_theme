@@ -1,0 +1,247 @@
+{{ 'od-bestsellers.js' | asset_url | script_tag }}
+
+{%- liquid
+  assign badge_text   = section.settings.badge_text   | default: '30% OFF'
+  assign banner_text  = section.settings.banner_text  | default: 'SAVE 30% OFF!'
+  assign banner_bg    = section.settings.banner_bg    | default: '#C8E6C0'
+  assign banner_color = section.settings.banner_color | default: '#1A3A2A'
+  assign btn_bg       = section.settings.btn_bg       | default: '#1A3A2A'
+  assign heading_color = section.settings.heading_color | default: '#1A3A2A'
+-%}
+
+<section class="od-bs" data-od-bs>
+  <div class="od-wrap">
+    <h2 class="od-bs__heading" style="color: {{ heading_color }};">{{ section.settings.heading }}</h2>
+  </div>
+
+  <div class="od-bs__shell">
+    <button class="od-bs__arrow od-bs__arrow--prev" aria-label="Scroll left" disabled>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+
+    <div class="od-bs__track">
+      {%- liquid
+        assign has_any_product = false
+        for block in section.blocks
+          if block.settings.product != blank
+            assign has_any_product = true
+            break
+          endif
+        endfor
+      -%}
+
+      {%- if has_any_product -%}
+        {%- for block in section.blocks -%}
+          {%- liquid
+            assign product = block.settings.product
+            if product == blank
+              continue
+            endif
+            assign variant = product.selected_or_first_available_variant
+          assign has_discount = false
+          if variant.compare_at_price > variant.price
+            assign has_discount = true
+          endif
+          assign flavor_label = block.settings.flavor_note
+          if flavor_label == blank
+            unless variant.title == 'Default Title'
+              assign flavor_label = variant.title
+            endunless
+          endif
+        -%}
+
+        <article class="od-bs__card" {{ block.shopify_attributes }}>
+          <a class="od-bs__card-link" href="{{ product.url }}" aria-label="{{ product.title | escape }}">
+          <div class="od-bs__img-wrap">
+            {%- if has_discount and badge_text != blank -%}
+              <span class="od-bs__badge">{{ badge_text }}</span>
+            {%- endif -%}
+
+            {%- if product.featured_image != blank -%}
+              {{ product.featured_image | image_url: width: 600 | image_tag: loading: 'lazy', class: 'od-bs__img', widths: '300, 500, 600', sizes: '260px' }}
+            {%- else -%}
+              <svg class="od-placeholder-jar" viewBox="0 0 120 160" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="38" y="6" width="44" height="16" rx="6" fill="#D5E9E4" stroke="#3B9E8E" stroke-width="2"/>
+                <rect x="44" y="4" width="32" height="8" rx="4" fill="#3B9E8E"/>
+                <path d="M24 34C22 40 20 48 20 58V128C20 138 28 146 38 146H82C92 146 100 138 100 128V58C100 48 98 40 96 34H24Z" fill="#D5E9E4" stroke="#3B9E8E" stroke-width="2"/>
+                <path d="M20 34C20 28 26 22 38 22H82C94 22 100 28 100 34H20Z" fill="#3B9E8E" opacity="0.6"/>
+              </svg>
+            {%- endif -%}
+
+            {%- if has_discount and banner_text != blank -%}
+              <div class="od-bs__banner" style="background: {{ banner_bg }}; color: {{ banner_color }};">{{ banner_text }}</div>
+            {%- endif -%}
+          </div>
+          </a>
+
+          <div class="od-bs__info">
+            <a class="od-bs__name-link" href="{{ product.url }}"><p class="od-bs__name">{{ product.title }}</p></a>
+
+            <p class="od-bs__price">
+              <span>{{ variant.price | money }}</span>
+              {%- if has_discount -%}<s>{{ variant.compare_at_price | money }}</s>{%- endif -%}
+            </p>
+
+            {%- if flavor_label != blank -%}
+              <p class="od-bs__variant">{{ flavor_label }}</p>
+            {%- endif -%}
+
+            {%- comment -%} Color swatches from variants {%- endcomment -%}
+            {%- assign color_option = nil -%}
+            {%- for opt in product.options_with_values -%}
+              {%- assign opt_low = opt.name | downcase -%}
+              {%- if opt_low == 'color' or opt_low == 'colour' or opt_low == 'flavor' or opt_low == 'flavour' or opt_low == 'scent' or opt_low == 'variety' -%}
+                {%- assign color_option = opt -%}
+                {%- break -%}
+              {%- endif -%}
+            {%- endfor -%}
+
+            {%- if color_option != nil and color_option.values.size > 0 -%}
+              <div class="od-bs__swatches">
+                {%- assign shown = 0 -%}
+                {%- for sv in color_option.values -%}
+                  {%- if shown < 4 -%}
+                    {%- assign sv_low = sv | downcase -%}
+                    {%- if sv_low contains 'banana' -%}{%- assign sw = '#FFD54F' -%}
+                    {%- elsif sv_low contains 'mango' -%}{%- assign sw = '#FFA726' -%}
+                    {%- elsif sv_low contains 'strawb' -%}{%- assign sw = '#EF9A9A' -%}
+                    {%- elsif sv_low contains 'blueb' -%}{%- assign sw = '#9FA8DA' -%}
+                    {%- elsif sv_low contains 'soursop' -%}{%- assign sw = '#C5E1A5' -%}
+                    {%- elsif sv_low contains 'mint' -%}{%- assign sw = '#80CBC4' -%}
+                    {%- elsif sv_low contains 'pine' -%}{%- assign sw = '#FFF176' -%}
+                    {%- elsif sv_low contains 'cherry' or sv_low contains 'watermelon' -%}{%- assign sw = '#EF5350' -%}
+                    {%- elsif sv_low contains 'lemon' -%}{%- assign sw = '#FFF59D' -%}
+                    {%- elsif sv_low contains 'lime' -%}{%- assign sw = '#DCEDC8' -%}
+                    {%- elsif sv_low contains 'passion' -%}{%- assign sw = '#F48FB1' -%}
+                    {%- elsif sv_low contains 'coconut' or sv_low contains 'coco' -%}{%- assign sw = '#F5F0E8' -%}
+                    {%- elsif sv_low contains 'ginger' -%}{%- assign sw = '#FFCC80' -%}
+                    {%- elsif sv_low contains 'turmeric' or sv_low contains 'tumeric' -%}{%- assign sw = '#FFE082' -%}
+                    {%- elsif sv_low contains 'elderb' -%}{%- assign sw = '#CE93D8' -%}
+                    {%- elsif sv_low contains 'vanilla' -%}{%- assign sw = '#F3E5AB' -%}
+                    {%- elsif sv_low contains 'grape' -%}{%- assign sw = '#9CCC65' -%}
+                    {%- elsif sv_low contains 'moringa' -%}{%- assign sw = '#8BC34A' -%}
+                    {%- elsif sv_low contains 'trinity' -%}{%- assign sw = '#4FC3F7' -%}
+                    {%- elsif sv_low contains 'orange' -%}{%- assign sw = '#FFB74D' -%}
+                    {%- elsif sv_low contains 'peach' or sv_low contains 'papaya' -%}{%- assign sw = '#FFAB91' -%}
+                    {%- elsif sv_low contains 'apple' -%}{%- assign sw = '#A5D6A7' -%}
+                    {%- else -%}{%- assign sw = '#D5E9E4' -%}
+                    {%- endif -%}
+                    <span class="od-bs__swatch{% if forloop.first %} is-active{% endif %}" style="background: {{ sw }};" title="{{ sv }}" aria-label="{{ sv }}"></span>
+                  {%- endif -%}
+                  {%- assign shown = shown | plus: 1 -%}
+                {%- endfor -%}
+                {%- if color_option.values.size > 4 -%}
+                  <span class="od-bs__swatch-more">+{{ color_option.values.size | minus: 4 }}</span>
+                {%- endif -%}
+              </div>
+            {%- endif -%}
+
+            <form class="od-bs__form" method="post" action="{{ routes.cart_add_url }}" accept-charset="UTF-8" enctype="multipart/form-data">
+              <input type="hidden" name="form_type" value="product">
+              <input type="hidden" name="utf8" value="✓">
+              <input type="hidden" name="id" value="{{ variant.id }}">
+              <input type="hidden" name="quantity" value="1">
+              <button type="submit" class="od-bs__btn" style="background: {{ btn_bg }};" {% unless variant.available %}disabled{% endunless %}>
+                {%- if variant.available -%}Add to Cart{%- else -%}Sold Out{%- endif -%}
+              </button>
+            </form>
+          </div>
+        </article>
+        {%- endfor -%}
+
+      {%- else -%}
+        {%- for product in collections.all.products limit: 8 -%}
+          {%- liquid
+            assign variant = product.selected_or_first_available_variant
+            assign has_discount = false
+            if variant.compare_at_price > variant.price
+              assign has_discount = true
+            endif
+          -%}
+          <article class="od-bs__card">
+            <div class="od-bs__img-wrap">
+              {%- if has_discount and badge_text != blank -%}
+                <span class="od-bs__badge">{{ badge_text }}</span>
+              {%- endif -%}
+              {%- if product.featured_image != blank -%}
+                {{ product.featured_image | image_url: width: 600 | image_tag: loading: 'lazy', class: 'od-bs__img', widths: '300, 500, 600', sizes: '260px' }}
+              {%- else -%}
+                <svg class="od-placeholder-jar" viewBox="0 0 120 160" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <rect x="38" y="6" width="44" height="16" rx="6" fill="#D5E9E4" stroke="#3B9E8E" stroke-width="2"/>
+                  <rect x="44" y="4" width="32" height="8" rx="4" fill="#3B9E8E"/>
+                  <path d="M24 34C22 40 20 48 20 58V128C20 138 28 146 38 146H82C92 146 100 138 100 128V58C100 48 98 40 96 34H24Z" fill="#D5E9E4" stroke="#3B9E8E" stroke-width="2"/>
+                  <path d="M20 34C20 28 26 22 38 22H82C94 22 100 28 100 34H20Z" fill="#3B9E8E" opacity="0.6"/>
+                </svg>
+              {%- endif -%}
+              {%- if has_discount and banner_text != blank -%}
+                <div class="od-bs__banner" style="background: {{ banner_bg }}; color: {{ banner_color }};">{{ banner_text }}</div>
+              {%- endif -%}
+            </div>
+            <div class="od-bs__info">
+              <p class="od-bs__name">{{ product.title }}</p>
+              <p class="od-bs__price">
+                <span>{{ variant.price | money }}</span>
+                {%- if has_discount -%}<s>{{ variant.compare_at_price | money }}</s>{%- endif -%}
+              </p>
+              <form class="od-bs__form" method="post" action="{{ routes.cart_add_url }}" accept-charset="UTF-8" enctype="multipart/form-data">
+                <input type="hidden" name="form_type" value="product">
+                <input type="hidden" name="utf8" value="✓">
+                <input type="hidden" name="id" value="{{ variant.id }}">
+                <input type="hidden" name="quantity" value="1">
+                <button type="submit" class="od-bs__btn" style="background: {{ btn_bg }};" {% unless variant.available %}disabled{% endunless %}>
+                  {%- if variant.available -%}Add to Cart{%- else -%}Sold Out{%- endif -%}
+                </button>
+              </form>
+            </div>
+          </article>
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+
+    <button class="od-bs__arrow od-bs__arrow--next" aria-label="Scroll right">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "OD — Best Sellers",
+  "tag": "section",
+  "class": "od-section-bestsellers",
+  "max_blocks": 12,
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Shop our Best Sellers" },
+    { "type": "color", "id": "heading_color", "label": "Heading color", "default": "#1A3A2A" },
+    { "type": "header", "content": "Badge & Banner" },
+    { "type": "text", "id": "badge_text", "label": "Badge text", "default": "30% OFF", "info": "Top-left pill on the card. Leave blank to hide." },
+    { "type": "text", "id": "banner_text", "label": "Banner text", "default": "SAVE 30% OFF!", "info": "Strip at the bottom of the image. Leave blank to hide." },
+    { "type": "color", "id": "banner_bg", "label": "Banner background", "default": "#C8E6C0" },
+    { "type": "color", "id": "banner_color", "label": "Banner text color", "default": "#1A3A2A" },
+    { "type": "header", "content": "Button" },
+    { "type": "color", "id": "btn_bg", "label": "Button color", "default": "#1A3A2A" }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product card",
+      "settings": [
+        { "type": "product", "id": "product", "label": "Product" },
+        { "type": "text", "id": "flavor_note", "label": "Variant label", "info": "Shown below the price. E.g. 'Banana · 16 oz'. Falls back to the variant title." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "OD — Best Sellers",
+      "blocks": [
+        { "type": "product" },
+        { "type": "product" },
+        { "type": "product" },
+        { "type": "product" },
+        { "type": "product" }
+      ]
+    }
+  ]
+}
+{% endschema %}

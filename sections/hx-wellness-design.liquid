@@ -1,0 +1,28 @@
+{% comment %}
+  Visual layer for product.wellness. The existing main-product section owns
+  product content, media, variants, inventory state and purchasing behavior.
+{% endcomment %}
+{{ 'hx-wellness-pdp.css' | asset_url | stylesheet_tag }}
+<div class="hx-wellness-design" hidden></div>
+{% style %}
+  body:has(.hx-wellness-design) #MainContent {
+    --hx-wellness-accent: {{ section.settings.gallery_tint }};
+  }
+{% endstyle %}
+{% schema %}
+{
+  "name": "Wellness PDP design",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Visual styling for separate wellness products. Edit product media, description and variants in Products. Arrange content in the Product information section."
+    },
+    {
+      "type": "color",
+      "id": "gallery_tint",
+      "label": "Gallery background",
+      "default": "#e6ebce"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,36 @@
+{{ 'hx-home-playful.css' | asset_url | stylesheet_tag }}
+{%- assign hero_product = section.settings.product -%}
+<section class="hx-home-hero" aria-labelledby="HomeHero-{{ section.id }}">
+  <div class="hx-home-hero__copy">
+    <p class="hx-home-eyebrow">{{ section.settings.eyebrow | escape }}</p>
+    <h1 id="HomeHero-{{ section.id }}">{{ section.settings.heading | escape }}</h1>
+    <p class="hx-home-intro">{{ section.settings.text | escape }}</p>
+    <a class="hx-home-button" href="{{ hero_product.url | default: routes.all_products_collection_url }}">{{ section.settings.button_label | escape }} <span aria-hidden="true">↗</span></a>
+    <a class="hx-home-text-link" href="#HomeFlavors">Explore the flavors <span aria-hidden="true">↓</span></a>
+    <a class="hx-home-text-link" href="#WellnessCollection">Discover Batana &amp; Shilajit <span aria-hidden="true">↓</span></a>
+  </div>
+  <div class="hx-home-hero__visual">
+    {%- if section.settings.image != blank -%}
+      {{ section.settings.image | image_url: width: 1800 | image_tag: widths: '600, 900, 1200, 1800', sizes: '(max-width: 749px) 100vw, 58vw', loading: 'eager', fetchpriority: 'high' }}
+    {%- else -%}
+      <img src="{{ 'hx-home-hero-v1.jpg' | asset_url }}" width="1536" height="1024" alt="Healistix Blueberry, Mango and Banana Sea Moss Gel jars with fresh fruit" loading="eager" fetchpriority="high">
+    {%- endif -%}
+    <span class="hx-home-sticker">{{ section.settings.sticker | escape }}</span>
+  </div>
+</section>
+<div class="hx-home-ribbon" aria-hidden="true"><span>Find your flavor</span><b>✳</b><span>Make it your ritual</span><b>✳</b><span>A little daily goodness</span><b>✳</b></div>
+{% schema %}
+{
+  "name": "Healistix — Campaign hero",
+  "settings": [
+    {"type":"text","id":"eyebrow","label":"Eyebrow","default":"YOUR DAILY DOSE OF DELICIOUS"},
+    {"type":"text","id":"heading","label":"Heading","default":"Good things come by the spoonful."},
+    {"type":"textarea","id":"text","label":"Text","default":"Meet your next feel-good ritual. Explore Healistix Sea Moss Gel and find a flavor that feels like you."},
+    {"type":"product","id":"product","label":"Featured product"},
+    {"type":"text","id":"button_label","label":"Button label","default":"Shop Sea Moss"},
+    {"type":"image_picker","id":"image","label":"Campaign image","info":"Overrides the generated Healistix campaign photograph."},
+    {"type":"text","id":"sticker","label":"Image sticker","default":"Find your flavor"}
+  ],
+  "presets":[{"name":"Healistix — Campaign hero"}]
+}
+{% endschema %}

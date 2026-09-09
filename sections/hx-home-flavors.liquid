@@ -1,0 +1,40 @@
+{%- assign flavor_product = section.settings.product -%}
+<section class="hx-home-flavors hx-home-wrap" id="HomeFlavors" aria-labelledby="HomeFlavors-{{ section.id }}">
+  <div class="hx-home-section-head">
+    <div><p class="hx-home-eyebrow">{{ section.settings.eyebrow | escape }}</p><h2 id="HomeFlavors-{{ section.id }}">{{ section.settings.heading | escape }}</h2></div>
+    <a class="hx-home-text-link" href="{{ flavor_product.url | default: routes.all_products_collection_url }}">Explore Sea Moss <span aria-hidden="true">↗</span></a>
+  </div>
+  <div class="hx-home-flavor-grid">
+    {%- assign pilot_flavors = 'banana,blueberry,mango,pineapple,watermelon' | split: ',' -%}
+    {%- assign flavor_option_index = 0 -%}
+    {%- for option in flavor_product.options_with_values -%}
+      {%- assign option_name = option.name | downcase -%}
+      {%- if option_name == 'flavor' or option_name == 'flavour' -%}
+        {%- assign flavor_option_index = forloop.index0 -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {%- for flavor in pilot_flavors -%}
+      {%- assign flavor_variant = nil -%}
+      {%- for variant in flavor_product.variants -%}
+        {%- assign option_value = variant.options[flavor_option_index] | downcase -%}
+        {%- if option_value == flavor -%}{%- assign flavor_variant = variant -%}{%- break -%}{%- endif -%}
+      {%- endfor -%}
+      {%- if flavor_variant != nil -%}
+        <article class="hx-home-flavor hx-home-flavor--{{ flavor }}">
+          <a class="hx-home-flavor__image" href="{{ flavor_variant.url }}" aria-label="Explore {{ flavor | capitalize }} Sea Moss Gel">
+            {%- assign artwork = 'hx-pilot-' | append: flavor | append: '-front.webp' -%}
+            <img src="{{ artwork | asset_url }}" alt="Healistix {{ flavor | capitalize }} Sea Moss Gel jar" width="1354" height="1836" loading="lazy">
+            <span aria-hidden="true">↗</span>
+          </a>
+          <div class="hx-home-flavor__info"><h3><a href="{{ flavor_variant.url }}">{{ flavor | capitalize }}</a></h3><p>{{ flavor_variant.price | money }}</p></div>
+          <p class="hx-home-flavor__caption">Sea Moss Gel{% unless flavor_variant.available %} · Currently sold out{% endunless %}</p>
+          <a class="hx-home-flavor__button" href="{{ flavor_variant.url }}">Explore {{ flavor | capitalize }}</a>
+        </article>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+  {%- if flavor_product == blank and request.design_mode -%}<p>Select your Sea Moss product in this section’s settings to show its flavors.</p>{%- endif -%}
+</section>
+{% schema %}
+{"name":"Healistix — Flavors","settings":[{"type":"product","id":"product","label":"Sea Moss product","info":"Shows matching Banana, Blueberry, Mango, Pineapple and Watermelon variants with their current Shopify prices and links."},{"type":"text","id":"eyebrow","label":"Eyebrow","default":"THE SEA MOSS COLLECTION"},{"type":"text","id":"heading","label":"Heading","default":"A flavor for your kind of day."}],"presets":[{"name":"Healistix — Flavors"}]}
+{% endschema %}

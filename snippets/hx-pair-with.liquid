@@ -1,0 +1,29 @@
+<section class="hx-pair" aria-labelledby="PairHeading-{{ section.id }}">
+  <h2 id="PairHeading-{{ section.id }}">Pair it with</h2>
+  <div class="hx-pair__cards">
+    {%- assign pair_handles = 'raw-honduran-batana-oil,himalayan-shilajit' | split: ',' -%}
+    {%- for handle in pair_handles -%}
+      {%- assign paired = all_products[handle] -%}
+      {%- if paired != blank and paired.id != product.id -%}
+        {%- assign pair_variant = paired.selected_or_first_available_variant -%}
+        {%- assign pair_art = 'hx-product-batana-front.webp' -%}
+        {%- if handle == 'himalayan-shilajit' -%}{%- assign pair_art = 'hx-product-shilajit-front.webp' -%}{%- endif -%}
+        <article class="hx-pair__card">
+          <a class="hx-pair__image" href="{{ paired.url }}"><img src="{{ pair_art | asset_url }}" alt="{{ paired.title | escape }}" width="240" height="280" loading="lazy"></a>
+          <div class="hx-pair__copy">
+            <h3><a href="{{ paired.url }}">{{ paired.title | escape }}</a></h3>
+            <p>{% if handle == 'raw-honduran-batana-oil' %}A little care for your hair. Meet our raw Honduran batana oil.{% else %}Explore a different daily ritual with Himalayan shilajit resin.{% endif %}</p>
+            <span class="hx-pair__price">{{ pair_variant.price | money }}</span>
+            {%- assign pair_form_id = 'PairForm-' | append: section.id | append: '-' | append: paired.id -%}
+            {% form 'product', paired, id: pair_form_id %}
+              <input type="hidden" name="id" value="{{ pair_variant.id }}">
+              <input type="hidden" name="quantity" value="1">
+              <button type="submit" {% unless pair_variant.available %}disabled{% endunless %}>{% if pair_variant.available %}Add to cart <span aria-hidden="true">+</span>{% else %}Sold out{% endif %}</button>
+            {% endform %}
+            <a class="hx-pair__details" href="{{ paired.url }}">View product <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+</section>

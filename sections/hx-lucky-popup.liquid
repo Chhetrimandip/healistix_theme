@@ -1,0 +1,201 @@
+{%- liquid
+  assign discount = section.settings.discount | default: 30
+  assign form_id = 'HxSignupForm-' | append: section.id
+-%}
+{{ 'hx-lucky-popup.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'hx-lucky-popup.js' | asset_url }}" defer="defer"></script>
+<hx-lucky-signup data-delay="{{ section.settings.delay | times: 1000 }}" data-editor="{{ request.design_mode }}">
+  <button type="button" class="hx-signup-teaser" data-open>Unlock your offer <span aria-hidden="true">✦</span></button>
+  <dialog class="hx-signup" aria-label="Healistix welcome offer">
+    <button type="button" class="hx-signup-close" data-close aria-label="Close welcome offer">&times;</button>
+    <div class="hx-signup-layout">
+      <div class="hx-signup-art">
+        <span class="hx-signup-wordmark">HEALISTIX<span>GOOD THINGS, DAILY.</span></span>
+        {% if section.settings.person_image != blank %}
+          {{ section.settings.person_image | image_url: width: 1200 | image_tag: class: 'hx-signup-photo', loading: 'lazy', widths: '400, 700, 1200' }}
+        {% else %}
+          <img class="hx-signup-photo" src="{{ 'hx-home-hero-v1.jpg' | asset_url }}" alt="Healistix banana, blueberry and mango sea moss jars with fresh fruit" width="1536" height="1024" loading="lazy">
+        {% endif %}
+        {% for i in (1..4) %}
+          {% assign jar_key = 'jar_' | append: i %}
+          {% if section.settings[jar_key] != blank %}
+            {{ section.settings[jar_key] | image_url: width: 240 | image_tag: class: 'hx-signup-floating', loading: 'lazy', alt: '' }}
+          {% endif %}
+        {% endfor %}
+        <p class="hx-signup-art-caption">Your daily ritual.<br><em>A little more delicious.</em></p>
+      </div>
+      <div class="hx-signup-content">
+        <div data-step="1" class="hx-signup-step">
+          <p class="hx-signup-eyebrow">A little welcome surprise</p>
+          <h2 tabindex="-1">Try your<br><em>luck.</em> <span class="hx-signup-star" aria-hidden="true">✦</span></h2>
+          <p>{{ section.settings.step1_sub | escape }}</p>
+          <div class="hx-signup-cards">
+            {% for i in (1..3) %}
+              <button type="button" class="hx-signup-card" data-card aria-label="Reveal card {{ i }}" aria-pressed="false">
+                <span class="hx-signup-card-inner">
+                  <span class="hx-signup-card-back" aria-hidden="true"><span>✦</span><small>HEALISTIX</small></span>
+                  <span class="hx-signup-card-front" aria-hidden="true">{% case i %}{% when 1 %}{{ discount }}{% when 2 %}%{% when 3 %}OFF{% endcase %}</span>
+                </span>
+              </button>
+            {% endfor %}
+          </div>
+          <p class="hx-signup-progress" role="status" data-progress>Pick a card. Your welcome offer is waiting.</p>
+          <button type="button" class="hx-signup-text-button" data-close>No thanks, maybe later</button>
+        </div>
+        <div data-step="2" class="hx-signup-step" hidden>
+          <p class="hx-signup-eyebrow">You've got</p>
+          <h2 class="hx-signup-offer" tabindex="-1">{{ discount }}%<span>off</span></h2>
+          {% if section.settings.free_shipping %}<p class="hx-signup-shipping">+ Free shipping</p>{% endif %}
+          <p class="hx-signup-question">To claim, tell us what brings you here:</p>
+          <div class="hx-signup-choices">
+            {% for i in (1..4) %}
+              {% assign concern_key = 'concern_' | append: i %}
+              {% if section.settings[concern_key] != blank %}
+                <button type="button" data-choice>{{ section.settings[concern_key] | escape }}<span aria-hidden="true">↗</span></button>
+              {% endif %}
+            {% endfor %}
+          </div>
+          <button type="button" class="hx-signup-text-button" data-next>Skip this question</button>
+        </div>
+        <div data-step="3" class="hx-signup-step" hidden>
+          <p class="hx-signup-eyebrow">Your welcome offer</p>
+          <h2 tabindex="-1">Make it<br><em>yours.</em></h2>
+          <p>Join our email list to unlock {{ discount }}% off your first order.</p>
+          {% form 'customer', id: form_id, class: 'hx-signup-form' %}
+            <span hidden data-result="{% if form.posted_successfully? %}success{% elsif form.errors %}error{% endif %}"></span>
+            <input type="hidden" name="contact[tags]" value="newsletter,hx-welcome-popup">
+            {% if form.errors %}<div class="hx-signup-error" role="alert">{{ form.errors | default_errors }}</div>{% endif %}
+            <label for="HxSignupEmail-{{ section.id }}">Email address</label>
+            <input id="HxSignupEmail-{{ section.id }}" type="email" name="contact[email]" autocomplete="email" placeholder="you@example.com" value="{{ form.email | escape }}" required {% if form.errors %}aria-invalid="true"{% endif %}>
+            <button type="submit" class="hx-signup-submit">Unlock my {{ discount }}% off <span aria-hidden="true">↗</span></button>
+            <p class="hx-signup-legal">By signing up, you agree to receive marketing emails from Healistix. Unsubscribe anytime. <a href="{{ shop.privacy_policy.url | default: '/policies/privacy-policy' }}">Privacy policy</a>.</p>
+          {% endform %}
+          <button type="button" class="hx-signup-text-button" data-back>Back</button>
+        </div>
+        <div data-step="4" class="hx-signup-step" hidden>
+          <p class="hx-signup-eyebrow">You're on the list</p>
+          <h2 tabindex="-1">Hello,<br><em>good things.</em></h2>
+          <p>Thanks for joining Healistix.</p>
+          {% if section.settings.discount_code != blank %}
+            <p>Your welcome code:</p>
+            <strong class="hx-signup-code">{{ section.settings.discount_code | escape }}</strong>
+          {% endif %}
+          <button type="button" class="hx-signup-submit" data-close>Explore the flavors <span aria-hidden="true">↗</span></button>
+        </div>
+      </div>
+    </div>
+  </dialog>
+</hx-lucky-signup>
+{% schema %}
+{
+  "name": "Lucky Popup",
+  "settings": [{"type":"checkbox","id":"free_shipping","label":"Include free shipping in offer","default":false,"info":"Enable only when the welcome discount includes free shipping in Shopify."},
+    {
+      "type": "header",
+      "content": "Trigger"
+    },
+    {
+      "type": "range",
+      "id": "delay",
+      "label": "Show after (seconds)",
+      "min": 0,
+      "max": 15,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "header",
+      "content": "Step 1 — Card Flip"
+    },
+    {
+      "type": "text",
+      "id": "step1_sub",
+      "label": "Subheading",
+      "default": "Flip 3 cards to see what you win."
+    },
+    {
+      "type": "header",
+      "content": "Offer"
+    },
+    {
+      "type": "number",
+      "id": "discount",
+      "label": "Discount %",
+      "default": 30
+    },
+    {
+      "type": "text",
+      "id": "discount_code",
+      "label": "Discount code to display",
+      "default": "HEALISTIX30"
+    },
+    {
+      "type": "header",
+      "content": "Step 2 — Preferences"
+    },
+    {
+      "type": "text",
+      "id": "concern_1",
+      "label": "Option 1",
+      "default": "I want an easy daily routine"
+    },
+    {
+      "type": "text",
+      "id": "concern_2",
+      "label": "Option 2",
+      "default": "I am curious about sea moss"
+    },
+    {
+      "type": "text",
+      "id": "concern_3",
+      "label": "Option 3",
+      "default": "I want to explore the flavors"
+    },
+    {
+      "type": "text",
+      "id": "concern_4",
+      "label": "Option 4",
+      "default": "I want to upgrade my smoothies"
+    },
+    {
+      "type": "header",
+      "content": "Visual — Person photo"
+    },
+    {
+      "type": "image_picker",
+      "id": "person_image",
+      "label": "Hero person photo",
+      "info": "Optional replacement for the Healistix product campaign image. Crops to fit on mobile and desktop."
+    },
+    {
+      "type": "header",
+      "content": "Visual — Floating jars (transparent PNG)"
+    },
+    {
+      "type": "image_picker",
+      "id": "jar_1",
+      "label": "Floating jar 1 (top left)"
+    },
+    {
+      "type": "image_picker",
+      "id": "jar_2",
+      "label": "Floating jar 2 (mid left)"
+    },
+    {
+      "type": "image_picker",
+      "id": "jar_3",
+      "label": "Floating jar 3 (centre)"
+    },
+    {
+      "type": "image_picker",
+      "id": "jar_4",
+      "label": "Floating jar 4 (bottom)"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Lucky Popup"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,22 @@
+{
+  "sections": {
+    "main": {
+      "type": "hx-wellness-product",
+      "settings": {
+        "kind": "shilajit",
+        "handle": "himalayan-shilajit",
+        "title": "Himalayan Shilajit",
+        "category": "THE WELLNESS COLLECTION",
+        "intro": "Meet the next addition to your daily ritual. Discover Himalayan Shilajit, the Healistix way.",
+        "details": "Healistix Himalayan Shilajit. Refer to the product label for pack size and the complete ingredient list.",
+        "directions": "Follow the directions on your product label. Contact our team if you need help with product use.",
+        "story_heading": "Something new for your routine.",
+        "story": "Your everyday moments deserve a little intention. Make Himalayan Shilajit part of your own Healistix ritual.",
+        "preview_price": "39.99"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

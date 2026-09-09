@@ -1,0 +1,194 @@
+{%- if section.settings.enabled -%}
+<div id="hx-fruit-bg" aria-hidden="true">
+  {%- for block in section.blocks -%}
+    {%- if block.type == 'fruit' -%}
+      {%- assign rot = block.settings.rotation -%}
+      {%- assign sz  = block.settings.size -%}
+      {%- assign lft = block.settings.left -%}
+      {%- assign tp  = block.settings.top -%}
+
+      {%- comment -%} Prefer custom uploaded image; fall back to built-in asset {%- endcomment -%}
+      {%- if block.settings.image != blank -%}
+        {%- assign img_src = block.settings.image | image_url: width: 500 -%}
+      {%- else -%}
+        {%- assign img_src = block.settings.builtin | asset_url -%}
+      {%- endif -%}
+
+      <div class="hx-fruit{% if block.settings.hide_mobile %} hx-fruit--hide-mob{% endif %}"
+           style="--hx-fruit-left:{{ lft }}%;--hx-fruit-size:{{ sz }}px;top:{{ tp }}px;width:{{ sz }}px;transform:rotate({{ rot }}deg)"
+           {{ block.shopify_attributes }}>
+        <img src="{{ img_src }}" alt="" loading="lazy" width="{{ sz }}" height="{{ sz }}">
+      </div>
+    {%- endif -%}
+  {%- endfor -%}
+</div>
+{%- endif -%}
+
+<style>
+  /* ── Fruit wallpaper layer ───────────────────────────────────── */
+  body { position: relative; }
+
+  /* Anchor the wallpaper to the full body, not the empty section wrapper. */
+  #shopify-section-{{ section.id }} { position: static; }
+
+  #hx-fruit-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: auto;
+    pointer-events: none;
+    z-index: 0;
+    /* Rotated fruit must not enlarge the document's scrollable area. */
+    overflow: clip;
+  }
+
+  .hx-fruit {
+    position: absolute;
+    left: min(var(--hx-fruit-left), calc(100% - var(--hx-fruit-size)));
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .hx-fruit img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  @media (max-width: 749px) {
+    .hx-fruit--hide-mob { display: none; }
+  }
+
+  /* ── Strip opaque section backgrounds so fruits show through ── */
+  /* Body provides the cream base colour; sections sit above it transparently. */
+  /* Do NOT add dark/navy sections (e.g. od-section--deep) here.              */
+  .product-seamoss,
+  .product-steps-cards,
+  .product-reviews-grid,
+  .product-benefits-list,
+  .product-faq,
+  .product-reviews-widget,
+  .hx-hero,
+  .hx-bestsellers,
+  .hx-benefits,
+  .hx-proof,
+  .hx-founder,
+  .hx-guarantee,
+  .hx-reviews,
+  .hx-insta,
+  .hx-capture,
+  .hx-faq,
+  .hx-results,
+  .hx-lineup,
+  .hx-ugc,
+  .hx-press,
+  .hx-ingredients,
+  .hx-how-it-works,
+  .hx-why-healistix,
+  .od-bestsellers,
+  .od-inside,
+  .od-origin,
+  .od-reviews,
+  .od-faq,
+  .shopify-section {
+    background: transparent !important;
+    background-color: transparent !important;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Fruit Background",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enabled",
+      "label": "Show fruit background",
+      "default": true
+    },
+    {
+      "type": "paragraph",
+      "content": "Add a **Fruit** block below for each image. Drag to reorder. Each fruit's position is measured from the top of the page — scroll down on tall pages to place later fruits."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "fruit",
+      "name": "Fruit",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Custom image",
+          "info": "Upload your own PNG (transparent background recommended). Leave blank to use a built-in fruit."
+        },
+        {
+          "type": "select",
+          "id": "builtin",
+          "label": "Built-in fruit",
+          "info": "Only used when no custom image is uploaded above.",
+          "options": [
+            { "value": "fruit-banana.png",     "label": "Banana" },
+            { "value": "fruit-blueberry.png",  "label": "Blueberry" },
+            { "value": "fruit-apple.png",      "label": "Apple" },
+            { "value": "fruit-elderberry.png", "label": "Elderberry" },
+            { "value": "fruit-mango.png",      "label": "Mango" },
+            { "value": "fruit-grape.png",      "label": "Grape" },
+            { "value": "fruit-guava.png",      "label": "Guava" }
+          ],
+          "default": "fruit-banana.png"
+        },
+        {
+          "type": "range",
+          "id": "left",
+          "label": "Horizontal position",
+          "info": "Distance from the left edge of the page.",
+          "min": 0,
+          "max": 95,
+          "step": 1,
+          "unit": "%",
+          "default": 2
+        },
+        {
+          "type": "range",
+          "id": "top",
+          "label": "Vertical position",
+          "info": "Distance from the very top of the page (includes header).",
+          "min": 0,
+          "max": 5000,
+          "step": 50,
+          "unit": "px",
+          "default": 300
+        },
+        {
+          "type": "range",
+          "id": "size",
+          "label": "Size",
+          "min": 60,
+          "max": 420,
+          "step": 10,
+          "unit": "px",
+          "default": 200
+        },
+        {
+          "type": "range",
+          "id": "rotation",
+          "label": "Rotation",
+          "min": -45,
+          "max": 45,
+          "step": 1,
+          "unit": "deg",
+          "default": 0
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_mobile",
+          "label": "Hide on mobile",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "max_blocks": 20
+}
+{% endschema %}

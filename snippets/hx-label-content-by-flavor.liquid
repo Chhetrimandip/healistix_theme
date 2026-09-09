@@ -1,0 +1,20 @@
+{% comment %}Explicit dispatch prevents one flavor's nutrition silently substituting for another.{% endcomment %}
+{% case flavor %}
+  {% when 'Banana' %}{% render 'hx-label-banana' %}
+  {% when 'Blueberry' %}{% render 'hx-label-blueberry' %}
+  {% when 'Mango' %}{% render 'hx-label-mango' %}
+  {% when 'Pineapple' %}{% render 'hx-label-pineapple' %}
+  {% when 'Watermelon' %}{% render 'hx-label-watermelon' %}
+  {% when 'Strawberry' %}{% render 'hx-label-strawberry' %}
+  {% when 'Peach' %}{% render 'hx-label-peach' %}
+  {% when 'Passion Fruit' %}{% render 'hx-label-passion-fruit' %}
+  {% when 'Pineapple Mango' %}{% render 'hx-label-pineapple-mango' %}
+  {% when 'Dragonfruit' %}{% render 'hx-label-dragonfruit' %}
+  {% when 'Strawberry Pineapple' %}{% render 'hx-label-strawberry-pineapple' %}
+  {% when 'Grape' %}{% render 'hx-label-grape' %}
+  {% when 'Unflavored' %}{% render 'hx-label-unflavored' %}
+  {% when 'Maca Ashwagandha' %}{% render 'hx-label-maca-ashwagandha' %}
+  {% when 'Ashwagandha Mango' %}{% render 'hx-label-ashwagandha-mango' %}
+  {% when 'Elderberry Ginger' %}{% render 'hx-label-elderberry-ginger' %}
+  {% when 'Honey' %}{% render 'hx-label-honey' %}
+{% endcase %}

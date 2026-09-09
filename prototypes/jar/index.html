@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Healistix · Banana jar study</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="study-bar">THE JAR STUDY <span>01 / BANANA</span></div>
+  <header><a href="./" class="wordmark">HEALISTIX<span>WHOLISTIC HEALING</span></a><span class="header-note">A fresh perspective on your daily ritual.</span><span class="edition">INTERACTIVE PREVIEW</span></header>
+  <main>
+    <div class="breadcrumb">Sea moss gel <span>/</span> Banana</div>
+    <div class="product-layout">
+      <section class="gallery" aria-label="Banana jar gallery">
+        <div class="thumbs" role="group" aria-label="Choose a product view">
+          <button class="thumb selected spin-thumb" data-view="spin" aria-pressed="true"><span>↻</span>360°</button>
+          <button class="thumb" data-view="front" aria-pressed="false" aria-label="Front photo"><img src="./banana-front.png" alt=""></button>
+          <button class="thumb" data-view="left" aria-pressed="false" aria-label="Directions photo"><img src="../../assets/SEA%20MOSS%20GEL%20-%20BANANA%2016%20OZ%20-%20LEFT.png" alt=""></button>
+          <button class="thumb" data-view="right" aria-pressed="false" aria-label="Ingredients and nutrition photo"><img src="../../assets/SEA%20MOSS%20GEL%20-%20BANANA%2016%20OZ%20-%20RIGHT.png" alt=""></button>
+          <button class="thumb" data-view="composite" aria-pressed="false" aria-label="Three jar photo"><img src="../../assets/SEA%20MOSS%20GEL%20-%20BANANA%2016%20OZ%20-%203%20In%201.jpg" alt=""></button>
+        </div>
+        <div class="stage-wrap">
+          <div class="stage" id="stage">
+            <div class="stage-caption"><span>MEET YOUR JAR</span><span id="view-label">360° VIEW</span></div>
+            <div class="halo" aria-hidden="true"></div>
+            <div id="canvas-host" tabindex="0" role="region" aria-label="Rotatable Banana jar. Use left and right arrow keys to rotate, plus and minus to zoom."></div>
+            <img id="photo" src="./banana-front.png" alt="Banana Sea Moss Gel front label" hidden>
+            <p id="loading" role="status">Preparing your jar…</p>
+            <div class="stage-footer"><span class="status-dot"></span><span id="hint">Drag to discover every side</span><span id="degrees">0°</span></div>
+          </div>
+          <div class="viewer-controls" id="viewer-controls">
+            <div class="turn-buttons"><button id="turn-left" aria-label="Rotate jar left">←</button><button data-angle="0">Front</button><button data-angle="-120">Label</button><button data-angle="-240">Directions</button><button id="turn-right" aria-label="Rotate jar right">→</button></div>
+            <div class="zoom-buttons"><button id="zoom-out" aria-label="Zoom out">−</button><button id="zoom-in" aria-label="Zoom in">+</button><button id="reset" aria-label="Reset jar view">↺</button></div>
+          </div>
+          <button id="read-label" class="label-link">Read the original label <span>↗</span></button>
+        </div>
+      </section>
+      <section class="details">
+        <p class="eyebrow">OCEAN ROOTS. FRUIT PERSONALITY.</p>
+        <h1>Sea Moss Gel<span>Banana.</span></h1>
+        <p class="intro">A little sunshine.<br>By the spoonful.</p>
+        <div class="flavor-block"><div class="row"><span class="small-heading">YOUR FLAVOR</span><span>01 / 05</span></div><div class="flavor-choice"><span class="fruit">🍌</span><div><strong>Banana</strong><span>The first jar in our interactive collection.</span></div><span class="check">✓</span></div></div>
+        <div class="explainer"><span class="orbit">↻</span><div><h2>Go on. Give it a spin.</h2><p>Turn the jar to explore its label, ingredients, and directions. Get closer with zoom, or open the original artwork.</p></div></div>
+        <div class="facts"><div><span>JAR SIZE</span><strong>16 oz / 454 g</strong></div><div><span>THE EXPERIENCE</span><strong>A full 360°</strong></div></div>
+        <details><summary>About this preview <span>+</span></summary><p>This is a shape and interaction study, not a live product listing. The label is projected from three existing mockups. Joins are approximate, and the source images disagree on some ingredient wording. Final artwork must be reconciled before launch.</p><p>No checkout, email signup, or live Shopify content is changed by this preview.</p></details>
+      </section>
+    </div>
+    <footer class="page-footer"><span>MADE TO BE EXPLORED.</span><p>One jar. Every angle. Your own pace.</p><span>HEALISTIX / DESIGN LAB</span></footer>
+  </main>
+  <dialog id="label-dialog" aria-labelledby="label-title"><div class="dialog-top"><div><span class="small-heading">ORIGINAL ARTWORK</span><h2 id="label-title">Take a closer look.</h2></div><button id="close-label" aria-label="Close label viewer">×</button></div><div class="label-tabs"><button data-label="front">Front</button><button data-label="right" class="selected">Ingredients & nutrition</button><button data-label="left">Directions</button></div><p class="label-note">Source mockups shown unchanged. Ingredient wording differs between views.</p><div class="label-scroll"><img id="label-image" alt="Original Banana ingredients and nutrition artwork"></div></dialog>
+  <script type="module" src="./jar.js"></script>
+</body>
+</html>

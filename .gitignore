@@ -1,0 +1,8 @@
+# Local generation outputs, backups, and preview artifacts
+/staging/
+node_modules/
+__pycache__/
+*.pyc
+.env
+.env.*
+!.env.example

@@ -1,49 +1,289 @@
 {
   "sections": {
+    "hx_lucky_popup": {
+      "type": "hx-lucky-popup",
+      "settings": {}
+    },
     "od_hero": {
       "type": "od-hero",
       "settings": {
         "product": "sea-moss-gel-banana",
         "heading": "30% off sitewide — our launch sale is live.",
         "review_count": "4.9 from 460+ reviews",
-        "text": "Wildcrafted off the rocks of St. Lucia and blended by hand in our family kitchen, in over 30 flavors. No sugar, no preservatives, nothing we wouldn\u0027t give our own kids.",
+        "text": "Wildcrafted off the rocks of St. Lucia and blended by hand in our family kitchen, in over 30 flavors. No sugar, no preservatives, nothing we wouldn't give our own kids.",
         "cta_label": "Shop now — 30% off",
         "note": "Free shipping over $30, and a 30-day money-back guarantee."
-      }
+      },
+      "disabled": true
     },
     "od_showcase": {
       "type": "od-showcase",
       "blocks": {
-        "slide_1": { "type": "slide", "settings": {} },
-        "slide_2": { "type": "slide", "settings": {} },
-        "slide_3": { "type": "slide", "settings": {} }
+        "slide_1": {
+          "type": "slide",
+          "settings": {}
+        },
+        "slide_2": {
+          "type": "slide",
+          "settings": {}
+        },
+        "slide_3": {
+          "type": "slide",
+          "settings": {}
+        }
       },
-      "block_order": ["slide_1", "slide_2", "slide_3"],
-      "settings": {}
+      "block_order": [
+        "slide_1",
+        "slide_2",
+        "slide_3"
+      ],
+      "settings": {},
+      "disabled": true
+    },
+    "od_bestsellers": {
+      "type": "od-bestsellers",
+      "blocks": {
+        "bs_1": {
+          "type": "product",
+          "settings": {
+            "product": "sea-moss-gel-banana"
+          }
+        },
+        "bs_2": {
+          "type": "product",
+          "settings": {}
+        },
+        "bs_3": {
+          "type": "product",
+          "settings": {}
+        },
+        "bs_4": {
+          "type": "product",
+          "settings": {}
+        },
+        "bs_5": {
+          "type": "product",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "bs_1",
+        "bs_2",
+        "bs_3",
+        "bs_4",
+        "bs_5"
+      ],
+      "settings": {
+        "heading": "Shop our Best Sellers"
+      },
+      "disabled": true
     },
     "od_inside": {
       "type": "od-inside",
-      "settings": {}
+      "settings": {},
+      "disabled": true
     },
     "od_origin": {
       "type": "od-origin",
-      "settings": {}
+      "settings": {},
+      "disabled": true
     },
     "od_reviews": {
       "type": "od-reviews",
-      "settings": {}
+      "settings": {},
+      "disabled": true
     },
     "od_faq": {
       "type": "od-faq",
-      "settings": {}
+      "settings": {
+        "heading": "A little curious?",
+        "cta_label": "Talk to us",
+        "cta_url": "/pages/contact",
+        "text": "Start here. For anything else, get in touch with the Healistix team."
+      },
+      "blocks": {
+        "flavors": {
+          "settings": {
+            "answer": "Open the Sea Moss product page to explore flavors, current prices and availability. Choose a flavor to see its product images.",
+            "question": "Where can I see the available flavors?"
+          },
+          "type": "faq"
+        },
+        "label": {
+          "settings": {
+            "answer": "Check the label on your selected flavor for ingredients and serving directions. If you need help choosing, contact us before ordering.",
+            "question": "Where can I find ingredients and serving details?"
+          },
+          "type": "faq"
+        },
+        "use": {
+          "settings": {
+            "answer": "Try it in a smoothie or breakfast bowl. Follow the serving and storage instructions on your jar.",
+            "question": "How can I enjoy Sea Moss Gel?"
+          },
+          "type": "faq"
+        }
+      },
+      "block_order": [
+        "flavors",
+        "label",
+        "use"
+      ]
+    },
+    "home_campaign": {
+      "settings": {
+        "product": "sea-moss-gel-banana"
+      },
+      "type": "hx-home-hero"
+    },
+    "home_flavors": {
+      "settings": {
+        "product": "sea-moss-gel-banana"
+      },
+      "type": "hx-home-flavors"
+    },
+    "home_reviews": {
+      "type": "product-reviews-grid",
+      "settings": {
+        "heading": "A taste of what customers think",
+        "subheading": "On taste, texture and finding your own way to enjoy it.",
+        "source_url": "https://www.amazon.com/portal/customer-reviews/B0CFD6RMMF/ref=cm_cr_dp_d_show_all_top?reviewerType=all_reviews"
+      },
+      "blocks": {
+        "liliane": {
+          "type": "review",
+          "settings": {
+            "badge": "Liliane Avalos",
+            "title": "In the morning smoothie",
+            "rating": "★★★★★ · 5 out of 5",
+            "text": "The taste is not strong at all, so it doesn’t interrupt the flavors of my smoothie, which I really enjoy.",
+            "footer": "Raw Original · Customer review · April 2, 2026"
+          }
+        },
+        "anderson": {
+          "type": "review",
+          "settings": {
+            "badge": "Me. Anderson",
+            "title": "A familiar flavor",
+            "rating": "★★★★★ · 5 out of 5",
+            "text": "This was good I enjoyed the flavor and the natural goodness I get from raw sea moss.",
+            "footer": "Raw Original · Customer review · December 21, 2025"
+          }
+        },
+        "rosie": {
+          "type": "review",
+          "settings": {
+            "badge": "Rosie G",
+            "title": "Better mixed than straight",
+            "rating": "★★★★☆ · 4 out of 5",
+            "text": "In its Raw natural form I couldn’t swallow it. It’s not a nasty taste but definitely an acquired taste. I took a star off because i had trouble swallowing it by itself.",
+            "footer": "Raw Original · Customer review · December 3, 2025"
+          }
+        }
+      },
+      "block_order": [
+        "liliane",
+        "anderson",
+        "rosie"
+      ]
+    },
+    "home_wellness": {
+      "type": "hx-home-wellness",
+      "settings": {},
+      "blocks": {
+        "batana": {
+          "type": "product",
+          "settings": {
+            "kind": "batana",
+            "handle": "raw-honduran-batana-oil",
+            "preview_url": "/?view=batana",
+            "category": "HAIR & SCALP RITUAL",
+            "title": "Raw Honduran Batana Oil",
+            "short_title": "Batana",
+            "text": "A little time for your hair. Meet the newest addition to your care shelf."
+          }
+        },
+        "shilajit": {
+          "type": "product",
+          "settings": {
+            "kind": "shilajit",
+            "handle": "himalayan-shilajit",
+            "preview_url": "/?view=shilajit",
+            "category": "THE WELLNESS COLLECTION",
+            "title": "Himalayan Shilajit",
+            "short_title": "Shilajit",
+            "text": "A ritual to make your own. Take a closer look at our Himalayan Shilajit."
+          }
+        }
+      },
+      "block_order": [
+        "batana",
+        "shilajit"
+      ]
+    },
+    "home_goodness": {
+      "type": "hx-goodness-fan",
+      "settings": { "product": "sea-moss-gel-banana" },
+      "blocks": {
+        "mango": {"type":"photo","settings":{}},
+        "blueberry": {"type":"photo","settings":{}},
+        "watermelon": {"type":"photo","settings":{}},
+        "ritual": {"type":"photo","settings":{}},
+        "flavors": {"type":"photo","settings":{}}
+      },
+      "block_order": ["mango","blueberry","watermelon","ritual","flavors"]
+    },
+    "home_ritual": {
+      "type": "hx-home-ritual",
+      "blocks": {
+        "pick": {
+          "settings": {
+            "heading": "Pick your flavor",
+            "text": "Start with a fruit you already love, or explore something new."
+          },
+          "type": "step"
+        },
+        "mix": {
+          "settings": {
+            "heading": "Make it yours",
+            "text": "Blend into a smoothie or stir into your favorite breakfast. Follow the serving directions on your jar."
+          },
+          "type": "step"
+        },
+        "enjoy": {
+          "settings": {
+            "heading": "Keep it simple",
+            "text": "Find the moment in your day that works for you."
+          },
+          "type": "step"
+        }
+      },
+      "block_order": [
+        "pick",
+        "mix",
+        "enjoy"
+      ],
+      "settings": {
+        "product": "sea-moss-gel-banana"
+      }
     }
   },
   "order": [
+    "hx_lucky_popup",
+    "home_campaign",
+    "home_flavors",
+    "home_ritual",
+    "home_goodness",
+    "home_reviews",
+    "home_wellness",
+    "od_faq",
     "od_hero",
+    "od_bestsellers",
     "od_showcase",
     "od_inside",
     "od_origin",
-    "od_reviews",
-    "od_faq"
+    "od_reviews"
   ]
 }
+
+

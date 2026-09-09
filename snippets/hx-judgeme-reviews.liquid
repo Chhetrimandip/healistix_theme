@@ -1,0 +1,79 @@
+{% comment %}
+  Judge.me owns the review data and interactions. Use the app's supported Liquid
+  data bootstrap, preserving native pagination, moderation and review submission.
+  No private API key or second copy of published reviews is stored in the theme.
+{% endcomment %}
+<section class="hx-pdp-reviews hx-judgeme" id="customer-voices" aria-labelledby="ReviewsTitle-{{ section.id }}">
+  <div class="hx-pdp-reviews__inner">
+    <div class="hx-pdp-reviews__intro">
+      <div>
+        <h2 id="ReviewsTitle-{{ section.id }}">{{ section.settings.heading | escape }}</h2>
+        <p>Real routines. Favorite flavors. A little daily goodness.</p>
+      </div>
+    </div>
+    <div id="judgeme_product_reviews" class="jdgm-widget jdgm-review-widget"
+      data-product-title="{{ product.title | escape }}" data-id="{{ product.id }}"
+      data-product-id="{{ product.id }}" data-widget="review" data-auto-install="false"
+      data-shop-reviews-count="{{ shop.metafields.judgeme.shop_reviews_count | default: 0 | escape }}"
+      data-entry-point="review_widget.js" data-entry-key="review-widget/main.js">
+      {% if product.metafields.judgeme.widget.size > 20 %}
+        <div class="jdgm-legacy-widget-content" style="display: none;">{{ product.metafields.judgeme.widget }}</div>
+      {% endif %}
+    </div>
+    {% if product.metafields.judgeme.review_widget_data %}
+      <script>
+        window.jdgm = window.jdgm || {};
+        jdgm.data = jdgm.data || {};
+        jdgm.data.reviewWidget = jdgm.data.reviewWidget || {};
+        jdgm.data.reviewWidget[{{ product.id }}] = {{ product.metafields.judgeme.review_widget_data }};
+      </script>
+    {% endif %}
+    <noscript><p>Enable JavaScript to read and submit customer reviews.</p></noscript>
+    <div class="hx-jm-media" aria-label="Customer photos and videos">
+      {% assign photo_count = 0 %}
+      {% for block in section.blocks %}
+        {% assign show_media = false %}
+        {% if block.settings.video_asset != blank %}{% assign show_media = true %}
+        {% elsif block.settings.image_asset != blank and photo_count < 4 %}
+          {% assign show_media = true %}{% assign photo_count = photo_count | plus: 1 %}
+        {% endif %}
+        {% if show_media %}
+          <button type="button" class="hx-jm-media__tile" data-media-dialog="Media-{{ section.id }}-{{ block.id }}" aria-label="{% if block.settings.video_asset != blank %}Play video{% else %}View photo{% endif %} by {{ block.settings.badge | escape }}">
+            <img src="{{ block.settings.image_asset | asset_url }}" alt="Customer {% if block.settings.video_asset != blank %}video{% else %}photo{% endif %} by {{ block.settings.badge | escape }}" width="180" height="180" loading="lazy">
+            {% if block.settings.video_asset != blank %}<span class="hx-jm-media__play" aria-hidden="true">&#9654;</span>{% endif %}
+          </button>
+          <dialog class="hx-jm-dialog" id="Media-{{ section.id }}-{{ block.id }}" aria-label="Customer media by {{ block.settings.badge | escape }}">
+            <button type="button" class="hx-jm-dialog__close" aria-label="Close customer media">&times;</button>
+            {% if block.settings.video_asset != blank %}
+              <video controls playsinline preload="none" poster="{{ block.settings.image_asset | asset_url }}">
+                <source src="{{ block.settings.video_asset | asset_url }}" type="video/mp4">
+                {% if block.settings.captions_asset != blank %}<track kind="captions" src="{{ block.settings.captions_asset | asset_url }}" srclang="en" label="English" default>{% endif %}
+              </video>
+            {% else %}<img src="{{ block.settings.image_asset | asset_url }}" alt="{{ block.settings.media_alt | default: block.settings.badge | escape }}" loading="lazy">{% endif %}
+            <strong>{{ block.settings.badge | escape }}</strong>
+            <p>{{ block.settings.footer | escape }}</p>
+            {% if block.settings.disclosure != blank %}<p class="hx-jm-disclosure">{{ block.settings.disclosure | replace: 'Video creator earns commissions', 'Original video includes an affiliate disclosure' | escape }}</p>{% endif %}
+          </dialog>
+        {% endif %}
+      {% endfor %}
+    </div>
+    <div class="hx-jm-view" hidden>
+      <span>Customer reviews</span>
+      <label>Show <select aria-label="Review selection"><option value="featured">Featured</option><option value="all">All reviews</option></select></label>
+    </div>
+    <div class="hx-jm-featured" hidden>
+      <p class="hx-jm-featured__label">Featured customer excerpts <button type="button" data-all-reviews>View all reviews</button></p>
+      {% assign featured_ids = 'review_rv2d7hwhnwfu3,review_liliane,review_anderson,review_rt97myltp17el,review_r1jzo5pxcimb21' | split: ',' %}
+      {% for featured_id in featured_ids %}
+        {% for block in section.blocks %}
+          {% if block.id == featured_id %}
+            <article class="hx-jm-featured__review">
+              <div><strong>{{ block.settings.badge | escape }}</strong><p>{{ block.settings.footer | escape }}</p></div>
+              <div><p class="hx-jm-featured__stars">{{ block.settings.rating | escape }}</p><p>{{ block.settings.text | escape }}</p>{% if block.settings.disclosure != blank %}<p class="hx-jm-disclosure">{{ block.settings.disclosure | replace: 'Video creator earns commissions', 'Original video includes an affiliate disclosure' | escape }}</p>{% endif %}</div>
+            </article>
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+    </div>
+  </div>
+</section>

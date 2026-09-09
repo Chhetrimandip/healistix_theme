@@ -25,7 +25,7 @@
       {%- if section.settings.image != blank -%}
         <img src="{{ section.settings.image | image_url: width: 800 }}" alt="{{ section.settings.heading }}" loading="lazy">
       {%- else -%}
-        <div class="product-benefits-list__media-placeholder">Add spoon photo</div>
+        <img src="{{ 'hx-pilot-mango-front.webp' | asset_url }}" alt="Mango sea moss gel" width="1354" height="1836" loading="lazy">
       {%- endif -%}
     </div>
   </div>
