@@ -1,0 +1,15 @@
+{
+  "tool": "image_gen.imagegen (built-in)",
+  "date": "2026-09-17",
+  "references": "No image inputs; brand skill guided two original fact-neutral editorial scenes.",
+  "prompts": {
+    "comparison": "Use case: photorealistic-natural. Create a wide 3:2 Healistix editorial food campaign photograph for an ingredient-origin comparison section. Confident richly colored coastal turquoise matte tabletop, warm cream backdrop. On the RIGHTMOST 38% arrange one loose tactile mound of golden dried sea moss, a cut ripe mango with natural uneven juicy flesh and a small cluster of dusty blueberries. This represents the sea moss and variety of fruit flavors, not one blended recipe. Strong broad sunlight from upper left with crisp believable contact shadows; tactile real fruit and organic branching sea moss, editorial food photography not CGI. Leftmost 60% is clean pale aqua negative space for dark HTML headline. Camera three quarter overhead, objects grounded, all main objects visible in a mobile crop of right side. No jars, no utensils, no text, no badges, no beach claims, no hands, no floating fruit, no generic wellness leaves. Bold color and appetizing detail, not faded or beige.",
+    "ritual": "Use case: photorealistic-natural. Create a wide 3:2 Healistix editorial breakfast serving-suggestion photograph. A relaxed adult cropped to a small section of linen-shirt torso on FAR RIGHT; one anatomically correct hand holds a stainless teaspoon stirring a cream ceramic bowl of thick yogurt topped with blueberries and mango chunks on a vivid warm coral breakfast table. A single rumpled cream linen napkin partly under the bowl, no other props. Bowl and natural hand occupy RIGHTMOST 40%, close and appetizing. LEFTMOST 55% clean warm butter-cream negative space with subtle transition to coral tabletop for live dark headline. Broad sunlight upper left, coherent shadows, real skin detail, blueberries with matte bloom and juicy irregular mango. Food magazine finish, energetic saturated coral contrasted with deep berry blue, not washed-out beige. This is a breakfast pairing suggestion, not an ingredient claim. No product jar, no glass measuring jug, no glassware, no words, no logos, no sparkles, no impossible anatomy or floating objects. Entire bowl inside frame, mobile crop preserves hand and bowl."
+  },
+  "assets": [
+    "assets/hx-origin-ingredients-v10.png",
+    "assets/hx-breakfast-ritual-v10.png"
+  ],
+  "changes": "Replaced duplicated non-Banana fallback with distinct ingredient and breakfast scenes. Shared breakfast is a serving suggestion across variants. Removed photo-swapping code; retained Banana-only nutrient visibility. Photos sit beside copy on desktop and stack on mobile; pale photo overlays removed.",
+  "verification": "Browser: both 1536x1024 assets loaded; desktop 1280x900 and mobile 390x844 visually inspected; mobile no horizontal overflow. git diff --check passed. Live theme not published."
+}

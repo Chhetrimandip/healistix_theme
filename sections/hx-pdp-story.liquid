@@ -17,11 +17,12 @@
     <details class="hx-nutrient-sources"><summary>The science behind the spoonful</summary><p>These are established roles of nutrients listed on the Banana label. The NIH Office of Dietary Supplements explains how <a href="https://ods.od.nih.gov/factsheets/Iron-Consumer/">iron supports oxygen transport</a>, <a href="https://ods.od.nih.gov/factsheets/VitaminB6-HealthProfessional/">B6 contributes to immunity and nutrient metabolism</a>, and <a href="https://ods.od.nih.gov/factsheets/Folate-Consumer/">folate supports cell division</a>. These sources do not establish that this gel treats symptoms or increases metabolic rate.</p></details>
   </div>
   <div class="hx-prep-comparison" id="hx-preparation">
-    <img class="hx-section-photo hx-comparison-photo" src="{{ 'hx-preparation-backdrop-v8.png' | asset_url }}" alt="" aria-hidden="true" width="1536" height="1024" loading="lazy">
+    <div class="hx-comparison-intro"><div class="hx-comparison-intro__copy">
     <p class="hx-pdp-story__eyebrow">WHY MAKE IT HEALISTIX?</p>
     <h2>St. Lucia roots.<br><em>A jar to make yours.</em></h2>
     <p>100% of our sea moss is sourced from St. Lucia. Fruit flavors, a ready-to-enjoy gel, and ingredients you can read on the jar.</p>
     <div class="hx-source-ribbon">{% render 'hx-story-graphic', kind: 'island' %}<div><strong>Our sea moss starts in St. Lucia.</strong><span>From the island to your everyday spoonful.</span></div></div>
+    </div><img class="hx-comparison-ingredients" src="{{ 'hx-origin-ingredients-v10.png' | asset_url }}" alt="Golden sea moss, fresh mango and blueberries on a turquoise surface" width="1536" height="1024" loading="lazy"></div>
     <div class="hx-comparison-scroll" role="region" aria-label="Compare Healistix with other sea moss options" tabindex="0">
       <table><caption class="visually-hidden">Healistix features and what to check when comparing other sea moss products</caption><thead><tr><th scope="col">The details<br>make the difference.</th><th scope="col">{% render 'hx-story-graphic', kind: 'jar' %}Healistix</th><th scope="col">{% render 'hx-story-graphic', kind: 'bag' %}Other sea moss options</th></tr></thead><tbody>
         <tr><th scope="row">Sea moss origin</th><td><span class="hx-compare-check" aria-hidden="true">✓</span>100% sourced from St. Lucia</td><td>Origin varies. Check the named source.</td></tr>
@@ -43,7 +44,7 @@
         <div>{% render 'hx-story-graphic', kind: 'bowl' %}<strong>Stir it</strong><small>Into your breakfast</small></div>
       </div>
     </div>
-    <figure><img data-ritual-photo data-banana-src="{{ 'hx-morning-ritual-v4.png' | asset_url }}" data-neutral-src="{{ 'hx-preparation-backdrop-v8.png' | asset_url }}" src="{% if product.selected_or_first_available_variant.option1 == 'Banana' %}{{ 'hx-morning-ritual-v4.png' | asset_url }}{% else %}{{ 'hx-preparation-backdrop-v8.png' | asset_url }}{% endif %}" alt="{% if product.selected_or_first_available_variant.option1 == 'Banana' %}A spoonful of sea moss gel above a banana smoothie, a serving suggestion{% else %}A simple kitchen setting with a mixing jug, bowl and spoon{% endif %}" width="1536" height="1024" loading="lazy"><figcaption>Serving suggestion. Follow the directions on your selected jar.</figcaption></figure>
+    <figure><img src="{{ 'hx-breakfast-ritual-v10.png' | asset_url }}" alt="A hand stirring a colorful fruit breakfast bowl; serving suggestion" width="1536" height="1024" loading="lazy"><figcaption>Serving suggestion. Follow the directions on your selected jar.</figcaption></figure>
   </div>
   <div class="hx-pdp-story__ingredients" id="hx-ingredient-story" data-story-ingredients{% unless product.selected_or_first_available_variant.option1 == 'Banana' %} hidden{% endunless %}>
     <img class="hx-section-photo hx-ingredients-photo" src="{{ 'hx-banana-ingredients-backdrop-v8.png' | asset_url }}" alt="" aria-hidden="true" width="1536" height="1024" loading="lazy">
@@ -64,9 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const hide = event.detail.variant.option1 !== 'Banana';
     document.querySelector('[data-story-ingredients]').hidden = hide;
     document.querySelector('[data-banana-benefits]').hidden = hide;
-    const ritualPhoto = document.querySelector('[data-ritual-photo]');
-    ritualPhoto.src = hide ? ritualPhoto.dataset.neutralSrc : ritualPhoto.dataset.bananaSrc;
-    ritualPhoto.alt = hide ? 'A simple kitchen setting with a mixing jug, bowl and spoon' : 'A spoonful of sea moss gel above a banana smoothie, a serving suggestion';
+
   });
   document.querySelector('[data-story-label]')?.addEventListener('click', () => product?.querySelector('[data-hx-nutrition-toggle]')?.click());
 });

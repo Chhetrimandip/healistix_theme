@@ -119,3 +119,22 @@
 .hx-pdp-story__ingredients ol{padding:22px;gap:20px 16px}
 .hx-pdp-story__ingredients li strong{font-size:23px}
 }
+
+/* Distinct ingredient and breakfast scenes, with color preserved beside live copy. */
+.hx-pdp-story .hx-prep-comparison{background:#d8ede6}
+.hx-prep-comparison::before,.hx-pdp-story__ritual::before{display:none}
+.hx-comparison-intro{display:grid;grid-template-columns:1.15fr 1fr;gap:48px;align-items:center}
+.hx-comparison-intro__copy>p{max-width:650px}
+.hx-comparison-ingredients{display:block;width:100%;height:360px;object-fit:cover;object-position:right center;border-radius:24px}
+.hx-pdp-story .hx-pdp-story__ritual{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;background:#fff1c5}
+.hx-pdp-story .hx-pdp-story__ritual .hx-pdp-story__copy{width:auto;max-width:none;min-height:0}
+.hx-pdp-story .hx-pdp-story__ritual figure{position:relative;inset:auto;z-index:auto;width:100%;height:100%;min-height:520px;aspect-ratio:auto}
+.hx-pdp-story__ritual figure img{position:absolute;inset:0;object-position:right center}
+.hx-pdp-story__ritual figcaption{left:20px;right:20px;max-width:none;text-align:left}
+@media(max-width:749px){
+ .hx-comparison-intro{grid-template-columns:1fr;gap:24px}
+ .hx-comparison-ingredients{height:260px;object-position:right center}
+ .hx-pdp-story .hx-pdp-story__ritual{grid-template-columns:1fr}
+ .hx-pdp-story .hx-pdp-story__ritual .hx-pdp-story__copy{padding:40px 24px 30px}
+ .hx-pdp-story .hx-pdp-story__ritual figure{height:340px;min-height:0}
+}
