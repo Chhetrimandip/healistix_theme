@@ -1,3 +1,4 @@
+{% if settings.hx_custom_blends_enabled %}
 {{ 'hx-hair-landing-v3.css' | asset_url | stylesheet_tag }}
 {%- assign quiz_url = section.settings.quiz_url | default: '/pages/findmyseamoss?view=blend-quiz' -%}
 <section class="hxl" aria-labelledby="hxl-title">
@@ -19,6 +20,9 @@
 <div class="hxl-wrap hxl-faq"><h2>A few things<br>before you start.</h2><div><details><summary>Is this sea moss gel or a powder?</summary><p>Sea moss gel customized with herbal powders. The herbs are ingredients in your gel, rather than a separate powder product.</p></details><details><summary>Will this quiz diagnose my hair loss?</summary><p>No. It helps describe your concerns and goals. It cannot establish the cause of hair loss or promise regrowth. Speak with a qualified professional about new or concerning hair changes.</p></details><details><summary>Can I order my custom blend now?</summary><p>This collection is in preview. Your final ingredients, serving directions and price will be confirmed before ordering opens.</p></details><details><summary>Can I change my answers?</summary><p>Yes. You can review and edit every answer before seeing your result, and return to your profile afterwards.</p></details></div></div>
 <div class="hxl-wrap hxl-last"><small>YOUR HAIR. YOUR STARTING POINT.</small><h2>Let’s find your blend.</h2><a class="hxl-cta" href="{{ quiz_url }}">Take the hair quiz <span aria-hidden="true">→</span></a></div>
 </section>
+{% else %}
+  {% render 'hx-custom-blends-paused' %}
+{% endif %}
 {% schema %}
 {"name":"Hair concern landing","settings":[{"type":"url","id":"quiz_url","label":"Blend quiz link"},{"type":"image_picker","id":"hero_image","label":"Optional ingredient hero image"}],"presets":[{"name":"Hair concern landing"}]}
 {% endschema %}

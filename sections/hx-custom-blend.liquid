@@ -1,3 +1,4 @@
+{% if settings.hx_custom_blends_enabled %}
 {{ 'hx-custom-blend.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'hx-custom-blend.js' | asset_url }}" defer></script>
 {%- liquid
@@ -96,6 +97,9 @@
     <noscript><p>JavaScript is needed to read your hair profile. Please <a href="{{ quiz_url }}">start the quiz</a> in a browser with JavaScript enabled, or contact us.</p></noscript>
   </div>
 </section>
+{% else %}
+  {% render 'hx-custom-blends-paused' %}
+{% endif %}
 {% schema %}
 {
   "name": "Find My Blend",

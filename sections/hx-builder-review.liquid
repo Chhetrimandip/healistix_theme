@@ -1,8 +1,12 @@
+{% if settings.hx_custom_blends_enabled %}
 {{ 'hx-builder-style.css' | asset_url | stylesheet_tag }}
 <p style="margin:0;padding:16px 24px;background:#FBF8ED;color:#174B3C;text-align:center">Recorded demo: try Energy, no screening conditions, Mango, and Standard strength. Other combinations may be unavailable. Purchases are disabled.</p><div class="hx-builder" data-mode="fixture" data-seed="{{ 'hx-builder-review-fixtures.json' | asset_url }}" data-endpoint="{{ section.settings.endpoint | escape }}" data-logo="{{ 'hx-builder-logo.png' | asset_url }}" data-preparation="{{ 'hx-builder-preparation-v1.png' | asset_url }}" data-image="{{ 'hx-builder-raw.webp' | asset_url }}" data-hero="{{ 'hx-builder-hero-v1.png' | asset_url }}">
   <noscript><p class="hx-builder-noscript">Please enable JavaScript to explore and validate your custom blend.</p></noscript>
 </div>
 <script type="module" src="{{ 'hx-builder-app.js' | asset_url }}"></script>
+{% else %}
+  {% render 'hx-custom-blends-paused' %}
+{% endif %}
 {% schema %}
 {
   "name": "Custom gel builder",

@@ -8,6 +8,18 @@
     "theme_support_url": "https://support.shopify.com/"
   },
   {
+    "name": "Custom sea moss",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "hx_custom_blends_enabled",
+        "label": "Show custom blends",
+        "default": false,
+        "info": "Keep off during the regular sea moss launch. Preserves the builder and shows a coming-soon page at its old URLs. Backend purchases are controlled separately."
+      }
+    ]
+  },
+  {
     "name": "t:settings_schema.logo.name",
     "settings": [
       {

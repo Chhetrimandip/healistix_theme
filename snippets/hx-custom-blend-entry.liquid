@@ -1,3 +1,4 @@
+{% if settings.hx_custom_blends_enabled %}
 <aside class="hx-blend-entry" aria-label="Explore custom blends">
   <img src="{{ 'hx-hair-hero-v3.png' | asset_url }}" alt="Sea moss gel and botanicals" width="76" height="76" loading="lazy">
   <div><span>LOOKING FOR SOMETHING MORE PERSONAL?</span><strong>Sea moss, blended around you.</strong><a href="/pages/findmyseamoss?view=hair-routine" data-custom-blend-entry>Find my custom blend <span aria-hidden="true">→</span></a></div>
@@ -8,3 +9,4 @@
 <script>
 document.querySelectorAll('[data-custom-blend-entry]').forEach(function(link){var current=new URL(location.href);var preview=current.searchParams.get('preview_theme_id');if(preview){var target=new URL(link.href);target.searchParams.set('preview_theme_id',preview);link.href=target.href;}});
 </script>
+{% endif %}

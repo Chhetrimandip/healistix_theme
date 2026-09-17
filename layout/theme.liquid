@@ -317,7 +317,20 @@
     {% sections 'header-group' %}
 
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
-      {{ content_for_layout }}
+      {% liquid
+        assign hx_custom_page_handles = 'findmyseamoss,find-my-blend,blend-quiz,hair-routine,hx-builder' | split: ','
+        assign hx_pause_custom_page = false
+        unless settings.hx_custom_blends_enabled
+          if request.page_type == 'page' and hx_custom_page_handles contains page.handle
+            assign hx_pause_custom_page = true
+          endif
+        endunless
+      %}
+      {% if hx_pause_custom_page %}
+        {% render 'hx-custom-blends-paused' %}
+      {% else %}
+        {{ content_for_layout }}
+      {% endif %}
       {% if theme.id == 158342054026 %}{% render 'hx-blend-cart' %}{% endif %}
     </main>
 
