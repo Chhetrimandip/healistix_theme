@@ -107,14 +107,14 @@
         {%- endif -%}
 
         <div class="product-seamoss__media-main">
-          <div class="hx-campaign-heading" data-campaign-heading><span>MAKE MORNINGS YOURS</span><strong>A daily ritual<br>worth craving.</strong></div>
           <div class="hx-gallery-heading"><span>A LITTLE DAILY GOODNESS</span><span class="hx-flavor-pill" data-gallery-flavor>{{ initial_variant.option1 }}</span></div>
           <span class="hx-gallery-spark hx-gallery-spark--one" aria-hidden="true">✦</span>
           <span class="hx-gallery-spark hx-gallery-spark--two" aria-hidden="true">✦</span>
           {%- assign gallery_media = initial_variant.featured_media -%}
-          {%- if initial_variant.option1 == 'Banana' or initial_variant.option1 == 'Blueberry' -%}
-            {%- assign story_hero = initial_variant.option1 | handleize | prepend: 'hx-' | append: '-studio-v3.png' -%}
-            {% if initial_variant.option1 == 'Banana' %}{% assign story_hero = 'hx-banana-campaign-v5.png' %}{% endif %}
+          {%- assign campaign_flavors = 'Banana,Blueberry,Mango,Pineapple,Watermelon' | split: ',' -%}
+          {%- if campaign_flavors contains initial_variant.option1 -%}
+            {%- assign story_hero = initial_variant.option1 | handleize | prepend: 'hx-' | append: '-hero-v9.png' -%}
+            {% if initial_variant.option1 == 'Blueberry' %}{% assign story_hero = 'hx-blueberry-studio-v3.png' %}{% endif %}
             <img src="{{ story_hero | asset_url }}" alt="Healistix {{ initial_variant.option1 | escape }} sea moss gel with fresh fruit" loading="eager" width="1254" height="1254" data-product-media-main>
           {%- elsif pilot_flavors contains initial_variant.option1 -%}
             {%- assign pilot_hero = initial_variant.option1 | handleize | prepend: 'hx-pilot-' | append: '-front.webp' -%}

@@ -1,0 +1,97 @@
+{
+  "date": "2026-09-17",
+  "tool": "image_gen.imagegen",
+  "references": {
+    "heroComposition": "assets/hx-blueberry-studio-v3.png",
+    "lifestyleComposition": "assets/hx-banana-lifestyle-v6.png",
+    "textureComposition": "assets/hx-banana-texture-v6.png",
+    "package": "assets/hx-pilot-{flavor}-front.webp",
+    "ingredientAndStorage": "assets/hx-label-{flavor}-right.webp"
+  },
+  "images": [
+    {
+      "flavor": "blueberry",
+      "role": "Lifestyle",
+      "source": "C:\\Users\\chhet\\.codex\\generated_images\\01a0ae6c-74a8-7682-a3eb-e20d1be95246\\exec-3d358278-de11-4b44-98ab-37e27e5837c3.png",
+      "asset": "assets/hx-blueberry-lifestyle-v9.png",
+      "prompt": "Create one square editorial serving-suggestion photograph for Healistix blueberry sea moss gel. Reference 1 Banana lifestyle image is composition and photographic quality reference ONLY; replace every Banana-specific element. Reference 2 is exact blueberry package identity: preserve cap, label, flag seal, logo, flavor, proportions and all printing. Scene: cropped adult torso at the RIGHT in relaxed oatmeal linen shirt, head outside frame; one natural hand holding a muted purple blueberry smoothie in a plain tumbler, a small cream bowl with real blueberries. Actual reference jar stands lower right, small bowl of blueberries at lower left with cream linen. Palette soft lavender tabletop and pale cream backdrop, deep berry accents. Jar gel must match the actual deep muted blue-purple reference, smoothie is a serving suggestion not pure gel. Keep upper LEFT third uncluttered quiet for live headline, move body and props to right/lower frame. Natural light upper left; real cotton wrinkles and skin, credible fingers, contact shadows and glass reflections. No extra text, badges, medical cues, other brands, banana fruit, floating objects, CGI gloss or generic houseplants. Product label text only. Match the clean sunny photographic finish and close crop of reference 1."
+    },
+    {
+      "flavor": "blueberry",
+      "role": "Texture",
+      "source": "C:\\Users\\chhet\\.codex\\generated_images\\01a0ae6c-74a8-7682-a3eb-e20d1be95246\\exec-a446174f-63b1-4098-be1f-822c16de8d5d.png",
+      "asset": "assets/hx-blueberry-texture-v9.png",
+      "prompt": "Create ONE square macro editorial food photograph for Healistix blueberry sea moss gel. Reference 1 is the Banana texture photo: preserve framing, scale, spoon at upper left and open glass jar cropped at lower left, but substitute flavor and palette. Reference 2 supplies ONLY actual deep muted blue-purple gel color. Match it rather than Banana color. Stainless steel spoon enters from upper-left edge, supported outside frame without visible hand, holding a modest irregular dollop of moist deep muted blue-purple applesauce-like gel with tiny bubbles and uneven highlights. Open unlabeled glass jar at lower left with same gel. Background: lavender tabletop and pale cream backdrop. RIGHT half and upper-right remain clean for live text. Two small pieces of blueberry fruit at far bottom edge only. Single broad light upper left; credible spoon reflections and glass rim. No text, package labels, banana, long slime strings, drips, splashes, floating fruit or CGI plastic appearance. Reference 1 is stylistic/composition only, not gel color."
+    },
+    {
+      "flavor": "mango",
+      "role": "Lifestyle",
+      "source": "C:\\Users\\chhet\\.codex\\generated_images\\01a0ae6c-74a8-7682-a3eb-e20d1be95246\\exec-8c875cc0-621c-4565-81ef-72ed73347347.png",
+      "asset": "assets/hx-mango-lifestyle-v9.png",
+      "prompt": "Create one square editorial serving-suggestion photograph for Healistix mango sea moss gel. Reference 1 Banana lifestyle image is composition and photographic quality reference ONLY; replace every Banana-specific element. Reference 2 is exact mango package identity: preserve cap, label, flag seal, logo, flavor, proportions and all printing. Scene: cropped adult torso at the RIGHT in relaxed white cotton shirt, head outside frame; one natural hand holding a golden mango smoothie in a plain tumbler. Actual reference jar stands lower right, a small plate of mango slices at lower left with cream linen. Palette warm mango-orange tabletop and pale aqua backdrop. Jar gel must match the actual golden yellow reference, smoothie is a serving suggestion not pure gel. Keep upper LEFT third uncluttered quiet for live headline, move body and props to right/lower frame. Natural light upper left; real cotton wrinkles and skin, credible fingers, contact shadows and glass reflections. No extra text, badges, medical cues, other brands, banana fruit, floating objects, CGI gloss or generic houseplants. Product label text only. Match the clean sunny photographic finish and close crop of reference 1."
+    },
+    {
+      "flavor": "mango",
+      "role": "Texture",
+      "source": "C:\\Users\\chhet\\.codex\\generated_images\\01a0ae6c-74a8-7682-a3eb-e20d1be95246\\exec-891d70b9-0af4-4786-a852-c1610b6d6a97.png",
+      "asset": "assets/hx-mango-texture-v9.png",
+      "prompt": "Create ONE square macro editorial food photograph for Healistix mango sea moss gel. Reference 1 is the Banana texture photo: preserve framing, scale, spoon at upper left and open glass jar cropped at lower left, but substitute flavor and palette. Reference 2 supplies ONLY actual golden yellow gel color. Match it rather than Banana color. Stainless steel spoon enters from upper-left edge, supported outside frame without visible hand, holding a modest irregular dollop of moist golden yellow applesauce-like gel with tiny bubbles and uneven highlights. Open unlabeled glass jar at lower left with same gel. Background: warm mango-orange tabletop and pale aqua backdrop. RIGHT half and upper-right remain clean for live text. Two small pieces of mango fruit at far bottom edge only. Single broad light upper left; credible spoon reflections and glass rim. No text, package labels, banana, long slime strings, drips, splashes, floating fruit or CGI plastic appearance. Reference 1 is stylistic/composition only, not gel color."
+    },
+    {
+      "flavor": "pineapple",
+      "role": "Lifestyle",
+      "source": "C:\\Users\\chhet\\.codex\\generated_images\\01a0ae6c-74a8-7682-a3eb-e20d1be95246\\exec-00b4eaad-79e1-408f-9236-79da58af262c.png",
+      "asset": "assets/hx-pineapple-lifestyle-v9.png",
+      "prompt": "Create one square editorial serving-suggestion photograph for Healistix pineapple sea moss gel. Reference 1 Banana lifestyle image is composition and photographic quality reference ONLY; replace every Banana-specific element. Reference 2 is exact pineapple package identity: preserve cap, label, flag seal, logo, flavor, proportions and all printing. Scene: cropped adult torso at the RIGHT in relaxed pale yellow cotton shirt, head outside frame; one natural hand holding a pale golden pineapple smoothie in a plain tumbler. Actual reference jar stands lower right, a small plate with a cut pineapple wedge at lower left with cream linen. Palette pale sage-green tabletop and warm cream backdrop. Jar gel must match the actual golden yellow reference, smoothie is a serving suggestion not pure gel. Keep upper LEFT third uncluttered quiet for live headline, move body and props to right/lower frame. Natural light upper left; real cotton wrinkles and skin, credible fingers, contact shadows and glass reflections. No extra text, badges, medical cues, other brands, banana fruit, floating objects, CGI gloss or generic houseplants. Product label text only. Match the clean sunny photographic finish and close crop of reference 1."
+    },
+    {
+      "flavor": "pineapple",
+      "role": "Texture",
+      "source": "C:\\Users\\chhet\\.codex\\generated_images\\01a0ae6c-74a8-7682-a3eb-e20d1be95246\\exec-56a9d85e-5b67-4b9c-98b7-fc6e5ef6e224.png",
+      "asset": "assets/hx-pineapple-texture-v9.png",
+      "prompt": "Create ONE square macro editorial food photograph for Healistix pineapple sea moss gel. Reference 1 is the Banana texture photo: preserve framing, scale, spoon at upper left and open glass jar cropped at lower left, but substitute flavor and palette. Reference 2 supplies ONLY actual golden yellow gel color. Match it rather than Banana color. Stainless steel spoon enters from upper-left edge, supported outside frame without visible hand, holding a modest irregular dollop of moist golden yellow applesauce-like gel with tiny bubbles and uneven highlights. Open unlabeled glass jar at lower left with same gel. Background: pale sage tabletop and cream backdrop. RIGHT half and upper-right remain clean for live text. Two small pieces of pineapple fruit at far bottom edge only. Single broad light upper left; credible spoon reflections and glass rim. No text, package labels, banana, long slime strings, drips, splashes, floating fruit or CGI plastic appearance. Reference 1 is stylistic/composition only, not gel color."
+    },
+    {
+      "flavor": "watermelon",
+      "role": "Lifestyle",
+      "source": "C:\\Users\\chhet\\.codex\\generated_images\\01a0ae6c-74a8-7682-a3eb-e20d1be95246\\exec-f6850706-47e6-4a2c-aafa-698ac8303b5a.png",
+      "asset": "assets/hx-watermelon-lifestyle-v9.png",
+      "prompt": "Create one square editorial serving-suggestion photograph for Healistix watermelon sea moss gel. Reference 1 Banana lifestyle image is composition and photographic quality reference ONLY; replace every Banana-specific element. Reference 2 is exact watermelon package identity: preserve cap, label, flag seal, logo, flavor, proportions and all printing. Scene: cropped adult torso at the RIGHT in relaxed white cotton shirt, head outside frame; one natural hand holding a coral watermelon smoothie in a plain tumbler. Actual reference jar stands lower right, a small plate with two watermelon wedges at lower left with cream linen. Palette soft watermelon-pink tabletop and pale mint backdrop. Jar gel must match the actual orange-coral reference, smoothie is a serving suggestion not pure gel. Keep upper LEFT third uncluttered quiet for live headline, move body and props to right/lower frame. Natural light upper left; real cotton wrinkles and skin, credible fingers, contact shadows and glass reflections. No extra text, badges, medical cues, other brands, banana fruit, floating objects, CGI gloss or generic houseplants. Product label text only. Match the clean sunny photographic finish and close crop of reference 1."
+    },
+    {
+      "flavor": "watermelon",
+      "role": "Texture",
+      "source": "C:\\Users\\chhet\\.codex\\generated_images\\01a0ae6c-74a8-7682-a3eb-e20d1be95246\\exec-e4fc5dbd-1031-4f51-9521-6fddb894d88e.png",
+      "asset": "assets/hx-watermelon-texture-v9.png",
+      "prompt": "Create ONE square macro editorial food photograph for Healistix watermelon sea moss gel. Reference 1 is the Banana texture photo: preserve framing, scale, spoon at upper left and open glass jar cropped at lower left, but substitute flavor and palette. Reference 2 supplies ONLY actual orange-coral gel color. Match it rather than Banana color. Stainless steel spoon enters from upper-left edge, supported outside frame without visible hand, holding a modest irregular dollop of moist orange-coral applesauce-like gel with tiny bubbles and uneven highlights. Open unlabeled glass jar at lower left with same gel. Background: soft coral-pink tabletop and pale mint backdrop. RIGHT half and upper-right remain clean for live text. Two small pieces of watermelon fruit at far bottom edge only. Single broad light upper left; credible spoon reflections and glass rim. No text, package labels, banana, long slime strings, drips, splashes, floating fruit or CGI plastic appearance. Reference 1 is stylistic/composition only, not gel color."
+    },
+    {
+      "flavor": "Banana",
+      "role": "hero",
+      "asset": "assets/hx-banana-hero-v9.png",
+      "source": "C:\\Users\\chhet\\.codex\\generated_images\\01a0ae6c-74a8-7682-a3eb-e20d1be95246\\exec-5e0c5423-a156-4945-8236-4b9f04eb3c95.png",
+      "prompt": "Create ONE square editorial product photograph for Healistix BANANA sea moss gel. Reference 1 approved Blueberry hero supplies composition and photographic finish only. Reference 2 supplies EXACT Banana jar identity: preserve jar shape, proportions, gold lid, logo, printing, flavor spelling and weight Net 16 Oz (454 g). Do not add a flag: Banana reference jar has no flag seal. Large upright jar in the RIGHT 55% on a low cream stone slab, one peeled banana with three naturally cut slices at lower left with a small restrained pale sea moss cluster. Palette: warm butter-cream backdrop and subtle sky-blue shadow, golden-yellow fruit. Keep the top left 40% quiet empty background for live headline added later. Broad natural light from upper left, coherent glass highlights and grounded shadows, real fruit detail, tactile editorial food photography, no CGI gloss. Text only on original jar label. NO extra scene text, heading, badges, watermark, invented certifications or other flavors. Match image 1 crop and scale without copying its blueberries."
+    },
+    {
+      "flavor": "Mango",
+      "role": "hero",
+      "asset": "assets/hx-mango-hero-v9.png",
+      "source": "C:\\Users\\chhet\\.codex\\generated_images\\01a0ae6c-74a8-7682-a3eb-e20d1be95246\\exec-e0fdc769-29a6-493c-9827-a938e26bab9d.png",
+      "prompt": "Use approved Blueberry studio-v3 composition with product jar on right, fruit and pale sea moss on left, airy tropical aqua background. Preserve actual Mango front package identity, gold lid and 16 oz (454 g) label. Leave upper-left negative space for editable headline; no scene text. References: hx-blueberry-studio-v3.png (composition), hx-pilot-mango-front.webp (package)."
+    },
+    {
+      "flavor": "Pineapple",
+      "role": "hero",
+      "asset": "assets/hx-pineapple-hero-v9.png",
+      "source": "C:\\Users\\chhet\\.codex\\generated_images\\01a0ae6c-74a8-7682-a3eb-e20d1be95246\\exec-17233f77-ecb0-4265-88bd-51bdfac5c648.png",
+      "prompt": "Create ONE square editorial product photograph for Healistix PINEAPPLE sea moss gel. Reference 1 approved Blueberry hero supplies composition and photographic finish only. Reference 2 supplies EXACT Pineapple jar identity: preserve jar shape, proportions, gold lid, logo, printing, flavor spelling and weight Net 16 Oz (454 g). Preserve existing flag seal exactly. Large upright jar in the RIGHT 55% on a low cream stone slab, one cut pineapple wedge with textured skin, two small juicy pineapple pieces at lower left with a small restrained pale sea moss cluster. Palette: pale sage-green backdrop and pale warm cream stone, golden pineapple fruit. Keep the top left 40% quiet empty background for live headline added later. Broad natural light from upper left, coherent glass highlights and grounded shadows, real fruit detail, tactile editorial food photography, no CGI gloss. Text only on original jar label. NO extra scene text, heading, badges, watermark, invented certifications or other flavors. Match image 1 crop and scale without copying its blueberries."
+    },
+    {
+      "flavor": "Watermelon",
+      "role": "hero",
+      "asset": "assets/hx-watermelon-hero-v9.png",
+      "source": "C:\\Users\\chhet\\.codex\\generated_images\\01a0ae6c-74a8-7682-a3eb-e20d1be95246\\exec-91824bd0-f05c-4185-96d5-e4834b861b08.png",
+      "prompt": "Create ONE square editorial product photograph for Healistix WATERMELON sea moss gel. Reference 1 approved Blueberry hero supplies composition and photographic finish only. Reference 2 supplies EXACT Watermelon jar identity: preserve jar shape, proportions, gold lid, logo, printing, flavor spelling and weight Net 16.5 Oz. Preserve existing flag seal exactly. Large upright jar in the RIGHT 55% on a low cream stone slab, one small triangular watermelon slice with green rind and two irregular watermelon cubes at lower left with a small restrained pale sea moss cluster. Palette: pale blush-pink backdrop and soft mint-green accent with warm cream stone. Keep the top left 40% quiet empty background for live headline added later. Broad natural light from upper left, coherent glass highlights and grounded shadows, real fruit detail, tactile editorial food photography, no CGI gloss. Text only on original jar label. NO extra scene text, heading, badges, watermark, invented certifications or other flavors. Match image 1 crop and scale without copying its blueberries."
+    }
+  ]
+}

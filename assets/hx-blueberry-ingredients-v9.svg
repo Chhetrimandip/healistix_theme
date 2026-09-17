@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+<rect width="1000" height="1000" fill="#e8def7"/><circle cx="1020" cy="80" r="310" fill="#d6c8ec"/>
+<g fill="#23234a" font-family="Arial,sans-serif">
+<text x="70" y="85" font-size="20" letter-spacing="3">THE BLUEBERRY BLEND</text>
+<text x="65" y="185" font-family="Georgia,serif" font-size="86" font-weight="bold">Good taste.</text><text x="65" y="277" font-family="Georgia,serif" font-size="86" font-weight="bold">Simple recipe.</text>
+<rect x="65" y="342" width="870" height="112" rx="56" fill="#fff8df"/><rect x="65" y="474" width="870" height="112" rx="56" fill="#fff8df"/><rect x="65" y="606" width="870" height="112" rx="56" fill="#fff8df"/><rect x="65" y="738" width="870" height="112" rx="56" fill="#fff8df"/>
+<g fill="#23234a"><circle cx="122" cy="398" r="42"/><circle cx="122" cy="530" r="42"/><circle cx="122" cy="662" r="42"/><circle cx="122" cy="794" r="42"/></g>
+<g fill="#e8def7" font-size="26" text-anchor="middle"><text x="122" y="407">01</text><text x="122" y="539">02</text><text x="122" y="671">03</text><text x="122" y="803">04</text></g>
+<g font-size="38" font-weight="bold"><text x="193" y="413">Wildcrafted sea moss</text><text x="193" y="545">Spring water</text><text x="193" y="677">Blueberry juice</text><text x="193" y="809">Citric acid</text></g>
+<text x="891" y="413" text-anchor="end" font-size="22">St Lucia</text><text x="891" y="809" text-anchor="end" font-size="22">For freshness</text>
+<text x="70" y="927" font-size="24">Four ingredients. One jar to make your own.</text>
+</g></svg>

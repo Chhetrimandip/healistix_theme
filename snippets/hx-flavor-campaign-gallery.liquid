@@ -1,0 +1,17 @@
+{%- assign campaign_tiles = 'hero,lifestyle,texture,ingredients,facts' | split: ',' -%}
+{%- assign flavor_slug = flavor | handleize -%}
+{%- for tile in campaign_tiles -%}
+  {%- assign version = '-v9' -%}
+  {%- if flavor == 'Banana' and tile != 'hero' -%}{%- assign version = '-v6' -%}{%- endif -%}
+  {%- assign extension = '.png' -%}
+  {%- if tile == 'ingredients' or tile == 'facts' -%}{%- assign extension = '.svg' -%}{%- endif -%}
+  {%- assign tile_file = flavor_slug | prepend: 'hx-' | append: '-' | append: tile | append: version | append: extension -%}
+  {%- if flavor == 'Blueberry' and tile == 'hero' -%}{%- assign tile_file = 'hx-blueberry-studio-v3.png' -%}{%- endif -%}
+  {%- capture tile_label -%}{{ flavor }} sea moss gel — {% case tile %}{% when 'hero' %}jar with fresh fruit{% when 'lifestyle' %}your morning, made; serving suggestion{% when 'texture' %}gel texture close-up{% when 'ingredients' %}four ingredients{% when 'facts' %}jar label highlights{% endcase %}{%- endcapture -%}
+  <button type="button" class="product-seamoss__media-thumb" data-product-thumb data-pilot-cutout data-gallery-story data-campaign-tile="{{ tile }}" {% if forloop.first %}data-gallery-cover{% endif %} data-image="{{ tile_file | asset_url }}" data-flavors="{{ flavor }}|" aria-label="{{ tile_label | escape }}"{% unless initial_variant.option1 == flavor %} hidden{% endunless %}>
+    <img src="{{ tile_file | asset_url }}" alt="{{ tile_label | escape }}" width="1254" height="1254" loading="lazy">
+    {%- if tile == 'hero' and flavor != 'Blueberry' -%}<span class="hx-art-copy hx-art-copy--hero hx-art-copy--{{ flavor_slug }}"><small>HEALISTIX</small><strong>Sea moss.<br>Meet {{ flavor | downcase }}.</strong></span>{%- endif -%}
+    {%- if tile == 'lifestyle' -%}<span class="hx-art-copy hx-art-copy--lifestyle"><small>A MOMENT FOR YOU</small><strong>Your morning,<br>made.</strong></span>{%- endif -%}
+    {%- if tile == 'texture' -%}<span class="hx-art-copy hx-art-copy--texture"><small>GET TO KNOW YOUR GEL</small><strong>Meet your<br>next spoonful.</strong><span>Spoon it.<br>Blend it.<br>Make it yours.</span></span>{%- endif -%}
+  </button>
+{%- endfor -%}
