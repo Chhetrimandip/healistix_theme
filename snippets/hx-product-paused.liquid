@@ -1,0 +1,4 @@
+{%- unless settings.hx_wellness_products_enabled -%}
+  {%- assign paused_handles = 'raw-honduran-batana-oil,batana-oil,himalayan-shilajit,batana,shilajit' | split: ',' -%}
+  {%- if paused_handles contains item.handle -%}true{%- endif -%}
+{%- endunless -%}

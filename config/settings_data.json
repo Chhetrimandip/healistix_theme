@@ -11,6 +11,7 @@
   "current": "Default",
   "presets": {
     "Default": {
+      "hx_wellness_products_enabled": false,
       "hx_custom_blends_enabled": false,
       "blocks": {
         "14060646107696862457": {

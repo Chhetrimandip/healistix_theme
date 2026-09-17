@@ -130,6 +130,8 @@
               aria-labelledby="predictive-search-products"
             >
               {%- for product in predictive_search.resources.products -%}
+{% capture hx_item_paused %}{% render 'hx-product-paused', item: product %}{% endcapture %}
+{% if hx_item_paused == 'true' %}{% continue %}{% endif %}
                 <li
                   id="predictive-search-option-product-{{ forloop.index }}"
                   class="predictive-search__list-item"

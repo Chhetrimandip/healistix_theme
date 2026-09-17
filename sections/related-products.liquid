@@ -34,6 +34,8 @@
         role="list"
       >
         {% for recommendation in recommendations.products %}
+{% capture hx_item_paused %}{% render 'hx-product-paused', item: recommendation %}{% endcapture %}
+{% if hx_item_paused == 'true' %}{% continue %}{% endif %}
           <li class="grid__item">
             {% render 'card-product',
               card_product: recommendation,

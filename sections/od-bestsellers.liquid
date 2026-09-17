@@ -151,6 +151,8 @@
 
       {%- else -%}
         {%- for product in collections.all.products limit: 8 -%}
+{% capture hx_item_paused %}{% render 'hx-product-paused', item: product %}{% endcapture %}
+{% if hx_item_paused == 'true' %}{% continue %}{% endif %}
           {%- liquid
             assign variant = product.selected_or_first_available_variant
             assign has_discount = false

@@ -1,3 +1,4 @@
+{% if settings.hx_wellness_products_enabled %}
 {{ 'hx-wellness-collection.css' | asset_url | stylesheet_tag }}
 <section class="hx-wellness-collection" id="WellnessCollection" aria-labelledby="WellnessHeading-{{ section.id }}">
   <div class="hx-wellness-heading"><p class="hx-wellness-eyebrow">A LITTLE MORE HEALISTIX</p><h2 id="WellnessHeading-{{ section.id }}">Beyond Sea Moss.</h2><p>Meet two more ways to make a little space for yourself.</p></div>
@@ -16,6 +17,7 @@
     {% endfor %}
   </div>
 </section>
+{% endif %}
 {% schema %}
 {"name":"Healistix — Wellness","settings":[],"blocks":[{"type":"product","name":"Wellness product","settings":[{"type":"select","id":"kind","label":"Artwork","options":[{"value":"batana","label":"Batana"},{"value":"shilajit","label":"Shilajit"}],"default":"batana"},{"type":"text","id":"handle","label":"Product handle"},{"type":"url","id":"preview_url","label":"Draft preview link"},{"type":"text","id":"category","label":"Category"},{"type":"text","id":"title","label":"Title"},{"type":"text","id":"short_title","label":"Link name"},{"type":"textarea","id":"text","label":"Description"}]}],"presets":[{"name":"Healistix — Wellness"}]}
 {% endschema %}

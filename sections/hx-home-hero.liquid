@@ -7,7 +7,9 @@
     <p class="hx-home-intro">{{ section.settings.text | escape }}</p>
     <a class="hx-home-button" href="{{ hero_product.url | default: routes.all_products_collection_url }}">{{ section.settings.button_label | escape }} <span aria-hidden="true">↗</span></a>
     <a class="hx-home-text-link" href="#HomeFlavors">Explore the flavors <span aria-hidden="true">↓</span></a>
+    {% if settings.hx_wellness_products_enabled %}
     <a class="hx-home-text-link" href="#WellnessCollection">Discover Batana &amp; Shilajit <span aria-hidden="true">↓</span></a>
+    {% endif %}
   </div>
   <div class="hx-home-hero__visual">
     {%- if section.settings.image != blank -%}

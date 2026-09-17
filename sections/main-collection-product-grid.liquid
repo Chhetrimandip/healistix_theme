@@ -143,6 +143,8 @@
               "
             >
               {%- for product in collection.products -%}
+{% capture hx_item_paused %}{% render 'hx-product-paused', item: product %}{% endcapture %}
+{% if hx_item_paused == 'true' %}{% continue %}{% endif %}
                 {% assign lazy_load = false %}
                 {%- if forloop.index > 2 -%}
                   {%- assign lazy_load = true -%}

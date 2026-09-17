@@ -1,3 +1,4 @@
+{% if settings.hx_wellness_products_enabled %}
 {%- capture pair_cards -%}
     {%- assign pair_handles = 'raw-honduran-batana-oil,himalayan-shilajit' | split: ',' -%}
     {%- for handle in pair_handles -%}
@@ -30,3 +31,5 @@
   <div class="hx-pair__cards">{{ pair_cards }}</div>
 </section>
 {%- endif -%}
+
+{% endif %}

@@ -8,6 +8,10 @@
     "theme_support_url": "https://support.shopify.com/"
   },
   {
+    "name": "Product availability",
+    "settings": [{"type":"checkbox","id":"hx_wellness_products_enabled","label":"Show Batana and Shilajit","default":false,"info":"Temporarily hides their storefront content. Does not change Shopify product publication or existing orders."}]
+  },
+  {
     "name": "Custom sea moss",
     "settings": [
       {

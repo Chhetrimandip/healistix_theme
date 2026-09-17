@@ -326,7 +326,17 @@
           endif
         endunless
       %}
-      {% if hx_pause_custom_page %}
+      {% capture hx_product_is_paused %}{% render 'hx-product-paused', item: product %}{% endcapture %}
+      {% capture hx_collection_is_paused %}{% render 'hx-product-paused', item: collection %}{% endcapture %}
+      {% assign hx_wellness_preview_paused = false %}
+      {% unless settings.hx_wellness_products_enabled %}
+        {% if template.name == 'index' and template.suffix == 'batana' or template.name == 'index' and template.suffix == 'shilajit' %}
+          {% assign hx_wellness_preview_paused = true %}
+        {% endif %}
+      {% endunless %}
+      {% if hx_product_is_paused == 'true' or hx_collection_is_paused == 'true' or hx_wellness_preview_paused %}
+        {% render 'hx-wellness-paused' %}
+      {% elsif hx_pause_custom_page %}
         {% render 'hx-custom-blends-paused' %}
       {% else %}
         {{ content_for_layout }}

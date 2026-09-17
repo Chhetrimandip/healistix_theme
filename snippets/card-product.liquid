@@ -1,3 +1,5 @@
+{% capture hx_card_paused %}{% render 'hx-product-paused', item: card_product %}{% endcapture %}
+{% unless hx_card_paused == 'true' %}
 {% comment %}
   Renders a product card
 
@@ -377,3 +379,5 @@
     </div>
   </div>
 {%- endif -%}
+
+{% endunless %}
