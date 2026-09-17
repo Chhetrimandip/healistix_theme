@@ -1,3 +1,4 @@
+{% if section.settings.offer_enabled and section.settings.discount_code != blank %}
 {%- liquid
   assign discount = section.settings.discount | default: 30
   assign form_id = 'HxSignupForm-' | append: section.id
@@ -86,10 +87,11 @@
     </div>
   </dialog>
 </hx-lucky-signup>
+{% endif %}
 {% schema %}
 {
   "name": "Lucky Popup",
-  "settings": [{"type":"checkbox","id":"free_shipping","label":"Include free shipping in offer","default":false,"info":"Enable only when the welcome discount includes free shipping in Shopify."},
+  "settings": [{"type":"checkbox","id":"offer_enabled","label":"Enable verified welcome offer","default":false,"info":"Enable only after the configured code and advertised discount are tested in Shopify checkout."},{"type":"checkbox","id":"free_shipping","label":"Include free shipping in offer","default":false,"info":"Enable only when the welcome discount includes free shipping in Shopify."},
     {
       "type": "header",
       "content": "Trigger"

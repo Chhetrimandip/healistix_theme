@@ -2,3 +2,6 @@
   {%- assign paused_handles = 'raw-honduran-batana-oil,batana-oil,himalayan-shilajit,batana,shilajit' | split: ',' -%}
   {%- if paused_handles contains item.handle -%}true{%- endif -%}
 {%- endunless -%}
+{%- unless settings.hx_custom_blends_enabled -%}
+  {%- if item.handle == 'custom-sea-moss-gel' or item.handle == 'premium-herb-add-on' -%}true{%- endif -%}
+{%- endunless -%}

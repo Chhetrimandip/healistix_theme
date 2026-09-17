@@ -42,21 +42,27 @@
               </a>
             </li>
 {% endif %}
+            {% if collections['super-tonics'] != blank and collections['super-tonics'].products_count > 0 %}
             <li>
               <a href="/collections/super-tonics" class="header__menu-item list-menu__item link link--text focus-inset caption-large">
                 Super Tonics
               </a>
             </li>
+{% endif %}
+            {% if collections['super-bitters'] != blank and collections['super-bitters'].products_count > 0 %}
             <li>
               <a href="/collections/super-bitters" class="header__menu-item list-menu__item link link--text focus-inset caption-large">
                 Super Bitters
               </a>
             </li>
+{% endif %}
+            {% if collections['beef-tallow'] != blank and collections['beef-tallow'].products_count > 0 %}
             <li>
               <a href="/collections/beef-tallow" class="header__menu-item list-menu__item link link--text focus-inset caption-large">
                 Beef Tallow
               </a>
             </li>
+{% endif %}
           </ul>
         </details>
       </header-menu>

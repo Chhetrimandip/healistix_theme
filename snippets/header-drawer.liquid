@@ -40,21 +40,27 @@
                 </a>
               </li>
 {% endif %}
+              {% if collections['super-tonics'] != blank and collections['super-tonics'].products_count > 0 %}
               <li>
                 <a id="HeaderDrawer-super-tonics" href="/collections/super-tonics" class="menu-drawer__menu-item list-menu__item link link--text focus-inset hx-drawer-link">
                   Super Tonics
                 </a>
               </li>
+{% endif %}
+              {% if collections['super-bitters'] != blank and collections['super-bitters'].products_count > 0 %}
               <li>
                 <a id="HeaderDrawer-super-bitters" href="/collections/super-bitters" class="menu-drawer__menu-item list-menu__item link link--text focus-inset hx-drawer-link">
                   Super Bitters
                 </a>
               </li>
+{% endif %}
+              {% if collections['beef-tallow'] != blank and collections['beef-tallow'].products_count > 0 %}
               <li>
                 <a id="HeaderDrawer-beef-tallow" href="/collections/beef-tallow" class="menu-drawer__menu-item list-menu__item link link--text focus-inset hx-drawer-link">
                   Beef Tallow
                 </a>
               </li>
+{% endif %}
             </ul>
 
             {%- comment -%} Divider + Contact + My Health highlight {%- endcomment -%}

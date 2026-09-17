@@ -334,7 +334,10 @@
           {% assign hx_wellness_preview_paused = true %}
         {% endif %}
       {% endunless %}
-      {% if hx_product_is_paused == 'true' or hx_collection_is_paused == 'true' or hx_wellness_preview_paused %}
+      {% assign hx_custom_product_handles = 'custom-sea-moss-gel,premium-herb-add-on' | split: ',' %}
+      {% if hx_product_is_paused == 'true' and hx_custom_product_handles contains product.handle %}
+        {% render 'hx-custom-blends-paused' %}
+      {% elsif hx_product_is_paused == 'true' or hx_collection_is_paused == 'true' or hx_wellness_preview_paused %}
         {% render 'hx-wellness-paused' %}
       {% elsif hx_pause_custom_page %}
         {% render 'hx-custom-blends-paused' %}

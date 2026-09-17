@@ -206,7 +206,9 @@
                               {%- endfor -%}
                             </dl>
 
-                            <p class="product-option">{{ item.selling_plan_allocation.selling_plan.name }}</p>
+                            {%- if item.selling_plan_allocation != null -%}
+                              <p class="product-option hx-cart-selling-plan">{{ item.selling_plan_allocation.selling_plan.name | escape }}</p>
+                            {%- endif -%}
                           {%- endif -%}
 
                           <ul
