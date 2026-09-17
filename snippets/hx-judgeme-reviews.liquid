@@ -44,15 +44,24 @@
           </button>
           <dialog class="hx-jm-dialog" id="Media-{{ section.id }}-{{ block.id }}" aria-label="Customer media by {{ block.settings.badge | escape }}">
             <button type="button" class="hx-jm-dialog__close" aria-label="Close customer media">&times;</button>
+            <div class="hx-jm-dialog__layout">
+            <div class="hx-jm-dialog__media">
             {% if block.settings.video_asset != blank %}
               <video controls playsinline preload="none" poster="{{ block.settings.image_asset | asset_url }}">
                 <source src="{{ block.settings.video_asset | asset_url }}" type="video/mp4">
                 {% if block.settings.captions_asset != blank %}<track kind="captions" src="{{ block.settings.captions_asset | asset_url }}" srclang="en" label="English" default>{% endif %}
               </video>
             {% else %}<img src="{{ block.settings.image_asset | asset_url }}" alt="{{ block.settings.media_alt | default: block.settings.badge | escape }}" loading="lazy">{% endif %}
-            <strong>{{ block.settings.badge | escape }}</strong>
-            <p>{{ block.settings.footer | escape }}</p>
-
+            </div>
+            <div class="hx-jm-dialog__review">
+              <strong>{{ block.settings.badge | escape }}</strong>
+              <p>{{ block.settings.footer | escape }}</p>
+              {% if block.settings.rating != blank %}<p class="hx-jm-dialog__rating">{{ block.settings.rating | escape }}</p>{% endif %}
+              {% if block.settings.text != blank %}<blockquote>{{ block.settings.text | escape | newline_to_br }}</blockquote>{% endif %}
+              {% if block.settings.disclosure != blank %}<p>{{ block.settings.disclosure | escape }}</p>{% endif %}
+              {% if block.settings.source_url != blank %}<a href="{{ block.settings.source_url }}" target="_blank" rel="noopener">Read the original review ↗</a>{% endif %}
+            </div>
+            </div>
           </dialog>
         {% endif %}
       {% endfor %}
