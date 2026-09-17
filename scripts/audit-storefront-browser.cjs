@@ -13,7 +13,7 @@ const out = 'staging/launch-audit-20260908';
   try {
     for (const width of [390, 1440]) {
       await page.setViewportSize({width,height:900});
-      for (const path of ['/', '/products/sea-moss-gel-banana','/products/raw-honduran-batana-oil','/products/himalayan-shilajit','/collections/all','/pages/contact','/cart']) {
+      for (const path of ['/', '/products/sea-moss-gel','/products/raw-honduran-batana-oil','/products/himalayan-shilajit','/collections/all','/pages/contact','/cart']) {
         try {
           await page.goto('http://127.0.0.1:9292'+path, {waitUntil:'domcontentloaded',timeout:35000});
           await page.waitForTimeout(1200);
@@ -30,7 +30,7 @@ const out = 'staging/launch-audit-20260908';
         } catch(e) { results.push({width,path,error:e.message}); }
       }
     }
-    await page.goto('http://127.0.0.1:9292/products/sea-moss-gel-banana',{waitUntil:'domcontentloaded'});
+    await page.goto('http://127.0.0.1:9292/products/sea-moss-gel',{waitUntil:'domcontentloaded'});
     const flavors = await page.locator('[data-option-value]').evaluateAll(nodes => nodes.map(n=>n.dataset.optionValue));
     for (const flavor of flavors) {
       await page.locator('[data-option-value]').filter({hasText:flavor}).first().click();

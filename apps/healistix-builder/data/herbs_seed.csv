@@ -1,0 +1,53 @@
+id,name,tradition,default_g,max_g,premium,taste,thickens,flags,uses,approved_phrase,notes
+ashwagandha,Ashwagandha root,Ayurvedic,8,12,N,earthy,N,"PREG,THYROID,SEDATIVE","stress,sleep,vitality-men,vitality-women",helps the body adapt to everyday stress,
+maca,Maca root (yellow),Andean,8,16,N,malty-sweet,N,PREG,"energy,vitality-men,vitality-women,recovery",traditionally used for energy and stamina,"mild flavor, pairs with any fruit"
+korean-red-ginseng,Korean red ginseng root,Korean,4,6,Y,bitter,N,"PREG,BP,GLUCOSE,ANTICOAG,STIM","energy,focus,vitality-men",traditionally used for energy and vitality,
+tongkat-ali,Tongkat ali root,Malaysian,3,5,Y,very bitter,N,"PREG,HORMONE,GLUCOSE","vitality-men,energy",traditionally used to support male vitality,strong bitterness; suggest bold fruit flavor
+beet-root,Beet root,European,6,12,N,earthy-sweet,N,KIDNEY,"energy,recovery",traditionally used for natural energy and endurance,deep red color
+ginger,Ginger root,Ayurvedic / Caribbean,6,10,N,spicy,N,"ANTICOAG,GERD","digestion,joints,respiratory,recovery",traditionally used to settle the stomach,
+turmeric,Turmeric root,Ayurvedic,6,10,N,earthy-bitter,N,ANTICOAG,"joints,recovery,digestion",traditionally used for joint comfort,stains; yellow color
+reishi,Reishi mushroom,TCM,6,10,N,bitter,N,"ANTICOAG,BP,AUTOIMMUNE","stress,sleep",traditionally used for calm and balance,
+lions-mane,Lion's mane mushroom,TCM / Japanese,8,12,N,mild,N,"PREG,AUTOIMMUNE",focus,traditionally used for focus and mental clarity,
+cordyceps,Cordyceps mushroom,Tibetan / TCM,6,10,Y,mild,N,"PREG,ANTICOAG,AUTOIMMUNE","energy,recovery,respiratory",traditionally used for stamina and endurance,
+chaga,Chaga mushroom,Siberian,5,8,N,earthy,N,"ANTICOAG,GLUCOSE,KIDNEY,AUTOIMMUNE",greens,traditionally used as a daily tonic,
+spirulina,Spirulina,Aztec / Chad,6,12,N,grassy,N,AUTOIMMUNE,"greens,energy",a nutrient-dense blue-green algae,strong taste above 8 g
+chlorella,Chlorella,Japanese,5,10,N,grassy,N,AUTOIMMUNE,"greens,cleanse",a chlorophyll-rich green algae,
+moringa,Moringa leaf,Ayurvedic / African,6,10,N,grassy,N,PREG,"greens,energy",a nutrient-dense leaf,
+hibiscus,Hibiscus flower,Caribbean / West African,5,8,N,tart,N,"BP,PREG","womens-balance,cleanse,metabolism",traditionally enjoyed as a cooling tonic,tart; lowers pH (helpful)
+cinnamon,Ceylon cinnamon bark,Sri Lankan,3,5,N,sweet-spicy,N,"GLUCOSE,ANTICOAG","metabolism,digestion",traditionally used to support healthy metabolism,Ceylon only (low coumarin)
+fenugreek,Fenugreek seed,Ayurvedic / Middle Eastern,4,8,N,bitter-maple,N,"PREG,GLUCOSE,ANTICOAG","metabolism,digestion",traditionally used for digestion and appetite balance,
+slippery-elm,Slippery elm bark,Native American,5,8,N,mild,Y,MEDTIMING,"digestion,respiratory",soothing mucilage for the digestive tract,thickens the gel; cap total thickeners at 8 g
+marshmallow-root,Marshmallow root,European,5,8,N,mild,Y,"MEDTIMING,GLUCOSE","digestion,respiratory",soothing mucilage,thickens the gel
+fennel,Fennel seed,Mediterranean,4,6,N,licorice-sweet,N,"PREG,HORMONE",digestion,traditionally used for bloating and comfortable digestion,
+peppermint,Peppermint leaf,European,3,5,N,cool,N,GERD,digestion,traditionally used for digestive comfort,
+chamomile,Chamomile flower,European / Egyptian,4,6,N,floral,N,"PREG,ANTICOAG,ASTER","sleep,stress,digestion",gentle and calming,
+lemon-balm,Lemon balm leaf,Mediterranean,4,6,N,lemony,N,"THYROID,SEDATIVE","sleep,stress,focus",traditionally used for calm and restful sleep,
+passionflower,Passionflower,Native American,3,5,N,mild-bitter,N,"PREG,SEDATIVE","sleep,stress",traditionally used for rest,evening jar
+holy-basil,Holy basil (tulsi) leaf,Ayurvedic,5,8,N,clove-like,N,"PREG,ANTICOAG,GLUCOSE","stress,respiratory,mood",an adaptogen traditionally used for daily balance,
+rhodiola,Rhodiola root,Siberian / Scandinavian,3,5,Y,bitter-astringent,N,"BP,SSRI,STIM","energy,focus,stress",traditionally used for stamina and stress resilience,
+shatavari,Shatavari root,Ayurvedic,6,10,N,mild-sweet,N,"PREG,HORMONE","womens-balance,vitality-women",traditionally used for women's vitality,
+damiana,Damiana leaf,Mexican / Caribbean,3,5,N,aromatic-bitter,N,"PREG,GLUCOSE","vitality-women,vitality-men,mood",traditionally used for mood and desire,
+muira-puama,Muira puama bark,Amazonian,3,5,N,woody,N,PREG,vitality-men,traditionally used for male vitality,
+horny-goat-weed,Horny goat weed (epimedium),TCM,3,5,N,bitter,N,"BP,HORMONE,PREG,ANTICOAG",vitality-men,traditionally used for vitality,
+sarsaparilla,Sarsaparilla root,Jamaican / Caribbean,4,6,N,root-beer,N,KIDNEY,"vitality-men,skin-hair-nails,cleanse",traditionally used in Caribbean tonics,natural fit with sea moss tradition
+burdock-root,Burdock root,European / TCM,5,8,N,earthy-sweet,N,"PREG,GLUCOSE,ANTICOAG","cleanse,skin-hair-nails",traditionally used for skin and cleansing,
+dandelion-root,Dandelion root,European,5,8,N,bitter-roasted,N,"KIDNEY,GLUCOSE,ANTICOAG,ASTER","cleanse,digestion",traditionally used for liver support,
+nettle-leaf,Nettle leaf,European,5,8,N,grassy,N,"PREG,BP,GLUCOSE,ANTICOAG,KIDNEY","skin-hair-nails,greens,joints",a mineral-rich leaf,
+horsetail,Horsetail,European,3,5,N,mild,N,"KIDNEY,PREG",skin-hair-nails,a natural source of silica,not for long-term daily use above 3 g
+amla,Amla (Indian gooseberry),Ayurvedic,6,10,N,sour-astringent,N,"ANTICOAG,GLUCOSE","skin-hair-nails,digestion,greens",a vitamin-C-rich fruit traditionally used for hair and skin,
+bladderwrack,Bladderwrack,Atlantic / European,2,3,N,sea,N,"THYROID,PREG,ANTICOAG","greens,metabolism","a second sea vegetable, naturally iodine-rich",cap low: sea moss already supplies iodine
+elderberry,Elderberry fruit,European,5,8,N,tart-fruity,N,AUTOIMMUNE,respiratory,traditionally enjoyed in autumn tonics,"NO immune / cold / flu language, ever"
+black-seed,Black seed (nigella),Unani / Middle Eastern,4,8,N,peppery-bitter,N,"PREG,GLUCOSE,BP,ANTICOAG","respiratory,digestion,skin-hair-nails",traditionally used in Unani medicine as a daily tonic,
+cacao,Raw cacao,Mesoamerican,8,15,N,chocolate,N,CAFFEINE,"mood,energy",raw cacao for flavor and mood,counts as flavor too
+matcha,Matcha green tea,Japanese,3,6,N,grassy,N,"CAFFEINE,STIM","energy,focus",green tea leaf for calm energy,~30 mg caffeine per serving at 3 g
+bacopa,Bacopa (brahmi),Ayurvedic,4,6,N,bitter,N,"SEDATIVE,THYROID",focus,traditionally used for memory and focus,
+gotu-kola,Gotu kola,Ayurvedic / Sri Lankan,4,6,N,grassy,N,PREG,"focus,skin-hair-nails",traditionally used for mental clarity and skin,
+boswellia,Boswellia (frankincense) resin,Ayurvedic,3,5,N,resinous-bitter,N,"PREG,ANTICOAG",joints,traditionally used for joint comfort,
+milk-thistle,Milk thistle seed,Mediterranean,5,8,N,mild-nutty,N,"ASTER,HORMONE",cleanse,traditionally used for liver support,
+mullein,Mullein leaf,European / Native American,4,6,N,mild,N,,respiratory,traditionally used for respiratory comfort,
+red-raspberry-leaf,Red raspberry leaf,European,4,6,N,tea-like,N,"PREG,HORMONE",womens-balance,traditionally used for women's wellness,
+shilajit,Shilajit,Himalayan,1,2,Y,tar-like,N,KIDNEY,"energy,vitality-men",traditionally used in Ayurveda for vitality,heavy-metals COA required before listing
+ginkgo,Ginkgo leaf,TCM,3,5,N,mild-bitter,N,"ANTICOAG,PREG,SEIZURE",focus,traditionally used for memory and circulation,
+saffron,Saffron,Persian,0.2,0.4,Y,floral,N,"PREG,SSRI","mood,vitality-women",traditionally used for mood,micro-scale weighing
+licorice-root,Licorice root,TCM / Ayurvedic,2,3,N,sweet,N,"BP,KIDNEY,PREG,HORMONE","digestion,respiratory","a naturally sweet, soothing root",cap low
+cayenne,Cayenne pepper,Caribbean / Mexican,0.5,1,N,hot,N,"ANTICOAG,GERD","metabolism,recovery",warming,cap low

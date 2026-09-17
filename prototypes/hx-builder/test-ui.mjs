@@ -1,0 +1,22 @@
+import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
+globalThis.document={querySelectorAll:()=>[]};
+globalThis.location={origin:'http://127.0.0.1:8788',href:'http://127.0.0.1:8788/?preview_theme_id=123'};
+const {Builder}=await import('../../assets/hx-builder-app.js');
+const {createAdapter}=await import('../../assets/hx-builder-api.js');
+const fixture=async name=>JSON.parse(await readFile(new URL(`./fixtures/${name}.json`,import.meta.url)));
+const request=await fixture('energy-request');
+const response=await fixture('energy-response');
+function ui(){const b=Object.create(Builder.prototype);Object.assign(b,{q:structuredClone(request),root:{dataset:{image:'raw.webp',mode:'service'},querySelector:()=>null},catalog:{uses:[]},epoch:0,step:'review',error:'',render(){},focus(){}});return b;}
+let b=ui();b.api=async()=>structuredClone(response);await b.submit();assert.equal(b.step,'result');assert.equal(b.result.build.herbs.length,3);
+const prior=b.result;b.api=async()=>fixture('invalid-edit-response');await b.submit({uses:['energy'],herbs:[]});assert.equal(b.step,'result');assert.equal(b.result,prior);assert.ok(b.error);
+b=ui();let resolve;b.api=()=>new Promise(r=>resolve=r);const pending=b.submit();assert.equal(b.step,'pending');b.go('goals');resolve(response);await pending;assert.equal(b.step,'goals');assert.equal(b.result,undefined);
+b=ui();b.api=async()=>{throw Error('network')};await b.submit();assert.equal(b.step,'unavailable');assert.deepEqual(b.q,request);
+b=ui();b.api=async()=>({schema_version:'1',status:'recommended',build:null,display:null});await b.submit();assert.equal(b.step,'unavailable');
+b=ui();b.result=structuredClone(response);b.result.purchase.enabled=true;assert.match(b.resultView(),/data-action="purchase" disabled/);
+b=ui();assert.equal(b.safeCatalogUrl('https://evil.example/path'),null);assert.match(b.safeCatalogUrl('/products/regular'),/preview_theme_id=123/);assert.equal(b.safeCatalogUrl('javascript:alert(1)'),null);
+b=ui();b.q.customer.adult=null;b.step='gates';b.showError=msg=>{b.error=msg};b.next();assert.equal(b.step,'gates');assert.ok(b.error);
+b=ui();b.q.use_chips=['vitality-men'];assert.ok(b.steps().includes('vitality'));b.q.use_chips=['energy'];assert.ok(!b.steps().includes('vitality'));
+const api=createAdapter({mode:'service',endpoint:'/api'});const originalFetch=globalThis.fetch;globalThis.fetch=async(url,options)=>{assert.equal(url,'/api/validate');assert.equal(options.method,'POST');assert.equal(options.cache,'no-store');assert.equal(options.credentials,'same-origin');assert.equal(JSON.parse(options.body).customer.adult,true);return {ok:false,json:async()=>fixture('invalid-edit-response')}};assert.equal((await api('validate',request)).status,'invalid');globalThis.fetch=originalFetch;
+await assert.rejects(()=>createAdapter({mode:'service',endpoint:'https://evil.example'})('catalog'),/configuration/);
+console.log('11 UI checks passed: valid result, invalid edit rollback, stale response ignored, offline recovery, malformed result, purchase lock, safe link, gate requirement, vitality path, 422 adapter, same-origin boundary.');

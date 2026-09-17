@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 
 OUT = Path('staging/launch-audit-20260908')
 OUT.mkdir(parents=True, exist_ok=True)
-PATHS = ['/', '/products/sea-moss-gel-banana', '/products/raw-honduran-batana-oil',
+PATHS = ['/', '/products/sea-moss-gel', '/products/raw-honduran-batana-oil',
          '/products/himalayan-shilajit', '/collections/all', '/pages/about',
          '/pages/contact', '/pages/faq', '/pages/quiz', '/cart', '/search?q=sea+moss',
          '/policies/shipping-policy', '/policies/refund-policy',

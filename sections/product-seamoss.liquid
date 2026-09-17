@@ -2,7 +2,11 @@
 {{ 'hx-pdp-playful.css' | asset_url | stylesheet_tag }}
 {{ 'hx-bloom-pdp.css' | asset_url | stylesheet_tag }}
 {{ 'hx-product-collage.css' | asset_url | stylesheet_tag }}
+{{ 'hx-clean-pdp.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'hx-product-collage.js' | asset_url }}" defer></script>
+<script src="{{ 'hx-clean-pdp.js' | asset_url }}" defer></script>
+<script src="{{ 'hx-mix-flavors.js' | asset_url }}" defer></script>
+<script src="{{ 'hx-gift-preview.js' | asset_url }}" defer></script>
 <script src="{{ 'hx-jar-viewer.js' | asset_url }}" defer="defer"></script>
 
 {%- liquid
@@ -26,12 +30,20 @@
 
 <section
   id="ProductSeamoss-{{ section.id }}"
-  class="product-seamoss product-seamoss--gruns hx-bloom-pdp"
+  class="product-seamoss product-seamoss--gruns hx-bloom-pdp hx-clean-pdp hx-bold-pdp"
   data-section-id="{{ section.id }}"
   data-option-count="{{ option_count }}"
   data-selected-options="{{ selected_options_string | escape }}"
   data-active-flavor="{{ initial_variant.option1 | downcase | escape }}"
+  data-currency="{{ cart.currency.iso_code | default: shop.currency }}"
+  data-cart-root="{{ routes.root_url }}"
 >
+  <div class="hx-flavor-accents" aria-hidden="true" hidden>
+    <img alt="" width="200" height="200" decoding="async">
+    <img alt="" width="200" height="200" decoding="async">
+    <img alt="" width="200" height="200" decoding="async">
+  </div>
+  <script type="application/json" data-fruit-assets>{"banana":{{ 'fruit-banana.png' | asset_url | json }},"blueberry":{{ 'fruit-blueberry.png' | asset_url | json }},"mango":{{ 'fruit-mango.png' | asset_url | json }},"grape":{{ 'fruit-grape.png' | asset_url | json }},"red guava":{{ 'fruit-guava.png' | asset_url | json }},"guava lemon":{{ 'fruit-guava.png' | asset_url | json }},"elderberry ginger":{{ 'fruit-elderberry.png' | asset_url | json }},"ashwagandha mango":{{ 'fruit-mango.png' | asset_url | json }},"pineapple mango":{{ 'fruit-mango.png' | asset_url | json }}}</script>
   <div class="product-seamoss__container page-width">
     <div class="product-seamoss__layout">
       <div class="product-seamoss__media">
@@ -95,12 +107,14 @@
         {%- endif -%}
 
         <div class="product-seamoss__media-main">
+          <div class="hx-campaign-heading" data-campaign-heading><span>MAKE MORNINGS YOURS</span><strong>A daily ritual<br>worth craving.</strong></div>
           <div class="hx-gallery-heading"><span>A LITTLE DAILY GOODNESS</span><span class="hx-flavor-pill" data-gallery-flavor>{{ initial_variant.option1 }}</span></div>
           <span class="hx-gallery-spark hx-gallery-spark--one" aria-hidden="true">✦</span>
           <span class="hx-gallery-spark hx-gallery-spark--two" aria-hidden="true">✦</span>
           {%- assign gallery_media = initial_variant.featured_media -%}
           {%- if initial_variant.option1 == 'Banana' or initial_variant.option1 == 'Blueberry' -%}
             {%- assign story_hero = initial_variant.option1 | handleize | prepend: 'hx-' | append: '-studio-v3.png' -%}
+            {% if initial_variant.option1 == 'Banana' %}{% assign story_hero = 'hx-banana-campaign-v5.png' %}{% endif %}
             <img src="{{ story_hero | asset_url }}" alt="Healistix {{ initial_variant.option1 | escape }} sea moss gel with fresh fruit" loading="eager" width="1254" height="1254" data-product-media-main>
           {%- elsif pilot_flavors contains initial_variant.option1 -%}
             {%- assign pilot_hero = initial_variant.option1 | handleize | prepend: 'hx-pilot-' | append: '-front.webp' -%}
@@ -182,25 +196,18 @@
 
       <div class="product-seamoss__details">
         <div class="hx-buybox">
-        <span class="hx-best-tasting">#1 Best Tasting</span>
-        <a class="hx-pdp-review-link" href="#customer-voices">Customer photos &amp; reviews ↗</a>
-        {%- comment -%} Grüns buy-box order: social proof → title → support → flavor → price → qty → ATC → trust → accordions {%- endcomment -%}
-
-        {%- if section.settings.review_text != blank -%}
-        <div class="product-seamoss__reviews" data-buybox-reviews>
-          <svg width="96" height="16" viewBox="0 0 96 16" role="presentation" aria-hidden="true">
-            <g fill="#FBBF24">
-              <polygon points="8 0 10.2 5.3 16 6 12 9.9 13 16 8 13.1 3 16 4 9.9 0 6 5.8 5.3 8 0"></polygon>
-              <polygon points="28 0 30.2 5.3 36 6 32 9.9 33 16 28 13.1 23 16 24 9.9 20 6 25.8 5.3 28 0"></polygon>
-              <polygon points="48 0 50.2 5.3 56 6 52 9.9 53 16 48 13.1 43 16 44 9.9 40 6 45.8 5.3 48 0"></polygon>
-              <polygon points="68 0 70.2 5.3 76 6 72 9.9 73 16 68 13.1 63 16 64 9.9 60 6 65.8 5.3 68 0"></polygon>
-              <polygon points="88 0 90.2 5.3 96 6 92 9.9 93 16 88 13.1 83 16 84 9.9 80 6 85.8 5.3 88 0"></polygon>
-            </g>
-          </svg>
-          <span>{{ section.settings.review_text }}</span>
+        <div class="hx-product-intro">
+        <p class="hx-brand-kicker">HEALISTIX · ISLAND ROOTS, EVERYDAY RITUAL</p>
+        <div class="hx-card-badges">
+        <a class="hx-review-proof" href="#customer-voices">
+          {% if product.metafields.judgeme.badge != blank %}
+            <template data-review-badge>{{ product.metafields.judgeme.badge }}</template><span data-review-summary>Read customer reviews ↗</span>
+          {% else %}
+            “The taste is not strong at all” <em>— Liliane, Raw Original review ↗</em>
+          {% endif %}
+        </a>
+        <span class="hx-origin-badge">St. Lucia sourced</span>
         </div>
-        {%- endif -%}
-
         {%- if section.settings.eyebrow_text != blank -%}
           <p class="product-seamoss__eyebrow">{{ section.settings.eyebrow_text }}</p>
         {%- endif -%}
@@ -212,25 +219,14 @@
             {{ product.title }}
           {%- endif -%}
         </h1>
-
-        {%- if section.settings.review_subtext != blank -%}
-          <p class="product-seamoss__subtext">{{ section.settings.review_subtext }}</p>
-        {%- endif -%}
-
-        {%- if section.settings.support_points != blank -%}
-          <ul class="product-seamoss__benefits">
-            {%- assign points = section.settings.support_points | split: '|' -%}
-            {%- for point in points -%}
-              {%- if point != blank -%}
-                <li class="product-seamoss__benefit">
-                  <span class="product-seamoss__benefit-check" aria-hidden="true">✓</span>
-                  <span>{{ point | strip }}</span>
-                </li>
-              {%- endif -%}
-            {%- endfor -%}
-          </ul>
-        {%- endif -%}
-
+        <p class="hx-taste-intro"><span class="hx-taste-intro__mark" aria-hidden="true">✦</span>THE BEST-TASTING SEA MOSS.</p>
+        <p class="hx-banana-top-proof">Vitamin B6 for immune support · Iron for oxygen transport <a href="#hx-banana-benefits">See serving facts ↗</a></p>
+        <ul class="hx-top-benefits" aria-label="Product highlights">
+          <li><span aria-hidden="true">✦</span> St. Lucia sea moss</li>
+          <li><span aria-hidden="true">♡</span> Find your favorite flavor</li>
+          <li><span aria-hidden="true">✓</span> No soaking. No prep.</li>
+        </ul>
+        </div>
         {%- if logo_blocks.size > 0 -%}
           <div class="product-seamoss__logos">
             {%- for block in logo_blocks -%}
@@ -243,11 +239,12 @@
           </div>
         {%- endif -%}
 
+        {% render 'hx-custom-blend-entry' %}
         {%- assign form_id = 'ProductSeamossForm-' | append: section.id -%}
         {%- form 'product', product, id: form_id, class: 'product-seamoss__form', novalidate: 'novalidate', data-product-form: '' -%}
           <input type="hidden" name="id" value="{{ initial_variant.id }}" data-product-variant-input>
           <input type="hidden" name="quantity" value="1" data-quantity-input>
-          {%- comment -%} Subscription deferred (v1): do not send selling_plan {%- endcomment -%}
+
 
           {%- for option in product.options_with_values -%}
             <div class="product-seamoss__flavor-block" data-option-block>
@@ -272,6 +269,7 @@
                 {%- endif -%}
                 {%- for value in display_values -%}
                   {%- unless option.values contains value -%}{%- continue -%}{%- endunless -%}
+                  {%- if value == 'Rose' or value == 'Orange' -%}{%- continue -%}{%- endif -%}
                   {%- liquid
                     assign flavor_label = value
                     assign flavor_tagline = ''
@@ -347,15 +345,14 @@
                       {%- endif -%}
                     </span>
                     <span class="product-seamoss__flavor-label">{{ flavor_label }}</span>
-                    {%- if flavor_tagline != blank -%}
-                      <span class="product-seamoss__flavor-tagline">{{ flavor_tagline }}</span>
-                    {%- endif -%}
+                    <span class="hx-flavor-benefit">{% render 'hx-flavor-benefit', flavor: value %}</span>
                   </button>
                 {%- endfor -%}
               </div>
             </div>
           {%- endfor -%}
 
+          {% render 'hx-subscription-options', product: product, section: section %}
           <div class="product-seamoss__purchase">
             <p class="hx-purchase-label">One-time purchase<small>Your selected jar, delivered once.</small></p>
             <div class="product-seamoss__price-row">
@@ -414,6 +411,38 @@
             {{ form | payment_terms }}
           </div>
 
+          <section class="hx-after-purchase-benefits" aria-label="Product benefits"><h2>Goodness in your daily spoonful.</h2><div class="hx-routine-details">
+        {%- if section.settings.review_subtext != blank -%}
+          <p class="product-seamoss__subtext">{{ section.settings.review_subtext }}</p>
+        {%- endif -%}
+
+        {%- if section.settings.support_points != blank -%}
+          <ul class="product-seamoss__benefits">
+            {%- assign points = section.settings.support_points | split: '|' -%}
+            {%- for point in points -%}
+              {%- if point != blank -%}
+                <li class="product-seamoss__benefit">
+                  <span class="product-seamoss__benefit-check" aria-hidden="true">✓</span>
+                  <span>{{ point | strip }}</span>
+                </li>
+              {%- endif -%}
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+
+        <div class="hx-nutrient-summary">
+          <p class="hx-benefit-kicker">BANANA · BENEFITS IN YOUR SPOONFUL</p>
+          <ul class="hx-benefit-preview" aria-label="Banana nutrient functions">
+            <li><strong>Immune support</strong><span>Vitamin B6 supports normal immune function.</span></li>
+            <li><strong>Nutrient metabolism</strong><span>Vitamin B6 helps your body metabolize nutrients.</span></li>
+            <li><strong>Oxygen transport</strong><span>Iron helps make oxygen-carrying hemoglobin.</span></li>
+            <li><strong>Cell renewal</strong><span>Folate supports normal cell division.</span></li>
+          </ul>
+          <a href="#hx-banana-benefits">See serving amounts &amp; the science ↗</a>
+        </div>
+          </div></section>
+
+          {% render 'hx-gift-preview' %}
           {%- if assurance_blocks.size > 0 -%}
             <div class="product-seamoss__assurances">
               {%- for block in assurance_blocks -%}
@@ -456,7 +485,7 @@
   </script>
 
   {%- comment -%}── Nutrition Label Drawer ──────────────────────────────{%- endcomment -%}
-  <div
+  <dialog
     class="hx-nutri-drawer"
     id="HxNutriDrawer-{{ section.id }}"
     aria-hidden="true"
@@ -481,7 +510,7 @@
         {% render 'hx-flavor-labels', initial_variant: initial_variant %}
       </div>{%- comment -%}end body{%- endcomment -%}
     </div>{%- comment -%}end panel{%- endcomment -%}
-  </div>{%- comment -%}end drawer{%- endcomment -%}
+  </dialog>{%- comment -%}end drawer{%- endcomment -%}
 
 </section>
 
@@ -490,21 +519,6 @@
     const section = document.getElementById('ProductSeamoss-{{ section.id }}');
     if (!section) return;
 
-    section.querySelectorAll('.product-seamoss__flavor-grid').forEach((grid, index) => {
-      if (grid.children.length <= 10) return;
-      const toggle = document.createElement('button');
-      toggle.type = 'button'; toggle.className = 'hx-flavors-toggle';
-      grid.id = grid.id || `${section.id}-flavors-${index}`;
-      toggle.setAttribute('aria-controls', grid.id);
-      toggle.setAttribute('aria-expanded', 'false');
-      toggle.textContent = `Explore all ${grid.children.length} flavors +`;
-      toggle.addEventListener('click', () => {
-        const expanded = grid.classList.toggle('is-expanded');
-        toggle.setAttribute('aria-expanded', String(expanded));
-        toggle.textContent = expanded ? 'Show fewer flavors −' : `Explore all ${grid.children.length} flavors +`;
-      });
-      grid.after(toggle);
-    });
     const variantDataEl = section.querySelector('[data-product-variants]');
     const variants = variantDataEl ? JSON.parse(variantDataEl.textContent) : [];
     const optionCount = parseInt(section.dataset.optionCount || '0', 10);
@@ -538,6 +552,80 @@
         currency: '{{ shop.currency }}'
       });
     };
+
+    const planSelect = section.querySelector('[data-hx-plan]');
+    const planNote = section.querySelector('[data-hx-plan-note]');
+    const subscriptionData = JSON.parse(section.querySelector('[data-hx-subscription-data]').textContent);
+    const purchaseFor = (variant) => {
+      const data = subscriptionData.variants[String(variant.id)];
+      const plan = planSelect?.value || '';
+      const allocation = data?.plans.find(entry => entry.id === plan);
+      return {
+        valid: plan ? Boolean(allocation) : !data?.required,
+        price: plan ? allocation?.price : variant.price,
+        plan
+      };
+    };
+    section.hxPurchase = purchaseFor;
+    const renderOffer = (items) => {
+      const offer = section.querySelector('[data-hx-offer]');
+      if (!offer || !planSelect) return;
+      const planId = planSelect.value || [...planSelect.options].find(option => option.value)?.value;
+      let regular = 0, subscription = 0;
+      const eligible = items.length && items.every(({variant, quantity}) => {
+        const allocation = subscriptionData.variants[String(variant.id)]?.plans.find(plan => plan.id === planId);
+        if (!allocation) return false;
+        regular += variant.price * quantity;
+        subscription += allocation.price * quantity;
+        return true;
+      });
+      offer.hidden = !eligible;
+      const savings = regular - subscription;
+      section.querySelector('[data-hx-offer-title]').textContent = eligible && savings > 0
+        ? `Subscribe & save ${Math.round(savings / regular * 100)}%` : 'Subscribe for regular deliveries';
+      if (!eligible) return;
+      const planName = [...planSelect.options].find(option => option.value === planId)?.textContent || '';
+      section.querySelector('[data-hx-offer-price]').textContent = `${formatMoney(subscription)} per delivery`;
+      section.querySelector('[data-hx-offer-saving]').textContent = savings > 0
+        ? `Save ${formatMoney(savings)} compared with ${formatMoney(regular)} one-time · ${planName}`
+        : planName;
+    };
+    section.hxRenderOffer = renderOffer;
+    const updatePurchase = () => {
+      const variant = variants.find(entry => String(entry.id) === variantInput.value);
+      if (!variant) return;
+      const purchase = purchaseFor(variant);
+      const quantity = Math.max(1, parseInt(qtyDisplay?.value, 10) || 1);
+      section.dataset.subscriptionSelected = String(Boolean(purchase.plan));
+      if (section.dataset.purchaseMode !== 'mix') renderOffer([{variant, quantity}]);
+      if (priceEl) priceEl.textContent = purchase.valid ? formatMoney(purchase.price) : 'Unavailable';
+      const compare = purchase.plan ? variant.price : variant.compare_at_price;
+      if (compareEl) {
+        compareEl.style.display = purchase.valid && compare > purchase.price ? 'inline-flex' : 'none';
+        if (compare > purchase.price) compareEl.textContent = formatMoney(compare);
+      }
+      if (savingsEl) savingsEl.textContent = purchase.valid && compare > purchase.price ? `You save ${formatMoney(compare - purchase.price)} per jar` : '';
+      if (submitBtn) {
+        submitBtn.disabled = !variant.available || !purchase.valid;
+        submitBtn.textContent = !variant.available ? soldOutLabel : !purchase.valid ? 'Choose an available purchase option' : `${purchase.plan ? 'Subscribe' : buttonLabel} · ${formatMoney(purchase.price * quantity)}`;
+      }
+      if (planNote) planNote.textContent = purchase.plan
+        ? 'Renews automatically on the selected schedule. Prices shown are for this delivery; review ongoing charges and cancellation terms at checkout.'
+        : 'Your selected jars, delivered once.';
+    };
+    planSelect?.addEventListener('change', () => {
+      updatePurchase();
+      section.dispatchEvent(new CustomEvent('hx:purchase-change'));
+    });
+    section.querySelector('[data-product-form]').addEventListener('submit', event => {
+      if (section.dataset.purchaseMode === 'mix') return;
+      const variant = variants.find(entry => String(entry.id) === variantInput.value);
+      if (!variant || !purchaseFor(variant).valid) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        section.querySelector('[data-product-errors]').textContent = 'Choose an available purchase option for this flavor.';
+      }
+    }, true);
 
     const updateSavings = (variant) => {
       if (!savingsEl) return;
@@ -583,7 +671,7 @@
 
       if (submitBtn) {
         submitBtn.disabled = !variant.available;
-        submitBtn.textContent = variant.available ? buttonLabel : soldOutLabel;
+        submitBtn.textContent = variant.available ? `${buttonLabel} · ${formatMoney(variant.price * (parseInt(qtyDisplay?.value, 10) || 1))}` : soldOutLabel;
       }
 
       const flavorName = variant.option1 || selectedOptions[0] || '';
@@ -636,6 +724,7 @@
         nextUrl.searchParams.set('variant', variant.id);
         window.history.replaceState({}, '', nextUrl);
       }
+      updatePurchase();
       section.dispatchEvent(new CustomEvent('hx:gallery-updated'));
     };
 
@@ -661,9 +750,11 @@
     });
 
     const updateQuantity = (value) => {
-      const parsed = Math.max(1, parseInt(value || '1', 10));
+      const parsed = Math.max(1, parseInt(value || '1', 10) || 1);
       if (qtyDisplay) qtyDisplay.value = parsed;
       if (qtyInput) qtyInput.value = parsed;
+      const variant = variants.find(entry => String(entry.id) === variantInput.value);
+      updatePurchase();
     };
 
     if (qtyMinus) {
@@ -699,7 +790,13 @@
     const nutToggle = section.querySelector('[data-hx-nutrition-toggle]');
 
     if (nutDrawer && nutToggle) {
+      let previousOverflow = '';
+      let drawerOpener = nutToggle;
       const openNutDrawer = () => {
+        if (nutDrawer.open) return;
+        previousOverflow = document.body.style.overflow;
+        drawerOpener = document.activeElement instanceof HTMLElement ? document.activeElement : nutToggle;
+        nutDrawer.showModal();
         nutDrawer.setAttribute('aria-hidden', 'false');
         nutToggle.setAttribute('aria-expanded', 'true');
         document.body.style.overflow = 'hidden';
@@ -708,12 +805,14 @@
       };
 
       const closeNutDrawer = () => {
+        nutDrawer.close();
         nutDrawer.setAttribute('aria-hidden', 'true');
         nutToggle.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-        nutToggle.focus();
+        document.body.style.overflow = previousOverflow;
+        drawerOpener.focus({preventScroll: true});
       };
 
+      nutDrawer.addEventListener('cancel', (event) => { event.preventDefault(); closeNutDrawer(); });
       nutToggle.addEventListener('click', openNutDrawer);
 
       nutDrawer.querySelectorAll('[data-hx-nutrition-close]').forEach((el) => {
@@ -877,9 +976,19 @@
       "id": "bundle_subheading",
       "label": "Bundle subheading",
       "default": "Stock up for the month."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_subscription_teaser",
+      "label": "Legacy subscription teaser (unused)",
+      "default": false,
+      "info": "Subscriptions now appear automatically when recurring selling plans are assigned to this product."
     }
   ],
   "blocks": [
+    {
+      "type": "@app"
+    },
     {
       "type": "flavor",
       "name": "Flavor card",
@@ -957,38 +1066,104 @@
       "type": "promo",
       "name": "Promo card",
       "settings": [
-        { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "New flavor" },
-        { "type": "text", "id": "title", "label": "Title", "default": "Blueberry" },
-        { "type": "textarea", "id": "text", "label": "Copy", "default": "Limited-run jars packed with real fruit." },
-        { "type": "image_picker", "id": "image", "label": "Image" }
+        {
+          "type": "text",
+          "id": "eyebrow",
+          "label": "Eyebrow",
+          "default": "New flavor"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Blueberry"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Copy",
+          "default": "Limited-run jars packed with real fruit."
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
       ]
     },
     {
       "type": "logo",
       "name": "As seen logo",
       "settings": [
-        { "type": "image_picker", "id": "image", "label": "Logo" },
-        { "type": "text", "id": "alt_text", "label": "Alt text" }
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Logo"
+        },
+        {
+          "type": "text",
+          "id": "alt_text",
+          "label": "Alt text"
+        }
       ]
     },
     {
       "type": "bundle",
       "name": "Bundle (deferred)",
       "settings": [
-        { "type": "text", "id": "label", "label": "Title", "default": "1 Jar" },
-        { "type": "text", "id": "subtext", "label": "Description", "default": "Perfect for tasting" },
-        { "type": "text", "id": "price_text", "label": "Price text", "default": "$19.99" },
-        { "type": "text", "id": "tagline", "label": "Tagline", "default": "Ships next business day" },
-        { "type": "text", "id": "badge", "label": "Badge" },
-        { "type": "number", "id": "quantity", "label": "Quantity", "default": 1 }
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Title",
+          "default": "1 Jar"
+        },
+        {
+          "type": "text",
+          "id": "subtext",
+          "label": "Description",
+          "default": "Perfect for tasting"
+        },
+        {
+          "type": "text",
+          "id": "price_text",
+          "label": "Price text",
+          "default": "$19.99"
+        },
+        {
+          "type": "text",
+          "id": "tagline",
+          "label": "Tagline",
+          "default": "Ships next business day"
+        },
+        {
+          "type": "text",
+          "id": "badge",
+          "label": "Badge"
+        },
+        {
+          "type": "number",
+          "id": "quantity",
+          "label": "Quantity",
+          "default": 1
+        }
       ]
     },
     {
       "type": "badge",
       "name": "Highlight badge (legacy)",
       "settings": [
-        { "type": "text", "id": "title", "label": "Title", "default": "460+" },
-        { "type": "text", "id": "subtitle", "label": "Subtitle", "default": "Verified reviews" }
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "460+"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle",
+          "default": "Verified reviews"
+        }
       ]
     }
   ],

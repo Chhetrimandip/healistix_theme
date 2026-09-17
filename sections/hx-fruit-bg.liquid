@@ -1,4 +1,6 @@
-{%- if section.settings.enabled -%}
+{%- assign use_flavor_accents = false -%}
+{%- if template.name == 'product' and template.suffix == 'seamoss' -%}{%- assign use_flavor_accents = true -%}{%- endif -%}
+{%- if section.settings.enabled and use_flavor_accents == false -%}
 <div id="hx-fruit-bg" aria-hidden="true">
   {%- for block in section.blocks -%}
     {%- if block.type == 'fruit' -%}

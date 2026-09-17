@@ -4,17 +4,18 @@
       "type": "product-seamoss",
       "settings": {
         "enable_jar_viewer": true,
-        "eyebrow_text": "HEALISTIX · FIND YOUR DAILY GOODNESS",
+        "eyebrow_text": "",
         "heading": "Sea Moss Gel",
         "review_text": "",
-        "review_subtext": "A little daily goodness, in your favorite flavor. Find your next spoonful.",
-        "support_points": "Fruit flavors|Spoon, blend, enjoy|Your daily ritual",
+        "review_subtext": "Everyday nourishment, without the prep. Our ready-to-use sea moss gel makes it easy to add a spoonful to the breakfast you already love.",
+        "support_points": "Ready to enjoy|No soaking or prep|Find your favorite flavor",
         "flavor_heading": "Pick your flavor",
         "flavor_subheading": "",
         "quantity_heading": "Quantity",
-        "button_label": "ADD TO CART",
-        "trust_line": "Read the selected flavor’s label for ingredients and storage directions.",
-        "guarantee_note": "Questions about your jar? Contact us at hi@healistix.com."
+        "button_label": "Add to cart",
+        "trust_line": "Free shipping on orders over $30",
+        "guarantee_note": "",
+        "show_subscription_teaser": true
       },
       "blocks": {
         "flavor_banana": {
@@ -80,7 +81,7 @@
           "type": "info_tab",
           "settings": {
             "title": "Tell me more",
-            "content": "<p><strong>Find your next favorite spoonful.</strong> Browse bright fruit flavors, familiar classics and blends. Choose a jar to see its photos, price and availability.</p><p>Where available, tap 360° to take a look around or View Jar Label to read the printed details.</p>"
+            "content": "<p>Make a little more room for yourself. Our sea moss gel brings a ready-to-use sea moss base to your everyday routine, with fruit flavors, blends and Raw Original to explore.</p><p>Enjoy it with your favorite breakfast or explore the topical directions on your selected jar. Ingredients and directions vary by flavor.</p>"
           }
         },
         "info_tab_2": {
@@ -94,7 +95,7 @@
           "type": "info_tab",
           "settings": {
             "title": "How to enjoy",
-            "content": "<p><strong>Start with the directions on your jar.</strong> Follow the serving and usage instructions printed for your selected flavor.</p><p>Use the gallery and label view to get familiar with your selection before adding it to your routine.</p>"
+            "content": "<p>Enjoy by the spoonful, blend into a smoothie, or stir into your breakfast. Follow the serving directions on your selected jar.</p>"
           }
         },
         "info_tab_4": {
@@ -339,8 +340,8 @@
       "settings": {
         "review_source": "judgeme",
         "heading": "A little love from our community",
-        "subheading": "Selected customer reviews from Amazon. Explore their photos, videos and experiences across our flavors.",
-        "source_url": "https://www.amazon.com/portal/customer-reviews/B0CFD6RMMF/ref=cm_cr_dp_d_show_all_top?reviewerType=all_reviews"
+        "subheading": "Customer photos, videos and experiences across our flavors.",
+        "source_url": ""
       },
       "blocks": {
         "review_liliane": {
@@ -354,8 +355,8 @@
             "video_asset": "review-r24ycvpkmg721g.mp4",
             "image_asset": "review-r24ycvpkmg721g.jpg",
             "captions_asset": "review-r24ycvpkmg721g.vtt",
-            "source_url": "https://www.amazon.com/gp/customer-reviews/R24YCVPKMG721G?ref=va_cr_lb",
-            "disclosure": "Video creator earns commissions"
+            "source_url": "",
+            "disclosure": ""
           }
         },
         "review_anderson": {
@@ -385,8 +386,8 @@
             "video_asset": "review-r1jp22ig92fuxy.mp4",
             "image_asset": "review-r1jp22ig92fuxy.jpg",
             "captions_asset": "review-r1jp22ig92fuxy.vtt",
-            "source_url": "https://www.amazon.com/gp/customer-reviews/R1JP22IG92FUXY?ref=va_cr_lb",
-            "disclosure": "Video creator earns commissions",
+            "source_url": "",
+            "disclosure": "",
             "title": "Delicious flavor and smooth texture",
             "text": "I really enjoyed trying this red guava sea moss gel. The texture is smooth and easy to mix into my daily routine. The red guava flavor gives it a pleasant fruity taste without being too strong, which makes it much more enjoyable than some sea moss products I’ve tried before.\n\nI also like that it comes in a glass jar and has a good 16 oz size. It’s easy to scoop and add to smoothies, yogurt, or other foods and drinks. The consistency is thick but not difficult to work with.\n\nOverall, this is a nice-tasting sea moss gel with a convenient texture and attractive packaging. I’m happy with the quality and would definitely consider getting it again.",
             "footer": "Red Guava · Customer video · Aug 12, 2026"
@@ -399,8 +400,8 @@
             "video_asset": "review-r1a9mbbgyfnif6.mp4",
             "image_asset": "review-r1a9mbbgyfnif6.jpg",
             "captions_asset": "review-r1a9mbbgyfnif6.vtt",
-            "source_url": "https://www.amazon.com/gp/customer-reviews/R1A9MBBGYFNIF6?ref=va_cr_lb",
-            "disclosure": "Received a free product through Vine. Video creator earns commissions.",
+            "source_url": "",
+            "disclosure": "",
             "title": "Quality ingredients, pleasant taste",
             "rating": "★★★★★ · 5 out of 5",
             "text": "I have no prior experience with any such product, and only time will tell whether it's doing anything good, but I can say it doesn't seem to be doing any harm. I've consumed a tablespoonful every day for the past three straight, and it's rather tasty — fresh, fruity, a bit zesty—and has a pleasant apple saucy texture. If you take it on an empty stomach, keep in mind that it contains lime juice, which can be a bit acidic for some.",
@@ -415,7 +416,7 @@
             "rating": "★★★★★ · 5 out of 5",
             "text": "I love the flavor of this I take Two table spoons a day directly. You can put it in drinks as well.",
             "footer": "Pineapple · April 25, 2024",
-            "source_url": "https://www.amazon.com/gp/customer-reviews/RV2D7HWHNWFU3",
+            "source_url": "",
             "disclosure": "",
             "image_asset": "review-rv2d7hwhnwfu3.jpg",
             "media_alt": "Customer photo shared by Lakesha with their Pineapple review"
@@ -429,8 +430,8 @@
             "rating": "★★★★★ · 5 out of 5",
             "text": "It can be used like you would use a mango chutney.",
             "footer": "Mango Pineapple · February 24, 2024",
-            "source_url": "https://www.amazon.com/gp/customer-reviews/R18TCYZ0AHJ6IC",
-            "disclosure": "Received a free product for review.",
+            "source_url": "",
+            "disclosure": "",
             "image_asset": "review-r18tcyz0ahj6ic.jpg",
             "media_alt": "Customer photo shared by Manila Mike with their Mango Pineapple review"
           }
@@ -443,8 +444,8 @@
             "rating": "★★★★☆ · 4 out of 5",
             "text": "the texture of this product in the jar I received is thin, almost runny. … It tastes good",
             "footer": "Passion Fruit · November 26, 2023",
-            "source_url": "https://www.amazon.com/gp/customer-reviews/R364IAEV1VDSKZ",
-            "disclosure": "Received a free product for review.",
+            "source_url": "",
+            "disclosure": "",
             "image_asset": "review-r364iaev1vdskz.jpg",
             "media_alt": "Customer photo shared by ChiefB & SweetieBoo with their Passion Fruit review"
           }
@@ -455,8 +456,8 @@
             "badge": "ErikaShanice",
             "title": "Customer video · 0:13",
             "footer": "Strawberry listing · February 14, 2024",
-            "source_url": "https://www.amazon.com/gp/customer-reviews/R7013980IZA78?ref=va_cr_lb",
-            "disclosure": "Video creator earns commissions.",
+            "source_url": "",
+            "disclosure": "",
             "video_asset": "review-r7013980iza78.mp4",
             "image_asset": "review-r7013980iza78.jpg",
             "captions_asset": "review-r7013980iza78.vtt"
@@ -468,8 +469,8 @@
             "badge": "Mary K.",
             "title": "Customer video · 0:17",
             "footer": "Strawberry · Feb 12, 2024",
-            "source_url": "https://www.amazon.com/gp/customer-reviews/R3KPFDNRZP4NQG?ref=va_cr_lb",
-            "disclosure": "Video creator earns commissions.",
+            "source_url": "",
+            "disclosure": "",
             "video_asset": "review-r3kpfdnrzp4nqg.mp4",
             "image_asset": "review-r3kpfdnrzp4nqg.jpg",
             "captions_asset": "review-r3kpfdnrzp4nqg.vtt"
@@ -483,8 +484,8 @@
             "rating": "★★★★★ · 5 out of 5",
             "text": "I have never had guava before, but it tastes like a bold, delicious strawberry applesauce.",
             "footer": "Red Guava · August 9, 2026",
-            "source_url": "https://www.amazon.com/gp/customer-reviews/R27GQGJSSA5HVQ",
-            "disclosure": "Received a free product through Vine.",
+            "source_url": "",
+            "disclosure": "",
             "image_asset": "review-r27gqgjssa5hvq.jpg",
             "media_alt": "Customer photo shared by SuperHeroTo5 with their Red Guava review"
           }
@@ -497,8 +498,8 @@
             "rating": "★★★★★ · 5 out of 5",
             "text": "It has that smooth, applesauce-like texture that makes it so easy to eat by the spoonful.",
             "footer": "Red Guava · August 10, 2026",
-            "source_url": "https://www.amazon.com/gp/customer-reviews/R1JZO5PXCIMB21",
-            "disclosure": "Received a free product through Vine.",
+            "source_url": "",
+            "disclosure": "",
             "image_asset": "review-r1jzo5pxcimb21.jpg",
             "media_alt": "Customer photo shared by Southern California Living with their Red Guava review"
           }
@@ -511,8 +512,8 @@
             "rating": "★★★★★ · 5 out of 5",
             "text": "I've been blending it into morning smoothies and overnight oats, and it adds a perfect, subtle tropical vibe.",
             "footer": "Red Guava · August 25, 2026",
-            "source_url": "https://www.amazon.com/gp/customer-reviews/RT97MYLTP17EL",
-            "disclosure": "Received a free product through Vine.",
+            "source_url": "",
+            "disclosure": "",
             "image_asset": "review-rt97myltp17el.jpg",
             "media_alt": "Customer photo shared by Gorr with their Red Guava review"
           }
@@ -525,8 +526,8 @@
             "rating": "★★★★★ · 5 out of 5",
             "text": "I still wouldn't say I particularly like the flavor. It's quite sweet, and the texture isn't my favorite either.",
             "footer": "Red Guava · August 17, 2026",
-            "source_url": "https://www.amazon.com/gp/customer-reviews/RPZMZJ892Z3UM",
-            "disclosure": "Received a free product through Vine.",
+            "source_url": "",
+            "disclosure": "",
             "image_asset": "review-rpzmzj892z3um.jpg",
             "media_alt": "Customer photo shared by Matt Fuchs with their Red Guava review"
           }
@@ -687,12 +688,17 @@
         "padding_bottom": 28
       },
       "disabled": true
+    },
+    "visual_story": {
+      "type": "hx-pdp-story",
+      "settings": {}
     }
   },
   "order": [
     "main",
-    "product_faq",
+    "visual_story",
     "reviews_grid",
+    "product_faq",
     "product_steps",
     "benefits_list",
     "reviews_widget",

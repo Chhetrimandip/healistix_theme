@@ -1,0 +1,10 @@
+<aside class="hx-blend-entry" aria-label="Explore custom blends">
+  <img src="{{ 'hx-hair-hero-v3.png' | asset_url }}" alt="Sea moss gel and botanicals" width="76" height="76" loading="lazy">
+  <div><span>LOOKING FOR SOMETHING MORE PERSONAL?</span><strong>Sea moss, blended around you.</strong><a href="/pages/findmyseamoss?view=hair-routine" data-custom-blend-entry>Find my custom blend <span aria-hidden="true">→</span></a></div>
+</aside>
+<style>
+.hx-blend-entry{display:flex;align-items:center;gap:15px;border:1px solid #c8d6b7;border-radius:15px;padding:12px;margin:4px 0 24px;background:#f5f8ed;color:#174b3c}.hx-blend-entry>img{width:76px!important;height:76px!important;object-fit:cover;border-radius:10px}.hx-blend-entry>div>span{display:block;font:700 8px/1.4 Arial,sans-serif;letter-spacing:.07em;margin-bottom:6px}.hx-blend-entry strong{display:block;font:700 20px/1.1 Georgia,serif;letter-spacing:-.025em}.hx-blend-entry a{display:inline-block;font:700 12px/1.4 Arial,sans-serif;color:#174b3c;margin-top:8px;text-underline-offset:4px}.hx-blend-entry a:focus-visible{outline:2px solid #174b3c;outline-offset:4px}@media(max-width:749px){.hx-blend-entry{gap:12px;padding:10px}.hx-blend-entry>img{width:62px!important;height:68px!important}.hx-blend-entry strong{font-size:18px}.hx-blend-entry>div>span{font-size:7px}}
+</style>
+<script>
+document.querySelectorAll('[data-custom-blend-entry]').forEach(function(link){var current=new URL(location.href);var preview=current.searchParams.get('preview_theme_id');if(preview){var target=new URL(link.href);target.searchParams.set('preview_theme_id',preview);link.href=target.href;}});
+</script>

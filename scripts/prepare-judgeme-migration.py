@@ -77,7 +77,7 @@ for key in grid['block_order']:
         notes += ' ' + record['disclosure']
     notes += ']'
     rows.append(dict(zip(headers, [s.get('title', ''), body + '\n\n' + notes, int(rating.group(1)), parsed_date,
-                                   s['badge'], '', 'sea-moss-gel-banana', ','.join(photos), 'not-yet'])))
+                                   s['badge'], '', 'sea-moss-gel', ','.join(photos), 'not-yet'])))
     record.update({'picture_urls': photos, 'import_row': len(rows) + 1, 'rating': int(rating.group(1))})
     register.append(record)
 with (OUT / 'judgeme-import.csv').open('w', newline='', encoding='utf-8-sig') as file:

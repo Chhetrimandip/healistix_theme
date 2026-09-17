@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "main": {
+      "type": "hx-hair-landing",
+      "settings": {
+        "quiz_url": "/pages/findmyseamoss?preview_theme_id=158284939402&view=blend-quiz"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

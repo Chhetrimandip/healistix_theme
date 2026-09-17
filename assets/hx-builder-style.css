@@ -75,3 +75,5 @@
 @media(prefers-reduced-motion:reduce){.hx-builder-button,.hx-builder-secondary,.hx-builder-choice{transition:none}.hx-builder-button:not(:disabled):hover{transform:none}}
 
 .hx-builder .hx-builder-selected .hx-builder-herb-photo--pending{font-size:8px;line-height:1.15;padding:3px;overflow:hidden;word-break:normal}
+
+.hx-builder-test-order{max-width:800px;margin:24px auto}.hx-builder-test-summary{display:flex;gap:24px;align-items:center;margin:24px 0}.hx-builder-test-summary img{border-radius:24px;object-fit:contain;background:#f5f1e6}.hx-builder-test-order .hx-builder-actions{flex-wrap:wrap}.hx-builder-test-order h1{font-size:clamp(30px,5vw,48px)}@media(max-width:520px){.hx-builder-test-summary{gap:12px;align-items:flex-start}.hx-builder-test-summary img{width:88px;height:88px}.hx-builder-test-summary h2{font-size:21px}.hx-builder-test-order{padding:20px}}

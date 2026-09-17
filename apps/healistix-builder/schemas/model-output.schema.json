@@ -1,0 +1,152 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "uses": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "digestion",
+          "skin-hair-nails",
+          "energy",
+          "vitality-men",
+          "vitality-women",
+          "stress",
+          "sleep",
+          "focus",
+          "joints",
+          "greens",
+          "cleanse",
+          "respiratory",
+          "metabolism",
+          "womens-balance",
+          "recovery",
+          "mood"
+        ]
+      },
+      "minItems": 1,
+      "maxItems": 2,
+      "uniqueItems": true
+    },
+    "herbs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "enum": [
+              "ashwagandha",
+              "maca",
+              "korean-red-ginseng",
+              "tongkat-ali",
+              "beet-root",
+              "ginger",
+              "turmeric",
+              "reishi",
+              "lions-mane",
+              "cordyceps",
+              "chaga",
+              "spirulina",
+              "chlorella",
+              "moringa",
+              "hibiscus",
+              "cinnamon",
+              "fenugreek",
+              "slippery-elm",
+              "marshmallow-root",
+              "fennel",
+              "peppermint",
+              "chamomile",
+              "lemon-balm",
+              "passionflower",
+              "holy-basil",
+              "rhodiola",
+              "shatavari",
+              "damiana",
+              "muira-puama",
+              "horny-goat-weed",
+              "sarsaparilla",
+              "burdock-root",
+              "dandelion-root",
+              "nettle-leaf",
+              "horsetail",
+              "amla",
+              "bladderwrack",
+              "elderberry",
+              "black-seed",
+              "cacao",
+              "matcha",
+              "bacopa",
+              "gotu-kola",
+              "boswellia",
+              "milk-thistle",
+              "mullein",
+              "red-raspberry-leaf",
+              "shilajit",
+              "ginkgo",
+              "saffron",
+              "licorice-root",
+              "cayenne"
+            ]
+          },
+          "g": {
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "maximum": 30
+          }
+        },
+        "required": [
+          "id",
+          "g"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0,
+      "maxItems": 4,
+      "uniqueItems": false
+    },
+    "flavor_suggestion": {
+      "enum": [
+        "none",
+        "banana",
+        "blueberry",
+        "dragonfruit",
+        "grape",
+        "honey",
+        "honeydew",
+        "lychee",
+        "mango",
+        "orange",
+        "passion fruit",
+        "peach",
+        "pineapple",
+        "pineapple mango",
+        "red guava",
+        "rose",
+        "strawberry",
+        "strawberry pineapple",
+        "watermelon"
+      ]
+    },
+    "explanation": {
+      "type": "string",
+      "maxLength": 1000
+    },
+    "needs_clarification": {
+      "type": "boolean"
+    },
+    "clarify_question": {
+      "type": "string",
+      "maxLength": 200
+    }
+  },
+  "required": [
+    "uses",
+    "herbs",
+    "flavor_suggestion",
+    "explanation",
+    "needs_clarification",
+    "clarify_question"
+  ],
+  "additionalProperties": false
+}

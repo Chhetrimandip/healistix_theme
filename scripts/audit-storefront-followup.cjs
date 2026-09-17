@@ -6,7 +6,7 @@ const fs = require('fs');
  const page=await context.newPage(); page.setDefaultTimeout(15000);
  const results=[],errors=[]; page.on('pageerror',e=>errors.push(e.message));
  try {
-  await page.goto('http://127.0.0.1:9292/products/sea-moss-gel-banana',{waitUntil:'domcontentloaded'});
+  await page.goto('http://127.0.0.1:9292/products/sea-moss-gel',{waitUntil:'domcontentloaded'});
   for(const flavor of ['Banana','Orange','Beet Root']) {
    await page.locator(`[data-option-value="${flavor}"]`).click();
    await page.locator('[data-hx-nutrition-toggle]').click();

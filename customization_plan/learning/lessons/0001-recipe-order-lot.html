@@ -1,0 +1,10 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Recipe, order, and lot</title><link rel="stylesheet" href="../assets/lesson.css"><main>
+<p>Healistix handoff · a five-minute lesson</p><h1>One recipe, different jars.</h1>
+<p>You already know that production receives structured instructions. Now distinguish what the customer chose from the physical ingredients used to make it.</p>
+<table><tr><th>Record</th><th>Question it answers</th></tr><tr><td>Build ID</td><td>Which exact recipe?</td></tr><tr><td>Order number</td><td>Which purchase?</td></tr><tr><td>Ingredient lot</td><td>Which physical batch of base or herb was used?</td></tr></table>
+<p>Illustrative example: two customers order the same recipe on different days. Production uses a new bag of an herb for the second order. The recipe can stay the same while the order number and ingredient lot differ.</p>
+<p>The handoff requires one production ticket per jar. It carries the recipe and gram amounts, with fields for production to enter the base lot, each herb lot, packed-on date and packer initials. Customer free text is excluded.</p>
+<details><summary>Practice: an herb lot is flagged. Should every jar with the same build ID be held?</summary><p>Trace the jars made with the flagged physical lot. A different recipe might contain that same lot, while the same recipe made from another lot may not. The handoff's quality-response procedure calls for holding the affected batch and informing Ryan.</p></details>
+<p>Implementation status: the demo generates recipe identifiers. Order-linked production tickets and lot traceability still need implementation.</p>
+<p>Read <a href="../../Healistix-Custom-Sea-Moss-Gel-Build-Handoff.pdf#page=7">page 7, sections 5.5 and 6.1</a>, then see <a href="../RESOURCES.md">the reference list</a>. Ask me about anything unclear before we move to capacity and order status.</p>
+</main></html>

@@ -13,11 +13,26 @@
   {%- if flavor_exists -%}
     {%- assign pilot_views = 'front.webp' | split: ',' -%}
     {%- if jar_flavors contains flavor -%}{%- assign pilot_views = 'front.webp,left.webp,right.webp' | split: ',' -%}{%- endif -%}
-    {%- if flavor == 'Banana' or flavor == 'Blueberry' -%}
+    {%- if flavor == 'Banana' -%}
+      {%- assign pilot_views = '' | split: ',' -%}
+      {%- assign campaign_tiles = 'campaign,lifestyle,texture,ingredients,facts' | split: ',' -%}
+      {%- assign campaign_labels = 'Banana campaign scene|Your morning, made — serving suggestion|Sea moss gel texture close-up|Four ingredients in Banana sea moss gel|Banana jar label highlights' | split: '|' -%}
+      {%- for tile in campaign_tiles -%}
+        {%- assign tile_file = 'hx-banana-' | append: tile | append: '-v6.png' -%}
+        {%- if tile == 'campaign' -%}{%- assign tile_file = 'hx-banana-campaign-v5.png' -%}{%- endif -%}
+        {%- if tile == 'ingredients' or tile == 'facts' -%}{%- assign tile_file = 'hx-banana-' | append: tile | append: '-v6.svg' -%}{%- endif -%}
+        <button type="button" class="product-seamoss__media-thumb" data-product-thumb data-pilot-cutout data-gallery-story data-campaign-tile="{{ tile }}" {% if forloop.first %}data-gallery-cover{% endif %} data-image="{{ tile_file | asset_url }}" data-flavors="Banana|" aria-label="{{ campaign_labels[forloop.index0] }}"{% unless initial_variant.option1 == flavor %} hidden{% endunless %}>
+          <img src="{{ tile_file | asset_url }}" alt="{{ campaign_labels[forloop.index0] }}" width="1254" height="1254" loading="lazy">
+          {%- if tile == 'lifestyle' -%}<span class="hx-art-copy hx-art-copy--lifestyle"><small>A MOMENT FOR YOU</small><strong>Your morning,<br>made.</strong></span>{%- endif -%}
+          {%- if tile == 'texture' -%}<span class="hx-art-copy hx-art-copy--texture"><small>GET TO KNOW YOUR GEL</small><strong>Meet your<br>next spoonful.</strong><span>Spoon it.<br>Blend it.<br>Make it yours.</span></span>{%- endif -%}
+        </button>
+      {%- endfor -%}
+    {%- elsif flavor == 'Blueberry' -%}
       {%- assign pilot_views = '' | split: ',' -%}
       {%- assign new_stories = 'studio,breakfast' | split: ',' -%}
       {%- for story in new_stories -%}
         {%- assign story_file = flavor | handleize | prepend: 'hx-' | append: '-' | append: story | append: '-v3.png' -%}
+        {% if flavor == 'Banana' and story == 'studio' %}{% assign story_file = 'hx-banana-campaign-v5.png' %}{% endif %}
         <button type="button" class="product-seamoss__media-thumb" data-product-thumb data-pilot-cutout data-gallery-story {% if forloop.first %}data-gallery-cover{% endif %} data-image="{{ story_file | asset_url }}" data-flavors="{{ flavor }}|" aria-label="View {{ flavor }} {{ story }} scene"{% unless initial_variant.option1 == flavor %} hidden{% endunless %}>
           <img src="{{ story_file | asset_url }}" alt="Healistix {{ flavor }} sea moss gel — {{ story }} scene{% if story == 'breakfast' %}, serving suggestion{% endif %}" width="1254" height="1254" loading="lazy">
         </button>
@@ -29,7 +44,7 @@
         <img src="{{ pilot_file | asset_url }}" alt="{{ flavor }} sea moss gel — {{ view | split: '.' | first }}" width="100" height="100" loading="lazy">
       </button>
     {%- endfor -%}
-    {%- if flavor == 'Banana' or flavor == 'Blueberry' -%}
+    {%- if flavor == 'Blueberry' -%}
       {%- if flavor == 'Blueberry' -%}
         {%- assign editorial_labels = 'Blueberry serving directions and storage|Four ingredients in Blueberry sea moss gel|Three ways to enjoy Blueberry sea moss gel' | split: '|' -%}
       {%- else -%}

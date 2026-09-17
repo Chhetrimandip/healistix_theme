@@ -1,0 +1,1839 @@
+{
+  "library_version": "2026-09-12-provisional",
+  "herbs": [
+    {
+      "id": "ashwagandha",
+      "name": "Ashwagandha root",
+      "tradition": "Ayurvedic",
+      "default_g": 8.0,
+      "max_g": 12.0,
+      "premium": false,
+      "taste": "earthy",
+      "thickens": false,
+      "flags": [
+        "PREG",
+        "THYROID",
+        "SEDATIVE"
+      ],
+      "uses": [
+        "stress",
+        "sleep",
+        "vitality-men",
+        "vitality-women"
+      ],
+      "approved_phrase": "helps the body adapt to everyday stress",
+      "notes": "",
+      "approval_status": "provisional",
+      "coa_status": "unverified"
+    },
+    {
+      "id": "maca",
+      "name": "Maca root (yellow)",
+      "tradition": "Andean",
+      "default_g": 8.0,
+      "max_g": 16.0,
+      "premium": false,
+      "taste": "malty-sweet",
+      "thickens": false,
+      "flags": [
+        "PREG"
+      ],
+      "uses": [
+        "energy",
+        "vitality-men",
+        "vitality-women",
+        "recovery"
+      ],
+      "approved_phrase": "traditionally used for energy and stamina",
+      "notes": "mild flavor, pairs with any fruit",
+      "approval_status": "provisional",
+      "coa_status": "unverified"
+    },
+    {
+      "id": "korean-red-ginseng",
+      "name": "Korean red ginseng root",
+      "tradition": "Korean",
+      "default_g": 4.0,
+      "max_g": 6.0,
+      "premium": true,
+      "taste": "bitter",
+      "thickens": false,
+      "flags": [
+        "PREG",
+        "BP",
+        "GLUCOSE",
+        "ANTICOAG",
+        "STIM"
+      ],
+      "uses": [
+        "energy",
+        "focus",
+        "vitality-men"
+      ],
+      "approved_phrase": "traditionally used for energy and vitality",
+      "notes": "",
+      "approval_status": "provisional",
+      "coa_status": "unverified"
+    },
+    {
+      "id": "tongkat-ali",
+      "name": "Tongkat ali root",
+      "tradition": "Malaysian",
+      "default_g": 3.0,
+      "max_g": 5.0,
+      "premium": true,
+      "taste": "very bitter",
+      "thickens": false,
+      "flags": [
+        "PREG",
+        "HORMONE",
+        "GLUCOSE"
+      ],
+      "uses": [
+        "vitality-men",
+        "energy"
+      ],
+      "approved_phrase": "traditionally used to support male vitality",
+      "notes": "strong bitterness; suggest bold fruit flavor",
+      "approval_status": "provisional",
+      "coa_status": "unverified"
+    },
+    {
+      "id": "beet-root",
+      "name": "Beet root",
+      "tradition": "European",
+      "default_g": 6.0,
+      "max_g": 12.0,
+      "premium": false,
+      "taste": "earthy-sweet",
+      "thickens": false,
+      "flags": [
+        "KIDNEY"
+      ],
+      "uses": [
+        "energy",
+        "recovery"
+      ],
+      "approved_phrase": "traditionally used for natural energy and endurance",
+      "notes": "deep red color",
+      "approval_status": "provisional",
+      "coa_status": "unverified"
+    },
+    {
+      "id": "ginger",
+      "name": "Ginger root",
+      "tradition": "Ayurvedic / Caribbean",
+      "default_g": 6.0,
+      "max_g": 10.0,
+      "premium": false,
+      "taste": "spicy",
+      "thickens": false,
+      "flags": [
+        "ANTICOAG",
+        "GERD"
+      ],
+      "uses": [
+        "digestion",
+        "joints",
+        "respiratory",
+        "recovery"
+      ],
+      "approved_phrase": "traditionally used to settle the stomach",
+      "notes": "",
+      "approval_status": "provisional",
+      "coa_status": "unverified"
+    },
+    {
+      "id": "turmeric",
+      "name": "Turmeric root",
+      "tradition": "Ayurvedic",
+      "default_g": 6.0,
+      "max_g": 10.0,
+      "premium": false,
+      "taste": "earthy-bitter",
+      "thickens": false,
+      "flags": [
+        "ANTICOAG"
+      ],
+      "uses": [
+        "joints",
+        "recovery",
+        "digestion"
+      ],
+      "approved_phrase": "traditionally used for joint comfort",
+      "notes": "stains; yellow color",
+      "approval_status": "provisional",
+      "coa_status": "unverified"
+    },
+    {
+      "id": "reishi",
+      "name": "Reishi mushroom",
+      "tradition": "TCM",
+      "default_g": 6.0,
+      "max_g": 10.0,
+      "premium": false,
+      "taste": "bitter",
+      "thickens": false,
+      "flags": [
+        "ANTICOAG",
+        "BP",
+        "AUTOIMMUNE"
+      ],
+      "uses": [
+        "stress",
+        "sleep"
+      ],
+      "approved_phrase": "traditionally used for calm and balance",
+      "notes": "",
+      "approval_status": "provisional",
+      "coa_status": "unverified"
+    },
+    {
+      "id": "lions-mane",
+      "name": "Lion's mane mushroom",
+      "tradition": "TCM / Japanese",
+      "default_g": 8.0,
+      "max_g": 12.0,
+      "premium": false,
+      "taste": "mild",
+      "thickens": false,
+      "flags": [
+        "PREG",
+        "AUTOIMMUNE"
+      ],
+      "uses": [
+        "focus"
+      ],
+      "approved_phrase": "traditionally used for focus and mental clarity",
+      "notes": "",
+      "approval_status": "provisional",
+      "coa_status": "unverified"
+    },
+    {
+      "id": "cordyceps",
+      "name": "Cordyceps mushroom",
+      "tradition": "Tibetan / TCM",
+      "default_g": 6.0,
+      "max_g": 10.0,
+      "premium": true,
+      "taste": "mild",
+      "thickens": false,
+      "flags": [
+        "PREG",
+        "ANTICOAG",
+        "AUTOIMMUNE"
+      ],
+      "uses": [
+        "energy",
+        "recovery",
+        "respiratory"
+      ],
+      "approved_phrase": "traditionally used for stamina and endurance",
+      "notes": "",
+      "approval_status": "provisional",
+      "coa_status": "unverified"
+    },
+    {
+      "id": "chaga",
+      "name": "Chaga mushroom",
+      "tradition": "Siberian",
+      "default_g": 5.0,
+      "max_g": 8.0,
+      "premium": false,
+      "taste": "earthy",
+      "thickens": false,
+      "flags": [
+        "ANTICOAG",
+        "GLUCOSE",
+        "KIDNEY",
+        "AUTOIMMUNE"
+      ],
+      "uses": [
+        "greens"
+      ],
+      "approved_phrase": "traditionally used as a daily tonic",
+      "notes": "",
+      "approval_status": "provisional",
+      "coa_status": "unverified"
+    },
+    {
+      "id": "spirulina",
+      "name": "Spirulina",
+      "tradition": "Aztec / Chad",
+      "default_g": 6.0,
+      "max_g": 12.0,
+      "premium": false,
+      "taste": "grassy",
+      "thickens": false,
+      "flags": [
+        "AUTOIMMUNE"
+      ],
+      "uses": [
+        "greens",
+        "energy"
+      ],
+      "approved_phrase": "a nutrient-dense blue-green algae",
+      "notes": "strong taste above 8 g",
+      "approval_status": "provisional",
+      "coa_status": "unverified"
+    },
+    {
+      "id": "chlorella",
+      "name": "Chlorella",
+      "tradition": "Japanese",
+      "default_g": 5.0,
+      "max_g": 10.0,
+      "premium": false,
+      "taste": "grassy",
+      "thickens": false,
+      "flags": [
+        "AUTOIMMUNE"
+      ],
+      "uses": [
+        "greens",
+        "cleanse"
+      ],
+      "approved_phrase": "a chlorophyll-rich green algae",
+      "notes": "",
+      "approval_status": "provisional",
+      "coa_status": "unverified"
+    },
+    {
+      "id": "moringa",
+      "name": "Moringa leaf",
+      "tradition": "Ayurvedic / African",
+      "default_g": 6.0,
+      "max_g": 10.0,
+      "premium": false,
+      "taste": "grassy",
+      "thickens": false,
+      "flags": [
+        "PREG"
+      ],
+      "uses": [
+        "greens",
+        "energy"
+      ],
+      "approved_phrase": "a nutrient-dense leaf",
+      "notes": "",
+      "approval_status": "provisional",
+      "coa_status": "unverified"
+    },
+    {
+      "id": "hibiscus",
+      "name": "Hibiscus flower",
+      "tradition": "Caribbean / West African",
+      "default_g": 5.0,
+      "max_g": 8.0,
+      "premium": false,
+      "taste": "tart",
+      "thickens": false,
+      "flags": [
+        "BP",
+        "PREG"
+      ],
+      "uses": [
+        "womens-balance",
+        "cleanse",
+        "metabolism"
+      ],
+      "approved_phrase": "traditionally enjoyed as a cooling tonic",
+      "notes": "tart; lowers pH (helpful)",
+      "approval_status": "provisional",
+      "coa_status": "unverified"
+    },
+    {
+      "id": "cinnamon",
+      "name": "Ceylon cinnamon bark",
+      "tradition": "Sri Lankan",
+      "default_g": 3.0,
+      "max_g": 5.0,
+      "premium": false,
+      "taste": "sweet-spicy",
+      "thickens": false,
+      "flags": [
+        "GLUCOSE",
+        "ANTICOAG"
+      ],
+      "uses": [
+        "metabolism",
+        "digestion"
+      ],
+      "approved_phrase": "traditionally used to support healthy metabolism",
+      "notes": "Ceylon only (low coumarin)",
+      "approval_status": "provisional",
+      "coa_status": "unverified"
+    },
+    {
+      "id": "fenugreek",
+      "name": "Fenugreek seed",
+      "tradition": "Ayurvedic / Middle Eastern",
+      "default_g": 4.0,
+      "max_g": 8.0,
+      "premium": false,
+      "taste": "bitter-maple",
+      "thickens": false,
+      "flags": [
+        "PREG",
+        "GLUCOSE",
+        "ANTICOAG"
+      ],
+      "uses": [
+        "metabolism",
+        "digestion"
+      ],
+      "approved_phrase": "traditionally used for digestion and appetite balance",
+      "notes": "",
+      "approval_status": "provisional",
+      "coa_status": "unverified"
+    },
+    {
+      "id": "slippery-elm",
+      "name": "Slippery elm bark",
+      "tradition": "Native American",
+      "default_g": 5.0,
+      "max_g": 8.0,
+      "premium": false,
+      "taste": "mild",
+      "thickens": true,
+      "flags": [
+        "MEDTIMING"
+      ],
+      "uses": [
+        "digestion",
+        "respiratory"
+      ],
+      "approved_phrase": "soothing mucilage for the digestive tract",
+      "notes": "thickens the gel; cap total thickeners at 8 g",
+      "approval_status": "provisional",
+      "coa_status": "unverified"
+    },
+    {
+      "id": "marshmallow-root",
+      "name": "Marshmallow root",
+      "tradition": "European",
+      "default_g": 5.0,
+      "max_g": 8.0,
+      "premium": false,
+      "taste": "mild",
+      "thickens": true,
+      "flags": [
+        "MEDTIMING",
+        "GLUCOSE"
+      ],
+      "uses": [
+        "digestion",
+        "respiratory"
+      ],
+      "approved_phrase": "soothing mucilage",
+      "notes": "thickens the gel",
+      "approval_status": "provisional",
+      "coa_status": "unverified"
+    },
+    {
+      "id": "fennel",
+      "name": "Fennel seed",
+      "tradition": "Mediterranean",
+      "default_g": 4.0,
+      "max_g": 6.0,
+      "premium": false,
+      "taste": "licorice-sweet",
+      "thickens": false,
+      "flags": [
+        "PREG",
+        "HORMONE"
+      ],
+      "uses": [
+        "digestion"
+      ],
+      "approved_phrase": "traditionally used for bloating and comfortable digestion",
+      "notes": "",
+      "approval_status": "provisional",
+      "coa_status": "unverified"
+    },
+    {
+      "id": "peppermint",
+      "name": "Peppermint leaf",
+      "tradition": "European",
+      "default_g": 3.0,
+      "max_g": 5.0,
+      "premium": false,
+      "taste": "cool",
+      "thickens": false,
+      "flags": [
+        "GERD"
+      ],
+      "uses": [
+        "digestion"
+      ],
+      "approved_phrase": "traditionally used for digestive comfort",
+      "notes": "",
+      "approval_status": "provisional",
+      "coa_status": "unverified"
+    },
+    {
+      "id": "chamomile",
+      "name": "Chamomile flower",
+      "tradition": "European / Egyptian",
+      "default_g": 4.0,
+      "max_g": 6.0,
+      "premium": false,
+      "taste": "floral",
+      "thickens": false,
+      "flags": [
+        "PREG",
+        "ANTICOAG",
+        "ASTER"
+      ],
+      "uses": [
+        "sleep",
+        "stress",
+        "digestion"
+      ],
+      "approved_phrase": "gentle and calming",
+      "notes": "",
+      "approval_status": "provisional",
+      "coa_status": "unverified"
+    },
+    {
+      "id": "lemon-balm",
+      "name": "Lemon balm leaf",
+      "tradition": "Mediterranean",
+      "default_g": 4.0,
+      "max_g": 6.0,
+      "premium": false,
+      "taste": "lemony",
+      "thickens": false,
+      "flags": [
+        "THYROID",
+        "SEDATIVE"
+      ],
+      "uses": [
+        "sleep",
+        "stress",
+        "focus"
+      ],
+      "approved_phrase": "traditionally used for calm and restful sleep",
+      "notes": "",
+      "approval_status": "provisional",
+      "coa_status": "unverified"
+    },
+    {
+      "id": "passionflower",
+      "name": "Passionflower",
+      "tradition": "Native American",
+      "default_g": 3.0,
+      "max_g": 5.0,
+      "premium": false,
+      "taste": "mild-bitter",
+      "thickens": false,
+      "flags": [
+        "PREG",
+        "SEDATIVE"
+      ],
+      "uses": [
+        "sleep",
+        "stress"
+      ],
+      "approved_phrase": "traditionally used for rest",
+      "notes": "evening jar",
+      "approval_status": "provisional",
+      "coa_status": "unverified"
+    },
+    {
+      "id": "holy-basil",
+      "name": "Holy basil (tulsi) leaf",
+      "tradition": "Ayurvedic",
+      "default_g": 5.0,
+      "max_g": 8.0,
+      "premium": false,
+      "taste": "clove-like",
+      "thickens": false,
+      "flags": [
+        "PREG",
+        "ANTICOAG",
+        "GLUCOSE"
+      ],
+      "uses": [
+        "stress",
+        "respiratory",
+        "mood"
+      ],
+      "approved_phrase": "an adaptogen traditionally used for daily balance",
+      "notes": "",
+      "approval_status": "provisional",
+      "coa_status": "unverified"
+    },
+    {
+      "id": "rhodiola",
+      "name": "Rhodiola root",
+      "tradition": "Siberian / Scandinavian",
+      "default_g": 3.0,
+      "max_g": 5.0,
+      "premium": true,
+      "taste": "bitter-astringent",
+      "thickens": false,
+      "flags": [
+        "BP",
+        "SSRI",
+        "STIM"
+      ],
+      "uses": [
+        "energy",
+        "focus",
+        "stress"
+      ],
+      "approved_phrase": "traditionally used for stamina and stress resilience",
+      "notes": "",
+      "approval_status": "provisional",
+      "coa_status": "unverified"
+    },
+    {
+      "id": "shatavari",
+      "name": "Shatavari root",
+      "tradition": "Ayurvedic",
+      "default_g": 6.0,
+      "max_g": 10.0,
+      "premium": false,
+      "taste": "mild-sweet",
+      "thickens": false,
+      "flags": [
+        "PREG",
+        "HORMONE"
+      ],
+      "uses": [
+        "womens-balance",
+        "vitality-women"
+      ],
+      "approved_phrase": "traditionally used for women's vitality",
+      "notes": "",
+      "approval_status": "provisional",
+      "coa_status": "unverified"
+    },
+    {
+      "id": "damiana",
+      "name": "Damiana leaf",
+      "tradition": "Mexican / Caribbean",
+      "default_g": 3.0,
+      "max_g": 5.0,
+      "premium": false,
+      "taste": "aromatic-bitter",
+      "thickens": false,
+      "flags": [
+        "PREG",
+        "GLUCOSE"
+      ],
+      "uses": [
+        "vitality-women",
+        "vitality-men",
+        "mood"
+      ],
+      "approved_phrase": "traditionally used for mood and desire",
+      "notes": "",
+      "approval_status": "provisional",
+      "coa_status": "unverified"
+    },
+    {
+      "id": "muira-puama",
+      "name": "Muira puama bark",
+      "tradition": "Amazonian",
+      "default_g": 3.0,
+      "max_g": 5.0,
+      "premium": false,
+      "taste": "woody",
+      "thickens": false,
+      "flags": [
+        "PREG"
+      ],
+      "uses": [
+        "vitality-men"
+      ],
+      "approved_phrase": "traditionally used for male vitality",
+      "notes": "",
+      "approval_status": "provisional",
+      "coa_status": "unverified"
+    },
+    {
+      "id": "horny-goat-weed",
+      "name": "Horny goat weed (epimedium)",
+      "tradition": "TCM",
+      "default_g": 3.0,
+      "max_g": 5.0,
+      "premium": false,
+      "taste": "bitter",
+      "thickens": false,
+      "flags": [
+        "BP",
+        "HORMONE",
+        "PREG",
+        "ANTICOAG"
+      ],
+      "uses": [
+        "vitality-men"
+      ],
+      "approved_phrase": "traditionally used for vitality",
+      "notes": "",
+      "approval_status": "provisional",
+      "coa_status": "unverified"
+    },
+    {
+      "id": "sarsaparilla",
+      "name": "Sarsaparilla root",
+      "tradition": "Jamaican / Caribbean",
+      "default_g": 4.0,
+      "max_g": 6.0,
+      "premium": false,
+      "taste": "root-beer",
+      "thickens": false,
+      "flags": [
+        "KIDNEY"
+      ],
+      "uses": [
+        "vitality-men",
+        "skin-hair-nails",
+        "cleanse"
+      ],
+      "approved_phrase": "traditionally used in Caribbean tonics",
+      "notes": "natural fit with sea moss tradition",
+      "approval_status": "provisional",
+      "coa_status": "unverified"
+    },
+    {
+      "id": "burdock-root",
+      "name": "Burdock root",
+      "tradition": "European / TCM",
+      "default_g": 5.0,
+      "max_g": 8.0,
+      "premium": false,
+      "taste": "earthy-sweet",
+      "thickens": false,
+      "flags": [
+        "PREG",
+        "GLUCOSE",
+        "ANTICOAG"
+      ],
+      "uses": [
+        "cleanse",
+        "skin-hair-nails"
+      ],
+      "approved_phrase": "traditionally used for skin and cleansing",
+      "notes": "",
+      "approval_status": "provisional",
+      "coa_status": "unverified"
+    },
+    {
+      "id": "dandelion-root",
+      "name": "Dandelion root",
+      "tradition": "European",
+      "default_g": 5.0,
+      "max_g": 8.0,
+      "premium": false,
+      "taste": "bitter-roasted",
+      "thickens": false,
+      "flags": [
+        "KIDNEY",
+        "GLUCOSE",
+        "ANTICOAG",
+        "ASTER"
+      ],
+      "uses": [
+        "cleanse",
+        "digestion"
+      ],
+      "approved_phrase": "traditionally used for liver support",
+      "notes": "",
+      "approval_status": "provisional",
+      "coa_status": "unverified"
+    },
+    {
+      "id": "nettle-leaf",
+      "name": "Nettle leaf",
+      "tradition": "European",
+      "default_g": 5.0,
+      "max_g": 8.0,
+      "premium": false,
+      "taste": "grassy",
+      "thickens": false,
+      "flags": [
+        "PREG",
+        "BP",
+        "GLUCOSE",
+        "ANTICOAG",
+        "KIDNEY"
+      ],
+      "uses": [
+        "skin-hair-nails",
+        "greens",
+        "joints"
+      ],
+      "approved_phrase": "a mineral-rich leaf",
+      "notes": "",
+      "approval_status": "provisional",
+      "coa_status": "unverified"
+    },
+    {
+      "id": "horsetail",
+      "name": "Horsetail",
+      "tradition": "European",
+      "default_g": 3.0,
+      "max_g": 5.0,
+      "premium": false,
+      "taste": "mild",
+      "thickens": false,
+      "flags": [
+        "KIDNEY",
+        "PREG"
+      ],
+      "uses": [
+        "skin-hair-nails"
+      ],
+      "approved_phrase": "a natural source of silica",
+      "notes": "not for long-term daily use above 3 g",
+      "approval_status": "provisional",
+      "coa_status": "unverified"
+    },
+    {
+      "id": "amla",
+      "name": "Amla (Indian gooseberry)",
+      "tradition": "Ayurvedic",
+      "default_g": 6.0,
+      "max_g": 10.0,
+      "premium": false,
+      "taste": "sour-astringent",
+      "thickens": false,
+      "flags": [
+        "ANTICOAG",
+        "GLUCOSE"
+      ],
+      "uses": [
+        "skin-hair-nails",
+        "digestion",
+        "greens"
+      ],
+      "approved_phrase": "a vitamin-C-rich fruit traditionally used for hair and skin",
+      "notes": "",
+      "approval_status": "provisional",
+      "coa_status": "unverified"
+    },
+    {
+      "id": "bladderwrack",
+      "name": "Bladderwrack",
+      "tradition": "Atlantic / European",
+      "default_g": 2.0,
+      "max_g": 3.0,
+      "premium": false,
+      "taste": "sea",
+      "thickens": false,
+      "flags": [
+        "THYROID",
+        "PREG",
+        "ANTICOAG"
+      ],
+      "uses": [
+        "greens",
+        "metabolism"
+      ],
+      "approved_phrase": "a second sea vegetable, naturally iodine-rich",
+      "notes": "cap low: sea moss already supplies iodine",
+      "approval_status": "provisional",
+      "coa_status": "unverified"
+    },
+    {
+      "id": "elderberry",
+      "name": "Elderberry fruit",
+      "tradition": "European",
+      "default_g": 5.0,
+      "max_g": 8.0,
+      "premium": false,
+      "taste": "tart-fruity",
+      "thickens": false,
+      "flags": [
+        "AUTOIMMUNE"
+      ],
+      "uses": [
+        "respiratory"
+      ],
+      "approved_phrase": "traditionally enjoyed in autumn tonics",
+      "notes": "NO immune / cold / flu language, ever",
+      "approval_status": "provisional",
+      "coa_status": "unverified"
+    },
+    {
+      "id": "black-seed",
+      "name": "Black seed (nigella)",
+      "tradition": "Unani / Middle Eastern",
+      "default_g": 4.0,
+      "max_g": 8.0,
+      "premium": false,
+      "taste": "peppery-bitter",
+      "thickens": false,
+      "flags": [
+        "PREG",
+        "GLUCOSE",
+        "BP",
+        "ANTICOAG"
+      ],
+      "uses": [
+        "respiratory",
+        "digestion",
+        "skin-hair-nails"
+      ],
+      "approved_phrase": "traditionally used in Unani medicine as a daily tonic",
+      "notes": "",
+      "approval_status": "provisional",
+      "coa_status": "unverified"
+    },
+    {
+      "id": "cacao",
+      "name": "Raw cacao",
+      "tradition": "Mesoamerican",
+      "default_g": 8.0,
+      "max_g": 15.0,
+      "premium": false,
+      "taste": "chocolate",
+      "thickens": false,
+      "flags": [
+        "CAFFEINE"
+      ],
+      "uses": [
+        "mood",
+        "energy"
+      ],
+      "approved_phrase": "raw cacao for flavor and mood",
+      "notes": "counts as flavor too",
+      "approval_status": "provisional",
+      "coa_status": "unverified"
+    },
+    {
+      "id": "matcha",
+      "name": "Matcha green tea",
+      "tradition": "Japanese",
+      "default_g": 3.0,
+      "max_g": 6.0,
+      "premium": false,
+      "taste": "grassy",
+      "thickens": false,
+      "flags": [
+        "CAFFEINE",
+        "STIM"
+      ],
+      "uses": [
+        "energy",
+        "focus"
+      ],
+      "approved_phrase": "green tea leaf for calm energy",
+      "notes": "~30 mg caffeine per serving at 3 g",
+      "approval_status": "provisional",
+      "coa_status": "unverified"
+    },
+    {
+      "id": "bacopa",
+      "name": "Bacopa (brahmi)",
+      "tradition": "Ayurvedic",
+      "default_g": 4.0,
+      "max_g": 6.0,
+      "premium": false,
+      "taste": "bitter",
+      "thickens": false,
+      "flags": [
+        "SEDATIVE",
+        "THYROID"
+      ],
+      "uses": [
+        "focus"
+      ],
+      "approved_phrase": "traditionally used for memory and focus",
+      "notes": "",
+      "approval_status": "provisional",
+      "coa_status": "unverified"
+    },
+    {
+      "id": "gotu-kola",
+      "name": "Gotu kola",
+      "tradition": "Ayurvedic / Sri Lankan",
+      "default_g": 4.0,
+      "max_g": 6.0,
+      "premium": false,
+      "taste": "grassy",
+      "thickens": false,
+      "flags": [
+        "PREG"
+      ],
+      "uses": [
+        "focus",
+        "skin-hair-nails"
+      ],
+      "approved_phrase": "traditionally used for mental clarity and skin",
+      "notes": "",
+      "approval_status": "provisional",
+      "coa_status": "unverified"
+    },
+    {
+      "id": "boswellia",
+      "name": "Boswellia (frankincense) resin",
+      "tradition": "Ayurvedic",
+      "default_g": 3.0,
+      "max_g": 5.0,
+      "premium": false,
+      "taste": "resinous-bitter",
+      "thickens": false,
+      "flags": [
+        "PREG",
+        "ANTICOAG"
+      ],
+      "uses": [
+        "joints"
+      ],
+      "approved_phrase": "traditionally used for joint comfort",
+      "notes": "",
+      "approval_status": "provisional",
+      "coa_status": "unverified"
+    },
+    {
+      "id": "milk-thistle",
+      "name": "Milk thistle seed",
+      "tradition": "Mediterranean",
+      "default_g": 5.0,
+      "max_g": 8.0,
+      "premium": false,
+      "taste": "mild-nutty",
+      "thickens": false,
+      "flags": [
+        "ASTER",
+        "HORMONE"
+      ],
+      "uses": [
+        "cleanse"
+      ],
+      "approved_phrase": "traditionally used for liver support",
+      "notes": "",
+      "approval_status": "provisional",
+      "coa_status": "unverified"
+    },
+    {
+      "id": "mullein",
+      "name": "Mullein leaf",
+      "tradition": "European / Native American",
+      "default_g": 4.0,
+      "max_g": 6.0,
+      "premium": false,
+      "taste": "mild",
+      "thickens": false,
+      "flags": [],
+      "uses": [
+        "respiratory"
+      ],
+      "approved_phrase": "traditionally used for respiratory comfort",
+      "notes": "",
+      "approval_status": "provisional",
+      "coa_status": "unverified"
+    },
+    {
+      "id": "red-raspberry-leaf",
+      "name": "Red raspberry leaf",
+      "tradition": "European",
+      "default_g": 4.0,
+      "max_g": 6.0,
+      "premium": false,
+      "taste": "tea-like",
+      "thickens": false,
+      "flags": [
+        "PREG",
+        "HORMONE"
+      ],
+      "uses": [
+        "womens-balance"
+      ],
+      "approved_phrase": "traditionally used for women's wellness",
+      "notes": "",
+      "approval_status": "provisional",
+      "coa_status": "unverified"
+    },
+    {
+      "id": "shilajit",
+      "name": "Shilajit",
+      "tradition": "Himalayan",
+      "default_g": 1.0,
+      "max_g": 2.0,
+      "premium": true,
+      "taste": "tar-like",
+      "thickens": false,
+      "flags": [
+        "KIDNEY"
+      ],
+      "uses": [
+        "energy",
+        "vitality-men"
+      ],
+      "approved_phrase": "traditionally used in Ayurveda for vitality",
+      "notes": "heavy-metals COA required before listing",
+      "approval_status": "provisional",
+      "coa_status": "unverified"
+    },
+    {
+      "id": "ginkgo",
+      "name": "Ginkgo leaf",
+      "tradition": "TCM",
+      "default_g": 3.0,
+      "max_g": 5.0,
+      "premium": false,
+      "taste": "mild-bitter",
+      "thickens": false,
+      "flags": [
+        "ANTICOAG",
+        "PREG",
+        "SEIZURE"
+      ],
+      "uses": [
+        "focus"
+      ],
+      "approved_phrase": "traditionally used for memory and circulation",
+      "notes": "",
+      "approval_status": "provisional",
+      "coa_status": "unverified"
+    },
+    {
+      "id": "saffron",
+      "name": "Saffron",
+      "tradition": "Persian",
+      "default_g": 0.2,
+      "max_g": 0.4,
+      "premium": true,
+      "taste": "floral",
+      "thickens": false,
+      "flags": [
+        "PREG",
+        "SSRI"
+      ],
+      "uses": [
+        "mood",
+        "vitality-women"
+      ],
+      "approved_phrase": "traditionally used for mood",
+      "notes": "micro-scale weighing",
+      "approval_status": "provisional",
+      "coa_status": "unverified"
+    },
+    {
+      "id": "licorice-root",
+      "name": "Licorice root",
+      "tradition": "TCM / Ayurvedic",
+      "default_g": 2.0,
+      "max_g": 3.0,
+      "premium": false,
+      "taste": "sweet",
+      "thickens": false,
+      "flags": [
+        "BP",
+        "KIDNEY",
+        "PREG",
+        "HORMONE"
+      ],
+      "uses": [
+        "digestion",
+        "respiratory"
+      ],
+      "approved_phrase": "a naturally sweet, soothing root",
+      "notes": "cap low",
+      "approval_status": "provisional",
+      "coa_status": "unverified"
+    },
+    {
+      "id": "cayenne",
+      "name": "Cayenne pepper",
+      "tradition": "Caribbean / Mexican",
+      "default_g": 0.5,
+      "max_g": 1.0,
+      "premium": false,
+      "taste": "hot",
+      "thickens": false,
+      "flags": [
+        "ANTICOAG",
+        "GERD"
+      ],
+      "uses": [
+        "metabolism",
+        "recovery"
+      ],
+      "approved_phrase": "warming",
+      "notes": "cap low",
+      "approval_status": "provisional",
+      "coa_status": "unverified"
+    }
+  ],
+  "uses": [
+    {
+      "id": "digestion",
+      "name": "Digestion & gut comfort",
+      "sea_moss_lead": true,
+      "on_site_phrase": "Sea moss is a natural source of soothing mucilage and prebiotic fiber; these herbs are traditionally used for comfortable digestion.",
+      "default_pairing": [
+        {
+          "id": "ginger",
+          "g": 6.0
+        },
+        {
+          "id": "fennel",
+          "g": 4.0
+        },
+        {
+          "id": "slippery-elm",
+          "g": 5.0
+        }
+      ],
+      "wording_rules": "Never name IBS / IBD / GERD as things the blend addresses."
+    },
+    {
+      "id": "skin-hair-nails",
+      "name": "Skin, hair & nails",
+      "sea_moss_lead": true,
+      "on_site_phrase": "Sea moss delivers sea minerals; these herbs are traditionally used for hair, skin and nails.",
+      "default_pairing": [
+        {
+          "id": "horsetail",
+          "g": 3.0
+        },
+        {
+          "id": "nettle-leaf",
+          "g": 5.0
+        },
+        {
+          "id": "amla",
+          "g": 6.0
+        }
+      ],
+      "wording_rules": "No regrowth / follicle / thickening language — use the cosmetic-safe swap table."
+    },
+    {
+      "id": "energy",
+      "name": "Energy & stamina",
+      "sea_moss_lead": true,
+      "on_site_phrase": "Sea moss is traditionally taken for daily energy; these herbs add stamina.",
+      "default_pairing": [
+        {
+          "id": "korean-red-ginseng",
+          "g": 4.0
+        },
+        {
+          "id": "maca",
+          "g": 8.0
+        },
+        {
+          "id": "beet-root",
+          "g": 6.0
+        }
+      ],
+      "wording_rules": "STIM / CAFFEINE flag → no-stim variant: maca:10,beet-root:8,moringa:6"
+    },
+    {
+      "id": "vitality-men",
+      "name": "Vitality & drive (men)",
+      "sea_moss_lead": true,
+      "on_site_phrase": "A Caribbean tradition — sea moss with herbs traditionally used for male vitality.",
+      "default_pairing": [
+        {
+          "id": "tongkat-ali",
+          "g": 3.0
+        },
+        {
+          "id": "maca",
+          "g": 8.0
+        },
+        {
+          "id": "ashwagandha",
+          "g": 5.0
+        }
+      ],
+      "wording_rules": "Never 'sexual power', 'libido booster', 'testosterone'. Never in paid ads. Site wording: 'vitality and drive'."
+    },
+    {
+      "id": "vitality-women",
+      "name": "Vitality & drive (women)",
+      "sea_moss_lead": false,
+      "on_site_phrase": "Herbs traditionally used for women's vitality, on a sea moss base.",
+      "default_pairing": [
+        {
+          "id": "maca",
+          "g": 8.0
+        },
+        {
+          "id": "shatavari",
+          "g": 6.0
+        },
+        {
+          "id": "damiana",
+          "g": 3.0
+        }
+      ],
+      "wording_rules": "Same rules as vitality-men."
+    },
+    {
+      "id": "stress",
+      "name": "Calm & stress",
+      "sea_moss_lead": false,
+      "on_site_phrase": "Adaptogens traditionally used for everyday stress, on a sea moss base.",
+      "default_pairing": [
+        {
+          "id": "ashwagandha",
+          "g": 8.0
+        },
+        {
+          "id": "reishi",
+          "g": 6.0
+        },
+        {
+          "id": "holy-basil",
+          "g": 5.0
+        }
+      ],
+      "wording_rules": "Never 'anxiety' or 'depression' as conditions."
+    },
+    {
+      "id": "sleep",
+      "name": "Rest & sleep",
+      "sea_moss_lead": false,
+      "on_site_phrase": "Gentle herbs traditionally used for rest; an evening jar.",
+      "default_pairing": [
+        {
+          "id": "chamomile",
+          "g": 4.0
+        },
+        {
+          "id": "lemon-balm",
+          "g": 4.0
+        },
+        {
+          "id": "passionflower",
+          "g": 3.0
+        }
+      ],
+      "wording_rules": "No 'insomnia'. Suggest evening use."
+    },
+    {
+      "id": "focus",
+      "name": "Focus & memory",
+      "sea_moss_lead": false,
+      "on_site_phrase": "Herbs traditionally used for clarity and focus.",
+      "default_pairing": [
+        {
+          "id": "lions-mane",
+          "g": 8.0
+        },
+        {
+          "id": "bacopa",
+          "g": 4.0
+        },
+        {
+          "id": "gotu-kola",
+          "g": 4.0
+        }
+      ],
+      "wording_rules": "No 'ADHD', 'dementia', 'brain fog cure'."
+    },
+    {
+      "id": "joints",
+      "name": "Joints & mobility",
+      "sea_moss_lead": false,
+      "on_site_phrase": "Herbs traditionally used for joint comfort.",
+      "default_pairing": [
+        {
+          "id": "turmeric",
+          "g": 6.0
+        },
+        {
+          "id": "ginger",
+          "g": 5.0
+        },
+        {
+          "id": "boswellia",
+          "g": 3.0
+        }
+      ],
+      "wording_rules": "No 'arthritis', 'inflammation treatment'."
+    },
+    {
+      "id": "greens",
+      "name": "Daily greens & minerals",
+      "sea_moss_lead": true,
+      "on_site_phrase": "Sea moss plus greens for a daily mineral routine.",
+      "default_pairing": [
+        {
+          "id": "spirulina",
+          "g": 6.0
+        },
+        {
+          "id": "chlorella",
+          "g": 5.0
+        },
+        {
+          "id": "moringa",
+          "g": 6.0
+        }
+      ],
+      "wording_rules": "No '92 minerals'. Iodine language only where lab-verified."
+    },
+    {
+      "id": "cleanse",
+      "name": "Cleanse & liver support",
+      "sea_moss_lead": false,
+      "on_site_phrase": "Bitter roots traditionally used for the body's natural cleansing.",
+      "default_pairing": [
+        {
+          "id": "dandelion-root",
+          "g": 5.0
+        },
+        {
+          "id": "burdock-root",
+          "g": 5.0
+        },
+        {
+          "id": "milk-thistle",
+          "g": 5.0
+        }
+      ],
+      "wording_rules": "No 'detox toxins', 'flush', 'liver disease'."
+    },
+    {
+      "id": "respiratory",
+      "name": "Respiratory & seasonal comfort",
+      "sea_moss_lead": true,
+      "on_site_phrase": "Sea moss has a long Caribbean tradition for respiratory comfort; these herbs complement it.",
+      "default_pairing": [
+        {
+          "id": "mullein",
+          "g": 4.0
+        },
+        {
+          "id": "ginger",
+          "g": 5.0
+        },
+        {
+          "id": "black-seed",
+          "g": 4.0
+        }
+      ],
+      "wording_rules": "NEVER immune / cold / flu / virus / antiviral. Elderberry allowed with no immune language."
+    },
+    {
+      "id": "metabolism",
+      "name": "Metabolism & appetite balance",
+      "sea_moss_lead": false,
+      "on_site_phrase": "Herbs traditionally used to support healthy metabolism and appetite balance.",
+      "default_pairing": [
+        {
+          "id": "cinnamon",
+          "g": 3.0
+        },
+        {
+          "id": "fenugreek",
+          "g": 4.0
+        },
+        {
+          "id": "hibiscus",
+          "g": 5.0
+        }
+      ],
+      "wording_rules": "NEVER 'weight loss', 'fat burning', 'slimming'. Never in paid ads."
+    },
+    {
+      "id": "womens-balance",
+      "name": "Women's balance",
+      "sea_moss_lead": false,
+      "on_site_phrase": "Herbs traditionally used for women's wellness across the month.",
+      "default_pairing": [
+        {
+          "id": "shatavari",
+          "g": 6.0
+        },
+        {
+          "id": "red-raspberry-leaf",
+          "g": 4.0
+        },
+        {
+          "id": "hibiscus",
+          "g": 4.0
+        }
+      ],
+      "wording_rules": "No 'PCOS', 'menopause treatment', 'hormone therapy'."
+    },
+    {
+      "id": "recovery",
+      "name": "Workout recovery",
+      "sea_moss_lead": false,
+      "on_site_phrase": "Sea moss minerals plus herbs traditionally used for endurance and recovery.",
+      "default_pairing": [
+        {
+          "id": "beet-root",
+          "g": 6.0
+        },
+        {
+          "id": "cordyceps",
+          "g": 6.0
+        },
+        {
+          "id": "turmeric",
+          "g": 5.0
+        }
+      ],
+      "wording_rules": ""
+    },
+    {
+      "id": "mood",
+      "name": "Mood & uplift",
+      "sea_moss_lead": false,
+      "on_site_phrase": "Uplifting botanicals on a sea moss base.",
+      "default_pairing": [
+        {
+          "id": "cacao",
+          "g": 8.0
+        },
+        {
+          "id": "damiana",
+          "g": 3.0
+        },
+        {
+          "id": "holy-basil",
+          "g": 4.0
+        }
+      ],
+      "wording_rules": "No 'depression', 'anxiety', 'antidepressant'."
+    }
+  ],
+  "do_not_list": [
+    {
+      "herb": "Aristolochia (duck flower)",
+      "reason": "aristolochic acid — kidney damage; FDA-flagged"
+    },
+    {
+      "herb": "Comfrey",
+      "reason": "pyrrolizidine alkaloids — liver"
+    },
+    {
+      "herb": "Lobelia",
+      "reason": "toxic at low doses"
+    },
+    {
+      "herb": "Pennyroyal",
+      "reason": "liver toxicity"
+    },
+    {
+      "herb": "Ephedra / ma huang",
+      "reason": "cardiac risk; banned in supplements"
+    },
+    {
+      "herb": "Kava",
+      "reason": "liver risk; not for a daily food product"
+    },
+    {
+      "herb": "Yohimbe",
+      "reason": "cardiac / blood-pressure risk"
+    },
+    {
+      "herb": "Wormwood",
+      "reason": "thujone"
+    },
+    {
+      "herb": "Tansy, rue",
+      "reason": "toxic / abortifacient"
+    },
+    {
+      "herb": "Blue cohosh, black cohosh",
+      "reason": "uterine and liver concerns"
+    },
+    {
+      "herb": "Goldenseal",
+      "reason": "strong drug interactions; endangered"
+    },
+    {
+      "herb": "St. John's wort",
+      "reason": "interacts with most prescription drugs"
+    },
+    {
+      "herb": "Senna, cascara",
+      "reason": "stimulant laxatives — not for a daily gel"
+    },
+    {
+      "herb": "Mucuna",
+      "reason": "L-dopa — psychiatric and Parkinson's drug interactions"
+    },
+    {
+      "herb": "Kanna",
+      "reason": "SSRI interactions — not in v1"
+    },
+    {
+      "herb": "Chaparral, germander, poke root, mistletoe",
+      "reason": "liver / toxicity"
+    },
+    {
+      "herb": "Bitter orange",
+      "reason": "synephrine — stimulant / cardiac"
+    },
+    {
+      "herb": "Any topical-only herb (e.g., arnica)",
+      "reason": "not for ingestion"
+    },
+    {
+      "herb": "Any powder without a supplier COA on file",
+      "reason": "traceability rule"
+    }
+  ],
+  "flags": [
+    {
+      "code": "PREG",
+      "condition": "Pregnant or nursing",
+      "action": "exclude herb"
+    },
+    {
+      "code": "THYROID",
+      "condition": "Thyroid condition or thyroid medication",
+      "action": "exclude herb; always show the iodine note (sea moss itself)"
+    },
+    {
+      "code": "ANTICOAG",
+      "condition": "Blood thinners / upcoming surgery",
+      "action": "exclude herb"
+    },
+    {
+      "code": "BP",
+      "condition": "Blood-pressure medication",
+      "action": "exclude herb"
+    },
+    {
+      "code": "GLUCOSE",
+      "condition": "Diabetes medication",
+      "action": "exclude herb"
+    },
+    {
+      "code": "SEDATIVE",
+      "condition": "Sedatives or sleep medication",
+      "action": "exclude herb"
+    },
+    {
+      "code": "SSRI",
+      "condition": "Antidepressants / mood medication",
+      "action": "exclude herb"
+    },
+    {
+      "code": "HORMONE",
+      "condition": "Hormone-sensitive condition or HRT",
+      "action": "exclude herb"
+    },
+    {
+      "code": "KIDNEY",
+      "condition": "Kidney condition",
+      "action": "exclude herb"
+    },
+    {
+      "code": "AUTOIMMUNE",
+      "condition": "Autoimmune condition",
+      "action": "exclude herb"
+    },
+    {
+      "code": "SEIZURE",
+      "condition": "Seizure disorder",
+      "action": "exclude herb"
+    },
+    {
+      "code": "GERD",
+      "condition": "Reflux / GERD",
+      "action": "exclude herb"
+    },
+    {
+      "code": "ASTER",
+      "condition": "Ragweed / daisy-family allergy",
+      "action": "exclude herb"
+    },
+    {
+      "code": "CAFFEINE",
+      "condition": "Caffeine-sensitive (customer says)",
+      "action": "exclude herb"
+    },
+    {
+      "code": "STIM",
+      "condition": "Gets jittery from stimulating herbs (customer says)",
+      "action": "exclude herb"
+    },
+    {
+      "code": "MEDTIMING",
+      "condition": "Informational only",
+      "action": "show 'take 2 hours apart from medications' note; herb stays"
+    }
+  ],
+  "disease_terms": [
+    {
+      "terms": "diabetes, blood sugar, insulin, A1C",
+      "action": "auto-flag + route",
+      "auto_flag": "GLUCOSE",
+      "route_to": "greens or digestion",
+      "note": "provider"
+    },
+    {
+      "terms": "high blood pressure, hypertension",
+      "action": "auto-flag + route",
+      "auto_flag": "BP",
+      "route_to": "stress",
+      "note": "provider"
+    },
+    {
+      "terms": "thyroid, Hashimoto's, hypo/hyperthyroid, goiter",
+      "action": "auto-flag + route",
+      "auto_flag": "THYROID",
+      "route_to": "energy or greens",
+      "note": "iodine + provider"
+    },
+    {
+      "terms": "pregnant, breastfeeding, nursing, trying to conceive",
+      "action": "auto-flag",
+      "auto_flag": "PREG",
+      "route_to": "Foundation only",
+      "note": "provider"
+    },
+    {
+      "terms": "depression, anxiety disorder, bipolar, schizophrenia, antidepressant",
+      "action": "auto-flag + route",
+      "auto_flag": "SSRI",
+      "route_to": "stress (mild herbs only)",
+      "note": "provider"
+    },
+    {
+      "terms": "blood thinner, warfarin, Eliquis, surgery",
+      "action": "auto-flag",
+      "auto_flag": "ANTICOAG",
+      "route_to": "any",
+      "note": "provider"
+    },
+    {
+      "terms": "cancer, chemo, tumor",
+      "action": "decline boost",
+      "auto_flag": "—",
+      "route_to": "Foundation only",
+      "note": "provider"
+    },
+    {
+      "terms": "kidney disease, dialysis",
+      "action": "decline boost",
+      "auto_flag": "KIDNEY",
+      "route_to": "Foundation only",
+      "note": "provider"
+    },
+    {
+      "terms": "liver disease, hepatitis, cirrhosis",
+      "action": "decline boost",
+      "auto_flag": "—",
+      "route_to": "Foundation only",
+      "note": "provider"
+    },
+    {
+      "terms": "heart disease, arrhythmia, stroke, heart failure",
+      "action": "decline boost",
+      "auto_flag": "—",
+      "route_to": "Foundation only",
+      "note": "provider"
+    },
+    {
+      "terms": "epilepsy, seizures",
+      "action": "auto-flag + route",
+      "auto_flag": "SEIZURE",
+      "route_to": "any",
+      "note": "provider"
+    },
+    {
+      "terms": "lupus, MS, rheumatoid arthritis, autoimmune",
+      "action": "auto-flag + route",
+      "auto_flag": "AUTOIMMUNE",
+      "route_to": "joints or stress",
+      "note": "provider"
+    },
+    {
+      "terms": "IBS, IBD, Crohn's, colitis, GERD, reflux, ulcer",
+      "action": "auto-flag + route",
+      "auto_flag": "GERD",
+      "route_to": "digestion (gentle set: slippery-elm, marshmallow-root, chamomile)",
+      "note": "provider"
+    },
+    {
+      "terms": "weight loss, lose weight, fat, slimming",
+      "action": "route + wording rule",
+      "auto_flag": "—",
+      "route_to": "metabolism",
+      "note": "none — explanation never echoes the term"
+    },
+    {
+      "terms": "erectile dysfunction, ED, libido, testosterone",
+      "action": "route + wording rule",
+      "auto_flag": "—",
+      "route_to": "vitality-men",
+      "note": "none — wording 'vitality and drive'"
+    },
+    {
+      "terms": "under 18, my kid, my teenager",
+      "action": "decline",
+      "auto_flag": "—",
+      "route_to": "standard gel line, adults only",
+      "note": "age"
+    }
+  ],
+  "flavors": [
+    "none",
+    "banana",
+    "blueberry",
+    "dragonfruit",
+    "grape",
+    "honey",
+    "honeydew",
+    "lychee",
+    "mango",
+    "orange",
+    "passion fruit",
+    "peach",
+    "pineapple",
+    "pineapple mango",
+    "red guava",
+    "rose",
+    "strawberry",
+    "strawberry pineapple",
+    "watermelon"
+  ],
+  "flavor_levels": [
+    "standard",
+    "extra"
+  ],
+  "flavor_swaps": [
+    {
+      "out_of_stock": "mango",
+      "offer": "pineapple mango"
+    },
+    {
+      "out_of_stock": "pineapple",
+      "offer": "pineapple mango"
+    },
+    {
+      "out_of_stock": "strawberry",
+      "offer": "strawberry pineapple"
+    },
+    {
+      "out_of_stock": "passion fruit",
+      "offer": "mango"
+    },
+    {
+      "out_of_stock": "dragonfruit",
+      "offer": "red guava"
+    },
+    {
+      "out_of_stock": "honeydew",
+      "offer": "watermelon"
+    },
+    {
+      "out_of_stock": "lychee",
+      "offer": "rose"
+    },
+    {
+      "out_of_stock": "peach",
+      "offer": "mango"
+    },
+    {
+      "out_of_stock": "grape",
+      "offer": "blueberry"
+    }
+  ]
+}

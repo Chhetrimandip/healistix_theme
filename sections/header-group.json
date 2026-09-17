@@ -25,14 +25,14 @@
           "type": "announcement",
           "settings": {
             "text": "FIND YOUR FLAVOR · EXPLORE HEALISTIX SEA MOSS GEL",
-            "link": "/products/sea-moss-gel-banana"
+            "link": "/products/sea-moss-gel"
           }
         },
         "announcement-bar-2": {
           "type": "announcement",
           "settings": {
             "text": "A LITTLE DAILY GOODNESS · MAKE IT YOUR RITUAL",
-            "link": "/products/sea-moss-gel-banana"
+            "link": "/products/sea-moss-gel"
           }
         }
       },

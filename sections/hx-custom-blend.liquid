@@ -1,0 +1,115 @@
+{{ 'hx-custom-blend.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'hx-custom-blend.js' | asset_url }}" defer></script>
+{%- liquid
+  assign blend_product = section.settings.approved_product
+  assign blend_variant = blend_product.selected_or_first_available_variant
+  assign quiz_url = section.settings.quiz_url
+  if quiz_url == blank
+    assign quiz_url = routes.root_url | append: 'pages/blend-quiz'
+  endif
+-%}
+<section class="hx-blend" data-hx-blend data-cart-root="{{ routes.root_url }}">
+  <script type="application/json" data-blend-config>
+    {"enabled":{{ section.settings.enable_purchase | json }},"productUrl":{{ blend_product.url | json }},"variantId":{{ blend_variant.id | json }},"formulaId":{{ section.settings.formula_id | json }},"formulaVersion":{{ section.settings.formula_version | json }},"approvedFormat":{{ section.settings.approved_format | json }},"currency":{{ cart.currency.iso_code | default: shop.currency | json }}}
+  </script>
+  <div class="hx-blend__wrap">
+    <nav class="hx-blend__steps" aria-label="Blend journey"><a href="{{ quiz_url }}" data-blend-edit>01 Your hair profile</a><span aria-current="step">02 Your blend</span><span>03 Make it yours</span></nav>
+    <p class="hx-blend__preview" data-blend-preview hidden>CLIENT PREVIEW · Illustrative hair profile and sea moss gel concept. No purchase will be placed.</p>
+    <p class="hx-blend__storage" data-blend-storage hidden></p>
+    <div class="hx-blend__empty" data-blend-empty>
+      <p class="hx-blend__eyebrow">A LITTLE CONTEXT. A MORE PERSONAL START.</p>
+      <h1>Your blend starts<br>with your hair profile.</h1>
+      <p>Tell us what you are noticing in your hair. Explore a custom sea moss gel, enriched with botanical powders, around your hair-care goals.</p>
+      <a class="hx-blend__button" href="{{ quiz_url }}">Find my blend <span aria-hidden="true">↗</span></a>
+      <p class="hx-blend__small">For adults of every gender. Your answers help personalize the experience.</p>
+    </div>
+    <div data-blend-result hidden>
+      <div class="hx-blend__hero">
+        <div class="hx-blend__gallery" aria-label="Custom sea moss product gallery">
+          <div class="hx-blend__gallery-stage">
+            <figure class="hx-blend__slide hx-blend__slide--editorial" data-blend-slide="0">
+              <img src="{{ 'hx-hair-hero-v3.png' | asset_url }}" alt="Healistix sea moss gel with amla fruit and botanical powder, editorial blend concept" width="1200" height="1400" fetchpriority="high">
+              <figcaption class="hx-blend__image-copy"><span>A LITTLE MORE PERSONAL.</span><strong>Your sea moss.<br>Your way.</strong></figcaption>
+              <span class="hx-blend__image-note">Custom blend concept</span>
+            </figure>
+            <figure class="hx-blend__slide hx-blend__slide--product" data-blend-slide="1" hidden>
+              <figcaption><span>THE SEA MOSS FOUNDATION</span><strong>Good things<br>start here.</strong></figcaption>
+              <img src="{{ 'hx-pilot-unflavored-front.webp' | asset_url }}" alt="Existing Healistix raw sea moss gel jar, shown as the base product reference" width="800" height="1000" loading="lazy">
+              <span class="hx-blend__image-note">Existing raw gel jar · Final custom label may differ</span>
+            </figure>
+            <figure class="hx-blend__slide hx-blend__slide--botanicals" data-blend-slide="2" hidden>
+              <figcaption><span>THE BOTANICAL DIRECTION</span><strong>Meet the<br>herbal additions.</strong></figcaption>
+              <div class="hx-blend__gallery-powders"><img src="{{ 'hx-duals-amla-powder-org.jpg' | asset_url }}" alt="Duals Natural Amla powder package" width="360" height="480" loading="lazy"><img src="{{ 'hx-duals-bhringaraj-powder.jpg' | asset_url }}" alt="Duals Natural Bhringaraj powder package" width="360" height="480" loading="lazy"></div>
+              <span class="hx-blend__image-note">Duals catalog ingredients · Proposed additions</span>
+            </figure>
+          </div>
+          <div class="hx-blend__thumbnails" aria-label="Choose product image">
+            <button type="button" data-blend-thumb="0" aria-pressed="true" aria-label="Show editorial blend photograph"><img src="{{ 'hx-hair-hero-v3.png' | asset_url }}" alt="" width="90" height="90"></button>
+            <button type="button" data-blend-thumb="1" aria-pressed="false" aria-label="Show the sea moss gel base"><img src="{{ 'hx-pilot-unflavored-front.webp' | asset_url }}" alt="" width="90" height="90"></button>
+            <button type="button" data-blend-thumb="2" aria-pressed="false" aria-label="Show Duals botanical ingredients"><img src="{{ 'hx-duals-amla-powder-org.jpg' | asset_url }}" alt="" width="90" height="90"></button>
+          </div>
+          <a class="hx-blend__gallery-link" href="#blend-ingredients-{{ section.id }}">A closer look at your ingredients <span aria-hidden="true">↓</span></a>
+        </div>
+        <div class="hx-blend__details">
+          <p class="hx-blend__eyebrow">HEALISTIX · MADE PERSONAL</p>
+          <h1>Custom Hair-Care<br>Sea Moss Gel</h1>
+          <p class="hx-blend__focus" data-blend-hero-focus></p>
+          <p class="hx-blend__lede" data-blend-hero-copy></p>
+          <ul class="hx-blend__benefits"><li>Sea moss gel base</li><li>Botanical additions</li><li>Your goals in focus</li></ul>
+          <div class="hx-blend__profile">
+            <div class="hx-blend__profile-title"><span>PERSONALIZED AROUND YOU</span><a href="{{ quiz_url }}" data-blend-edit>Edit answers</a></div>
+            <dl><div><dt>Your main concerns</dt><dd data-blend-concerns></dd></div><div><dt>What you want most</dt><dd data-blend-outcome></dd></div></dl>
+            <details class="hx-blend__profile-more"><summary>See your full hair profile</summary><dl><div><dt>Where you notice it</dt><dd data-blend-area></dd></div><div><dt>When it started</dt><dd data-blend-onset></dd></div><div><dt>How often</dt><dd data-blend-frequency></dd></div><div><dt>You have tried</dt><dd data-blend-tried></dd></div></dl></details>
+          </div>
+        <aside class="hx-blend__next" aria-label="Your next step">
+          <div class="hx-blend__offer-head"><h2>Make it your daily ritual.</h2><span class="hx-blend__status" data-blend-status>BLEND PREVIEW</span></div>
+          <p data-blend-next-copy>Your sea moss gel, with a botanical direction inspired by your answers. Final blend and price to be confirmed.</p>
+          <div class="hx-blend__next-summary"><span>Your focus</span><strong data-blend-buy-focus></strong><small>Sea moss gel + proposed Amla & Bhringaraj</small></div>
+          <div class="hx-blend__approved" data-blend-approved hidden><strong>{{ blend_product.title | escape }}</strong><p>{{ section.settings.formula_summary | escape }}</p><span data-blend-price></span><a href="{{ blend_product.url }}">Ingredients & product details ↗</a></div>
+          <button type="button" class="hx-blend__button" data-blend-buy hidden disabled>Add my blend to cart ↗</button>
+          <a class="hx-blend__button" data-blend-contact href="{{ section.settings.contact_url | default: '/pages/contact' }}">Ask about my blend <span aria-hidden="true">↗</span></a>
+          <a class="hx-blend__secondary" href="{{ quiz_url }}" data-blend-edit>Edit my answers</a>
+          <p class="hx-blend__small" data-blend-purchase-note>No charge until your finished blend is available.</p>
+          <p class="hx-blend__error" data-blend-error role="status" aria-live="polite"></p>
+          <div class="hx-blend__demo" data-blend-demo hidden><p>CLIENT WALKTHROUGH</p><button type="button" data-blend-demo-cart>Preview the cart step →</button><div data-blend-demo-summary hidden><strong>Your illustrative cart</strong><p>1 × custom sea moss gel<br>Price: awaiting approved product</p><p>Next: Shopify checkout, then order confirmation. No payment or order is created in this preview.</p></div></div>
+        </aside>
+        </div>
+      </div>
+      <div class="hx-blend__principles"><span>A familiar base.<strong>Sea moss gel</strong></span><span>A botanical direction.<strong>Amla & Bhringaraj</strong></span><span>A personal beginning.<strong>Your hair-care goals</strong></span></div>
+      <section class="hx-blend__ingredient-section">
+          <header id="blend-ingredients-{{ section.id }}" class="hx-blend__section-head"><p class="hx-blend__eyebrow">ONE SEA MOSS BASE. A BOTANICAL DIRECTION.</p><h2>Your sea moss.<br>A little more personal.</h2><p>Our custom blend concept combines a sea moss gel base with herbal powders from the Duals Natural catalog. Here is the thinking behind this hair-care direction.</p></header>
+          <p class="hx-blend__preference-note" data-blend-preference-copy></p>
+          <div class="hx-blend__ingredients">
+            <article class="hx-blend__ingredient hx-blend__ingredient--base"><span class="hx-blend__ingredient-art hx-blend__ingredient-art--base"><img src="{{ 'hx-pilot-unflavored-front.webp' | asset_url }}" alt="Healistix raw sea moss gel base" width="106" height="106" loading="lazy"></span><div><span class="hx-blend__tag">THE BASE · SEA MOSS GEL</span><h3>Your familiar foundation.</h3><p>A sea moss gel, customized with botanical additions. This is a ready-made gel concept, not a bag of powders or a topical hair mask.</p></div></article>
+            <article class="hx-blend__ingredient"><span class="hx-blend__ingredient-art hx-blend__ingredient-art--amla"><img src="{{ 'hx-duals-amla-powder-org.jpg' | asset_url }}" alt="Duals Natural Amla powder catalog package" width="106" height="106" loading="lazy"></span><div><span class="hx-blend__tag">FRUIT POWDER · SOUR & ASTRINGENT</span><h3>Amla</h3><p>Milled Indian gooseberry fruit, listed by Duals in its hair-care range. Its sour, astringent character matters when choosing a taste you will enjoy.</p><a href="https://dualsnatural.com/products/amla-powder-org" target="_blank" rel="noopener">Read the Duals listing ↗</a></div></article>
+            <article class="hx-blend__ingredient"><span class="hx-blend__ingredient-art hx-blend__ingredient-art--moringa"><img src="{{ 'hx-duals-bhringaraj-powder.jpg' | asset_url }}" alt="Duals Natural Bhringaraj powder catalog package" width="106" height="106" loading="lazy"></span><div><span class="hx-blend__tag">BOTANICAL POWDER · ECLIPTA ALBA</span><h3>Bhringaraj</h3><p>Duals describes bhringaraj in traditional hair-care routines. That heritage makes it a relevant botanical candidate for this hair-focused blend.</p><a href="https://dualsnatural.com/products/bhringaraj-powder" target="_blank" rel="noopener">Read the Duals listing ↗</a></div></article>
+            <article class="hx-blend__ingredient"><span class="hx-blend__ingredient-art hx-blend__ingredient-art--fenugreek"><img src="{{ 'hx-duals-hibiscus-powder-org.jpg' | asset_url }}" alt="Duals Natural Hibiscus powder catalog package" width="106" height="106" loading="lazy"></span><div><span class="hx-blend__tag">OPTIONAL TASTE DIRECTION · TART CHARACTER</span><h3>Hibiscus</h3><p>Hibiscus brings a tart culinary character to consider for taste. It is an optional direction, not a hair-growth ingredient selected by your answers.</p><a href="https://dualsnatural.com/products/hibiscus-powder-org" target="_blank" rel="noopener">Read the Duals listing ↗</a></div></article>
+          </div>
+          <p class="hx-blend__catalog-note">Ingredient photos show the Duals catalog products. Final additions, amounts and preparation will be shown on the finished blend label.</p>
+
+      </section>
+      <div class="hx-blend__lower">
+          <section class="hx-blend__routine"><p class="hx-blend__eyebrow">WHY YOUR ANSWERS MATTER</p><h2>A routine that starts<br>with your story.</h2><div><b>1</b><p><strong data-blend-context-title></strong><span data-blend-context-copy></span></p></div><div><b>2</b><p><strong>Build on what you have tried.</strong><span data-blend-tried-copy></span></p></div><div><b>3</b><p><strong data-blend-priority-title></strong><span data-blend-priority-copy></span></p></div></section>
+          <div class="hx-blend__faq"><h2>A few things to know.</h2><details><summary>What makes this different from a regular sea moss flavor?</summary><p>It starts with your hair concerns and goals, then explains a custom sea moss gel direction with botanical powders. Your answers shape the focus and guidance; they do not diagnose a condition or calculate herbal doses.</p></details><details><summary>Will this stop hair loss or regrow my hair?</summary><p>We cannot promise that. Hair loss can have different causes, and traditional ingredient use does not prove that this blend treats them. For new, sudden or concerning hair loss, seek guidance from a qualified healthcare professional.</p></details><details><summary>What is in the final jar?</summary><p>The finished product label will state the sea moss base, exact herbal additions, amounts, allergens and directions. The ingredients shown here are the proposed direction. Follow the label rather than mixing or dosing powders yourself.</p></details><details><summary>Who is this quiz for?</summary><p>Adults of every gender exploring their hair-care routine. Some Duals herbal listings carry pregnancy and nursing restrictions; ask a qualified professional about suitability if pregnant, nursing, taking medication or managing a health condition.</p></details><details><summary>Can I change or clear my answers?</summary><p>Yes. Edit your answers to revisit the quiz, or clear this profile below. Your answers stay in this browser tab's session; we do not attach hair concerns to cart items.</p><button type="button" class="hx-blend__clear" data-blend-clear>Clear my hair profile</button></details></div>
+      </div>
+    </div>
+    <noscript><p>JavaScript is needed to read your hair profile. Please <a href="{{ quiz_url }}">start the quiz</a> in a browser with JavaScript enabled, or contact us.</p></noscript>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Find My Blend",
+  "settings": [
+    {"type":"paragraph","content":"Defaults to an unpriced blend concept. Do not enable purchasing until the product, formula, label and suitability process are approved. The quiz personalizes the hair-care experience; it is not a medical assessment."},
+    {"type":"url","id":"quiz_url","label":"Hair quiz page"},
+    {"type":"url","id":"contact_url","label":"Blend questions page"},
+    {"type":"checkbox","id":"enable_purchase","label":"Enable approved product purchase","default":false},
+    {"type":"product","id":"approved_product","label":"Approved finished blend product"},
+    {"type":"text","id":"formula_id","label":"Approved formula ID"},
+    {"type":"text","id":"formula_version","label":"Approved formula version"},
+    {"type":"textarea","id":"formula_summary","label":"Approved formula and label summary"},
+    {"type":"select","id":"approved_format","label":"Approved product format","options":[{"value":"sea-moss-gel","label":"Sea moss gel + herbal powders"}],"default":"sea-moss-gel"}
+  ],
+  "presets": [{"name":"Find My Blend"}]
+}
+{% endschema %}

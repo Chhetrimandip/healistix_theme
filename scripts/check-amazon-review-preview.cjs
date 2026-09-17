@@ -11,7 +11,7 @@ const fs = require('fs');
     const page = await context.newPage();
     for (const width of [390, 1280]) {
       await page.setViewportSize({ width, height: 900 });
-      for (const path of ['/', '/products/sea-moss-gel-banana?variant=47331891970186']) {
+      for (const path of ['/', '/products/sea-moss-gel?variant=47331891970186']) {
         await page.goto('http://127.0.0.1:9292' + path, { waitUntil: 'domcontentloaded', timeout: 35000 });
         const section = page.locator('.hx-review-stories');
         await section.scrollIntoViewIfNeeded();

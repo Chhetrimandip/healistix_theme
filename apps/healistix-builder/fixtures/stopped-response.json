@@ -1,0 +1,22 @@
+{
+  "schema_version": "1",
+  "request_id": "synthetic-fixture-stopped-response",
+  "status": "stopped",
+  "build": null,
+  "display": null,
+  "notes": [
+    {
+      "code": "GATE",
+      "text": "This builder cannot offer an added-herb blend for these answers."
+    }
+  ],
+  "errors": [],
+  "clarification": null,
+  "foundation_url": null,
+  "pricing": null,
+  "availability": null,
+  "purchase": {
+    "enabled": false,
+    "reason_code": "PREVIEW_ONLY"
+  }
+}

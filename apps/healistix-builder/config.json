@@ -1,0 +1,23 @@
+{
+  "engine_version": "0.1.0-preview",
+  "record_version": "1",
+  "pricing_version": "2026-09-12-provisional",
+  "currency": "USD",
+  "tier_1_2_minor": 2999,
+  "tier_3_4_minor": 3499,
+  "strong_minor": 400,
+  "premium_each_minor": 400,
+  "subscription_discount_bps": 1500,
+  "pair_discount_bps": 1000,
+  "discounts_enabled": false,
+  "max_herbs": 4,
+  "max_total_powder_g": 30,
+  "max_thickener_g": 8,
+  "strong_multiplier": 1.5,
+  "foundation_url": null,
+  "preview_only": true,
+  "unavailable_herbs": ["shilajit"],
+  "max_strong_bitter": 1,
+  "strong_bitter_ids": ["tongkat-ali", "rhodiola"],
+  "provider_timeout_seconds": 6
+}

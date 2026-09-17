@@ -52,12 +52,13 @@ class CartItems extends HTMLElement {
         .then((response) => response.text())
         .then((responseText) => {
           const html = new DOMParser().parseFromString(responseText, 'text/html');
-          const selectors = ['cart-drawer-items', '.cart-drawer__footer'];
+          const selectors = ['.drawer__inner'];
+          document.querySelector('cart-drawer')?.classList.toggle('is-empty', html.querySelector('cart-drawer').classList.contains('is-empty'));
           for (const selector of selectors) {
             const targetElement = document.querySelector(selector);
             const sourceElement = html.querySelector(selector);
             if (targetElement && sourceElement) {
-              targetElement.replaceWith(sourceElement);
+              targetElement.innerHTML = sourceElement.innerHTML;
             }
           }
         })

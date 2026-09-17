@@ -1,0 +1,577 @@
+{
+  "schema_version": "1",
+  "request_id": "synthetic-fixture-catalog",
+  "uses": [
+    {
+      "id": "digestion",
+      "name": "Digestion & gut comfort"
+    },
+    {
+      "id": "skin-hair-nails",
+      "name": "Skin, hair & nails"
+    },
+    {
+      "id": "energy",
+      "name": "Energy & stamina"
+    },
+    {
+      "id": "vitality-men",
+      "name": "Vitality & drive (men)"
+    },
+    {
+      "id": "vitality-women",
+      "name": "Vitality & drive (women)"
+    },
+    {
+      "id": "stress",
+      "name": "Calm & stress"
+    },
+    {
+      "id": "sleep",
+      "name": "Rest & sleep"
+    },
+    {
+      "id": "focus",
+      "name": "Focus & memory"
+    },
+    {
+      "id": "joints",
+      "name": "Joints & mobility"
+    },
+    {
+      "id": "greens",
+      "name": "Daily greens & minerals"
+    },
+    {
+      "id": "cleanse",
+      "name": "Cleanse & liver support"
+    },
+    {
+      "id": "respiratory",
+      "name": "Respiratory & seasonal comfort"
+    },
+    {
+      "id": "metabolism",
+      "name": "Metabolism & appetite balance"
+    },
+    {
+      "id": "womens-balance",
+      "name": "Women's balance"
+    },
+    {
+      "id": "recovery",
+      "name": "Workout recovery"
+    },
+    {
+      "id": "mood",
+      "name": "Mood & uplift"
+    }
+  ],
+  "herbs": [
+    {
+      "id": "ashwagandha",
+      "name": "Ashwagandha root",
+      "default_g": 8,
+      "max_g": 12,
+      "g": 8,
+      "premium": false,
+      "approved_phrase": "helps the body adapt to everyday stress"
+    },
+    {
+      "id": "maca",
+      "name": "Maca root (yellow)",
+      "default_g": 8,
+      "max_g": 16,
+      "g": 8,
+      "premium": false,
+      "approved_phrase": "traditionally used for energy and stamina"
+    },
+    {
+      "id": "korean-red-ginseng",
+      "name": "Korean red ginseng root",
+      "default_g": 4,
+      "max_g": 6,
+      "g": 4,
+      "premium": true,
+      "approved_phrase": "traditionally used for energy and vitality"
+    },
+    {
+      "id": "tongkat-ali",
+      "name": "Tongkat ali root",
+      "default_g": 3,
+      "max_g": 5,
+      "g": 3,
+      "premium": true,
+      "approved_phrase": "traditionally used to support male vitality"
+    },
+    {
+      "id": "beet-root",
+      "name": "Beet root",
+      "default_g": 6,
+      "max_g": 12,
+      "g": 6,
+      "premium": false,
+      "approved_phrase": "traditionally used for natural energy and endurance"
+    },
+    {
+      "id": "ginger",
+      "name": "Ginger root",
+      "default_g": 6,
+      "max_g": 10,
+      "g": 6,
+      "premium": false,
+      "approved_phrase": "traditionally used to settle the stomach"
+    },
+    {
+      "id": "turmeric",
+      "name": "Turmeric root",
+      "default_g": 6,
+      "max_g": 10,
+      "g": 6,
+      "premium": false,
+      "approved_phrase": "traditionally used for joint comfort"
+    },
+    {
+      "id": "reishi",
+      "name": "Reishi mushroom",
+      "default_g": 6,
+      "max_g": 10,
+      "g": 6,
+      "premium": false,
+      "approved_phrase": "traditionally used for calm and balance"
+    },
+    {
+      "id": "lions-mane",
+      "name": "Lion's mane mushroom",
+      "default_g": 8,
+      "max_g": 12,
+      "g": 8,
+      "premium": false,
+      "approved_phrase": "traditionally used for focus and mental clarity"
+    },
+    {
+      "id": "cordyceps",
+      "name": "Cordyceps mushroom",
+      "default_g": 6,
+      "max_g": 10,
+      "g": 6,
+      "premium": true,
+      "approved_phrase": "traditionally used for stamina and endurance"
+    },
+    {
+      "id": "chaga",
+      "name": "Chaga mushroom",
+      "default_g": 5,
+      "max_g": 8,
+      "g": 5,
+      "premium": false,
+      "approved_phrase": "traditionally used as a daily tonic"
+    },
+    {
+      "id": "spirulina",
+      "name": "Spirulina",
+      "default_g": 6,
+      "max_g": 12,
+      "g": 6,
+      "premium": false,
+      "approved_phrase": "a nutrient-dense blue-green algae"
+    },
+    {
+      "id": "chlorella",
+      "name": "Chlorella",
+      "default_g": 5,
+      "max_g": 10,
+      "g": 5,
+      "premium": false,
+      "approved_phrase": "a chlorophyll-rich green algae"
+    },
+    {
+      "id": "moringa",
+      "name": "Moringa leaf",
+      "default_g": 6,
+      "max_g": 10,
+      "g": 6,
+      "premium": false,
+      "approved_phrase": "a nutrient-dense leaf"
+    },
+    {
+      "id": "hibiscus",
+      "name": "Hibiscus flower",
+      "default_g": 5,
+      "max_g": 8,
+      "g": 5,
+      "premium": false,
+      "approved_phrase": "traditionally enjoyed as a cooling tonic"
+    },
+    {
+      "id": "cinnamon",
+      "name": "Ceylon cinnamon bark",
+      "default_g": 3,
+      "max_g": 5,
+      "g": 3,
+      "premium": false,
+      "approved_phrase": "traditionally used to support healthy metabolism"
+    },
+    {
+      "id": "fenugreek",
+      "name": "Fenugreek seed",
+      "default_g": 4,
+      "max_g": 8,
+      "g": 4,
+      "premium": false,
+      "approved_phrase": "traditionally used for digestion and appetite balance"
+    },
+    {
+      "id": "slippery-elm",
+      "name": "Slippery elm bark",
+      "default_g": 5,
+      "max_g": 8,
+      "g": 5,
+      "premium": false,
+      "approved_phrase": "soothing mucilage for the digestive tract"
+    },
+    {
+      "id": "marshmallow-root",
+      "name": "Marshmallow root",
+      "default_g": 5,
+      "max_g": 8,
+      "g": 5,
+      "premium": false,
+      "approved_phrase": "soothing mucilage"
+    },
+    {
+      "id": "fennel",
+      "name": "Fennel seed",
+      "default_g": 4,
+      "max_g": 6,
+      "g": 4,
+      "premium": false,
+      "approved_phrase": "traditionally used for bloating and comfortable digestion"
+    },
+    {
+      "id": "peppermint",
+      "name": "Peppermint leaf",
+      "default_g": 3,
+      "max_g": 5,
+      "g": 3,
+      "premium": false,
+      "approved_phrase": "traditionally used for digestive comfort"
+    },
+    {
+      "id": "chamomile",
+      "name": "Chamomile flower",
+      "default_g": 4,
+      "max_g": 6,
+      "g": 4,
+      "premium": false,
+      "approved_phrase": "gentle and calming"
+    },
+    {
+      "id": "lemon-balm",
+      "name": "Lemon balm leaf",
+      "default_g": 4,
+      "max_g": 6,
+      "g": 4,
+      "premium": false,
+      "approved_phrase": "traditionally used for calm and restful sleep"
+    },
+    {
+      "id": "passionflower",
+      "name": "Passionflower",
+      "default_g": 3,
+      "max_g": 5,
+      "g": 3,
+      "premium": false,
+      "approved_phrase": "traditionally used for rest"
+    },
+    {
+      "id": "holy-basil",
+      "name": "Holy basil (tulsi) leaf",
+      "default_g": 5,
+      "max_g": 8,
+      "g": 5,
+      "premium": false,
+      "approved_phrase": "an adaptogen traditionally used for daily balance"
+    },
+    {
+      "id": "rhodiola",
+      "name": "Rhodiola root",
+      "default_g": 3,
+      "max_g": 5,
+      "g": 3,
+      "premium": true,
+      "approved_phrase": "traditionally used for stamina and stress resilience"
+    },
+    {
+      "id": "shatavari",
+      "name": "Shatavari root",
+      "default_g": 6,
+      "max_g": 10,
+      "g": 6,
+      "premium": false,
+      "approved_phrase": "traditionally used for women's vitality"
+    },
+    {
+      "id": "damiana",
+      "name": "Damiana leaf",
+      "default_g": 3,
+      "max_g": 5,
+      "g": 3,
+      "premium": false,
+      "approved_phrase": "traditionally used for mood and desire"
+    },
+    {
+      "id": "muira-puama",
+      "name": "Muira puama bark",
+      "default_g": 3,
+      "max_g": 5,
+      "g": 3,
+      "premium": false,
+      "approved_phrase": "traditionally used for male vitality"
+    },
+    {
+      "id": "horny-goat-weed",
+      "name": "Horny goat weed (epimedium)",
+      "default_g": 3,
+      "max_g": 5,
+      "g": 3,
+      "premium": false,
+      "approved_phrase": "traditionally used for vitality"
+    },
+    {
+      "id": "sarsaparilla",
+      "name": "Sarsaparilla root",
+      "default_g": 4,
+      "max_g": 6,
+      "g": 4,
+      "premium": false,
+      "approved_phrase": "traditionally used in Caribbean tonics"
+    },
+    {
+      "id": "burdock-root",
+      "name": "Burdock root",
+      "default_g": 5,
+      "max_g": 8,
+      "g": 5,
+      "premium": false,
+      "approved_phrase": "traditionally used for skin and cleansing"
+    },
+    {
+      "id": "dandelion-root",
+      "name": "Dandelion root",
+      "default_g": 5,
+      "max_g": 8,
+      "g": 5,
+      "premium": false,
+      "approved_phrase": "traditionally used for liver support"
+    },
+    {
+      "id": "nettle-leaf",
+      "name": "Nettle leaf",
+      "default_g": 5,
+      "max_g": 8,
+      "g": 5,
+      "premium": false,
+      "approved_phrase": "a mineral-rich leaf"
+    },
+    {
+      "id": "horsetail",
+      "name": "Horsetail",
+      "default_g": 3,
+      "max_g": 5,
+      "g": 3,
+      "premium": false,
+      "approved_phrase": "a natural source of silica"
+    },
+    {
+      "id": "amla",
+      "name": "Amla (Indian gooseberry)",
+      "default_g": 6,
+      "max_g": 10,
+      "g": 6,
+      "premium": false,
+      "approved_phrase": "a vitamin-C-rich fruit traditionally used for hair and skin"
+    },
+    {
+      "id": "bladderwrack",
+      "name": "Bladderwrack",
+      "default_g": 2,
+      "max_g": 3,
+      "g": 2,
+      "premium": false,
+      "approved_phrase": "a second sea vegetable, naturally iodine-rich"
+    },
+    {
+      "id": "elderberry",
+      "name": "Elderberry fruit",
+      "default_g": 5,
+      "max_g": 8,
+      "g": 5,
+      "premium": false,
+      "approved_phrase": "traditionally enjoyed in autumn tonics"
+    },
+    {
+      "id": "black-seed",
+      "name": "Black seed (nigella)",
+      "default_g": 4,
+      "max_g": 8,
+      "g": 4,
+      "premium": false,
+      "approved_phrase": "traditionally used in Unani medicine as a daily tonic"
+    },
+    {
+      "id": "cacao",
+      "name": "Raw cacao",
+      "default_g": 8,
+      "max_g": 15,
+      "g": 8,
+      "premium": false,
+      "approved_phrase": "raw cacao for flavor and mood"
+    },
+    {
+      "id": "matcha",
+      "name": "Matcha green tea",
+      "default_g": 3,
+      "max_g": 6,
+      "g": 3,
+      "premium": false,
+      "approved_phrase": "green tea leaf for calm energy"
+    },
+    {
+      "id": "bacopa",
+      "name": "Bacopa (brahmi)",
+      "default_g": 4,
+      "max_g": 6,
+      "g": 4,
+      "premium": false,
+      "approved_phrase": "traditionally used for memory and focus"
+    },
+    {
+      "id": "gotu-kola",
+      "name": "Gotu kola",
+      "default_g": 4,
+      "max_g": 6,
+      "g": 4,
+      "premium": false,
+      "approved_phrase": "traditionally used for mental clarity and skin"
+    },
+    {
+      "id": "boswellia",
+      "name": "Boswellia (frankincense) resin",
+      "default_g": 3,
+      "max_g": 5,
+      "g": 3,
+      "premium": false,
+      "approved_phrase": "traditionally used for joint comfort"
+    },
+    {
+      "id": "milk-thistle",
+      "name": "Milk thistle seed",
+      "default_g": 5,
+      "max_g": 8,
+      "g": 5,
+      "premium": false,
+      "approved_phrase": "traditionally used for liver support"
+    },
+    {
+      "id": "mullein",
+      "name": "Mullein leaf",
+      "default_g": 4,
+      "max_g": 6,
+      "g": 4,
+      "premium": false,
+      "approved_phrase": "traditionally used for respiratory comfort"
+    },
+    {
+      "id": "red-raspberry-leaf",
+      "name": "Red raspberry leaf",
+      "default_g": 4,
+      "max_g": 6,
+      "g": 4,
+      "premium": false,
+      "approved_phrase": "traditionally used for women's wellness"
+    },
+    {
+      "id": "ginkgo",
+      "name": "Ginkgo leaf",
+      "default_g": 3,
+      "max_g": 5,
+      "g": 3,
+      "premium": false,
+      "approved_phrase": "traditionally used for memory and circulation"
+    },
+    {
+      "id": "saffron",
+      "name": "Saffron",
+      "default_g": 0.2,
+      "max_g": 0.4,
+      "g": 0.2,
+      "premium": true,
+      "approved_phrase": "traditionally used for mood"
+    },
+    {
+      "id": "licorice-root",
+      "name": "Licorice root",
+      "default_g": 2,
+      "max_g": 3,
+      "g": 2,
+      "premium": false,
+      "approved_phrase": "a naturally sweet, soothing root"
+    },
+    {
+      "id": "cayenne",
+      "name": "Cayenne pepper",
+      "default_g": 0.5,
+      "max_g": 1,
+      "g": 0.5,
+      "premium": false,
+      "approved_phrase": "warming"
+    }
+  ],
+  "flavors": [
+    "none",
+    "banana",
+    "blueberry",
+    "dragonfruit",
+    "grape",
+    "honey",
+    "honeydew",
+    "lychee",
+    "mango",
+    "orange",
+    "passion fruit",
+    "peach",
+    "pineapple",
+    "pineapple mango",
+    "red guava",
+    "rose",
+    "strawberry",
+    "strawberry pineapple",
+    "watermelon"
+  ],
+  "conditions": [
+    "thyroid",
+    "blood_thinners",
+    "blood_pressure",
+    "diabetes_meds",
+    "sedatives",
+    "antidepressants",
+    "hormone_sensitive",
+    "kidney",
+    "autoimmune",
+    "seizures",
+    "reflux",
+    "ragweed",
+    "caffeine_sensitive"
+  ],
+  "capabilities": {
+    "preview_only": true,
+    "model_configured": false,
+    "pricing_confirmed": false,
+    "availability_confirmed": false
+  },
+  "purchase": {
+    "enabled": false,
+    "reason_code": "PREVIEW_ONLY"
+  }
+}

@@ -1,0 +1,608 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "1"
+    },
+    "request_id": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "recommended",
+        "clarification",
+        "foundation",
+        "stopped",
+        "invalid",
+        "unavailable"
+      ]
+    },
+    "build": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "build_id": {
+              "type": "string",
+              "pattern": "^B-[A-Z2-7]{8}$"
+            },
+            "base": {
+              "enum": [
+                "gold-16oz"
+              ]
+            },
+            "flavor": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "enum": [
+                    "none",
+                    "banana",
+                    "blueberry",
+                    "dragonfruit",
+                    "grape",
+                    "honey",
+                    "honeydew",
+                    "lychee",
+                    "mango",
+                    "orange",
+                    "passion fruit",
+                    "peach",
+                    "pineapple",
+                    "pineapple mango",
+                    "red guava",
+                    "rose",
+                    "strawberry",
+                    "strawberry pineapple",
+                    "watermelon"
+                  ]
+                },
+                "level": {
+                  "enum": [
+                    "standard",
+                    "extra"
+                  ]
+                }
+              },
+              "required": [
+                "id",
+                "level"
+              ],
+              "additionalProperties": false
+            },
+            "strength": {
+              "enum": [
+                "standard",
+                "strong"
+              ]
+            },
+            "herbs": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "enum": [
+                      "ashwagandha",
+                      "maca",
+                      "korean-red-ginseng",
+                      "tongkat-ali",
+                      "beet-root",
+                      "ginger",
+                      "turmeric",
+                      "reishi",
+                      "lions-mane",
+                      "cordyceps",
+                      "chaga",
+                      "spirulina",
+                      "chlorella",
+                      "moringa",
+                      "hibiscus",
+                      "cinnamon",
+                      "fenugreek",
+                      "slippery-elm",
+                      "marshmallow-root",
+                      "fennel",
+                      "peppermint",
+                      "chamomile",
+                      "lemon-balm",
+                      "passionflower",
+                      "holy-basil",
+                      "rhodiola",
+                      "shatavari",
+                      "damiana",
+                      "muira-puama",
+                      "horny-goat-weed",
+                      "sarsaparilla",
+                      "burdock-root",
+                      "dandelion-root",
+                      "nettle-leaf",
+                      "horsetail",
+                      "amla",
+                      "bladderwrack",
+                      "elderberry",
+                      "black-seed",
+                      "cacao",
+                      "matcha",
+                      "bacopa",
+                      "gotu-kola",
+                      "boswellia",
+                      "milk-thistle",
+                      "mullein",
+                      "red-raspberry-leaf",
+                      "shilajit",
+                      "ginkgo",
+                      "saffron",
+                      "licorice-root",
+                      "cayenne"
+                    ]
+                  },
+                  "g": {
+                    "type": "number",
+                    "exclusiveMinimum": 0,
+                    "maximum": 30
+                  }
+                },
+                "required": [
+                  "id",
+                  "g"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 1,
+              "maxItems": 4,
+              "uniqueItems": false
+            },
+            "uses": {
+              "type": "array",
+              "items": {
+                "enum": [
+                  "digestion",
+                  "skin-hair-nails",
+                  "energy",
+                  "vitality-men",
+                  "vitality-women",
+                  "stress",
+                  "sleep",
+                  "focus",
+                  "joints",
+                  "greens",
+                  "cleanse",
+                  "respiratory",
+                  "metabolism",
+                  "womens-balance",
+                  "recovery",
+                  "mood"
+                ]
+              },
+              "minItems": 1,
+              "maxItems": 2,
+              "uniqueItems": true
+            },
+            "total_powder_g": {
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 30
+            },
+            "engine_version": {
+              "type": "string"
+            },
+            "library_version": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "build_id",
+            "base",
+            "flavor",
+            "strength",
+            "herbs",
+            "uses",
+            "total_powder_g",
+            "engine_version",
+            "library_version"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "display": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "summary": {
+              "type": "string"
+            },
+            "explanation": {
+              "type": "string"
+            },
+            "uses": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "enum": [
+                      "digestion",
+                      "skin-hair-nails",
+                      "energy",
+                      "vitality-men",
+                      "vitality-women",
+                      "stress",
+                      "sleep",
+                      "focus",
+                      "joints",
+                      "greens",
+                      "cleanse",
+                      "respiratory",
+                      "metabolism",
+                      "womens-balance",
+                      "recovery",
+                      "mood"
+                    ]
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "name"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 1,
+              "maxItems": 2,
+              "uniqueItems": false
+            },
+            "herbs": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "g": {
+                    "type": "number"
+                  },
+                  "approved_phrase": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "name",
+                  "g",
+                  "approved_phrase"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 1,
+              "maxItems": 4,
+              "uniqueItems": false
+            },
+            "editable_herbs": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "default_g": {
+                    "type": "number"
+                  },
+                  "max_g": {
+                    "type": "number"
+                  },
+                  "g": {
+                    "type": "number"
+                  },
+                  "premium": {
+                    "type": "boolean"
+                  },
+                  "approved_phrase": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "name",
+                  "default_g",
+                  "max_g",
+                  "g",
+                  "premium",
+                  "approved_phrase"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 0,
+              "maxItems": 100,
+              "uniqueItems": false
+            },
+            "swaps": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "minItems": 0,
+                "maxItems": 3,
+                "uniqueItems": true
+              }
+            }
+          },
+          "required": [
+            "summary",
+            "explanation",
+            "uses",
+            "herbs",
+            "editable_herbs",
+            "swaps"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "text"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0,
+      "maxItems": 100,
+      "uniqueItems": false
+    },
+    "errors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "field": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "field",
+          "message"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0,
+      "maxItems": 100,
+      "uniqueItems": false
+    },
+    "clarification": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "question": {
+              "type": "string"
+            },
+            "options": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "enum": [
+                      "digestion",
+                      "skin-hair-nails",
+                      "energy",
+                      "vitality-men",
+                      "vitality-women",
+                      "stress",
+                      "sleep",
+                      "focus",
+                      "joints",
+                      "greens",
+                      "cleanse",
+                      "respiratory",
+                      "metabolism",
+                      "womens-balance",
+                      "recovery",
+                      "mood"
+                    ]
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "name"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 1,
+              "maxItems": 16,
+              "uniqueItems": false
+            }
+          },
+          "required": [
+            "question",
+            "options"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "foundation_url": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "pricing": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "currency": {
+              "const": "USD"
+            },
+            "total_minor": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "breakdown": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "code": {
+                    "type": "string"
+                  },
+                  "label": {
+                    "type": "string"
+                  },
+                  "quantity": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "unit_minor": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "total_minor": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "code",
+                  "label",
+                  "quantity",
+                  "unit_minor",
+                  "total_minor"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 0,
+              "maxItems": 100,
+              "uniqueItems": false
+            },
+            "confirmed": {
+              "const": false
+            }
+          },
+          "required": [
+            "currency",
+            "total_minor",
+            "breakdown",
+            "confirmed"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "availability": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "ship_by": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "confirmed": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "ship_by",
+            "confirmed"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "purchase": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "const": false
+        },
+        "reason_code": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "enabled",
+        "reason_code"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "request_id",
+    "status",
+    "build",
+    "display",
+    "notes",
+    "errors",
+    "clarification",
+    "foundation_url",
+    "pricing",
+    "availability",
+    "purchase"
+  ],
+  "additionalProperties": false
+}

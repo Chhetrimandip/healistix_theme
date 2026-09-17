@@ -1,7 +1,7 @@
 param([string]$BaseUrl = 'http://127.0.0.1:9292')
 $ErrorActionPreference = 'Stop'
-$catalog = Invoke-RestMethod "$BaseUrl/products/sea-moss-gel-banana.js" -TimeoutSec 30
-$page = (Invoke-WebRequest "$BaseUrl/products/sea-moss-gel-banana?variant=$($catalog.variants[0].id)" -UseBasicParsing -TimeoutSec 30).Content
+$catalog = Invoke-RestMethod "$BaseUrl/products/sea-moss-gel.js" -TimeoutSec 30
+$page = (Invoke-WebRequest "$BaseUrl/products/sea-moss-gel?variant=$($catalog.variants[0].id)" -UseBasicParsing -TimeoutSec 30).Content
 if ($page.Contains('Liquid error') -or $page.Contains('Could not find asset snippets')) { throw 'Liquid rendering error in product page' }
 $panels = [regex]::Matches($page, '(?s)<div data-flavor-label="(?<flavor>[^"]+)".*?(?=<div data-flavor-label=|<!-- label-panels-end -->)')
 $expected = @($catalog.variants | ForEach-Object { $_.option1 } | Select-Object -Unique)

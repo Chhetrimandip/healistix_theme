@@ -1,0 +1,21 @@
+{{ 'hx-hair-quiz-v3.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'hx-blend-quiz.js' | asset_url }}" defer="defer"></script>
+<section class="hxq" data-hx-blend-quiz data-result-url="{{ section.settings.result_url | default: '/pages/find-my-blend' }}" data-gel-image="{{ 'hx-pilot-unflavored-front.webp' | asset_url }}" data-amla-image="{{ 'hx-duals-amla-powder-org.jpg' | asset_url }}" data-bhringaraj-image="{{ 'hx-duals-bhringaraj-powder.jpg' | asset_url }}" style="--hxq-locations:url('{{ 'hx-hair-locations-v3.png' | asset_url }}');--hxq-choices:url('{{ 'hx-hair-choices-v3.png' | asset_url }}')" aria-label="Find my blend hair quiz">
+  <div class="hxq-shell">
+    <a class="hxq-logo" href="{{ section.settings.landing_url | default: '/pages/hair-routine' }}" aria-label="Healistix — return to hair care"><img src="{{ 'healistix-logo.png' | asset_url }}" alt="Healistix" width="130" height="40"></a>
+    <noscript><div class="hxf-notice">Enable JavaScript to take the quiz, or <a href="{{ section.settings.result_url | default: '/pages/find-my-blend' }}">explore the ingredients</a>.</div></noscript>
+    <div data-quiz-app hidden>
+      <div class="hxq-progress" role="progressbar" aria-label="Quiz progress" aria-valuemin="0" aria-valuemax="8" aria-valuenow="0"><span data-progress-fill></span></div>
+      <div class="hxq-meta"><button class="hxf-text-button hxq-back" type="button" data-back aria-label="Previous question">← Back</button><span data-step-label>Question 1 of 8</span></div>
+      <div class="hxq-content" data-step-content></div>
+      <p class="hxf-quiz-error" data-quiz-error role="alert" hidden></p>
+      <button class="hxf-button hxq-next" type="button" data-next>Continue →</button>
+      <p class="hxq-private">Private to this browser tab · No email required</p>
+      <div class="hxf-notice" data-storage-notice hidden>Your browser couldn’t save this profile for the next page. Please retry, or <a href="{{ section.settings.result_url | default: '/pages/find-my-blend' }}">explore the ingredient collection</a>.</div>
+      <footer class="hxq-footer"><p>For adults of all genders. Your answers describe your hair-care goals, not the cause of hair changes.</p><button class="hxf-text-button" type="button" data-clear-profile>Clear answers</button></footer>
+    </div>
+  </div>
+</section>
+{% schema %}
+{"name":"Hair profile blend quiz","settings":[{"type":"url","id":"result_url","label":"Find my blend page"},{"type":"url","id":"landing_url","label":"Hair landing page"}],"presets":[{"name":"Hair profile blend quiz"}]}
+{% endschema %}

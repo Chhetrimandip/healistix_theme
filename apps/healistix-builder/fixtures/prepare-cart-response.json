@@ -1,0 +1,23 @@
+{
+  "schema_version": "1",
+  "request_id": "synthetic-fixture-prepare-cart-response",
+  "status": "unavailable",
+  "build": null,
+  "display": null,
+  "notes": [],
+  "errors": [
+    {
+      "code": "PURCHASE_UNAVAILABLE",
+      "field": "",
+      "message": "Purchasing is unavailable in this review preview."
+    }
+  ],
+  "clarification": null,
+  "foundation_url": null,
+  "pricing": null,
+  "availability": null,
+  "purchase": {
+    "enabled": false,
+    "reason_code": "PREVIEW_ONLY"
+  }
+}

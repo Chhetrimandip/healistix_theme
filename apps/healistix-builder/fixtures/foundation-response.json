@@ -1,0 +1,26 @@
+{
+  "schema_version": "1",
+  "request_id": "synthetic-fixture-foundation-response",
+  "status": "foundation",
+  "build": null,
+  "display": null,
+  "notes": [
+    {
+      "code": "PROVIDER",
+      "text": "Sea moss and herbs can interact with medications. Check with your healthcare provider before adding this to your routine."
+    },
+    {
+      "code": "GATE",
+      "text": "This builder cannot offer an added-herb blend for these answers."
+    }
+  ],
+  "errors": [],
+  "clarification": null,
+  "foundation_url": null,
+  "pricing": null,
+  "availability": null,
+  "purchase": {
+    "enabled": false,
+    "reason_code": "PREVIEW_ONLY"
+  }
+}

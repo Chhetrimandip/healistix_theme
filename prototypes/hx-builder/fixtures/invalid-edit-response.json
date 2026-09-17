@@ -1,0 +1,23 @@
+{
+  "schema_version": "1",
+  "request_id": "synthetic-fixture-invalid-edit-response",
+  "status": "invalid",
+  "build": null,
+  "display": null,
+  "notes": [],
+  "errors": [
+    {
+      "code": "INVALID_AMOUNT",
+      "field": "recipe",
+      "message": "Use the listed amount for the selected strength."
+    }
+  ],
+  "clarification": null,
+  "foundation_url": null,
+  "pricing": null,
+  "availability": null,
+  "purchase": {
+    "enabled": false,
+    "reason_code": "PREVIEW_ONLY"
+  }
+}

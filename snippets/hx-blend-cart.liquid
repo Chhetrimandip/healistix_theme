@@ -1,0 +1,17 @@
+{% comment %}Local development integration. Requires validate-shopify-cart backend before a future upload.{% endcomment %}
+{% assign hx_has_blend = false %}
+{% for item in cart.items %}
+  {% if item.properties._hx_cart_group != blank or item.properties._recipe_digest != blank or item.product_id == 9299597688970 or item.product_id == 9299610304650 %}
+    {% assign hx_has_blend = true %}
+  {% endif %}
+{% endfor %}
+{% if request.page_type == 'cart' and hx_has_blend %}
+  {{ 'hx-blend-cart.css' | asset_url | stylesheet_tag }}
+  <style>#MainContent > .shopify-section:has(cart-items),#MainContent > .shopify-section:has(#main-cart-footer){display:none}</style>
+  <section data-hx-blend-cart data-builder-url="{{ routes.root_url }}?view=builder-review">
+    <p>Checking your custom blends…</p>
+    <noscript>Enable JavaScript to review custom blends and their premium charges before checkout.</noscript>
+  </section>
+  <script type="module" src="{{ 'hx-blend-cart-ui.js' | asset_url }}"></script>
+{% endif %}
+<script type="module" src="{{ 'hx-blend-cart-drawer.js' | asset_url }}"></script>

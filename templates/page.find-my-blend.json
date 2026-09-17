@@ -1,0 +1,15 @@
+{
+  "sections": {
+    "main": {
+      "type": "hx-custom-blend",
+      "settings": {
+        "enable_purchase": false,
+        "approved_format": "sea-moss-gel",
+        "quiz_url": "/pages/findmyseamoss?preview_theme_id=158284939402&view=blend-quiz"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

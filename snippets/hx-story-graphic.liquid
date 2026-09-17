@@ -1,0 +1,17 @@
+<svg class="hx-story-graphic hx-story-graphic--{{ kind }}" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+  <circle cx="40" cy="40" r="36" fill="currentColor" opacity=".08"/>
+  <g stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+  {% case kind %}
+    {% when 'spoon' %}<ellipse cx="49" cy="24" rx="11" ry="16" transform="rotate(35 49 24)" fill="#fff3bc"/><path d="M40 37 19 64q-3 5 2 7l25-30M47 14q7-2 9 5"/>
+    {% when 'blend' %}<path d="m23 17 5 39h26l5-39ZM29 56l-5 13h35l-5-13M31 28h20M34 38h14M37 48h8M31 12h20M59 23h6v20h-8"/><circle cx="41" cy="63" r="2"/>
+    {% when 'bowl' %}<path d="M13 37h54c-1 18-12 27-27 27S15 55 13 37ZM29 69h22M21 28q-5-6 1-12M38 27q-5-6 1-12M55 28q-5-6 1-12"/>
+    {% when 'moss' %}<path d="M39 68V18m0 35C20 53 17 39 22 31m17 8C55 40 64 28 58 18M39 27C26 28 23 20 26 12m13 48c19 0 23-10 22-18M28 48l-7 7m32-22 7 5M39 18l8-9"/>
+    {% when 'water' %}<path d="M40 10S19 35 19 48a21 21 0 0 0 42 0C61 35 40 10 40 10Z" fill="#d7eef1"/><path d="M28 47q-2 12 10 14"/>
+    {% when 'banana' %}<path d="M21 17c-5 32 14 48 41 31-13 26-45 24-49-4-2-11 1-21 8-27Z" fill="#ffdd78"/><path d="M21 17l5-5 3 4-4 7M22 29c0 18 12 28 28 24M60 48l6-3 2 4-5 4"/>
+    {% when 'crystals' %}<path d="m22 54 7-28 10-9 9 11 3 27-15 10ZM29 26l7 39 3-48m9 11-12 37m15-10 8-19 10 9-5 18-13-8ZM59 36l5 27M13 62h56" fill="#fff9e8"/>
+    {% when 'island' %}<path d="m13 54 19-33 13 24 10-32 17 41M9 61q8-5 16 0t16 0 16 0 16 0M13 69q8-5 16 0t16 0 16 0"/><circle cx="16" cy="18" r="6" fill="#ffdd78"/>
+    {% when 'jar' %}<path d="M22 15h36v9H22ZM25 24l-5 9v32q0 5 5 5h30q5 0 5-5V33l-5-9" fill="none"/><path d="M20 36h40v23H20M29 18v3m8-3v3m8-3v3m8-3v3"/><path d="M35 52V42m10 0v10M35 47h10"/>
+    {% when 'bag' %}<path d="M22 13h36l-3 12 8 44H17l8-44ZM25 25h30M28 38h24M31 45h18M26 17h28" fill="#eef0e5"/>
+  {% endcase %}
+  </g>
+</svg>

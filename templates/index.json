@@ -1,5 +1,6 @@
 {
   "sections": {
+    "builder_entry": {"type":"hx-builder-entry","settings":{}},
     "hx_lucky_popup": {
       "type": "hx-lucky-popup",
       "settings": {}
@@ -7,7 +8,7 @@
     "od_hero": {
       "type": "od-hero",
       "settings": {
-        "product": "sea-moss-gel-banana",
+        "product": "sea-moss-gel",
         "heading": "30% off sitewide — our launch sale is live.",
         "review_count": "4.9 from 460+ reviews",
         "text": "Wildcrafted off the rocks of St. Lucia and blended by hand in our family kitchen, in over 30 flavors. No sugar, no preservatives, nothing we wouldn't give our own kids.",
@@ -46,7 +47,7 @@
         "bs_1": {
           "type": "product",
           "settings": {
-            "product": "sea-moss-gel-banana"
+            "product": "sea-moss-gel"
           }
         },
         "bs_2": {
@@ -132,13 +133,13 @@
     },
     "home_campaign": {
       "settings": {
-        "product": "sea-moss-gel-banana"
+        "product": "sea-moss-gel"
       },
       "type": "hx-home-hero"
     },
     "home_flavors": {
       "settings": {
-        "product": "sea-moss-gel-banana"
+        "product": "sea-moss-gel"
       },
       "type": "hx-home-flavors"
     },
@@ -147,7 +148,7 @@
       "settings": {
         "heading": "A taste of what customers think",
         "subheading": "On taste, texture and finding your own way to enjoy it.",
-        "source_url": "https://www.amazon.com/portal/customer-reviews/B0CFD6RMMF/ref=cm_cr_dp_d_show_all_top?reviewerType=all_reviews"
+        "source_url": ""
       },
       "blocks": {
         "liliane": {
@@ -223,7 +224,7 @@
     },
     "home_goodness": {
       "type": "hx-goodness-fan",
-      "settings": { "product": "sea-moss-gel-banana" },
+      "settings": { "product": "sea-moss-gel" },
       "blocks": {
         "mango": {"type":"photo","settings":{}},
         "blueberry": {"type":"photo","settings":{}},
@@ -264,13 +265,14 @@
         "enjoy"
       ],
       "settings": {
-        "product": "sea-moss-gel-banana"
+        "product": "sea-moss-gel"
       }
     }
   },
   "order": [
     "hx_lucky_popup",
     "home_campaign",
+    "builder_entry",
     "home_flavors",
     "home_ritual",
     "home_goodness",
@@ -285,5 +287,6 @@
     "od_reviews"
   ]
 }
+
 
 

@@ -1,0 +1,60 @@
+{
+  "herb_count": 52,
+  "use_count": 16,
+  "pairing_conflicts": [
+    {
+      "use": "vitality-men",
+      "herb": "ashwagandha",
+      "pairing_g": 5.0,
+      "library_g": 8.0
+    },
+    {
+      "use": "joints",
+      "herb": "ginger",
+      "pairing_g": 5.0,
+      "library_g": 6.0
+    },
+    {
+      "use": "respiratory",
+      "herb": "ginger",
+      "pairing_g": 5.0,
+      "library_g": 6.0
+    },
+    {
+      "use": "womens-balance",
+      "herb": "hibiscus",
+      "pairing_g": 4.0,
+      "library_g": 5.0
+    },
+    {
+      "use": "recovery",
+      "herb": "turmeric",
+      "pairing_g": 5.0,
+      "library_g": 6.0
+    },
+    {
+      "use": "mood",
+      "herb": "holy-basil",
+      "pairing_g": 4.0,
+      "library_g": 5.0
+    },
+    {
+      "use": "energy:no-stim",
+      "herb": "maca",
+      "pairing_g": 10,
+      "library_g": 8.0
+    },
+    {
+      "use": "energy:no-stim",
+      "herb": "beet-root",
+      "pairing_g": 8,
+      "library_g": 6.0
+    }
+  ],
+  "pdf_csv_differences": [],
+  "approvals": "All 52 provisional; no COA evidence supplied",
+  "source_hashes": {
+    "herbs_seed.csv": "1199eaabc06cd30f2151112cab4bb308c68dff020fc36ee4a54c42f25f7188da",
+    "uses_seed.csv": "67fe2024e5c280d2e26154e16c027f8fc0a22fc90fb9a758e5eb7d47829c7f94"
+  }
+}

@@ -1,0 +1,23 @@
+<aside class="hx-gift-preview" aria-label="Gift offer preview" data-gift-preview>
+  <div class="hx-gift-preview__heading"><strong>A little extra for your ritual.</strong><span>OFFER PREVIEW</span></div>
+  <div class="hx-gift-preview__tiers">
+    <div data-gift-tier="3"><svg viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="17" rx="10" ry="13"/><path d="M29 29h6l2 26a5 5 0 0 1-10 0z"/></svg><div><b>3 jars · Free spoon</b><small>Healistix reusable spoon</small></div><span data-gift-state>3 jars</span></div>
+    <div data-gift-tier="5"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M7 27h50c-2 20-12 29-25 29S9 47 7 27z"/><ellipse cx="32" cy="27" rx="25" ry="6"/><text x="32" y="45" text-anchor="middle" stroke="none">H</text></svg><div><b>5 jars · Free bowl + spoon</b><small>Your Healistix breakfast duo</small></div><span data-gift-state>5 jars</span></div>
+  </div>
+  <progress max="5" value="1" aria-label="Selected jars toward preview gifts" data-gift-progress></progress>
+  <p data-gift-message aria-live="polite">Add 2 more jars to preview the spoon reward.</p>
+  <button type="button" class="hx-gift-preview__view" data-view-gift>Take a look at the gifts ↗</button>
+  <small class="hx-gift-preview__disclaimer">Concept only. Gifts are not currently included at checkout.</small>
+</aside>
+<dialog class="hx-gift-dialog" aria-label="Your Healistix gift preview" data-gift-dialog data-spoon="{{ 'hx-gift-spoon-v1.png' | asset_url }}" data-bowl="{{ 'hx-gift-bowl-spoon-v1.png' | asset_url }}">
+  <button type="button" class="hx-gift-dialog__close" data-close-gift aria-label="Close gift preview">×</button>
+  <img data-gift-image alt="" width="1024" height="1024">
+  <div class="hx-gift-dialog__copy">
+    <span>YOUR RITUAL, WITH A LITTLE EXTRA</span>
+    <h2 data-gift-title></h2>
+    <p data-gift-description></p>
+    <button type="button" data-close-gift class="hx-gift-dialog__continue">Keep building my ritual</button>
+    <small>Offer preview · Merchandise mockup only. Gifts are not currently included at checkout.</small>
+  </div>
+</dialog>
+

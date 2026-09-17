@@ -1,0 +1,17 @@
+id,name,sea_moss_lead,on_site_phrase,default_pairing,wording_rules
+digestion,Digestion & gut comfort,Y,Sea moss is a natural source of soothing mucilage and prebiotic fiber; these herbs are traditionally used for comfortable digestion.,"ginger:6,fennel:4,slippery-elm:5",Never name IBS / IBD / GERD as things the blend addresses.
+skin-hair-nails,"Skin, hair & nails",Y,"Sea moss delivers sea minerals; these herbs are traditionally used for hair, skin and nails.","horsetail:3,nettle-leaf:5,amla:6",No regrowth / follicle / thickening language — use the cosmetic-safe swap table.
+energy,Energy & stamina,Y,Sea moss is traditionally taken for daily energy; these herbs add stamina.,"korean-red-ginseng:4,maca:8,beet-root:6","STIM / CAFFEINE flag → no-stim variant: maca:10,beet-root:8,moringa:6"
+vitality-men,Vitality & drive (men),Y,A Caribbean tradition — sea moss with herbs traditionally used for male vitality.,"tongkat-ali:3,maca:8,ashwagandha:5","Never 'sexual power', 'libido booster', 'testosterone'. Never in paid ads. Site wording: 'vitality and drive'."
+vitality-women,Vitality & drive (women),N,"Herbs traditionally used for women's vitality, on a sea moss base.","maca:8,shatavari:6,damiana:3",Same rules as vitality-men.
+stress,Calm & stress,N,"Adaptogens traditionally used for everyday stress, on a sea moss base.","ashwagandha:8,reishi:6,holy-basil:5",Never 'anxiety' or 'depression' as conditions.
+sleep,Rest & sleep,N,Gentle herbs traditionally used for rest; an evening jar.,"chamomile:4,lemon-balm:4,passionflower:3",No 'insomnia'. Suggest evening use.
+focus,Focus & memory,N,Herbs traditionally used for clarity and focus.,"lions-mane:8,bacopa:4,gotu-kola:4","No 'ADHD', 'dementia', 'brain fog cure'."
+joints,Joints & mobility,N,Herbs traditionally used for joint comfort.,"turmeric:6,ginger:5,boswellia:3","No 'arthritis', 'inflammation treatment'."
+greens,Daily greens & minerals,Y,Sea moss plus greens for a daily mineral routine.,"spirulina:6,chlorella:5,moringa:6",No '92 minerals'. Iodine language only where lab-verified.
+cleanse,Cleanse & liver support,N,Bitter roots traditionally used for the body's natural cleansing.,"dandelion-root:5,burdock-root:5,milk-thistle:5","No 'detox toxins', 'flush', 'liver disease'."
+respiratory,Respiratory & seasonal comfort,Y,Sea moss has a long Caribbean tradition for respiratory comfort; these herbs complement it.,"mullein:4,ginger:5,black-seed:4",NEVER immune / cold / flu / virus / antiviral. Elderberry allowed with no immune language.
+metabolism,Metabolism & appetite balance,N,Herbs traditionally used to support healthy metabolism and appetite balance.,"cinnamon:3,fenugreek:4,hibiscus:5","NEVER 'weight loss', 'fat burning', 'slimming'. Never in paid ads."
+womens-balance,Women's balance,N,Herbs traditionally used for women's wellness across the month.,"shatavari:6,red-raspberry-leaf:4,hibiscus:4","No 'PCOS', 'menopause treatment', 'hormone therapy'."
+recovery,Workout recovery,N,Sea moss minerals plus herbs traditionally used for endurance and recovery.,"beet-root:6,cordyceps:6,turmeric:5",
+mood,Mood & uplift,N,Uplifting botanicals on a sea moss base.,"cacao:8,damiana:3,holy-basil:4","No 'depression', 'anxiety', 'antidepressant'."

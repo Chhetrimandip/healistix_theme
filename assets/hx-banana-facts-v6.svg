@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+<rect width="1000" height="1000" fill="#b8e5f7"/><circle cx="1000" cy="1050" r="510" fill="#96d5ee"/>
+<g fill="#174b3c" font-family="Arial,sans-serif">
+<text x="70" y="80" font-size="20" letter-spacing="3">MEET YOUR DAILY SPOONFUL</text>
+<text x="65" y="170" font-family="Georgia,serif" font-weight="bold" font-size="76">Small spoon.</text><text x="65" y="250" font-family="Georgia,serif" font-weight="bold" font-size="76">Simple details.</text>
+<rect x="65" y="300" width="555" height="535" rx="22" fill="#fffdf2"/>
+<text x="95" y="352" font-size="30" font-weight="bold">Banana label highlights</text><text x="95" y="395" font-size="22">16 servings per container</text>
+<path d="M95 416H590" stroke="#174b3c" stroke-width="3"/>
+<text x="95" y="456" font-size="24" font-weight="bold">Serving size</text><text x="590" y="456" text-anchor="end" font-size="24">2 tbsp (28g)</text>
+<path d="M95 479H590" stroke="#174b3c" stroke-width="9"/>
+<text x="95" y="528" font-size="32" font-weight="bold">Calories</text><text x="590" y="533" text-anchor="end" font-size="52" font-weight="bold">5</text>
+<path d="M95 553H590M95 603H590M95 653H590M95 703H590M95 753H590" stroke="#174b3c" stroke-width="1.5"/>
+<g font-size="24"><text x="95" y="587">Total fat</text><text x="590" y="587" text-anchor="end">0g</text><text x="95" y="637">Sodium</text><text x="590" y="637" text-anchor="end">20mg</text><text x="95" y="687">Total carbohydrate</text><text x="590" y="687" text-anchor="end">2g</text><text x="95" y="737">Total sugars</text><text x="590" y="737" text-anchor="end">2g</text><text x="95" y="787">Protein</text><text x="590" y="787" text-anchor="end">0g</text></g>
+<circle cx="798" cy="405" r="113" fill="#ffe16b"/><text x="798" y="422" text-anchor="middle" font-size="72" font-family="Georgia,serif" font-weight="bold">1–2</text><text x="798" y="461" text-anchor="middle" font-size="20">TABLESPOONS DAILY</text>
+<text x="667" y="583" font-size="30" font-weight="bold">Spoon. Blend. Stir.</text><text x="667" y="626" font-size="24">Make it your own.</text>
+<text x="667" y="713" font-size="24" font-weight="bold">Keep it fresh.</text><text x="667" y="753" font-size="22">Refrigerate after opening.</text><text x="667" y="787" font-size="22">Best before 30 days</text><text x="667" y="818" font-size="22">after opening.</text>
+<text x="65" y="907" font-size="22">Selected details from our Banana label.</text><text x="65" y="944" font-size="22">See the jar for complete nutrition, ingredients and directions.</text>
+</g></svg>

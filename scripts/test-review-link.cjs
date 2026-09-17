@@ -9,7 +9,7 @@ const luminance = rgb => rgb.match(/[\d.]+/g).slice(0, 3).map(Number).map(v => {
     const page = await browser.newPage();
     for (const width of [390, 1280]) {
       await page.setViewportSize({ width, height: 844 });
-      await page.goto(process.env.CONTRAST_URL || 'http://127.0.0.1:9292/products/sea-moss-gel-banana?variant=47331891970186', { waitUntil: 'domcontentloaded' });
+      await page.goto(process.env.CONTRAST_URL || 'http://127.0.0.1:9292/products/sea-moss-gel?variant=47331891970186', { waitUntil: 'domcontentloaded' });
       await page.evaluate(() => document.fonts.ready);
       const link = process.env.CONTRAST_TEXT ? page.getByRole('link', { name: process.env.CONTRAST_TEXT, exact: true }) : page.locator('a.hx-review-source').filter({ hasText: 'Read more customer reviews' });
       await link.scrollIntoViewIfNeeded();

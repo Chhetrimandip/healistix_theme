@@ -1,0 +1,196 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "1"
+    },
+    "request_id": {
+      "type": "string"
+    },
+    "uses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "enum": [
+              "digestion",
+              "skin-hair-nails",
+              "energy",
+              "vitality-men",
+              "vitality-women",
+              "stress",
+              "sleep",
+              "focus",
+              "joints",
+              "greens",
+              "cleanse",
+              "respiratory",
+              "metabolism",
+              "womens-balance",
+              "recovery",
+              "mood"
+            ]
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "name"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 16,
+      "maxItems": 16,
+      "uniqueItems": false
+    },
+    "herbs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "default_g": {
+            "type": "number"
+          },
+          "max_g": {
+            "type": "number"
+          },
+          "g": {
+            "type": "number"
+          },
+          "premium": {
+            "type": "boolean"
+          },
+          "approved_phrase": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "default_g",
+          "max_g",
+          "g",
+          "premium",
+          "approved_phrase"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0,
+      "maxItems": 100,
+      "uniqueItems": false
+    },
+    "flavors": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "none",
+          "banana",
+          "blueberry",
+          "dragonfruit",
+          "grape",
+          "honey",
+          "honeydew",
+          "lychee",
+          "mango",
+          "orange",
+          "passion fruit",
+          "peach",
+          "pineapple",
+          "pineapple mango",
+          "red guava",
+          "rose",
+          "strawberry",
+          "strawberry pineapple",
+          "watermelon"
+        ]
+      },
+      "minItems": 19,
+      "maxItems": 19,
+      "uniqueItems": true
+    },
+    "conditions": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "thyroid",
+          "blood_thinners",
+          "blood_pressure",
+          "diabetes_meds",
+          "sedatives",
+          "antidepressants",
+          "hormone_sensitive",
+          "kidney",
+          "autoimmune",
+          "seizures",
+          "reflux",
+          "ragweed",
+          "caffeine_sensitive"
+        ]
+      },
+      "minItems": 13,
+      "maxItems": 13,
+      "uniqueItems": true
+    },
+    "capabilities": {
+      "type": "object",
+      "properties": {
+        "preview_only": {
+          "const": true
+        },
+        "model_configured": {
+          "type": "boolean"
+        },
+        "pricing_confirmed": {
+          "const": false
+        },
+        "availability_confirmed": {
+          "const": false
+        }
+      },
+      "required": [
+        "preview_only",
+        "model_configured",
+        "pricing_confirmed",
+        "availability_confirmed"
+      ],
+      "additionalProperties": false
+    },
+    "purchase": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "const": false
+        },
+        "reason_code": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "enabled",
+        "reason_code"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "request_id",
+    "uses",
+    "herbs",
+    "flavors",
+    "conditions",
+    "capabilities",
+    "purchase"
+  ],
+  "additionalProperties": false
+}

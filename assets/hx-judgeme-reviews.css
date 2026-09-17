@@ -88,3 +88,16 @@
 .hx-judgeme .hx-jm-media{grid-row:1}
 .hx-judgeme .jm-review-widget-header__main-content>.jm-action-buttons,.hx-judgeme .jm-review-widget-header__filters-wrapper{grid-row:2}
 @media(max-width:749px){.hx-judgeme .hx-jm-media{grid-row:2}.hx-judgeme .jm-review-widget-header__main-content>.jm-action-buttons{grid-row:3}.hx-judgeme .jm-review-widget-header__filters-wrapper{grid-row:4}}
+/* Written reviews scroll horizontally; the summary and media grid stay intact. */
+.hx-judgeme .hx-jm-carousel{display:flex!important;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scrollbar-width:thin;scrollbar-color:#91aa9d #edf3e6;padding:4px 0 14px;min-width:0;max-width:100%;align-items:stretch}
+.hx-judgeme .hx-jm-carousel:focus-visible{outline:2px solid #174b3c;outline-offset:5px}
+.hx-judgeme .hx-jm-carousel>.hx-jm-featured__review,.hx-judgeme .hx-jm-carousel>.jm-review-item{flex:0 0 calc((100% - 20px)/2);min-width:0;box-sizing:border-box;scroll-snap-align:start;display:flex;flex-direction:column;gap:16px;padding:26px;border:1px solid #d9e1d5;border-radius:18px;background:#fffdf5;margin:0}
+.hx-judgeme .hx-jm-carousel .jm-review-item__content{display:flex;flex-direction:column;gap:14px;min-width:0}
+.hx-judgeme .hx-jm-carousel .jm-review-item__content>.jm-reviewer-info{flex-direction:row;align-items:center;flex-wrap:wrap}
+.hx-judgeme .hx-jm-carousel .hx-jm-featured__review p{overflow-wrap:anywhere}
+.hx-jm-carousel-controls{display:flex;justify-content:flex-end;align-items:center;gap:16px;margin:14px 0 22px;color:#174b3c;font-size:13px}
+.hx-jm-carousel-controls button{display:grid;place-items:center;min-width:44px;min-height:44px;border:1px solid #174b3c;border-radius:50%;background:#fffdf5;color:#174b3c;font-size:22px;cursor:pointer}
+.hx-jm-carousel-controls button:disabled{opacity:.35;cursor:default}
+.hx-jm-carousel-controls button:focus-visible{outline:2px solid #174b3c;outline-offset:3px}
+.hx-judgeme[data-review-view=featured] .hx-jm-carousel.jdgm-review-list,.hx-judgeme[data-review-view=featured] [data-native-reviews]{display:none!important}
+@media(max-width:749px){.hx-judgeme .hx-jm-carousel{gap:12px}.hx-judgeme .hx-jm-carousel>.hx-jm-featured__review,.hx-judgeme .hx-jm-carousel>.jm-review-item{flex-basis:90%;padding:22px}.hx-jm-featured__label{align-items:center}.hx-jm-carousel-controls{margin-top:10px}}

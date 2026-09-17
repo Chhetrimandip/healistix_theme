@@ -7,11 +7,11 @@
                 {%- if block.settings.captions_asset != blank -%}
                   <track kind="captions" src="{{ block.settings.captions_asset | asset_url }}" srclang="en" label="English" default>
                 {%- endif -%}
-                <a href="{{ block.settings.source_url }}">Watch the original customer video</a>
+                <a href="{{ block.settings.video_asset | asset_url }}">Watch the customer video</a>
               </video>
             </div>
           {%- elsif block.settings.image_asset != blank -%}
-            <a class="hx-review-stories__media" href="{{ block.settings.source_url }}" target="_blank" rel="noopener">
+            <a class="hx-review-stories__media" href="{{ block.settings.image_asset | asset_url }}" target="_blank" rel="noopener">
               <img src="{{ block.settings.image_asset | asset_url }}" alt="{{ block.settings.media_alt | escape }}" width="720" height="960" loading="lazy">
             </a>
           {%- endif -%}
@@ -25,9 +25,7 @@
             <blockquote class="product-reviews-grid__text">“{{ block.settings.text | escape }}”</blockquote>
           {%- endif -%}
           <div class="product-reviews-grid__footer">{{ block.settings.footer }}</div>
-          {%- if block.settings.disclosure != blank -%}
-            <p class="hx-review-stories__disclosure">{{ block.settings.disclosure | escape }}</p>
-          {%- endif -%}
+          
           {%- if block.settings.source_url != blank -%}
             <a href="{{ block.settings.source_url }}" target="_blank" rel="noopener">Read original review ↗</a>
           {%- endif -%}

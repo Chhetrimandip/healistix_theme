@@ -1,0 +1,232 @@
+{
+  "schema_version": "1",
+  "request_id": "synthetic-fixture-digestion-response",
+  "status": "recommended",
+  "build": {
+    "base": "gold-16oz",
+    "flavor": {
+      "id": "mango",
+      "level": "standard"
+    },
+    "strength": "standard",
+    "herbs": [
+      {
+        "id": "fennel",
+        "g": 4
+      },
+      {
+        "id": "ginger",
+        "g": 6
+      },
+      {
+        "id": "slippery-elm",
+        "g": 5
+      }
+    ],
+    "uses": [
+      "digestion"
+    ],
+    "total_powder_g": 15,
+    "engine_version": "0.1.0-preview",
+    "library_version": "2026-09-12-provisional",
+    "build_id": "B-EVWBOWFO"
+  },
+  "display": {
+    "summary": "Mango (standard) · Digestion & gut comfort · Standard",
+    "explanation": "For Digestion & gut comfort: traditionally used for bloating and comfortable digestion; traditionally used to settle the stomach; soothing mucilage for the digestive tract.",
+    "uses": [
+      {
+        "id": "digestion",
+        "name": "Digestion & gut comfort"
+      }
+    ],
+    "herbs": [
+      {
+        "id": "fennel",
+        "g": 4,
+        "name": "Fennel seed",
+        "approved_phrase": "traditionally used for bloating and comfortable digestion"
+      },
+      {
+        "id": "ginger",
+        "g": 6,
+        "name": "Ginger root",
+        "approved_phrase": "traditionally used to settle the stomach"
+      },
+      {
+        "id": "slippery-elm",
+        "g": 5,
+        "name": "Slippery elm bark",
+        "approved_phrase": "soothing mucilage for the digestive tract"
+      }
+    ],
+    "editable_herbs": [
+      {
+        "id": "ginger",
+        "name": "Ginger root",
+        "default_g": 6,
+        "max_g": 10,
+        "g": 6,
+        "premium": false,
+        "approved_phrase": "traditionally used to settle the stomach"
+      },
+      {
+        "id": "turmeric",
+        "name": "Turmeric root",
+        "default_g": 6,
+        "max_g": 10,
+        "g": 6,
+        "premium": false,
+        "approved_phrase": "traditionally used for joint comfort"
+      },
+      {
+        "id": "cinnamon",
+        "name": "Ceylon cinnamon bark",
+        "default_g": 3,
+        "max_g": 5,
+        "g": 3,
+        "premium": false,
+        "approved_phrase": "traditionally used to support healthy metabolism"
+      },
+      {
+        "id": "fenugreek",
+        "name": "Fenugreek seed",
+        "default_g": 4,
+        "max_g": 8,
+        "g": 4,
+        "premium": false,
+        "approved_phrase": "traditionally used for digestion and appetite balance"
+      },
+      {
+        "id": "slippery-elm",
+        "name": "Slippery elm bark",
+        "default_g": 5,
+        "max_g": 8,
+        "g": 5,
+        "premium": false,
+        "approved_phrase": "soothing mucilage for the digestive tract"
+      },
+      {
+        "id": "marshmallow-root",
+        "name": "Marshmallow root",
+        "default_g": 5,
+        "max_g": 8,
+        "g": 5,
+        "premium": false,
+        "approved_phrase": "soothing mucilage"
+      },
+      {
+        "id": "fennel",
+        "name": "Fennel seed",
+        "default_g": 4,
+        "max_g": 6,
+        "g": 4,
+        "premium": false,
+        "approved_phrase": "traditionally used for bloating and comfortable digestion"
+      },
+      {
+        "id": "peppermint",
+        "name": "Peppermint leaf",
+        "default_g": 3,
+        "max_g": 5,
+        "g": 3,
+        "premium": false,
+        "approved_phrase": "traditionally used for digestive comfort"
+      },
+      {
+        "id": "chamomile",
+        "name": "Chamomile flower",
+        "default_g": 4,
+        "max_g": 6,
+        "g": 4,
+        "premium": false,
+        "approved_phrase": "gentle and calming"
+      },
+      {
+        "id": "dandelion-root",
+        "name": "Dandelion root",
+        "default_g": 5,
+        "max_g": 8,
+        "g": 5,
+        "premium": false,
+        "approved_phrase": "traditionally used for liver support"
+      },
+      {
+        "id": "amla",
+        "name": "Amla (Indian gooseberry)",
+        "default_g": 6,
+        "max_g": 10,
+        "g": 6,
+        "premium": false,
+        "approved_phrase": "a vitamin-C-rich fruit traditionally used for hair and skin"
+      },
+      {
+        "id": "black-seed",
+        "name": "Black seed (nigella)",
+        "default_g": 4,
+        "max_g": 8,
+        "g": 4,
+        "premium": false,
+        "approved_phrase": "traditionally used in Unani medicine as a daily tonic"
+      },
+      {
+        "id": "licorice-root",
+        "name": "Licorice root",
+        "default_g": 2,
+        "max_g": 3,
+        "g": 2,
+        "premium": false,
+        "approved_phrase": "a naturally sweet, soothing root"
+      }
+    ],
+    "swaps": {
+      "fennel": [
+        "amla",
+        "black-seed",
+        "chamomile"
+      ],
+      "ginger": [
+        "turmeric",
+        "black-seed",
+        "licorice-root"
+      ],
+      "slippery-elm": [
+        "marshmallow-root",
+        "black-seed",
+        "licorice-root"
+      ]
+    }
+  },
+  "notes": [
+    {
+      "code": "PREVIEW",
+      "text": "Review preview. Ingredients, amounts and prices are provisional. Purchasing is unavailable."
+    },
+    {
+      "code": "MEDTIMING",
+      "text": "Take 2 hours apart from medications."
+    }
+  ],
+  "errors": [],
+  "clarification": null,
+  "foundation_url": null,
+  "pricing": {
+    "currency": "USD",
+    "total_minor": 3499,
+    "breakdown": [
+      {
+        "code": "BASE_TIER",
+        "label": "Custom jar",
+        "quantity": 1,
+        "unit_minor": 3499,
+        "total_minor": 3499
+      }
+    ],
+    "confirmed": false
+  },
+  "availability": null,
+  "purchase": {
+    "enabled": false,
+    "reason_code": "PREVIEW_ONLY"
+  }
+}

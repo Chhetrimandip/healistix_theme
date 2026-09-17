@@ -1,0 +1,17 @@
+<style>.hx-draft-review{padding:22px;border:2px solid #b58c43;border-radius:16px;background:#fff8e9}.hx-draft-review input{padding:10px;max-width:100px}.hx-draft-review a{display:inline-block;padding:12px 0;font-weight:700;color:#174b3c}</style>
+{{ 'hx-builder-style.css' | asset_url | stylesheet_tag }}
+<div class="hx-builder" data-mode="{{ section.settings.mode }}"{% if theme.id == 158342054026 %} data-draft-review="true"{% endif %} data-endpoint="{{ section.settings.endpoint | escape }}" data-logo="{{ 'hx-builder-logo.png' | asset_url }}" data-preparation="{{ 'hx-builder-preparation-v1.png' | asset_url }}" data-image="{{ 'hx-builder-raw.webp' | asset_url }}" data-hero="{{ 'hx-builder-hero-v1.png' | asset_url }}">
+  <noscript><p class="hx-builder-noscript">Please enable JavaScript to explore and validate your custom blend.</p></noscript>
+</div>
+<script type="module" src="{{ 'hx-builder-app.js' | asset_url }}"></script>
+{% schema %}
+{
+  "name": "Custom gel builder",
+  "settings": [
+    {"type":"select","id":"mode","label":"Review mode","default":"service","options":[{"value":"service","label":"Connected service"},{"value":"unconfigured","label":"Not configured"}]},
+    {"type":"text","id":"endpoint","label":"Installed same-origin app proxy path","info":"Leave blank until the app proxy is installed. Purchase is disabled in this milestone."}
+  ],
+  "presets": [{"name":"Custom gel builder"}]
+}
+{% endschema %}
+

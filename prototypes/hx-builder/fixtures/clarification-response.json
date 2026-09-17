@@ -1,0 +1,85 @@
+{
+  "schema_version": "1",
+  "request_id": "synthetic-fixture-clarification-response",
+  "status": "clarification",
+  "build": null,
+  "display": null,
+  "notes": [],
+  "errors": [],
+  "clarification": {
+    "question": "Which of these goals best fits what you are looking for?",
+    "options": [
+      {
+        "id": "digestion",
+        "name": "Digestion & gut comfort"
+      },
+      {
+        "id": "skin-hair-nails",
+        "name": "Skin, hair & nails"
+      },
+      {
+        "id": "energy",
+        "name": "Energy & stamina"
+      },
+      {
+        "id": "vitality-men",
+        "name": "Vitality & drive (men)"
+      },
+      {
+        "id": "vitality-women",
+        "name": "Vitality & drive (women)"
+      },
+      {
+        "id": "stress",
+        "name": "Calm & stress"
+      },
+      {
+        "id": "sleep",
+        "name": "Rest & sleep"
+      },
+      {
+        "id": "focus",
+        "name": "Focus & memory"
+      },
+      {
+        "id": "joints",
+        "name": "Joints & mobility"
+      },
+      {
+        "id": "greens",
+        "name": "Daily greens & minerals"
+      },
+      {
+        "id": "cleanse",
+        "name": "Cleanse & liver support"
+      },
+      {
+        "id": "respiratory",
+        "name": "Respiratory & seasonal comfort"
+      },
+      {
+        "id": "metabolism",
+        "name": "Metabolism & appetite balance"
+      },
+      {
+        "id": "womens-balance",
+        "name": "Women's balance"
+      },
+      {
+        "id": "recovery",
+        "name": "Workout recovery"
+      },
+      {
+        "id": "mood",
+        "name": "Mood & uplift"
+      }
+    ]
+  },
+  "foundation_url": null,
+  "pricing": null,
+  "availability": null,
+  "purchase": {
+    "enabled": false,
+    "reason_code": "PREVIEW_ONLY"
+  }
+}

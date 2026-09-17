@@ -1,0 +1,45 @@
+{
+  "record_version": "1",
+  "recipe_digest": "8fc2f096f05df0da9bd14ab4f9cd2d70eb8e89262aac2307c6c8449ea742d867",
+  "build": {
+    "base": "gold-16oz",
+    "flavor": {
+      "id": "mango",
+      "level": "standard"
+    },
+    "strength": "standard",
+    "herbs": [
+      {
+        "id": "beet-root",
+        "g": 6
+      },
+      {
+        "id": "maca",
+        "g": 8
+      }
+    ],
+    "uses": [
+      "energy"
+    ],
+    "total_powder_g": 14,
+    "engine_version": "0.1.0-preview",
+    "library_version": "2026-09-12-provisional",
+    "build_id": "B-R7BPBFXQ"
+  },
+  "pricing_version": "2026-09-12-provisional",
+  "pricing": {
+    "currency": "USD",
+    "total_minor": 2999,
+    "breakdown": [
+      {
+        "code": "BASE_TIER",
+        "label": "Custom jar",
+        "quantity": 1,
+        "unit_minor": 2999,
+        "total_minor": 2999
+      }
+    ],
+    "confirmed": false
+  },
+  "approval_status": "provisional"
+}

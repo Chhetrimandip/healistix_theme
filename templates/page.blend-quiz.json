@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "main": {
+      "type": "hx-blend-quiz",
+      "settings": {
+        "landing_url": "/pages/findmyseamoss?preview_theme_id=158284939402&view=hair-routine",
+        "result_url": "/pages/findmyseamoss?preview_theme_id=158284939402&view=find-my-blend"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

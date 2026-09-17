@@ -52,7 +52,7 @@
             {% else %}<img src="{{ block.settings.image_asset | asset_url }}" alt="{{ block.settings.media_alt | default: block.settings.badge | escape }}" loading="lazy">{% endif %}
             <strong>{{ block.settings.badge | escape }}</strong>
             <p>{{ block.settings.footer | escape }}</p>
-            {% if block.settings.disclosure != blank %}<p class="hx-jm-disclosure">{{ block.settings.disclosure | replace: 'Video creator earns commissions', 'Original video includes an affiliate disclosure' | escape }}</p>{% endif %}
+
           </dialog>
         {% endif %}
       {% endfor %}
@@ -63,17 +63,19 @@
     </div>
     <div class="hx-jm-featured" hidden>
       <p class="hx-jm-featured__label">Featured customer excerpts <button type="button" data-all-reviews>View all reviews</button></p>
+      <div class="hx-jm-carousel" data-review-carousel>
       {% assign featured_ids = 'review_rv2d7hwhnwfu3,review_liliane,review_anderson,review_rt97myltp17el,review_r1jzo5pxcimb21' | split: ',' %}
       {% for featured_id in featured_ids %}
         {% for block in section.blocks %}
           {% if block.id == featured_id %}
             <article class="hx-jm-featured__review">
               <div><strong>{{ block.settings.badge | escape }}</strong><p>{{ block.settings.footer | escape }}</p></div>
-              <div><p class="hx-jm-featured__stars">{{ block.settings.rating | escape }}</p><p>{{ block.settings.text | escape }}</p>{% if block.settings.disclosure != blank %}<p class="hx-jm-disclosure">{{ block.settings.disclosure | replace: 'Video creator earns commissions', 'Original video includes an affiliate disclosure' | escape }}</p>{% endif %}</div>
+              <div><p class="hx-jm-featured__stars">{{ block.settings.rating | escape }}</p><p>{{ block.settings.text | escape }}</p></div>
             </article>
           {% endif %}
         {% endfor %}
       {% endfor %}
+      </div>
     </div>
   </div>
 </section>

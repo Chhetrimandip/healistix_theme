@@ -1,0 +1,208 @@
+{
+  "schema_version": "1",
+  "request_id": "synthetic-fixture-energy-response",
+  "status": "recommended",
+  "build": {
+    "base": "gold-16oz",
+    "flavor": {
+      "id": "mango",
+      "level": "standard"
+    },
+    "strength": "standard",
+    "herbs": [
+      {
+        "id": "beet-root",
+        "g": 6
+      },
+      {
+        "id": "korean-red-ginseng",
+        "g": 4
+      },
+      {
+        "id": "maca",
+        "g": 8
+      }
+    ],
+    "uses": [
+      "energy"
+    ],
+    "total_powder_g": 18,
+    "engine_version": "0.1.0-preview",
+    "library_version": "2026-09-12-provisional",
+    "build_id": "B-XEQOKBKH"
+  },
+  "display": {
+    "summary": "Mango (standard) · Energy & stamina · Standard",
+    "explanation": "For Energy & stamina: traditionally used for natural energy and endurance; traditionally used for energy and vitality; traditionally used for energy and stamina.",
+    "uses": [
+      {
+        "id": "energy",
+        "name": "Energy & stamina"
+      }
+    ],
+    "herbs": [
+      {
+        "id": "beet-root",
+        "g": 6,
+        "name": "Beet root",
+        "approved_phrase": "traditionally used for natural energy and endurance"
+      },
+      {
+        "id": "korean-red-ginseng",
+        "g": 4,
+        "name": "Korean red ginseng root",
+        "approved_phrase": "traditionally used for energy and vitality"
+      },
+      {
+        "id": "maca",
+        "g": 8,
+        "name": "Maca root (yellow)",
+        "approved_phrase": "traditionally used for energy and stamina"
+      }
+    ],
+    "editable_herbs": [
+      {
+        "id": "maca",
+        "name": "Maca root (yellow)",
+        "default_g": 8,
+        "max_g": 16,
+        "g": 8,
+        "premium": false,
+        "approved_phrase": "traditionally used for energy and stamina"
+      },
+      {
+        "id": "korean-red-ginseng",
+        "name": "Korean red ginseng root",
+        "default_g": 4,
+        "max_g": 6,
+        "g": 4,
+        "premium": true,
+        "approved_phrase": "traditionally used for energy and vitality"
+      },
+      {
+        "id": "tongkat-ali",
+        "name": "Tongkat ali root",
+        "default_g": 3,
+        "max_g": 5,
+        "g": 3,
+        "premium": true,
+        "approved_phrase": "traditionally used to support male vitality"
+      },
+      {
+        "id": "beet-root",
+        "name": "Beet root",
+        "default_g": 6,
+        "max_g": 12,
+        "g": 6,
+        "premium": false,
+        "approved_phrase": "traditionally used for natural energy and endurance"
+      },
+      {
+        "id": "cordyceps",
+        "name": "Cordyceps mushroom",
+        "default_g": 6,
+        "max_g": 10,
+        "g": 6,
+        "premium": true,
+        "approved_phrase": "traditionally used for stamina and endurance"
+      },
+      {
+        "id": "spirulina",
+        "name": "Spirulina",
+        "default_g": 6,
+        "max_g": 12,
+        "g": 6,
+        "premium": false,
+        "approved_phrase": "a nutrient-dense blue-green algae"
+      },
+      {
+        "id": "moringa",
+        "name": "Moringa leaf",
+        "default_g": 6,
+        "max_g": 10,
+        "g": 6,
+        "premium": false,
+        "approved_phrase": "a nutrient-dense leaf"
+      },
+      {
+        "id": "rhodiola",
+        "name": "Rhodiola root",
+        "default_g": 3,
+        "max_g": 5,
+        "g": 3,
+        "premium": true,
+        "approved_phrase": "traditionally used for stamina and stress resilience"
+      },
+      {
+        "id": "cacao",
+        "name": "Raw cacao",
+        "default_g": 8,
+        "max_g": 15,
+        "g": 8,
+        "premium": false,
+        "approved_phrase": "raw cacao for flavor and mood"
+      },
+      {
+        "id": "matcha",
+        "name": "Matcha green tea",
+        "default_g": 3,
+        "max_g": 6,
+        "g": 3,
+        "premium": false,
+        "approved_phrase": "green tea leaf for calm energy"
+      }
+    ],
+    "swaps": {
+      "beet-root": [
+        "cacao",
+        "matcha",
+        "moringa"
+      ],
+      "korean-red-ginseng": [
+        "rhodiola",
+        "tongkat-ali",
+        "cordyceps"
+      ],
+      "maca": [
+        "cacao",
+        "matcha",
+        "moringa"
+      ]
+    }
+  },
+  "notes": [
+    {
+      "code": "PREVIEW",
+      "text": "Review preview. Ingredients, amounts and prices are provisional. Purchasing is unavailable."
+    }
+  ],
+  "errors": [],
+  "clarification": null,
+  "foundation_url": null,
+  "pricing": {
+    "currency": "USD",
+    "total_minor": 3899,
+    "breakdown": [
+      {
+        "code": "BASE_TIER",
+        "label": "Custom jar",
+        "quantity": 1,
+        "unit_minor": 3499,
+        "total_minor": 3499
+      },
+      {
+        "code": "PREMIUM",
+        "label": "Premium herbs",
+        "quantity": 1,
+        "unit_minor": 400,
+        "total_minor": 400
+      }
+    ],
+    "confirmed": false
+  },
+  "availability": null,
+  "purchase": {
+    "enabled": false,
+    "reason_code": "PREVIEW_ONLY"
+  }
+}

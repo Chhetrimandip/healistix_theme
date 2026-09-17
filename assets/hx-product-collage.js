@@ -61,6 +61,9 @@
       index = (position + items.length) % items.length;
       const item = items[index];
       const is3d = item === jarTile;
+      frame.querySelector('.hx-art-copy')?.remove();
+      const artCopy = item.querySelector('.hx-art-copy');
+      if (artCopy) frame.append(artCopy.cloneNode(true));
       picture.hidden = is3d;
       frame.classList.toggle('is-3d', is3d);
       modalJar?.close();

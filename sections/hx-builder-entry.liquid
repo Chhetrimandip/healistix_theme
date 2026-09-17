@@ -1,0 +1,23 @@
+{% if theme.id == 158342054026 %}
+  <section class="hx-builder-entry page-width">
+    <div>
+      <p class="hx-builder-entry__eyebrow">A jar shaped around you</p>
+      <h2>Make it your sea moss.</h2>
+      <p>Explore your goals, choose a flavor, and take a look at your custom blend.</p>
+      <a href="{{ routes.root_url }}?preview_theme_id={{ theme.id }}&amp;view=builder-review" data-builder-review-link>Find your blend <span aria-hidden="true">→</span></a>
+      <small>Explore the recorded quiz demo. Custom purchases are not available yet.</small>
+    </div>
+    <img src="{{ 'hx-builder-preparation-v1.png' | asset_url }}" alt="Sea moss gel and a spoon on a pale blue kitchen surface" width="1536" height="1024" loading="lazy">
+  </section>
+  <style>
+    .hx-builder-entry{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;padding-top:48px;padding-bottom:48px;color:#174b3c}
+    .hx-builder-entry__eyebrow{text-transform:uppercase;font-size:12px;letter-spacing:.12em}
+    .hx-builder-entry h2{font-family:Georgia,serif;font-size:clamp(30px,4vw,48px);font-weight:700;color:inherit;margin:12px 0}
+    .hx-builder-entry p{max-width:48ch}.hx-builder-entry a{display:inline-flex;gap:20px;background:#174b3c;color:#fff;border-radius:8px;padding:14px 24px;text-decoration:none;font-weight:600;margin:12px 0}
+    .hx-builder-entry a:focus-visible{outline:3px solid #174b3c;outline-offset:4px}.hx-builder-entry small{display:block}.hx-builder-entry img{display:block;width:100%;height:auto;border-radius:20px}
+    @media(max-width:749px){.hx-builder-entry{grid-template-columns:1fr;gap:24px;padding-top:32px;padding-bottom:32px}}
+  </style>
+{% endif %}
+{% schema %}
+{"name":"Find your blend entry","settings":[],"presets":[{"name":"Find your blend entry"}]}
+{% endschema %}

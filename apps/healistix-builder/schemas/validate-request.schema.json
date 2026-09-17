@@ -1,0 +1,291 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "goal_text": {
+      "type": "string",
+      "maxLength": 200
+    },
+    "use_chips": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "digestion",
+          "skin-hair-nails",
+          "energy",
+          "vitality-men",
+          "vitality-women",
+          "stress",
+          "sleep",
+          "focus",
+          "joints",
+          "greens",
+          "cleanse",
+          "respiratory",
+          "metabolism",
+          "womens-balance",
+          "recovery",
+          "mood"
+        ]
+      },
+      "minItems": 0,
+      "maxItems": 2,
+      "uniqueItems": true
+    },
+    "customer": {
+      "type": "object",
+      "properties": {
+        "adult": {
+          "type": "boolean"
+        },
+        "pregnant_nursing": {
+          "type": "boolean"
+        },
+        "seaweed_iodine_allergy": {
+          "type": "boolean"
+        },
+        "screening_complete": {
+          "type": "boolean"
+        },
+        "first_time": {
+          "type": "boolean"
+        },
+        "sex": {
+          "enum": [
+            null,
+            "men",
+            "women"
+          ]
+        },
+        "stim_sensitive": {
+          "type": "boolean"
+        },
+        "conditions": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "thyroid",
+              "blood_thinners",
+              "blood_pressure",
+              "diabetes_meds",
+              "sedatives",
+              "antidepressants",
+              "hormone_sensitive",
+              "kidney",
+              "autoimmune",
+              "seizures",
+              "reflux",
+              "ragweed",
+              "caffeine_sensitive"
+            ]
+          },
+          "minItems": 0,
+          "maxItems": 13,
+          "uniqueItems": true
+        },
+        "allergies": {
+          "type": "string",
+          "maxLength": 200
+        },
+        "country": {
+          "type": "string",
+          "pattern": "^[A-Z]{2}$"
+        }
+      },
+      "required": [
+        "adult",
+        "pregnant_nursing",
+        "seaweed_iodine_allergy",
+        "screening_complete",
+        "first_time",
+        "sex",
+        "stim_sensitive",
+        "conditions",
+        "allergies",
+        "country"
+      ],
+      "additionalProperties": false
+    },
+    "flavor_pref": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "enum": [
+            "none",
+            "banana",
+            "blueberry",
+            "dragonfruit",
+            "grape",
+            "honey",
+            "honeydew",
+            "lychee",
+            "mango",
+            "orange",
+            "passion fruit",
+            "peach",
+            "pineapple",
+            "pineapple mango",
+            "red guava",
+            "rose",
+            "strawberry",
+            "strawberry pineapple",
+            "watermelon"
+          ]
+        },
+        "family": {
+          "enum": [
+            "tropical",
+            "berry",
+            "citrus",
+            "floral",
+            "none"
+          ]
+        },
+        "level": {
+          "enum": [
+            "standard",
+            "extra"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "family",
+        "level"
+      ],
+      "additionalProperties": false
+    },
+    "strength_pref": {
+      "enum": [
+        "standard",
+        "strong"
+      ]
+    },
+    "clarification_attempted": {
+      "type": "boolean"
+    },
+    "recipe": {
+      "type": "object",
+      "properties": {
+        "uses": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "digestion",
+              "skin-hair-nails",
+              "energy",
+              "vitality-men",
+              "vitality-women",
+              "stress",
+              "sleep",
+              "focus",
+              "joints",
+              "greens",
+              "cleanse",
+              "respiratory",
+              "metabolism",
+              "womens-balance",
+              "recovery",
+              "mood"
+            ]
+          },
+          "minItems": 1,
+          "maxItems": 2,
+          "uniqueItems": true
+        },
+        "herbs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "enum": [
+                  "ashwagandha",
+                  "maca",
+                  "korean-red-ginseng",
+                  "tongkat-ali",
+                  "beet-root",
+                  "ginger",
+                  "turmeric",
+                  "reishi",
+                  "lions-mane",
+                  "cordyceps",
+                  "chaga",
+                  "spirulina",
+                  "chlorella",
+                  "moringa",
+                  "hibiscus",
+                  "cinnamon",
+                  "fenugreek",
+                  "slippery-elm",
+                  "marshmallow-root",
+                  "fennel",
+                  "peppermint",
+                  "chamomile",
+                  "lemon-balm",
+                  "passionflower",
+                  "holy-basil",
+                  "rhodiola",
+                  "shatavari",
+                  "damiana",
+                  "muira-puama",
+                  "horny-goat-weed",
+                  "sarsaparilla",
+                  "burdock-root",
+                  "dandelion-root",
+                  "nettle-leaf",
+                  "horsetail",
+                  "amla",
+                  "bladderwrack",
+                  "elderberry",
+                  "black-seed",
+                  "cacao",
+                  "matcha",
+                  "bacopa",
+                  "gotu-kola",
+                  "boswellia",
+                  "milk-thistle",
+                  "mullein",
+                  "red-raspberry-leaf",
+                  "shilajit",
+                  "ginkgo",
+                  "saffron",
+                  "licorice-root",
+                  "cayenne"
+                ]
+              },
+              "g": {
+                "type": "number",
+                "exclusiveMinimum": 0,
+                "maximum": 30
+              }
+            },
+            "required": [
+              "id",
+              "g"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1,
+          "maxItems": 4,
+          "uniqueItems": false
+        }
+      },
+      "required": [
+        "uses",
+        "herbs"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "goal_text",
+    "use_chips",
+    "customer",
+    "flavor_pref",
+    "strength_pref",
+    "clarification_attempted",
+    "recipe"
+  ],
+  "additionalProperties": false
+}

@@ -9,6 +9,7 @@ class CartDrawer extends HTMLElement {
 
   setHeaderCartIconAccessibility() {
     const cartLink = document.querySelector('#cart-icon-bubble');
+    if (!cartLink) return;
     cartLink.setAttribute('role', 'button');
     cartLink.setAttribute('aria-haspopup', 'dialog');
     cartLink.addEventListener('click', (event) => {
@@ -32,22 +33,21 @@ class CartDrawer extends HTMLElement {
       this.classList.add('animate', 'active');
     });
 
-    this.addEventListener(
-      'transitionend',
-      () => {
+    clearTimeout(this.focusTimer);
+    this.focusTimer = setTimeout(() => {
+        if (!this.classList.contains('active')) return;
         const containerToTrapFocusOn = this.classList.contains('is-empty')
           ? this.querySelector('.drawer__inner-empty')
           : document.getElementById('CartDrawer');
-        const focusElement = this.querySelector('.drawer__inner') || this.querySelector('.drawer__close');
+        const focusElement = containerToTrapFocusOn.querySelector('.drawer__close');
         trapFocus(containerToTrapFocusOn, focusElement);
-      },
-      { once: true }
-    );
+      }, window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 350);
 
     document.body.classList.add('overflow-hidden');
   }
 
   close() {
+    clearTimeout(this.focusTimer);
     this.classList.remove('active');
     removeTrapFocus(this.activeElement);
     document.body.classList.remove('overflow-hidden');
