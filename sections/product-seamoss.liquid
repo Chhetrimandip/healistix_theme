@@ -117,8 +117,8 @@
             {% if initial_variant.option1 == 'Blueberry' %}{% assign story_hero = 'hx-blueberry-studio-v3.png' %}{% endif %}
             <img src="{{ story_hero | asset_url }}" alt="Healistix {{ initial_variant.option1 | escape }} sea moss gel with fresh fruit" loading="eager" width="1254" height="1254" data-product-media-main>
           {%- elsif pilot_flavors contains initial_variant.option1 -%}
-            {%- assign pilot_hero = initial_variant.option1 | handleize | prepend: 'hx-pilot-' | append: '-front.webp' -%}
-            <img src="{{ pilot_hero | asset_url }}" alt="{{ initial_variant.option1 | escape }} sea moss gel — front" loading="eager" width="1354" height="1836" data-product-media-main>
+            {%- assign pilot_hero = initial_variant.option1 | handleize | prepend: 'hx-' | append: '-hero-v11.png' -%}
+            <img src="{{ pilot_hero | asset_url }}" alt="{{ initial_variant.option1 | escape }} sea moss gel — campaign jar photograph" loading="eager" width="1254" height="1254" data-product-media-main>
           {%- elsif gallery_media -%}
             {%- assign featured_image = gallery_media | image_url: width: 900 -%}
             <img

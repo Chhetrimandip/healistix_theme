@@ -1,0 +1,190 @@
+{
+  "tool": "image_gen.imagegen (built-in)",
+  "date": "2026-09-17",
+  "styleReference": "assets/hx-blueberry-studio-v3.png — composition/lighting only",
+  "sharedServing": {
+    "asset": "assets/hx-shared-serving-v11.png",
+    "prompt": "Use case: photorealistic-natural. Create one square food magazine serving-suggestion photograph for Healistix sea moss gel galleries across flavors. This is a SHARED preparation suggestion, no exact flavor identity implied. A cropped adult in cobalt blue cotton shirt on far right holding a simple clear glass of creamy smoothie in one natural hand; no face. Glass center-right, little ivory bowl of oats and folded coral linen lower right, warm golden tabletop and pale cream wall. Entire leftmost 45% clean cream reading space for live web heading. Rich confident color contrast, warm broad daylight from upper left, natural relaxed hand anatomy, real cotton weave and soft contact shadows. No product jars, no fruit, no spoons of gel, no labels, no words, no medical or athletic claims. Natural breakfast moment, not stock wellness cliché. Square photograph.",
+    "scope": "Shared serving suggestion, not flavor-specific; no product package shown"
+  },
+  "sealCorrectionPrompt": "Edit first image only: restore the American flag tamper seal ribbon from reference2 across the right edge of gold lid extending down the upper glass shoulder. Exact seal placement and proportions as actual package reference2. Keep every other pixel concept unchanged: jar, label text, fruit, background, shadows, colors, composition. No added scene text.",
+  "assets": [
+    {
+      "name": "Ashwagandha Mango",
+      "slug": "ashwagandha-mango",
+      "palette": "warm saffron surface and pale sage backdrop",
+      "props": "one fresh mango cheek; no loose medicinal roots",
+      "prompt": "Use case: ads-marketing. Create one square Healistix Ashwagandha Mango sea moss gel PDP hero photograph. Input image 1 is the EXACT package identity: preserve jar shape, lid color, every legible label word and flavor wording including its existing net weight. Input image 2 supplies only approved lighting, scale and composition. Do NOT copy blueberry fruit, colors or any scene text. Make a large upright Ashwagandha Mango reference jar on right half, grounded on a simple cream tabletop; jar extends from y=15% to y=88%. warm saffron surface and pale sage backdrop. Lower-left props: one fresh mango cheek; no loose medicinal roots. Leave entire upper-left 45% of frame clean and empty for live web typography. Only photographic objects, no headlines/taglines/watermarks added anywhere. Broad upper-left window light, rich tactile food, real glass/metal reflections and contact shadows, confident editorial food photography. Gel color and package strictly from first reference. Never replace black lid with gold or add a flag where reference lacks one. Preserve exact package design, do not invent badges. This is a flavor campaign photograph, not a health-claim graphic.",
+      "reference": "assets/hx-pilot-ashwagandha-mango-front.webp",
+      "asset": "assets/hx-ashwagandha-mango-hero-v11.png",
+      "sealCorrected": false,
+      "generatedSource": "C:\\Users\\chhet\\.codex\\generated_images\\01a0af14-332c-7080-b9b8-34e6acdccf31\\exec-c150764a-16c2-4602-8d16-421fc9b82bd4.png"
+    },
+    {
+      "name": "Beet Root",
+      "slug": "beet-root",
+      "palette": "muted rose surface and pale mint backdrop",
+      "props": "one freshly cut beet root wedge",
+      "prompt": "Use case: ads-marketing. Create one square Healistix Beet Root sea moss gel PDP hero photograph. Input image 1 is the EXACT package identity: preserve jar shape, lid color, every legible label word and flavor wording including its existing net weight. Input image 2 supplies only approved lighting, scale and composition. Do NOT copy blueberry fruit, colors or any scene text. Make a large upright Beet Root reference jar on right half, grounded on a simple cream tabletop; jar extends from y=15% to y=88%. muted rose surface and pale mint backdrop. Lower-left props: one freshly cut beet root wedge. Leave entire upper-left 45% of frame clean and empty for live web typography. Only photographic objects, no headlines/taglines/watermarks added anywhere. Broad upper-left window light, rich tactile food, real glass/metal reflections and contact shadows, confident editorial food photography. Gel color and package strictly from first reference. Never replace black lid with gold or add a flag where reference lacks one. Preserve exact package design, do not invent badges. This is a flavor campaign photograph, not a health-claim graphic.",
+      "reference": "assets/hx-pilot-beet-root-front.webp",
+      "asset": "assets/hx-beet-root-hero-v11.png",
+      "sealCorrected": false,
+      "generatedSource": "C:\\Users\\chhet\\.codex\\generated_images\\01a0af14-332c-7080-b9b8-34e6acdccf31\\exec-f67b6ce5-5361-4c58-be48-90d6e9a46d44.png"
+    },
+    {
+      "name": "Dragonfruit",
+      "slug": "dragonfruit",
+      "palette": "hot pink lower surface and light pistachio backdrop",
+      "props": "one red-fleshed dragonfruit half",
+      "prompt": "Use case: ads-marketing. Create one square Healistix Dragonfruit sea moss gel PDP hero photograph. Input image 1 is the EXACT package identity: preserve jar shape, lid color, every legible label word and flavor wording including its existing net weight. Input image 2 supplies only approved lighting, scale and composition. Do NOT copy blueberry fruit, colors or any scene text. Make a large upright Dragonfruit reference jar on right half, grounded on a simple cream tabletop; jar extends from y=15% to y=88%. hot pink lower surface and light pistachio backdrop. Lower-left props: one red-fleshed dragonfruit half. Leave entire upper-left 45% of frame clean and empty for live web typography. Only photographic objects, no headlines/taglines/watermarks added anywhere. Broad upper-left window light, rich tactile food, real glass/metal reflections and contact shadows, confident editorial food photography. Gel color and package strictly from first reference. Never replace black lid with gold or add a flag where reference lacks one. Preserve exact package design, do not invent badges. This is a flavor campaign photograph, not a health-claim graphic.",
+      "reference": "assets/hx-pilot-dragonfruit-front.webp",
+      "asset": "assets/hx-dragonfruit-hero-v11.png",
+      "sealCorrected": true,
+      "generatedSource": "C:\\Users\\chhet\\.codex\\generated_images\\01a0af14-332c-7080-b9b8-34e6acdccf31\\exec-26882672-afc6-490f-ac54-13441bcd21eb.png"
+    },
+    {
+      "name": "Elderberry Ginger",
+      "slug": "elderberry-ginger",
+      "palette": "dusty plum surface and pale buttercream backdrop",
+      "props": "a small ginger root piece; no raw elderberry serving",
+      "prompt": "Use case: ads-marketing. Create one square Healistix Elderberry Ginger sea moss gel PDP hero photograph. Input image 1 is the EXACT package identity: preserve jar shape, lid color, every legible label word and flavor wording including its existing net weight. Input image 2 supplies only approved lighting, scale and composition. Do NOT copy blueberry fruit, colors or any scene text. Make a large upright Elderberry Ginger reference jar on right half, grounded on a simple cream tabletop; jar extends from y=15% to y=88%. dusty plum surface and pale buttercream backdrop. Lower-left props: a small ginger root piece; no raw elderberry serving. Leave entire upper-left 45% of frame clean and empty for live web typography. Only photographic objects, no headlines/taglines/watermarks added anywhere. Broad upper-left window light, rich tactile food, real glass/metal reflections and contact shadows, confident editorial food photography. Gel color and package strictly from first reference. Never replace black lid with gold or add a flag where reference lacks one. Preserve exact package design, do not invent badges. This is a flavor campaign photograph, not a health-claim graphic.",
+      "reference": "assets/hx-pilot-elderberry-ginger-front.webp",
+      "asset": "assets/hx-elderberry-ginger-hero-v11.png",
+      "sealCorrected": false,
+      "generatedSource": "C:\\Users\\chhet\\.codex\\generated_images\\01a0af14-332c-7080-b9b8-34e6acdccf31\\exec-a038d9eb-2d2b-426d-91d3-03bf7fc9ac04.png"
+    },
+    {
+      "name": "Grape",
+      "slug": "grape",
+      "palette": "muted grape purple surface and pale sky blue backdrop",
+      "props": "a small bunch of real dark grapes",
+      "prompt": "Use case: ads-marketing. Create one square Healistix Grape sea moss gel PDP hero photograph. Input image 1 is the EXACT package identity: preserve jar shape, lid color, every legible label word and flavor wording including its existing net weight. Input image 2 supplies only approved lighting, scale and composition. Do NOT copy blueberry fruit, colors or any scene text. Make a large upright Grape reference jar on right half, grounded on a simple cream tabletop; jar extends from y=15% to y=88%. muted grape purple surface and pale sky blue backdrop. Lower-left props: a small bunch of real dark grapes. Leave entire upper-left 45% of frame clean and empty for live web typography. Only photographic objects, no headlines/taglines/watermarks added anywhere. Broad upper-left window light, rich tactile food, real glass/metal reflections and contact shadows, confident editorial food photography. Gel color and package strictly from first reference. Never replace black lid with gold or add a flag where reference lacks one. Preserve exact package design, do not invent badges. This is a flavor campaign photograph, not a health-claim graphic.",
+      "reference": "assets/hx-pilot-grape-front.webp",
+      "asset": "assets/hx-grape-hero-v11.png",
+      "sealCorrected": true,
+      "generatedSource": "C:\\Users\\chhet\\.codex\\generated_images\\01a0af14-332c-7080-b9b8-34e6acdccf31\\exec-597c2ba9-90fb-46e3-8ac6-93c605c57542.png"
+    },
+    {
+      "name": "Guava Lemon",
+      "slug": "guava-lemon",
+      "palette": "coral surface and pale lemon cream backdrop",
+      "props": "half pink guava and a lemon wedge",
+      "prompt": "Use case: ads-marketing. Create one square Healistix Guava Lemon sea moss gel PDP hero photograph. Input image 1 is the EXACT package identity: preserve jar shape, lid color, every legible label word and flavor wording including its existing net weight. Input image 2 supplies only approved lighting, scale and composition. Do NOT copy blueberry fruit, colors or any scene text. Make a large upright Guava Lemon reference jar on right half, grounded on a simple cream tabletop; jar extends from y=15% to y=88%. coral surface and pale lemon cream backdrop. Lower-left props: half pink guava and a lemon wedge. Leave entire upper-left 45% of frame clean and empty for live web typography. Only photographic objects, no headlines/taglines/watermarks added anywhere. Broad upper-left window light, rich tactile food, real glass/metal reflections and contact shadows, confident editorial food photography. Gel color and package strictly from first reference. Never replace black lid with gold or add a flag where reference lacks one. Preserve exact package design, do not invent badges. This is a flavor campaign photograph, not a health-claim graphic.",
+      "reference": "assets/hx-pilot-guava-lemon-front.webp",
+      "asset": "assets/hx-guava-lemon-hero-v11.png",
+      "sealCorrected": true,
+      "generatedSource": "C:\\Users\\chhet\\.codex\\generated_images\\01a0af14-332c-7080-b9b8-34e6acdccf31\\exec-34dd96e8-c6fc-41d6-bfd2-4f376fac2f64.png"
+    },
+    {
+      "name": "Honey",
+      "slug": "honey",
+      "palette": "honey ochre surface and pale sky blue backdrop",
+      "props": "small ivory dish of honey with a resting wooden dipper",
+      "prompt": "Use case: ads-marketing. Create one square Healistix Honey sea moss gel PDP hero photograph. Input image 1 is the EXACT package identity: preserve jar shape, lid color, every legible label word and flavor wording including its existing net weight. Input image 2 supplies only approved lighting, scale and composition. Do NOT copy blueberry fruit, colors or any scene text. Make a large upright Honey reference jar on right half, grounded on a simple cream tabletop; jar extends from y=15% to y=88%. honey ochre surface and pale sky blue backdrop. Lower-left props: small ivory dish of honey with a resting wooden dipper. Leave entire upper-left 45% of frame clean and empty for live web typography. Only photographic objects, no headlines/taglines/watermarks added anywhere. Broad upper-left window light, rich tactile food, real glass/metal reflections and contact shadows, confident editorial food photography. Gel color and package strictly from first reference. Never replace black lid with gold or add a flag where reference lacks one. Preserve exact package design, do not invent badges. This is a flavor campaign photograph, not a health-claim graphic.",
+      "reference": "assets/hx-pilot-honey-front.webp",
+      "asset": "assets/hx-honey-hero-v11.png",
+      "sealCorrected": false,
+      "generatedSource": "C:\\Users\\chhet\\.codex\\generated_images\\01a0af14-332c-7080-b9b8-34e6acdccf31\\exec-e80841dc-e7c9-4b41-80fa-c26ab125405f.png"
+    },
+    {
+      "name": "Lychee",
+      "slug": "lychee",
+      "palette": "blush pink surface and pale jade backdrop",
+      "props": "three natural lychees, one peeled",
+      "prompt": "Use case: ads-marketing. Create one square Healistix Lychee sea moss gel PDP hero photograph. Input image 1 is the EXACT package identity: preserve jar shape, lid color, every legible label word and flavor wording including its existing net weight. Input image 2 supplies only approved lighting, scale and composition. Do NOT copy blueberry fruit, colors or any scene text. Make a large upright Lychee reference jar on right half, grounded on a simple cream tabletop; jar extends from y=15% to y=88%. blush pink surface and pale jade backdrop. Lower-left props: three natural lychees, one peeled. Leave entire upper-left 45% of frame clean and empty for live web typography. Only photographic objects, no headlines/taglines/watermarks added anywhere. Broad upper-left window light, rich tactile food, real glass/metal reflections and contact shadows, confident editorial food photography. Gel color and package strictly from first reference. Never replace black lid with gold or add a flag where reference lacks one. Preserve exact package design, do not invent badges. This is a flavor campaign photograph, not a health-claim graphic.",
+      "reference": "assets/hx-pilot-lychee-front.webp",
+      "asset": "assets/hx-lychee-hero-v11.png",
+      "sealCorrected": true,
+      "generatedSource": "C:\\Users\\chhet\\.codex\\generated_images\\01a0af14-332c-7080-b9b8-34e6acdccf31\\exec-338a64d1-c512-4344-97bf-d6fec6d0b10d.png"
+    },
+    {
+      "name": "Maca Ashwagandha",
+      "slug": "maca-ashwagandha",
+      "palette": "warm sand surface and pale eucalyptus backdrop",
+      "props": "folded linen and a silver spoon only; no invented botanical ingredients",
+      "prompt": "Use case: ads-marketing. Create one square Healistix Maca Ashwagandha sea moss gel PDP hero photograph. Input image 1 is the EXACT package identity: preserve jar shape, lid color, every legible label word and flavor wording including its existing net weight. Input image 2 supplies only approved lighting, scale and composition. Do NOT copy blueberry fruit, colors or any scene text. Make a large upright Maca Ashwagandha reference jar on right half, grounded on a simple cream tabletop; jar extends from y=15% to y=88%. warm sand surface and pale eucalyptus backdrop. Lower-left props: folded linen and a silver spoon only; no invented botanical ingredients. Leave entire upper-left 45% of frame clean and empty for live web typography. Only photographic objects, no headlines/taglines/watermarks added anywhere. Broad upper-left window light, rich tactile food, real glass/metal reflections and contact shadows, confident editorial food photography. Gel color and package strictly from first reference. Never replace black lid with gold or add a flag where reference lacks one. Preserve exact package design, do not invent badges. This is a flavor campaign photograph, not a health-claim graphic.",
+      "reference": "assets/hx-pilot-maca-ashwagandha-front.webp",
+      "asset": "assets/hx-maca-ashwagandha-hero-v11.png",
+      "sealCorrected": false,
+      "generatedSource": "C:\\Users\\chhet\\.codex\\generated_images\\01a0af14-332c-7080-b9b8-34e6acdccf31\\exec-b931df7c-25a8-4b22-b338-f72f38df1389.png"
+    },
+    {
+      "name": "Passion Fruit",
+      "slug": "passion-fruit",
+      "palette": "sunny gold surface and pale lilac backdrop",
+      "props": "one halved passion fruit",
+      "prompt": "Use case: ads-marketing. Create one square Healistix Passion Fruit sea moss gel PDP hero photograph. Input image 1 is the EXACT package identity: preserve jar shape, lid color, every legible label word and flavor wording including its existing net weight. Input image 2 supplies only approved lighting, scale and composition. Do NOT copy blueberry fruit, colors or any scene text. Make a large upright Passion Fruit reference jar on right half, grounded on a simple cream tabletop; jar extends from y=15% to y=88%. sunny gold surface and pale lilac backdrop. Lower-left props: one halved passion fruit. Leave entire upper-left 45% of frame clean and empty for live web typography. Only photographic objects, no headlines/taglines/watermarks added anywhere. Broad upper-left window light, rich tactile food, real glass/metal reflections and contact shadows, confident editorial food photography. Gel color and package strictly from first reference. Never replace black lid with gold or add a flag where reference lacks one. Preserve exact package design, do not invent badges. This is a flavor campaign photograph, not a health-claim graphic.",
+      "reference": "assets/hx-pilot-passion-fruit-front.webp",
+      "asset": "assets/hx-passion-fruit-hero-v11.png",
+      "sealCorrected": true,
+      "generatedSource": "C:\\Users\\chhet\\.codex\\generated_images\\01a0af14-332c-7080-b9b8-34e6acdccf31\\exec-f900d87e-f929-48b0-b56b-f3ab8fe683c8.png"
+    },
+    {
+      "name": "Peach",
+      "slug": "peach",
+      "palette": "peach coral surface and pale powder blue backdrop",
+      "props": "one juicy peach half",
+      "prompt": "Use case: ads-marketing. Create one square Healistix Peach sea moss gel PDP hero photograph. Input image 1 is the EXACT package identity: preserve jar shape, lid color, every legible label word and flavor wording including its existing net weight. Input image 2 supplies only approved lighting, scale and composition. Do NOT copy blueberry fruit, colors or any scene text. Make a large upright Peach reference jar on right half, grounded on a simple cream tabletop; jar extends from y=15% to y=88%. peach coral surface and pale powder blue backdrop. Lower-left props: one juicy peach half. Leave entire upper-left 45% of frame clean and empty for live web typography. Only photographic objects, no headlines/taglines/watermarks added anywhere. Broad upper-left window light, rich tactile food, real glass/metal reflections and contact shadows, confident editorial food photography. Gel color and package strictly from first reference. Never replace black lid with gold or add a flag where reference lacks one. Preserve exact package design, do not invent badges. This is a flavor campaign photograph, not a health-claim graphic.",
+      "reference": "assets/hx-pilot-peach-front.webp",
+      "asset": "assets/hx-peach-hero-v11.png",
+      "sealCorrected": true,
+      "generatedSource": "C:\\Users\\chhet\\.codex\\generated_images\\01a0af14-332c-7080-b9b8-34e6acdccf31\\exec-c7483f82-c352-4717-94a7-4acdc7672ce3.png"
+    },
+    {
+      "name": "Pineapple Mango",
+      "slug": "pineapple-mango",
+      "palette": "tropical golden surface and pale turquoise backdrop",
+      "props": "one pineapple wedge and one mango cheek",
+      "prompt": "Use case: ads-marketing. Create one square Healistix Pineapple Mango sea moss gel PDP hero photograph. Input image 1 is the EXACT package identity: preserve jar shape, lid color, every legible label word and flavor wording including its existing net weight. Input image 2 supplies only approved lighting, scale and composition. Do NOT copy blueberry fruit, colors or any scene text. Make a large upright Pineapple Mango reference jar on right half, grounded on a simple cream tabletop; jar extends from y=15% to y=88%. tropical golden surface and pale turquoise backdrop. Lower-left props: one pineapple wedge and one mango cheek. Leave entire upper-left 45% of frame clean and empty for live web typography. Only photographic objects, no headlines/taglines/watermarks added anywhere. Broad upper-left window light, rich tactile food, real glass/metal reflections and contact shadows, confident editorial food photography. Gel color and package strictly from first reference. Never replace black lid with gold or add a flag where reference lacks one. Preserve exact package design, do not invent badges. This is a flavor campaign photograph, not a health-claim graphic.",
+      "reference": "assets/hx-pilot-pineapple-mango-front.webp",
+      "asset": "assets/hx-pineapple-mango-hero-v11.png",
+      "sealCorrected": true,
+      "generatedSource": "C:\\Users\\chhet\\.codex\\generated_images\\01a0af14-332c-7080-b9b8-34e6acdccf31\\exec-558c8eda-4b2e-4030-be51-9ad73fb56432.png"
+    },
+    {
+      "name": "Red Guava",
+      "slug": "red-guava",
+      "palette": "guava pink surface and pale pistachio backdrop",
+      "props": "one red guava half",
+      "prompt": "Use case: ads-marketing. Create one square Healistix Red Guava sea moss gel PDP hero photograph. Input image 1 is the EXACT package identity: preserve jar shape, lid color, every legible label word and flavor wording including its existing net weight. Input image 2 supplies only approved lighting, scale and composition. Do NOT copy blueberry fruit, colors or any scene text. Make a large upright Red Guava reference jar on right half, grounded on a simple cream tabletop; jar extends from y=15% to y=88%. guava pink surface and pale pistachio backdrop. Lower-left props: one red guava half. Leave entire upper-left 45% of frame clean and empty for live web typography. Only photographic objects, no headlines/taglines/watermarks added anywhere. Broad upper-left window light, rich tactile food, real glass/metal reflections and contact shadows, confident editorial food photography. Gel color and package strictly from first reference. Never replace black lid with gold or add a flag where reference lacks one. Preserve exact package design, do not invent badges. This is a flavor campaign photograph, not a health-claim graphic.",
+      "reference": "assets/hx-pilot-red-guava-front.webp",
+      "asset": "assets/hx-red-guava-hero-v11.png",
+      "sealCorrected": false,
+      "generatedSource": "C:\\Users\\chhet\\.codex\\generated_images\\01a0af14-332c-7080-b9b8-34e6acdccf31\\exec-ddc1cbca-6707-4629-ab41-4c102b6b859c.png"
+    },
+    {
+      "name": "Strawberry",
+      "slug": "strawberry",
+      "palette": "strawberry coral surface and pale cream backdrop",
+      "props": "three fresh strawberries",
+      "prompt": "Use case: ads-marketing. Create one square Healistix Strawberry sea moss gel PDP hero photograph. Input image 1 is the EXACT package identity: preserve jar shape, lid color, every legible label word and flavor wording including its existing net weight. Input image 2 supplies only approved lighting, scale and composition. Do NOT copy blueberry fruit, colors or any scene text. Make a large upright Strawberry reference jar on right half, grounded on a simple cream tabletop; jar extends from y=15% to y=88%. strawberry coral surface and pale cream backdrop. Lower-left props: three fresh strawberries. Leave entire upper-left 45% of frame clean and empty for live web typography. Only photographic objects, no headlines/taglines/watermarks added anywhere. Broad upper-left window light, rich tactile food, real glass/metal reflections and contact shadows, confident editorial food photography. Gel color and package strictly from first reference. Never replace black lid with gold or add a flag where reference lacks one. Preserve exact package design, do not invent badges. This is a flavor campaign photograph, not a health-claim graphic.",
+      "reference": "assets/hx-pilot-strawberry-front.webp",
+      "asset": "assets/hx-strawberry-hero-v11.png",
+      "sealCorrected": false,
+      "generatedSource": "C:\\Users\\chhet\\.codex\\generated_images\\01a0af14-332c-7080-b9b8-34e6acdccf31\\exec-1975a578-c300-4e17-9705-5e8e7f91b891.png"
+    },
+    {
+      "name": "Strawberry Pineapple",
+      "slug": "strawberry-pineapple",
+      "palette": "pale yellow surface and pale rose backdrop",
+      "props": "two strawberries and a pineapple wedge",
+      "prompt": "Use case: ads-marketing. Create one square Healistix Strawberry Pineapple sea moss gel PDP hero photograph. Input image 1 is the EXACT package identity: preserve jar shape, lid color, every legible label word and flavor wording including its existing net weight. Input image 2 supplies only approved lighting, scale and composition. Do NOT copy blueberry fruit, colors or any scene text. Make a large upright Strawberry Pineapple reference jar on right half, grounded on a simple cream tabletop; jar extends from y=15% to y=88%. pale yellow surface and pale rose backdrop. Lower-left props: two strawberries and a pineapple wedge. Leave entire upper-left 45% of frame clean and empty for live web typography. Only photographic objects, no headlines/taglines/watermarks added anywhere. Broad upper-left window light, rich tactile food, real glass/metal reflections and contact shadows, confident editorial food photography. Gel color and package strictly from first reference. Never replace black lid with gold or add a flag where reference lacks one. Preserve exact package design, do not invent badges. This is a flavor campaign photograph, not a health-claim graphic.",
+      "reference": "assets/hx-pilot-strawberry-pineapple-front.webp",
+      "asset": "assets/hx-strawberry-pineapple-hero-v11.png",
+      "sealCorrected": false,
+      "generatedSource": "C:\\Users\\chhet\\.codex\\generated_images\\01a0af14-332c-7080-b9b8-34e6acdccf31\\exec-71a32917-93f0-4b1e-aa13-5f6a2950d523.png"
+    },
+    {
+      "name": "Unflavored",
+      "slug": "unflavored",
+      "palette": "sand cream surface and coastal pale blue backdrop",
+      "props": "small natural ivory sea moss sprig and silver spoon only; no fruit",
+      "prompt": "Use case: ads-marketing. Create one square Healistix Unflavored sea moss gel PDP hero photograph. Input image 1 is the EXACT package identity: preserve jar shape, lid color, every legible label word and flavor wording including its existing net weight. Input image 2 supplies only approved lighting, scale and composition. Do NOT copy blueberry fruit, colors or any scene text. Make a large upright Unflavored reference jar on right half, grounded on a simple cream tabletop; jar extends from y=15% to y=88%. sand cream surface and coastal pale blue backdrop. Lower-left props: small natural ivory sea moss sprig and silver spoon only; no fruit. Leave entire upper-left 45% of frame clean and empty for live web typography. Only photographic objects, no headlines/taglines/watermarks added anywhere. Broad upper-left window light, rich tactile food, real glass/metal reflections and contact shadows, confident editorial food photography. Gel color and package strictly from first reference. Never replace black lid with gold or add a flag where reference lacks one. Preserve exact package design, do not invent badges. This is a flavor campaign photograph, not a health-claim graphic.",
+      "reference": "assets/hx-pilot-unflavored-front.webp",
+      "asset": "assets/hx-unflavored-hero-v11.png",
+      "sealCorrected": false,
+      "generatedSource": "C:\\Users\\chhet\\.codex\\generated_images\\01a0af14-332c-7080-b9b8-34e6acdccf31\\exec-d6160186-9021-420d-9eea-3afd66a8d216.png"
+    }
+  ],
+  "verification": "All 16 package references and generated heroes visually inspected; seven gold-lid flag seals corrected and re-inspected. Actual variant names verified from local product JSON. Browser integration verification performed separately by root."
+}

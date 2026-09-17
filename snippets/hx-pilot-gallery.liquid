@@ -13,7 +13,7 @@
   {%- if flavor_exists -%}
     {%- assign pilot_views = 'front.webp' | split: ',' -%}
     {%- if jar_flavors contains flavor -%}{%- assign pilot_views = 'front.webp,left.webp,right.webp' | split: ',' -%}{%- endif -%}
-    {%- assign campaign_flavors = 'Banana,Blueberry,Mango,Pineapple,Watermelon' | split: ',' -%}
+    {%- assign campaign_flavors = pilot_flavors -%}
     {%- if campaign_flavors contains flavor -%}
       {%- assign pilot_views = '' | split: ',' -%}
       {%- render 'hx-flavor-campaign-gallery', flavor: flavor, initial_variant: initial_variant -%}

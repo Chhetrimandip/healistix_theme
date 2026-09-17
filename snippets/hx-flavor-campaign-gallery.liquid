@@ -1,3 +1,5 @@
+{%- assign established_campaigns = 'Banana,Blueberry,Mango,Pineapple,Watermelon' | split: ',' -%}
+{%- if established_campaigns contains flavor -%}
 {%- assign campaign_tiles = 'hero,lifestyle,texture,ingredients,facts' | split: ',' -%}
 {%- assign flavor_slug = flavor | handleize -%}
 {%- for tile in campaign_tiles -%}
@@ -15,3 +17,34 @@
     {%- if tile == 'texture' -%}<span class="hx-art-copy hx-art-copy--texture"><small>GET TO KNOW YOUR GEL</small><strong>Meet your<br>next spoonful.</strong><span>Spoon it.<br>Blend it.<br>Make it yours.</span></span>{%- endif -%}
   </button>
 {%- endfor -%}
+{%- else -%}
+  {%- comment -%}v11 campaigns retain source artwork for label details; serving photo is deliberately shared.{%- endcomment -%}
+  {%- assign flavor_slug = flavor | handleize -%}
+  {%- assign fronts_only = 'Guava Lemon,Lychee,Red Guava' | split: ',' -%}
+  {%- assign campaign_tiles = 'hero,lifestyle,left,right' | split: ',' -%}
+  {%- if fronts_only contains flavor -%}{%- assign campaign_tiles = 'hero,lifestyle,front' | split: ',' -%}{%- endif -%}
+  {%- for tile in campaign_tiles -%}
+    {%- assign tile_kind = tile -%}
+    {%- assign tile_width = 1254 -%}
+    {%- assign tile_height = 1254 -%}
+    {%- case tile -%}
+      {%- when 'hero' -%}
+        {%- assign tile_file = flavor_slug | prepend: 'hx-' | append: '-hero-v11.png' -%}
+        {%- capture tile_label -%}{{ flavor }} sea moss gel — campaign jar photograph{%- endcapture -%}
+      {%- when 'lifestyle' -%}
+        {%- assign tile_file = 'hx-shared-serving-v11.png' -%}
+        {%- assign tile_label = 'Breakfast smoothie — shared serving suggestion, not a flavor-specific recipe' -%}
+      {%- else -%}
+        {%- assign tile_kind = 'label' -%}
+        {%- assign tile_file = flavor_slug | prepend: 'hx-pilot-' | append: '-' | append: tile | append: '.webp' -%}
+        {%- assign tile_width = 1354 -%}
+        {%- assign tile_height = 1836 -%}
+        {%- capture tile_label -%}{{ flavor }} sea moss gel — original {{ tile }} package artwork; enlarge to read{%- endcapture -%}
+    {%- endcase -%}
+    <button type="button" class="product-seamoss__media-thumb" data-product-thumb data-pilot-cutout data-gallery-story data-campaign-tile="{{ tile_kind }}" {% if forloop.first %}data-gallery-cover{% endif %} data-image="{{ tile_file | asset_url }}" data-flavors="{{ flavor }}|" aria-label="{{ tile_label | escape }}"{% unless initial_variant.option1 == flavor %} hidden{% endunless %}>
+      <img src="{{ tile_file | asset_url }}" alt="{{ tile_label | escape }}" width="{{ tile_width }}" height="{{ tile_height }}" loading="lazy">
+      {%- if tile == 'hero' -%}<span class="hx-art-copy hx-art-copy--hero{% if flavor.size > 12 %} hx-art-copy--hero--long{% endif %}"><small>HEALISTIX</small><strong>Sea moss.<br>{% if flavor == 'Unflavored' %}Simply original.{% else %}Meet {{ flavor | downcase }}.{% endif %}</strong></span>{%- endif -%}
+      {%- if tile == 'lifestyle' -%}<span class="hx-art-copy hx-art-copy--lifestyle"><small>SERVING SUGGESTION</small><strong>Make room<br>for your ritual.</strong></span>{%- endif -%}
+    </button>
+  {%- endfor -%}
+{%- endif -%}

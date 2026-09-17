@@ -163,7 +163,23 @@
     const dots = document.createElement('div'); dots.className = 'hx-gallery-dots'; dots.setAttribute('aria-label','Product photos');
     const main = media.querySelector('.product-seamoss__media-main');
     const mainImage = main.querySelector('[data-product-media-main]');
+    const photoStatus = document.createElement('span');
+    photoStatus.className = 'hx-photo-status';
+    photoStatus.setAttribute('role', 'status');
+    photoStatus.hidden = true;
+    main.append(photoStatus);
+    function syncPhotoLoading(failed = false) {
+      // Browsers can retain the previous decoded image while a new src loads.
+      const pending = !failed && !mainImage.hidden && (!mainImage.complete || mainImage.currentSrc !== mainImage.src);
+      main.dataset.photoPending = String(pending || failed);
+      main.setAttribute('aria-busy', String(pending));
+      photoStatus.hidden = !pending && !failed;
+      photoStatus.textContent = failed ? 'Photo unavailable. Try another image.' : 'Loading photo…';
+    }
+    mainImage.addEventListener('load', () => syncPhotoLoading());
+    mainImage.addEventListener('error', () => syncPhotoLoading(true));
     function syncArtCopy() {
+      syncPhotoLoading();
       main.querySelector('.hx-art-copy')?.remove();
       const tile = [...media.querySelectorAll('[data-product-thumb]')].find(t => !t.hidden && t.dataset.image === mainImage.getAttribute('src'));
       const copy = tile?.querySelector('.hx-art-copy');
